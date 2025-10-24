@@ -1,0 +1,58 @@
+# Папка cloud и связанные файлы
+cloud/
+cloud.md
+
+# macOS системные файлы
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+Thumbs.db
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Build outputs
+dist/
+build/
+out/
+*.min.js
+*.min.css
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.cache
+
+# OS generated files
+Icon?
+ehthumbs.db
+Desktop.ini
