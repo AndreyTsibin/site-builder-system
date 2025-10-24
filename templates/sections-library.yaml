@@ -1,33 +1,203 @@
 # Site Builder — Sections Library
 #
-# This YAML file describes all available landing page sections.
-# It will be populated in Sprint 1 when sections are created.
+# Описание всех доступных секций для лендингов.
+# Используется Claude Code для предложения релевантных секций.
 #
-# Structure (for future reference):
-# sections:
-#   - id: "section-id"
-#     name: "Название секции (русский)"
-#     category: "header|hero|features|cta|footer|..."
-#     description: "Описание секции (русский)"
-#     best_for: "Для каких типов бизнеса подходит"
-#     features: ["Особенность 1", "Особенность 2"]
-#     placeholders:
-#       - "{{section.variable1}}"
-#       - "{{section.variable2}}"
+# Format: YAML (human-readable, easy to parse)
 
 sections:
-  # Sections will be added in Sprint 1
-  # Examples:
-  # - header-1 (sticky header with burger menu)
-  # - hero-1 (centered hero with form)
-  # - hero-2 (two-column hero with image)
-  # - features-2col (2-column features grid)
-  # - features-3col (3-column features grid)
-  # - cta-simple (simple call-to-action)
-  # - footer-1 (4-column footer)
+  # ========================================
+  # P0 SECTIONS (Обязательные, Sprint 1)
+  # ========================================
+
+  - id: "header-1"
+    name: "Header — Логотип + Меню + Телефон + Кнопка"
+    category: "header"
+    description: "Классический header с sticky, бургер-меню для mobile, кнопка CTA"
+    best_for:
+      - "Услуги B2C (телефонные обращения)"
+      - "E-commerce (корзина, поиск)"
+      - "Лендинги с несколькими секциями"
+    features:
+      - "Sticky header (фиксированный при прокрутке)"
+      - "Responsive бургер-меню (mobile)"
+      - "Кнопка CTA справа"
+      - "Телефон кликабельный (tel:)"
+      - "ARIA accessibility"
+    placeholders:
+      - "{{logo.text}}"
+      - "{{nav.item1}}, {{nav.item2}}, {{nav.item3}}"
+      - "{{contacts.phone}}"
+      - "{{header.cta_text}}"
+
+  - id: "hero-1"
+    name: "Hero — Центрированный с формой"
+    category: "hero"
+    description: "H1, подзаголовок, форма захвата email (лид-магнит)"
+    best_for:
+      - "Лид-магниты (скачать гайд, получить консультацию)"
+      - "Подписка на рассылку"
+      - "SaaS (регистрация)"
+    features:
+      - "Центрированный текст"
+      - "Форма email + CTA"
+      - "Фон можно заменить на изображение/градиент"
+      - "Валидация HTML5"
+    placeholders:
+      - "{{hero.title}}"
+      - "{{hero.subtitle}}"
+      - "{{hero.cta_text}}"
+
+  - id: "hero-2"
+    name: "Hero — Текст слева + Изображение справа"
+    category: "hero"
+    description: "H1, подзаголовок, 2 CTA-кнопки, изображение справа"
+    best_for:
+      - "Услуги B2C/B2B"
+      - "Товары (показать фото продукта)"
+      - "Агентства (показать портфолио)"
+    features:
+      - "Двухколоночный layout (50/50)"
+      - "2 CTA-кнопки (primary + secondary)"
+      - "Адаптивный (стакается на mobile)"
+      - "Изображение справа (можно заменить)"
+    placeholders:
+      - "{{hero.title}}"
+      - "{{hero.subtitle}}"
+      - "{{hero.cta_text}}"
+      - "{{hero.secondary_cta}}"
+      - "{{hero.image_url}}"
+
+  - id: "features-2col"
+    name: "Features — 2 колонки с иконками"
+    category: "features"
+    description: "Преимущества/услуги в 2 колонки (4 пункта)"
+    best_for:
+      - "Небольшое количество услуг (4-6)"
+      - "УТП (уникальные торговые предложения)"
+      - "Портфолио (категории работ)"
+    features:
+      - "Remix Icon для иконок"
+      - "Заголовок + описание"
+      - "Адаптивный (стакается на mobile)"
+      - "Hover-эффекты на карточках"
+    placeholders:
+      - "{{features.section_title}}"
+      - "{{features.item1.icon}}"
+      - "{{features.item1.title}}"
+      - "{{features.item1.text}}"
+      - "{{features.item2.icon}}"
+      - "{{features.item2.title}}"
+      - "{{features.item2.text}}"
+      - "{{features.item3.icon}}"
+      - "{{features.item3.title}}"
+      - "{{features.item3.text}}"
+      - "{{features.item4.icon}}"
+      - "{{features.item4.title}}"
+      - "{{features.item4.text}}"
+
+  - id: "features-3col"
+    name: "Features — 3 колонки с иконками"
+    category: "features"
+    description: "Преимущества/услуги в 3 колонки (6 пунктов)"
+    best_for:
+      - "Много услуг (6-9)"
+      - "Процесс работы (шаги)"
+      - "Характеристики продукта"
+    features:
+      - "Remix Icon для иконок"
+      - "Числовые бейджи (01, 02, 03...)"
+      - "Адаптивный (3 col → 2 col → 1 col)"
+      - "Hover-эффекты на карточках"
+    placeholders:
+      - "{{features.section_title}}"
+      - "{{features.item1.icon}}"
+      - "{{features.item1.title}}"
+      - "{{features.item1.text}}"
+      - "{{features.item2.icon}}"
+      - "{{features.item2.title}}"
+      - "{{features.item2.text}}"
+      - "{{features.item3.icon}}"
+      - "{{features.item3.title}}"
+      - "{{features.item3.text}}"
+      - "{{features.item4.icon}}"
+      - "{{features.item4.title}}"
+      - "{{features.item4.text}}"
+      - "{{features.item5.icon}}"
+      - "{{features.item5.title}}"
+      - "{{features.item5.text}}"
+      - "{{features.item6.icon}}"
+      - "{{features.item6.title}}"
+      - "{{features.item6.text}}"
+
+  - id: "cta-simple"
+    name: "CTA — Простой призыв к действию"
+    category: "cta"
+    description: "Заголовок, текст, одна кнопка на контрастном фоне"
+    best_for:
+      - "Переход к следующей секции"
+      - "Скачать файл"
+      - "Записаться на консультацию"
+      - "Оставить заявку"
+    features:
+      - "Центрированный текст"
+      - "Одна CTA-кнопка"
+      - "Контрастный фон (var(--primary))"
+      - "Hover-эффекты на кнопке"
+    placeholders:
+      - "{{cta.title}}"
+      - "{{cta.text}}"
+      - "{{cta.button_text}}"
+      - "{{cta.button_link}}"
+
+  - id: "footer-1"
+    name: "Footer — Логотип + Меню + Контакты + Соцсети"
+    category: "footer"
+    description: "Классический footer с 4 колонками и copyright"
+    best_for:
+      - "Все типы лендингов"
+      - "Многостраничные сайты"
+      - "Корпоративные сайты"
+    features:
+      - "4 колонки (О компании, Навигация, Контакты, Соцсети)"
+      - "Copyright внизу"
+      - "Иконки соцсетей (Remix Icon)"
+      - "Адаптивный (4 col → 2 col → 1 col)"
+      - "Кликабельные телефон и email"
+    placeholders:
+      - "{{logo.text}}"
+      - "{{footer.about}}"
+      - "{{nav.item1}}, {{nav.item2}}, {{nav.item3}}"
+      - "{{contacts.phone}}"
+      - "{{contacts.email}}"
+      - "{{contacts.address}}"
+      - "{{social.vk}}"
+      - "{{social.telegram}}"
+      - "{{social.whatsapp}}"
+      - "{{footer.copyright}}"
+
+  # ========================================
+  # P1 SECTIONS (Будущие секции, Sprint 2+)
+  # ========================================
+  # - pricing (прайс-листы)
+  # - contact-form (форма связи)
+  # - testimonials (отзывы)
+  # - faq (частые вопросы)
+  # - gallery (галерея работ)
+  # - team (команда)
+  # - stats (статистика)
+  # - blog-preview (анонсы статей)
 
 metadata:
-  version: "0.1.0"
+  version: "1.0.0"
   last_updated: "2025-10-24"
-  total_sections: 0
-  status: "empty_template"
+  total_sections: 7
+  status: "sprint_1_complete"
+  sprint_1_sections:
+    - "header-1"
+    - "hero-1"
+    - "hero-2"
+    - "features-2col"
+    - "features-3col"
+    - "cta-simple"
+    - "footer-1"
