@@ -16,7 +16,7 @@
  */
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: var(--container-default);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--space-4);  /* 16px on mobile */
@@ -41,11 +41,11 @@
  * Container variants (BEM modifiers)
  */
 .container--narrow {
-  max-width: 768px;
+  max-width: var(--container-narrow);
 }
 
 .container--wide {
-  max-width: 1440px;
+  max-width: var(--container-wide);
 }
 
 .container--full {
@@ -269,10 +269,10 @@
   position: absolute;
   top: -40px;
   left: 0;
-  z-index: 100;
+  z-index: var(--z-index-skip-link);
   padding: var(--space-4) var(--space-6);
   background-color: var(--primary);
-  color: white;
+  color: var(--text-on-primary);
   text-decoration: none;
   border-radius: var(--radius-sm);
 }

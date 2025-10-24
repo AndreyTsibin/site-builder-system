@@ -126,6 +126,22 @@
   --transition-fast: 150ms ease-in-out;  /* Quick interactions (hover, focus) */
   --transition-base: 250ms ease-in-out;  /* Standard transitions (buttons, links) */
   --transition-slow: 350ms ease-in-out;  /* Smooth animations (modals, menus) */
+
+  /* ===== Layout ===== */
+  --container-default: 1280px;  /* Default container max-width */
+  --container-narrow: 768px;    /* Narrow container for text-heavy content */
+  --container-wide: 1440px;     /* Wide container for large screens */
+
+  /* ===== Text on Colored Backgrounds ===== */
+  --text-on-primary: hsl(0, 0%, 100%);    /* White text on primary buttons/backgrounds */
+  --text-on-dark: hsl(0, 0%, 100%);       /* White text on dark backgrounds */
+
+  /* ===== Z-Index Scale ===== */
+  --z-index-skip-link: 100;   /* Skip-to-main link (keyboard navigation) */
+  --z-index-header: 200;      /* Sticky header */
+  --z-index-dropdown: 300;    /* Dropdowns, tooltips */
+  --z-index-modal: 400;       /* Modals, overlays */
+  --z-index-toast: 500;       /* Toast notifications (highest) */
 }
 
 
@@ -177,4 +193,20 @@
   --shadow-xl:
     0px 12px 12px rgba(0, 0, 0, 0.40),
     0px 36px 36px rgba(0, 0, 0, 0.25);  /* Popovers, overlays */
+
+  /* ===== Layout (same for both themes) ===== */
+  --container-default: 1280px;
+  --container-narrow: 768px;
+  --container-wide: 1440px;
+
+  /* ===== Text on Colored Backgrounds ===== */
+  --text-on-primary: hsl(0, 0%, 100%);
+  --text-on-dark: hsl(0, 0%, 100%);
+
+  /* ===== Z-Index Scale (same for both themes) ===== */
+  --z-index-skip-link: 100;
+  --z-index-header: 200;
+  --z-index-dropdown: 300;
+  --z-index-modal: 400;
+  --z-index-toast: 500;
 }
