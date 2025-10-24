@@ -193,20 +193,4 @@
   --shadow-xl:
     0px 12px 12px rgba(0, 0, 0, 0.40),
     0px 36px 36px rgba(0, 0, 0, 0.25);  /* Popovers, overlays */
-
-  /* ===== Layout (same for both themes) ===== */
-  --container-default: 1280px;
-  --container-narrow: 768px;
-  --container-wide: 1440px;
-
-  /* ===== Text on Colored Backgrounds ===== */
-  --text-on-primary: hsl(0, 0%, 100%);
-  --text-on-dark: hsl(0, 0%, 100%);
-
-  /* ===== Z-Index Scale (same for both themes) ===== */
-  --z-index-skip-link: 100;
-  --z-index-header: 200;
-  --z-index-dropdown: 300;
-  --z-index-modal: 400;
-  --z-index-toast: 500;
 }
