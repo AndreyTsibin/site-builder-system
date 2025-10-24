@@ -6,7 +6,7 @@
  * Dark Theme: Toggle via .dark-theme class on body/html
  *
  * Fluid Typography & Spacing: Modern CSS clamp() for smooth scaling
- * - Headings (H1, H2, H3): Scale from mobile (32px) to desktop (64px) smoothly
+ * - Headings (H1, H2, H3): Scale from mobile (32px) to desktop (52px) smoothly
  * - Large spacing: Scale from mobile (80px) to desktop (160px) for impact
  * - Body text & small spacing: Static sizes for consistency and readability
  *
@@ -74,7 +74,7 @@
   /* Format: clamp(MIN, PREFERRED, MAX) */
   --text-2xl: clamp(1.25rem, 1rem + 1vw, 1.75rem);      /* 20px → 28px (H3) */
   --text-3xl: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);  /* 28px → 40px (H2) */
-  --text-4xl: clamp(2rem, 1.5rem + 3vw, 4rem);          /* 32px → 64px (H1) */
+  --text-4xl: clamp(2rem, 1.5rem + 2.5vw, 3.25rem);     /* 32px → 52px (H1) */
 
   /* Font Weights */
   --font-regular: 400;   /* Body text */
