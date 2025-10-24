@@ -12,37 +12,48 @@
 
 :root {
   /* ===== Background Colors ===== */
-  /* Semantic naming: indicates element purpose */
-  /* Elevation principle: closer to user = brighter (100%) */
-  --bg-page: hsl(0, 0%, 90%);       /* Main page background (furthest) */
+  --bg-page: hsl(0, 0%, 90%);       /* Main page background */
   --bg-section: hsl(0, 0%, 93%);    /* Section backgrounds */
   --bg-card: hsl(0, 0%, 97%);       /* Cards, content blocks */
-  --bg-popup: hsl(0, 0%, 100%);     /* Modals, dropdowns, tooltips (closest) */
+  --bg-popup: hsl(0, 0%, 100%);     /* Modals, dropdowns, tooltips */
 
   /* ===== Text Colors ===== */
-  /* Semantic naming: indicates usage context */
   --text-body: hsl(0, 0%, 10%);     /* Main body text, paragraphs */
   --text-muted: hsl(0, 0%, 40%);    /* Secondary text, descriptions */
-  --text-disabled: hsl(0, 0%, 55%); /* Disabled text, captions, timestamps */
+  --text-disabled: hsl(0, 0%, 55%); /* Disabled text, captions */
 
   /* ===== Brand Colors ===== */
-  /* Brand identity — consistent across themes */
-  --primary: hsl(220, 90%, 56%);    /* Primary brand color (blue) — buttons, links, CTA */
-  --primary-hover: hsl(220, 90%, 48%); /* Primary hover state (darker) */
-  --secondary: hsl(280, 60%, 60%);  /* Secondary brand color (purple) — accents */
-  --accent: hsl(340, 82%, 52%);     /* Accent color (pink/red) — highlights, badges */
+  --primary: hsl(220, 90%, 56%);    /* Buttons, links, CTA */
+  --primary-hover: hsl(220, 90%, 48%); /* Primary hover state */
+  --secondary: hsl(280, 60%, 60%);  /* Secondary accents */
+  --accent: hsl(340, 82%, 52%);     /* Highlights, badges */
 
   /* ===== Semantic Colors ===== */
-  /* State feedback — consistent across themes */
-  --success: hsl(142, 71%, 45%);    /* Green — success messages, confirmations */
-  --warning: hsl(38, 92%, 50%);     /* Yellow — warnings, cautions */
-  --error: hsl(4, 90%, 58%);        /* Red — errors, destructive actions */
-  --info: hsl(200, 98%, 48%);       /* Cyan — informational messages */
+  --success: hsl(142, 71%, 45%);    /* Success messages */
+  --warning: hsl(38, 92%, 50%);     /* Warnings */
+  --error: hsl(4, 90%, 58%);        /* Errors */
+  --info: hsl(200, 98%, 48%);       /* Info messages */
 
   /* ===== UI Elements ===== */
   --border: hsl(0, 0%, 80%);        /* Borders, dividers */
   --border-subtle: hsl(0, 0%, 85%); /* Subtle borders, light dividers */
-  --shadow: rgba(0, 0, 0, 0.1);     /* Box shadows, overlays */
+
+  /* ===== Shadows (Multi-layer) ===== */
+  --shadow-sm:
+    0px 2px 2px rgba(0, 0, 0, 0.06),
+    0px 6px 6px rgba(0, 0, 0, 0.04);   /* Buttons, inputs */
+
+  --shadow-md:
+    0px 4px 4px rgba(0, 0, 0, 0.08),
+    0px 12px 12px rgba(0, 0, 0, 0.05);  /* Cards, panels */
+
+  --shadow-lg:
+    0px 8px 8px rgba(0, 0, 0, 0.10),
+    0px 24px 24px rgba(0, 0, 0, 0.06);  /* Modals, dropdowns */
+
+  --shadow-xl:
+    0px 12px 12px rgba(0, 0, 0, 0.12),
+    0px 36px 36px rgba(0, 0, 0, 0.08);  /* Popovers, overlays */
 }
 
 
@@ -52,36 +63,46 @@
 
 .dark-theme {
   /* ===== Background Colors ===== */
-  /* Symmetric progression with light theme */
-  /* Elevation principle: closer to user = brighter */
-  --bg-page: hsl(0, 0%, 0%);        /* Main page background (furthest) */
+  --bg-page: hsl(0, 0%, 0%);        /* Main page background */
   --bg-section: hsl(0, 0%, 3%);     /* Section backgrounds */
   --bg-card: hsl(0, 0%, 7%);        /* Cards, content blocks */
-  --bg-popup: hsl(0, 0%, 10%);      /* Modals, dropdowns, tooltips (closest) */
+  --bg-popup: hsl(0, 0%, 10%);      /* Modals, dropdowns, tooltips */
 
   /* ===== Text Colors ===== */
-  /* Inverted lightness: 100 - L */
-  --text-body: hsl(0, 0%, 90%);     /* 100 - 10 = 90 */
-  --text-muted: hsl(0, 0%, 60%);    /* 100 - 40 = 60 */
-  --text-disabled: hsl(0, 0%, 45%); /* 100 - 55 = 45 */
+  --text-body: hsl(0, 0%, 90%);     /* Main body text, paragraphs */
+  --text-muted: hsl(0, 0%, 60%);    /* Secondary text, descriptions */
+  --text-disabled: hsl(0, 0%, 45%); /* Disabled text, captions */
 
   /* ===== Brand Colors ===== */
-  /* Brand colors remain consistent across themes */
   --primary: hsl(220, 90%, 56%);
   --primary-hover: hsl(220, 90%, 48%);
   --secondary: hsl(280, 60%, 60%);
   --accent: hsl(340, 82%, 52%);
 
   /* ===== Semantic Colors ===== */
-  /* Semantic colors remain consistent across themes */
   --success: hsl(142, 71%, 45%);
   --warning: hsl(38, 92%, 50%);
   --error: hsl(4, 90%, 58%);
   --info: hsl(200, 98%, 48%);
 
   /* ===== UI Elements ===== */
-  /* Inverted lightness: 100 - L */
-  --border: hsl(0, 0%, 20%);        /* 100 - 80 = 20 */
-  --border-subtle: hsl(0, 0%, 15%); /* 100 - 85 = 15 */
-  --shadow: rgba(0, 0, 0, 0.3);     /* Stronger shadow for dark theme */
+  --border: hsl(0, 0%, 20%);
+  --border-subtle: hsl(0, 0%, 15%);
+
+  /* ===== Shadows (Multi-layer) ===== */
+  --shadow-sm:
+    0px 2px 2px rgba(0, 0, 0, 0.20),
+    0px 6px 6px rgba(0, 0, 0, 0.10);   /* Buttons, inputs */
+
+  --shadow-md:
+    0px 4px 4px rgba(0, 0, 0, 0.30),
+    0px 12px 12px rgba(0, 0, 0, 0.15);  /* Cards, panels */
+
+  --shadow-lg:
+    0px 8px 8px rgba(0, 0, 0, 0.35),
+    0px 24px 24px rgba(0, 0, 0, 0.20);  /* Modals, dropdowns */
+
+  --shadow-xl:
+    0px 12px 12px rgba(0, 0, 0, 0.40),
+    0px 36px 36px rgba(0, 0, 0, 0.25);  /* Popovers, overlays */
 }
