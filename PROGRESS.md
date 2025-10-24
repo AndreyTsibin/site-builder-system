@@ -2,26 +2,26 @@
 project: "Site Builder"
 current_sprint: 0
 total_tasks: 38
-completed_tasks: 6
-progress_percentage: 15.8
+completed_tasks: 7
+progress_percentage: 18.4
 total_hours: 101
-completed_hours: 9.0
-last_updated: "2025-10-24T17:15:22"
-last_commit: "f628487"
+completed_hours: 11.0
+last_updated: "2025-10-24T17:25:45"
+last_commit: "60bab4c"
 status: "in_progress"
 ---
 
 # PROGRESS TRACKING — SITE BUILDER
 
-**Progress:** 6/38 tasks (15.8%) | 9.0h/101h (8.9%)
-**Last Updated:** 2025-10-24 17:15
-**Last Commit:** `f628487` — feat: complete Task 0.4 - Test Design System
+**Progress:** 7/38 tasks (18.4%) | 11.0h/101h (10.9%)
+**Last Updated:** 2025-10-24 17:25
+**Last Commit:** `60bab4c` — feat: complete Task 0.5 - Templates
 
 ---
 
 ## 📋 ALL TASKS STATUS
 
-### SPRINT 0: FOUNDATION (6/7 tasks, 85.7%)
+### SPRINT 0: FOUNDATION (7/7 tasks, 100%) ✅ COMPLETE
 
 - [x] **0.1** Git Setup (1h) — ✅ **Complete** | `f276f78` | 2025-01-24 15:15
 - [x] **0.2a** Color System (1.5h) — ✅ **Complete** | `359f00a` | 2025-10-24 15:32
@@ -29,23 +29,23 @@ status: "in_progress"
 - [x] **0.2c** UI Elements & Responsive (1h) — ✅ **Complete** | `58a9c28` | 2025-10-24 16:24
 - [x] **0.3** Reset & Utilities CSS (2h) — ✅ **Complete** | `a556feb` | 2025-10-24 16:34
 - [x] **0.4** Test Design System (2h) — ✅ **Complete** | `f628487` | 2025-10-24 17:15
-- [ ] **0.5** Templates (2h) — ⏳ Ready | Dep: 0.4
+- [x] **0.5** Templates (2h) — ✅ **Complete** | `60bab4c` | 2025-10-24 17:25
 
 ### SPRINT 1: P0 SECTIONS (0/16 tasks, 0%)
 
-- [ ] **1.1a** Header HTML (1.5h) — 🔒 Blocked | Dep: 0.5
+- [ ] **1.1a** Header HTML (1.5h) — ⏳ Ready | Dep: 0.5
 - [ ] **1.1b** Header CSS (2h) — 🔒 Blocked | Dep: 1.1a
 - [ ] **1.1c** Header JS (1.5h) — 🔒 Blocked | Dep: 1.1b
-- [ ] **1.2a** Hero-1 HTML (2h) — 🔒 Blocked | Dep: 0.5
+- [ ] **1.2a** Hero-1 HTML (2h) — ⏳ Ready | Dep: 0.5
 - [ ] **1.2b** Hero-1 CSS (2h) — 🔒 Blocked | Dep: 1.2a
-- [ ] **1.3a** Hero-2 HTML (2h) — 🔒 Blocked | Dep: 0.5
+- [ ] **1.3a** Hero-2 HTML (2h) — ⏳ Ready | Dep: 0.5
 - [ ] **1.3b** Hero-2 CSS (2h) — 🔒 Blocked | Dep: 1.3a
-- [ ] **1.4a** Features-2col HTML (2.5h) — 🔒 Blocked | Dep: 0.5
+- [ ] **1.4a** Features-2col HTML (2.5h) — ⏳ Ready | Dep: 0.5
 - [ ] **1.4b** Features-2col CSS (2.5h) — 🔒 Blocked | Dep: 1.4a
-- [ ] **1.5a** Features-3col HTML (2.5h) — 🔒 Blocked | Dep: 0.5
+- [ ] **1.5a** Features-3col HTML (2.5h) — ⏳ Ready | Dep: 0.5
 - [ ] **1.5b** Features-3col CSS (2.5h) — 🔒 Blocked | Dep: 1.5a
-- [ ] **1.6** CTA-Simple (3h) — 🔒 Blocked | Dep: 0.5
-- [ ] **1.7a** Footer HTML (3h) — 🔒 Blocked | Dep: 0.5
+- [ ] **1.6** CTA-Simple (3h) — ⏳ Ready | Dep: 0.5
+- [ ] **1.7a** Footer HTML (3h) — ⏳ Ready | Dep: 0.5
 - [ ] **1.7b** Footer CSS (3h) — 🔒 Blocked | Dep: 1.7a
 - [ ] **1.8** Update Sections YAML (2h) — 🔒 Blocked | Dep: 1.7b
 
@@ -76,11 +76,11 @@ status: "in_progress"
 
 | Sprint | Tasks | Completed | Hours | Completed Hours | Progress |
 |--------|-------|-----------|-------|-----------------|----------|
-| Sprint 0 | 7 | 6 | 11h | 9.0h | 85.7% |
+| Sprint 0 | 7 | 7 | 11h | 11.0h | 100% ✅ |
 | Sprint 1 | 16 | 0 | 34h | 0h | 0% |
 | Sprint 2 | 9 | 0 | 20h | 0h | 0% |
 | Sprint 3 | 6 | 0 | 19h | 0h | 0% |
-| **TOTAL** | **38** | **6** | **84h** | **9.0h** | **15.8%** |
+| **TOTAL** | **38** | **7** | **84h** | **11.0h** | **18.4%** |
 
 *+ 20% buffer = 101h total estimated time*
 
@@ -110,4 +110,4 @@ status: "in_progress"
 
 ---
 
-**Last Update:** 2025-10-24 17:15
+**Last Update:** 2025-10-24 17:25
