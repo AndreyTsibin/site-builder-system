@@ -185,6 +185,125 @@ def assemble_html(sections: List[Dict], project_dir: Path) -> Path:
     return output_file
 
 
+def copy_design_system(project_dir: Path) -> None:
+    """
+    Copy design system CSS files to project's css directory.
+
+    Copies variables.css, reset.css, and utilities.css from
+    library/design-system/ to output/{project}/css/
+
+    Args:
+        project_dir: Path to the project directory
+
+    Raises:
+        FileNotFoundError: If design system CSS files don't exist
+        IOError: If file copying fails
+
+    Example:
+        >>> project_dir = Path("output/my-project")
+        >>> copy_design_system(project_dir)
+        >>> # Copies: variables.css, reset.css, utilities.css to output/my-project/css/
+    """
+    # Get project root (parent of scripts directory)
+    script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parent
+
+    logger.info("Copying design system CSS files...")
+
+    # Design system source directory
+    design_system_dir = project_root / 'library' / 'design-system'
+
+    # CSS files to copy
+    css_files = ['variables.css', 'reset.css', 'utilities.css']
+
+    # Copy each CSS file
+    for css_file in css_files:
+        source = design_system_dir / css_file
+        destination = project_dir / 'css' / css_file
+
+        if not source.exists():
+            logger.error(f"Design system file not found: {source}")
+            raise FileNotFoundError(f"Design system CSS file not found: {source}")
+
+        shutil.copy2(source, destination)
+        logger.info(f"  ✓ Copied: {css_file}")
+
+    logger.info("Design system CSS copied successfully!")
+
+
+def assemble_css(sections: List[Dict], project_dir: Path) -> Path:
+    """
+    Assemble CSS from selected sections into a single sections.css file.
+
+    Reads CSS from library/sections/{id}/{id}.css for each section,
+    combines them into a single CSS file for better performance.
+
+    Args:
+        sections: List of section dictionaries with 'id' and 'order' keys
+                  Example: [{"id": "header-1", "order": 1}, ...]
+        project_dir: Path to the project directory where sections.css will be created
+
+    Returns:
+        Path: Path object pointing to the created sections.css file
+
+    Raises:
+        FileNotFoundError: If section CSS file doesn't exist (optional sections are skipped)
+        IOError: If file reading/writing fails
+
+    Example:
+        >>> sections = [{"id": "header-1", "order": 1}, {"id": "hero-1", "order": 2}]
+        >>> project_dir = Path("output/my-project")
+        >>> css_file = assemble_css(sections, project_dir)
+        >>> # Creates: output/my-project/css/sections.css with combined CSS
+    """
+    # Get project root (parent of scripts directory)
+    script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parent
+
+    logger.info("Assembling CSS from sections...")
+
+    # Sort sections by order
+    sorted_sections = sorted(sections, key=lambda s: s.get('order', 999))
+
+    # Build CSS file
+    css_parts = [
+        '/*',
+        ' * Site Builder - Sections CSS',
+        ' * Auto-generated file - Do not edit manually',
+        f' * Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}',
+        ' */',
+        ''
+    ]
+
+    # Read and append each section's CSS
+    for section in sorted_sections:
+        section_id = section['id']
+        section_css_path = project_root / 'library' / 'sections' / section_id / f'{section_id}.css'
+
+        # Some sections might not have CSS (rare, but possible)
+        if not section_css_path.exists():
+            logger.warning(f"  ⚠ CSS not found (skipping): {section_id}")
+            continue
+
+        logger.info(f"  ✓ Reading CSS: {section_id}")
+
+        with open(section_css_path, 'r', encoding='utf-8') as f:
+            section_css = f.read()
+            css_parts.append(f'/* Section: {section_id} */')
+            css_parts.append(section_css)
+            css_parts.append('')
+
+    # Write combined CSS to sections.css
+    output_file = project_dir / 'css' / 'sections.css'
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(css_parts))
+
+    logger.info(f"  ✓ Created: {output_file.relative_to(project_root)}")
+    logger.info(f"CSS assembly completed! ({len(sorted_sections)} sections)")
+
+    return output_file
+
+
 # Main function (to be implemented in Task 2.1d)
 def main():
     """
@@ -194,7 +313,8 @@ def main():
     logger.info("Site Builder - Assembly Script")
     logger.info("Task 2.1a: Project structure creation - READY")
     logger.info("Task 2.1b: HTML assembly - READY")
-    logger.info("Tasks 2.1c-d: Not yet implemented")
+    logger.info("Task 2.1c: CSS assembly - READY")
+    logger.info("Task 2.1d: Not yet implemented")
 
 
 if __name__ == '__main__':
