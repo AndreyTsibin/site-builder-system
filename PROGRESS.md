@@ -7,7 +7,7 @@ progress_percentage: 78.9
 total_hours: 101
 completed_hours: 62.0
 last_updated: "2025-10-24T19:20:00"
-last_commit: "39ef125"
+last_commit: "e704334"
 status: "in_progress"
 ---
 
@@ -15,7 +15,7 @@ status: "in_progress"
 
 **Progress:** 30/38 tasks (78.9%) | 62.0h/101h (61.4%)
 **Last Updated:** 2025-10-24 19:20
-**Last Commit:** (pending) — Task 2.4b - Business-Data Example
+**Last Commit:** `e704334` — feat: complete Task 2.4b - Business-Data Example
 
 ---
 
@@ -58,7 +58,7 @@ status: "in_progress"
 - [x] **2.2** JSON Template (1h) — ✅ **Complete** | `c029fd7` | 2025-10-24 19:05
 - [x] **2.3** Test Assembly Script (2h) — ✅ **Complete** | `591cb75` | 2025-10-24 19:10
 - [x] **2.4a** AI Content — Prompts (3h) — ✅ **Complete** | `39ef125` | 2025-10-24 19:15
-- [x] **2.4b** AI Logic — Business-Data Example (3h) — ✅ **Complete** | (pending) | 2025-10-24 19:20
+- [x] **2.4b** AI Logic — Business-Data Example (3h) — ✅ **Complete** | `e704334` | 2025-10-24 19:20
 - [ ] **2.5** First E2E Test (3h) — ⏳ Ready | Dep: 2.4b ✅
 
 ### SPRINT 3: TESTING & POLISH (0/6 tasks, 0%)
