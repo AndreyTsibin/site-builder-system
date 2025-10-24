@@ -1,0 +1,100 @@
+<!--
+  Header-1: Sticky Navigation Header with Burger Menu
+
+  Features:
+  - Sticky header with blur background on scroll
+  - Responsive navigation (burger menu on mobile, horizontal on desktop)
+  - Logo with text placeholder
+  - 3 navigation items
+  - Phone link with tel: protocol
+  - CTA button
+  - Full ARIA accessibility support
+  - BEM methodology
+
+  Placeholders:
+  - {{logo.text}} — Logo text
+  - {{nav.item1}}, {{nav.item2}}, {{nav.item3}} — Navigation items
+  - {{contacts.phone}} — Phone number (raw format: +7 999 123-45-67)
+  - {{header.cta_text}} — CTA button text
+-->
+
+<header class="header" id="header" role="banner">
+  <div class="container">
+    <div class="header__wrapper">
+
+      <!-- Logo -->
+      <a href="#" class="header__logo" aria-label="Go to homepage">
+        <span class="header__logo-text">{{logo.text}}</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="header__nav" id="headerNav" role="navigation" aria-label="Main navigation">
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a href="#services" class="header__nav-link">{{nav.item1}}</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#about" class="header__nav-link">{{nav.item2}}</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#contacts" class="header__nav-link">{{nav.item3}}</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Contact Phone (Desktop) -->
+      <a href="tel:{{contacts.phone}}" class="header__phone" aria-label="Call us">
+        <i class="ri-phone-line header__phone-icon" aria-hidden="true"></i>
+        <span class="header__phone-text">{{contacts.phone}}</span>
+      </a>
+
+      <!-- CTA Button (Desktop) -->
+      <a href="#cta" class="header__cta">
+        {{header.cta_text}}
+      </a>
+
+      <!-- Burger Menu Button (Mobile) -->
+      <button
+        class="header__burger"
+        id="burgerButton"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+      >
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="header__mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <nav class="header__mobile-nav-wrapper">
+      <ul class="header__mobile-nav-list">
+        <li class="header__mobile-nav-item">
+          <a href="#services" class="header__mobile-nav-link">{{nav.item1}}</a>
+        </li>
+        <li class="header__mobile-nav-item">
+          <a href="#about" class="header__mobile-nav-link">{{nav.item2}}</a>
+        </li>
+        <li class="header__mobile-nav-item">
+          <a href="#contacts" class="header__mobile-nav-link">{{nav.item3}}</a>
+        </li>
+      </ul>
+
+      <!-- Contact Phone (Mobile) -->
+      <a href="tel:{{contacts.phone}}" class="header__mobile-phone" aria-label="Call us">
+        <i class="ri-phone-line" aria-hidden="true"></i>
+        <span>{{contacts.phone}}</span>
+      </a>
+
+      <!-- CTA Button (Mobile) -->
+      <a href="#cta" class="header__mobile-cta">
+        {{header.cta_text}}
+      </a>
+    </nav>
+  </div>
+</header>
