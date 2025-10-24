@@ -49,22 +49,14 @@
   --border: hsl(0, 0%, 80%);        /* Borders, dividers */
   --border-subtle: hsl(0, 0%, 85%); /* Subtle borders, light dividers */
 
-  /* ===== Shadows (Multi-layer) ===== */
-  --shadow-sm:
-    0px 2px 2px rgba(0, 0, 0, 0.06),
-    0px 6px 6px rgba(0, 0, 0, 0.04);   /* Buttons, inputs */
+  /* ===== Shadows (3D Effect with Inset Highlight) ===== */
+  /* Based on professional UI design: combines inset white highlight + layered black shadows */
+  /* Works universally on both light and dark themes */
 
-  --shadow-md:
-    0px 4px 4px rgba(0, 0, 0, 0.08),
-    0px 12px 12px rgba(0, 0, 0, 0.05);  /* Cards, panels */
-
-  --shadow-lg:
-    0px 8px 8px rgba(0, 0, 0, 0.10),
-    0px 24px 24px rgba(0, 0, 0, 0.06);  /* Modals, dropdowns */
-
-  --shadow-xl:
-    0px 12px 12px rgba(0, 0, 0, 0.12),
-    0px 36px 36px rgba(0, 0, 0, 0.08);  /* Popovers, overlays */
+  --shadow-sm: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030, 0 2px 4px #00000015;   /* Buttons, inputs */
+  --shadow-md: inset 0 1px 2px #ffffff50, 0 2px 4px #00000030, 0 4px 8px #00000015;   /* Cards, panels */
+  --shadow-lg: inset 0 1px 2px #ffffff60, 0 4px 8px #00000030, 0 8px 16px #00000015;  /* Modals, dropdowns */
+  --shadow-xl: inset 0 1px 2px #ffffff70, 0 8px 16px #00000030, 0 16px 32px #00000015; /* Popovers, overlays */
 
   /* ===== Typography ===== */
   /* Font Family */
@@ -177,20 +169,11 @@
   --border: hsl(0, 0%, 20%);
   --border-subtle: hsl(0, 0%, 15%);
 
-  /* ===== Shadows (Multi-layer) ===== */
-  --shadow-sm:
-    0px 2px 2px rgba(0, 0, 0, 0.20),
-    0px 6px 6px rgba(0, 0, 0, 0.10);   /* Buttons, inputs */
+  /* ===== Shadows (3D Effect with Inset Highlight) ===== */
+  /* Same values as light theme - universal shadow system */
 
-  --shadow-md:
-    0px 4px 4px rgba(0, 0, 0, 0.30),
-    0px 12px 12px rgba(0, 0, 0, 0.15);  /* Cards, panels */
-
-  --shadow-lg:
-    0px 8px 8px rgba(0, 0, 0, 0.35),
-    0px 24px 24px rgba(0, 0, 0, 0.20);  /* Modals, dropdowns */
-
-  --shadow-xl:
-    0px 12px 12px rgba(0, 0, 0, 0.40),
-    0px 36px 36px rgba(0, 0, 0, 0.25);  /* Popovers, overlays */
+  --shadow-sm: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030, 0 2px 4px #00000015;   /* Buttons, inputs */
+  --shadow-md: inset 0 1px 2px #ffffff50, 0 2px 4px #00000030, 0 4px 8px #00000015;   /* Cards, panels */
+  --shadow-lg: inset 0 1px 2px #ffffff60, 0 4px 8px #00000030, 0 8px 16px #00000015;  /* Modals, dropdowns */
+  --shadow-xl: inset 0 1px 2px #ffffff70, 0 8px 16px #00000030, 0 16px 32px #00000015; /* Popovers, overlays */
 }
