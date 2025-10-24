@@ -4,6 +4,17 @@
  * Color System: HSL format for easy theme switching and color manipulation
  * Default: Light Theme
  * Dark Theme: Toggle via .dark-theme class on body/html
+ *
+ * Fluid Typography & Spacing: Modern CSS clamp() for smooth scaling
+ * - Headings (H1, H2, H3): Scale from mobile (32px) to desktop (64px) smoothly
+ * - Large spacing: Scale from mobile (80px) to desktop (160px) for impact
+ * - Body text & small spacing: Static sizes for consistency and readability
+ *
+ * Responsive Breakpoints (reference):
+ * - Mobile: 320px - 767px
+ * - Tablet: 768px - 1023px
+ * - Desktop: 1024px - 1439px
+ * - Wide: 1440px+
  */
 
 /* ========================================
@@ -59,15 +70,19 @@
   /* Font Family */
   --font-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  /* Font Sizes (base size 16px = 1rem) */
+  /* Font Sizes — Fluid Typography System */
+  /* Static sizes (body text, stable across devices) */
   --text-xs: 0.75rem;    /* 12px — small text, labels */
   --text-sm: 0.875rem;   /* 14px — captions, secondary text */
   --text-base: 1rem;     /* 16px — body text */
   --text-lg: 1.125rem;   /* 18px — large text */
   --text-xl: 1.25rem;    /* 20px — subheadings */
-  --text-2xl: 1.5rem;    /* 24px — H3 */
-  --text-3xl: 2rem;      /* 32px — H2 */
-  --text-4xl: 3rem;      /* 48px — H1 */
+
+  /* Fluid sizes (headings, scale smoothly from mobile to desktop) */
+  /* Format: clamp(MIN, PREFERRED, MAX) */
+  --text-2xl: clamp(1.25rem, 1rem + 1vw, 1.75rem);      /* 20px → 28px (H3) */
+  --text-3xl: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);  /* 28px → 40px (H2) */
+  --text-4xl: clamp(2rem, 1.5rem + 3vw, 4rem);          /* 32px → 64px (H1) */
 
   /* Font Weights */
   --font-regular: 400;   /* Body text */
@@ -79,7 +94,8 @@
   --leading-normal: 1.5; /* Body text */
   --leading-relaxed: 1.8; /* Small text */
 
-  /* ===== Spacing (4px base unit) ===== */
+  /* ===== Spacing — Fluid Spacing System (4px base unit) ===== */
+  /* Static spacing (small to medium, stable across devices) */
   --space-1: 0.25rem;   /* 4px */
   --space-2: 0.5rem;    /* 8px */
   --space-3: 0.75rem;   /* 12px */
@@ -93,8 +109,11 @@
   --space-15: 3.75rem;  /* 60px */
   --space-20: 5rem;     /* 80px */
   --space-25: 6.25rem;  /* 100px */
-  --space-40: 10rem;    /* 160px */
-  --space-60: 15rem;    /* 240px */
+
+  /* Fluid spacing (large sections, scale smoothly for impact on big screens) */
+  /* Format: clamp(MIN, PREFERRED, MAX) */
+  --space-40: clamp(5rem, 2rem + 8vw, 10rem);    /* 80px → 160px (hero padding) */
+  --space-60: clamp(7.5rem, 3rem + 12vw, 15rem); /* 120px → 240px (section spacing) */
 }
 
 
