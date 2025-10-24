@@ -1,0 +1,361 @@
+/**
+ * Header-1: Sticky Navigation Header CSS
+ *
+ * Features:
+ * - Sticky header with backdrop blur on scroll
+ * - Mobile-first responsive design
+ * - Burger menu (mobile), horizontal nav (desktop)
+ * - Smooth transitions and animations
+ * - CSS variables for theming
+ * - BEM methodology
+ *
+ * Breakpoints:
+ * - Mobile: default (320px+)
+ * - Tablet: 768px+
+ * - Desktop: 1024px+
+ */
+
+
+/* ========================================
+   HEADER CONTAINER
+   ======================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-index-header);
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(10px);
+  transition: box-shadow var(--transition-base);
+}
+
+/**
+ * Add shadow on scroll (applied via JavaScript)
+ */
+.header--scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+  gap: var(--space-4);
+}
+
+
+/* ========================================
+   LOGO
+   ======================================== */
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-body);
+  font-weight: var(--font-bold);
+  font-size: var(--text-xl);
+  line-height: var(--leading-tight);
+  transition: color var(--transition-fast);
+}
+
+.header__logo:hover {
+  color: var(--primary);
+}
+
+.header__logo-text {
+  /* Logo text styling */
+}
+
+
+/* ========================================
+   DESKTOP NAVIGATION
+   ======================================== */
+
+/**
+ * Hidden on mobile, visible on desktop
+ */
+.header__nav {
+  display: none;
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-item {
+  /* Navigation item container */
+}
+
+.header__nav-link {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.header__nav-link:hover {
+  color: var(--primary);
+  background-color: var(--bg-section);
+}
+
+
+/* ========================================
+   PHONE & CTA (Desktop)
+   ======================================== */
+
+/**
+ * Hidden on mobile, visible on desktop
+ */
+.header__phone,
+.header__cta {
+  display: none;
+}
+
+.header__phone {
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.header__phone:hover {
+  color: var(--primary);
+}
+
+.header__phone-icon {
+  font-size: var(--text-lg);
+}
+
+.header__phone-text {
+  /* Phone text styling */
+}
+
+.header__cta {
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.header__cta:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+
+/* ========================================
+   BURGER MENU BUTTON (Mobile)
+   ======================================== */
+
+.header__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.header__burger:hover {
+  opacity: 0.7;
+}
+
+.header__burger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-body);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+/**
+ * Burger menu animation when open
+ */
+.header__burger.is-open .header__burger-line:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.header__burger.is-open .header__burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.header__burger.is-open .header__burger-line:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+
+/* ========================================
+   MOBILE NAVIGATION MENU
+   ======================================== */
+
+.header__mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-card);
+  z-index: calc(var(--z-index-header) - 1);
+  padding-top: calc(var(--space-20) + var(--space-4)); /* Header height + spacing */
+
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all var(--transition-base);
+}
+
+/**
+ * Mobile nav open state (toggled by JavaScript)
+ */
+.header__mobile-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.header__mobile-nav-wrapper {
+  padding: var(--space-8) var(--space-4);
+}
+
+.header__mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0 0 var(--space-8) 0;
+  padding: 0;
+}
+
+.header__mobile-nav-item {
+  /* Mobile navigation item container */
+}
+
+.header__mobile-nav-link {
+  display: block;
+  padding: var(--space-4) var(--space-6);
+  color: var(--text-body);
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.header__mobile-nav-link:hover {
+  color: var(--primary);
+  background-color: var(--bg-section);
+}
+
+.header__mobile-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-4);
+  color: var(--text-body);
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.header__mobile-phone:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background-color: var(--bg-section);
+}
+
+.header__mobile-cta {
+  display: block;
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.header__mobile-cta:hover {
+  background-color: var(--primary-hover);
+  box-shadow: var(--shadow-md);
+}
+
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+
+@media (min-width: 768px) {
+  .header__wrapper {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+
+  .header__logo {
+    font-size: var(--text-2xl);
+  }
+}
+
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+
+@media (min-width: 1024px) {
+  /**
+   * Hide burger menu and mobile nav on desktop
+   */
+  .header__burger,
+  .header__mobile-nav {
+    display: none;
+  }
+
+  /**
+   * Show desktop navigation, phone, and CTA
+   */
+  .header__nav,
+  .header__phone,
+  .header__cta {
+    display: flex;
+  }
+
+  .header__wrapper {
+    gap: var(--space-8);
+  }
+}
