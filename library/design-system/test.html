@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Test — Site Builder</title>
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="./variables.css">
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./utilities.css">
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Test Styles -->
+  <style>
+    /* Test section container */
+    .test-section {
+      margin-bottom: var(--space-20);
+      padding: var(--space-8);
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .test-section__title {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-bold);
+      margin-bottom: var(--space-8);
+      color: var(--text-body);
+      line-height: var(--leading-tight);
+    }
+
+    .test-section__grid {
+      display: grid;
+      gap: var(--space-6);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    /* Color swatch */
+    .color-swatch {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .color-swatch__box {
+      height: 80px;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .color-swatch__label {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      font-weight: var(--font-medium);
+    }
+
+    /* Typography example */
+    .typography-example {
+      margin-bottom: var(--space-4);
+    }
+
+    .typography-example__label {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      font-weight: var(--font-medium);
+      margin-bottom: var(--space-2);
+    }
+
+    .typography-example__text {
+      color: var(--text-body);
+    }
+
+    /* Spacing box */
+    .spacing-box {
+      background-color: var(--primary);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-on-primary);
+      font-size: var(--text-xs);
+      font-weight: var(--font-bold);
+      min-height: 40px;
+    }
+
+    /* Shadow box */
+    .shadow-box {
+      padding: var(--space-6);
+      background-color: var(--bg-card);
+      border-radius: var(--radius-md);
+      text-align: center;
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      font-weight: var(--font-medium);
+    }
+
+    /* Transition demo buttons */
+    .transition-demo {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .transition-btn {
+      padding: var(--space-4) var(--space-8);
+      background-color: var(--primary);
+      color: var(--text-on-primary);
+      border-radius: var(--radius-sm);
+      font-weight: var(--font-medium);
+      cursor: pointer;
+    }
+
+    .transition-btn--fast {
+      transition: all var(--transition-fast);
+    }
+
+    .transition-btn--base {
+      transition: all var(--transition-base);
+    }
+
+    .transition-btn--slow {
+      transition: all var(--transition-slow);
+    }
+
+    .transition-btn:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Border radius demo */
+    .radius-demo {
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-on-primary);
+      font-weight: var(--font-bold);
+      font-size: var(--text-sm);
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      top: var(--space-6);
+      right: var(--space-6);
+      padding: var(--space-4) var(--space-8);
+      background-color: var(--primary);
+      color: var(--text-on-primary);
+      border-radius: var(--radius-full);
+      font-weight: var(--font-bold);
+      font-size: var(--text-sm);
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      z-index: var(--z-index-header);
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--primary-hover);
+      transform: scale(1.05);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Utility demo boxes */
+    .utility-demo {
+      padding: var(--space-6);
+      background-color: var(--bg-section);
+      border-radius: var(--radius-md);
+      border: 2px solid var(--border);
+    }
+
+    .utility-demo__item {
+      padding: var(--space-4);
+      background-color: var(--accent);
+      color: var(--text-on-dark);
+      border-radius: var(--radius-sm);
+      font-weight: var(--font-medium);
+      font-size: var(--text-sm);
+    }
+
+    /* Page header */
+    .page-header {
+      text-align: center;
+      padding: var(--space-20) var(--space-4);
+      margin-bottom: var(--space-12);
+    }
+
+    .page-header__title {
+      font-size: var(--text-4xl);
+      font-weight: var(--font-bold);
+      margin-bottom: var(--space-4);
+      line-height: var(--leading-tight);
+      color: var(--text-body);
+    }
+
+    .page-header__subtitle {
+      font-size: var(--text-xl);
+      color: var(--text-muted);
+      line-height: var(--leading-normal);
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    Toggle Theme
+  </button>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1 class="page-header__title">Design System Test</h1>
+    <p class="page-header__subtitle">Visual verification of all CSS variables and utilities</p>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- SECTION 1: COLORS -->
+    <section class="test-section">
+      <h2 class="test-section__title">1. Color System</h2>
+
+      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Background Colors</h3>
+      <div class="test-section__grid">
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--bg-page);"></div>
+          <span class="color-swatch__label">--bg-page</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--bg-section);"></div>
+          <span class="color-swatch__label">--bg-section</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--bg-card);"></div>
+          <span class="color-swatch__label">--bg-card</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--bg-popup);"></div>
+          <span class="color-swatch__label">--bg-popup</span>
+        </div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Text Colors</h3>
+      <div class="test-section__grid">
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--text-body);"></div>
+          <span class="color-swatch__label">--text-body</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--text-muted);"></div>
+          <span class="color-swatch__label">--text-muted</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--text-disabled);"></div>
+          <span class="color-swatch__label">--text-disabled</span>
+        </div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Brand Colors</h3>
+      <div class="test-section__grid">
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--primary);"></div>
+          <span class="color-swatch__label">--primary</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--secondary);"></div>
+          <span class="color-swatch__label">--secondary</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--accent);"></div>
+          <span class="color-swatch__label">--accent</span>
+        </div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Semantic Colors</h3>
+      <div class="test-section__grid">
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--success);"></div>
+          <span class="color-swatch__label">--success</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--warning);"></div>
+          <span class="color-swatch__label">--warning</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--error);"></div>
+          <span class="color-swatch__label">--error</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__box" style="background-color: var(--info);"></div>
+          <span class="color-swatch__label">--info</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TYPOGRAPHY -->
+    <section class="test-section">
+      <h2 class="test-section__title">2. Typography</h2>
+
+      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Font Sizes</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <div class="typography-example">
+          <div class="typography-example__label">--text-xs (12px)</div>
+          <div class="typography-example__text" style="font-size: var(--text-xs);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--text-sm (14px)</div>
+          <div class="typography-example__text" style="font-size: var(--text-sm);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--text-base (16px)</div>
+          <div class="typography-example__text" style="font-size: var(--text-base);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--text-lg (18px)</div>
+          <div class="typography-example__text" style="font-size: var(--text-lg);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--text-xl (20px)</div>
+          <div class="typography-example__text" style="font-size: var(--text-xl);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--text-2xl (20px → 28px, fluid)</div>
+          <div class="typography-example__text" style="font-size: var(--text-2xl);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--text-3xl (28px → 40px, fluid)</div>
+          <div class="typography-example__text" style="font-size: var(--text-3xl);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--text-4xl (32px → 64px, fluid)</div>
+          <div class="typography-example__text" style="font-size: var(--text-4xl);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Font Weights</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <div class="typography-example">
+          <div class="typography-example__label">--font-regular (400)</div>
+          <div class="typography-example__text" style="font-weight: var(--font-regular); font-size: var(--text-lg);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--font-medium (500)</div>
+          <div class="typography-example__text" style="font-weight: var(--font-medium); font-size: var(--text-lg);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--font-bold (700)</div>
+          <div class="typography-example__text" style="font-weight: var(--font-bold); font-size: var(--text-lg);">The quick brown fox jumps over the lazy dog</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Line Heights</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+        <div class="typography-example">
+          <div class="typography-example__label">--leading-tight (1.2)</div>
+          <div class="typography-example__text" style="line-height: var(--leading-tight); font-size: var(--text-lg);">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--leading-normal (1.5)</div>
+          <div class="typography-example__text" style="line-height: var(--leading-normal); font-size: var(--text-lg);">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </div>
+        <div class="typography-example">
+          <div class="typography-example__label">--leading-relaxed (1.8)</div>
+          <div class="typography-example__text" style="line-height: var(--leading-relaxed); font-size: var(--text-lg);">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SPACING -->
+    <section class="test-section">
+      <h2 class="test-section__title">3. Spacing System</h2>
+      <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+        <div class="spacing-box" style="width: var(--space-1);">--space-1 (4px)</div>
+        <div class="spacing-box" style="width: var(--space-2);">--space-2 (8px)</div>
+        <div class="spacing-box" style="width: var(--space-3);">--space-3 (12px)</div>
+        <div class="spacing-box" style="width: var(--space-4);">--space-4 (16px)</div>
+        <div class="spacing-box" style="width: var(--space-5);">--space-5 (20px)</div>
+        <div class="spacing-box" style="width: var(--space-6);">--space-6 (24px)</div>
+        <div class="spacing-box" style="width: var(--space-7);">--space-7 (28px)</div>
+        <div class="spacing-box" style="width: var(--space-8);">--space-8 (32px)</div>
+        <div class="spacing-box" style="width: var(--space-10);">--space-10 (40px)</div>
+        <div class="spacing-box" style="width: var(--space-12);">--space-12 (48px)</div>
+        <div class="spacing-box" style="width: var(--space-15);">--space-15 (60px)</div>
+        <div class="spacing-box" style="width: var(--space-20);">--space-20 (80px)</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: UI ELEMENTS -->
+    <section class="test-section">
+      <h2 class="test-section__title">4. UI Elements</h2>
+
+      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Border Radius</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <div class="radius-demo" style="border-radius: var(--radius-sm);">--radius-sm (4px)</div>
+        <div class="radius-demo" style="border-radius: var(--radius-md);">--radius-md (8px)</div>
+        <div class="radius-demo" style="border-radius: var(--radius-lg);">--radius-lg (12px)</div>
+        <div class="radius-demo" style="border-radius: var(--radius-xl);">--radius-xl (16px)</div>
+        <div class="radius-demo" style="border-radius: var(--radius-full);">--radius-full (9999px)</div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Box Shadows</h3>
+      <div class="test-section__grid">
+        <div class="shadow-box" style="box-shadow: var(--shadow-sm);">--shadow-sm</div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-md);">--shadow-md</div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-lg);">--shadow-lg</div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-xl);">--shadow-xl</div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Transitions (hover to test)</h3>
+      <div class="transition-demo">
+        <button class="transition-btn transition-btn--fast">Fast (150ms)</button>
+        <button class="transition-btn transition-btn--base">Base (250ms)</button>
+        <button class="transition-btn transition-btn--slow">Slow (350ms)</button>
+      </div>
+    </section>
+
+    <!-- SECTION 5: UTILITIES -->
+    <section class="test-section">
+      <h2 class="test-section__title">5. Utility Classes</h2>
+
+      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Container</h3>
+      <div class="utility-demo">
+        <div class="container" style="background-color: var(--bg-popup); padding: var(--space-6); border-radius: var(--radius-md);">
+          <p style="color: var(--text-body); font-weight: var(--font-medium);">.container (max-width: 1280px, responsive padding)</p>
+        </div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Text Alignment</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <div class="utility-demo">
+          <p class="text-left utility-demo__item">Text Left</p>
+        </div>
+        <div class="utility-demo">
+          <p class="text-center utility-demo__item">Text Center</p>
+        </div>
+        <div class="utility-demo">
+          <p class="text-right utility-demo__item">Text Right</p>
+        </div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Flexbox</h3>
+      <div class="utility-demo">
+        <div class="flex justify-between items-center gap-4" style="background-color: var(--bg-popup); padding: var(--space-4); border-radius: var(--radius-sm);">
+          <div class="utility-demo__item">Item 1</div>
+          <div class="utility-demo__item">Item 2</div>
+          <div class="utility-demo__item">Item 3</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Responsive Visibility (resize to test)</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <div class="utility-demo">
+          <p class="show-mobile utility-demo__item">Visible on mobile only (hide on tablet+)</p>
+        </div>
+        <div class="utility-demo">
+          <p class="hidden-mobile utility-demo__item">Hidden on mobile (visible on tablet+)</p>
+        </div>
+        <div class="utility-demo">
+          <p class="hidden-tablet utility-demo__item">Hidden on tablet and desktop</p>
+        </div>
+        <div class="utility-demo">
+          <p class="hidden-desktop utility-demo__item">Hidden on desktop only</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    /**
+     * Toggle between light and dark themes
+     */
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark-theme');
+    }
+  </script>
+</body>
+</html>
