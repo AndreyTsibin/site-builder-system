@@ -2,6 +2,9 @@
 cloud/
 cloud.md
 
+# Claude Code настройки
+.claude/
+
 # macOS системные файлы
 .DS_Store
 .AppleDouble
