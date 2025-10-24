@@ -2,20 +2,20 @@
 project: "Site Builder"
 current_sprint: 2
 total_tasks: 38
-completed_tasks: 25
-progress_percentage: 65.8
+completed_tasks: 26
+progress_percentage: 68.4
 total_hours: 101
-completed_hours: 51.0
-last_updated: "2025-10-24T18:28:00"
-last_commit: "6e5bbdb"
+completed_hours: 53.0
+last_updated: "2025-10-24T18:31:00"
+last_commit: "TBD"
 status: "in_progress"
 ---
 
 # PROGRESS TRACKING — SITE BUILDER
 
-**Progress:** 25/38 tasks (65.8%) | 51.0h/101h (50.5%)
-**Last Updated:** 2025-10-24 18:28
-**Last Commit:** `6e5bbdb` — feat: complete Task 2.1c - Python CSS Assembly
+**Progress:** 26/38 tasks (68.4%) | 53.0h/101h (52.5%)
+**Last Updated:** 2025-10-24 18:31
+**Last Commit:** `TBD` — feat: complete Task 2.1d - Python Main & CLI
 
 ---
 
@@ -49,13 +49,13 @@ status: "in_progress"
 - [x] **1.7b** Footer CSS (3h) — ✅ **Complete** | `957bf84` | 2025-10-24 18:45
 - [x] **1.8** Update Sections YAML (2h) — ✅ **Complete** | `05c64c9` | 2025-10-24 19:00
 
-### SPRINT 2: AUTOMATION & AI (3/9 tasks, 33.3%)
+### SPRINT 2: AUTOMATION & AI (4/9 tasks, 44.4%)
 
 - [x] **2.1a** Python — Project Structure (2h) — ✅ **Complete** | `613fd2a` | 2025-10-24 18:21
 - [x] **2.1b** Python — HTML Assembly (2h) — ✅ **Complete** | `6816888` | 2025-10-24 18:26
 - [x] **2.1c** Python — CSS Assembly (2h) — ✅ **Complete** | `6e5bbdb` | 2025-10-24 18:28
-- [ ] **2.1d** Python — Main & CLI (2h) — ⏳ Ready | Dep: 2.1c ✅
-- [ ] **2.2** JSON Template (1h) — 🔒 Blocked | Dep: 2.1d
+- [x] **2.1d** Python — Main & CLI (2h) — ✅ **Complete** | `TBD` | 2025-10-24 18:31
+- [ ] **2.2** JSON Template (1h) — ⏳ Ready | Dep: 2.1d ✅
 - [ ] **2.3** Test Assembly Script (2h) — 🔒 Blocked | Dep: 2.2
 - [ ] **2.4a** AI Content — Prompts (3h) — 🔒 Blocked | Dep: 2.3
 - [ ] **2.4b** AI Logic — Business-Data Example (3h) — 🔒 Blocked | Dep: 2.4a
@@ -78,9 +78,9 @@ status: "in_progress"
 |--------|-------|-----------|-------|-----------------|----------|
 | Sprint 0 | 7 | 7 | 11h | 11.0h | 100% ✅ |
 | Sprint 1 | 16 | 16 | 34h | 34.0h | 100% ✅ |
-| Sprint 2 | 9 | 3 | 20h | 6.0h | 33.3% |
+| Sprint 2 | 9 | 4 | 20h | 8.0h | 44.4% |
 | Sprint 3 | 6 | 0 | 19h | 0h | 0% |
-| **TOTAL** | **38** | **25** | **84h** | **51.0h** | **65.8%** |
+| **TOTAL** | **38** | **26** | **84h** | **53.0h** | **68.4%** |
 
 *+ 20% buffer = 101h total estimated time*
 

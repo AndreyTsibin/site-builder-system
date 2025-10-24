@@ -304,17 +304,168 @@ def assemble_css(sections: List[Dict], project_dir: Path) -> Path:
     return output_file
 
 
-# Main function (to be implemented in Task 2.1d)
+def load_selected_sections(config_path: str) -> Dict:
+    """
+    Load selected sections configuration from JSON file.
+
+    Reads JSON file containing project configuration with
+    project name and list of sections to assemble.
+
+    Args:
+        config_path: Path to the JSON configuration file
+                     Example: "templates/selected-sections.json"
+
+    Returns:
+        Dict: Configuration dictionary with 'project_name' and 'sections' keys
+              Example: {"project_name": "my-project", "sections": [...]}
+
+    Raises:
+        FileNotFoundError: If config file doesn't exist
+        json.JSONDecodeError: If JSON file is invalid
+        KeyError: If required keys are missing
+
+    Example:
+        >>> config = load_selected_sections("templates/selected-sections.json")
+        >>> print(config['project_name'])
+        'my-project'
+        >>> print(len(config['sections']))
+        5
+    """
+    config_file = Path(config_path)
+
+    if not config_file.exists():
+        logger.error(f"Configuration file not found: {config_path}")
+        raise FileNotFoundError(f"Config file not found: {config_path}")
+
+    logger.info(f"Loading configuration: {config_path}")
+
+    with open(config_file, 'r', encoding='utf-8') as f:
+        config = json.load(f)
+
+    # Validate required keys
+    if 'project_name' not in config:
+        raise KeyError("Configuration must contain 'project_name' key")
+    if 'sections' not in config:
+        raise KeyError("Configuration must contain 'sections' key")
+
+    logger.info(f"  ✓ Project: {config['project_name']}")
+    logger.info(f"  ✓ Sections: {len(config['sections'])}")
+
+    return config
+
+
 def main():
     """
     Main entry point for the assembly script.
-    Will be implemented in Task 2.1d.
+
+    Workflow:
+    1. Parse command-line arguments
+    2. Load configuration from JSON
+    3. Create project structure
+    4. Copy design system CSS
+    5. Assemble HTML from sections
+    6. Assemble CSS from sections
+    7. Report completion
+
+    Command-line arguments:
+        --config: Path to JSON configuration file (required)
+                  Example: python scripts/assemble.py --config templates/selected-sections.json
+
+    Example:
+        $ python scripts/assemble.py --config templates/selected-sections.json
+        # Creates complete landing page in output/{project_name}/
     """
-    logger.info("Site Builder - Assembly Script")
-    logger.info("Task 2.1a: Project structure creation - READY")
-    logger.info("Task 2.1b: HTML assembly - READY")
-    logger.info("Task 2.1c: CSS assembly - READY")
-    logger.info("Task 2.1d: Not yet implemented")
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(
+        description='Site Builder - Landing Page Assembly Script',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog='''
+Examples:
+  python scripts/assemble.py --config templates/selected-sections.json
+  python scripts/assemble.py --config my-custom-config.json
+
+For more information, see: README.md
+        '''
+    )
+
+    parser.add_argument(
+        '--config',
+        type=str,
+        required=True,
+        help='Path to JSON configuration file with selected sections'
+    )
+
+    args = parser.parse_args()
+
+    # Print header
+    logger.info("=" * 60)
+    logger.info("Site Builder - Landing Page Assembly Script")
+    logger.info("=" * 60)
+    logger.info("")
+
+    start_time = datetime.now()
+
+    try:
+        # Step 1: Load configuration
+        config = load_selected_sections(args.config)
+        project_name = config['project_name']
+        sections = config['sections']
+
+        logger.info("")
+
+        # Step 2: Create project structure
+        project_dir = create_project_structure(project_name)
+
+        logger.info("")
+
+        # Step 3: Copy design system CSS
+        copy_design_system(project_dir)
+
+        logger.info("")
+
+        # Step 4: Assemble HTML
+        assemble_html(sections, project_dir)
+
+        logger.info("")
+
+        # Step 5: Assemble CSS
+        assemble_css(sections, project_dir)
+
+        logger.info("")
+
+        # Calculate execution time
+        end_time = datetime.now()
+        duration = (end_time - start_time).total_seconds()
+
+        # Print success summary
+        logger.info("=" * 60)
+        logger.info("✅ ASSEMBLY COMPLETED SUCCESSFULLY!")
+        logger.info("=" * 60)
+        logger.info(f"Project: {project_name}")
+        logger.info(f"Sections: {len(sections)}")
+        logger.info(f"Output: output/{project_name}/")
+        logger.info(f"Duration: {duration:.2f}s")
+        logger.info("")
+        logger.info("Next steps:")
+        logger.info(f"  1. Open: output/{project_name}/index.html")
+        logger.info("  2. Fill placeholders with Claude Code")
+        logger.info("  3. Test in browser")
+        logger.info("=" * 60)
+
+        return 0
+
+    except FileNotFoundError as e:
+        logger.error(f"❌ File not found: {e}")
+        return 1
+    except json.JSONDecodeError as e:
+        logger.error(f"❌ Invalid JSON: {e}")
+        return 1
+    except KeyError as e:
+        logger.error(f"❌ Missing required key: {e}")
+        return 1
+    except Exception as e:
+        logger.error(f"❌ Unexpected error: {e}")
+        return 1
 
 
 if __name__ == '__main__':
