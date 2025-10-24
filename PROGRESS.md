@@ -1,72 +1,37 @@
 ---
 project: "Site Builder"
 current_sprint: 0
-current_task: "0.2a"
-next_task_name: "Color System"
 total_tasks: 38
 completed_tasks: 1
 progress_percentage: 2.6
 total_hours: 101
 completed_hours: 1
-last_updated: "2025-01-24T15:17:00"
-last_commit: "a4c19e7"
+last_updated: "2025-01-24T15:30:00"
+last_commit: "0b8c664"
 status: "in_progress"
 ---
 
 # PROGRESS TRACKING — SITE BUILDER
 
-**Current Status:** 🚧 Sprint 0 — Foundation (Task 0.2a next)
 **Progress:** 1/38 tasks (2.6%) | 1h/101h (0.9%)
-**Last Updated:** 2025-01-24 15:17
-**Last Commit:** `a4c19e7` — chore: remove design reference materials
-
----
-
-## 🎯 NEXT TASK
-
-**Task 0.2a: Color System (1.5h)**
-
-- **File to create:** `library/design-system/variables.css`
-- **Dependencies:** ✅ 0.1 complete
-- **Prompt Location:** [TASKS.md#L47-L72](dox/TASKS.md#L47-L72)
-- **Action for Claude Code:**
-  1. Read [dox/TASKS.md](dox/TASKS.md) lines 47-72
-  2. Copy prompt from "📋 COPY TO CLAUDE CODE CLI" section
-  3. Execute the prompt
-  4. Update this file (mark 0.2a complete, set next task to 0.2b)
-  5. Commit changes
-
----
-
-## ✅ COMPLETED TASKS (1)
-
-### ✅ Task 0.1: Git Setup
-- **Status:** Complete
-- **Started:** 2025-01-24 15:10
-- **Completed:** 2025-01-24 15:15
-- **Duration:** ~5 min (estimated 1h)
-- **Commit:** `f276f78` — feat: complete Task 0.1 - project structure setup
-- **Output:**
-  - Updated .gitignore (added output/, __pycache__/, *.pyc)
-  - Created folder structure: library/, templates/, scripts/, output/
-  - Created README.md
-  - Added output/.gitkeep
+**Last Updated:** 2025-01-24 15:30
+**Last Commit:** `0b8c664` — feat: add PROGRESS.md for automated task tracking
 
 ---
 
 ## 📋 ALL TASKS STATUS
 
-### SPRINT 0: FOUNDATION (1/7 tasks, 14.3%, 1h/11h)
+### SPRINT 0: FOUNDATION (1/7 tasks, 14.3%)
 
-- [x] **0.1** Git Setup (1h) — ✅ **Complete** | Commit: `f276f78` | 2025-01-24 15:15
-- [ ] **0.2a** Color System (1.5h) — ⏳ **Next** | Dep: 0.1
+- [x] **0.1** Git Setup (1h) — ✅ **Complete** | `f276f78` | 2025-01-24 15:15
+- [ ] **0.2a** Color System (1.5h) — ⏳ Ready | Dep: 0.1
 - [ ] **0.2b** Typography & Spacing (1.5h) — 🔒 Blocked | Dep: 0.2a
 - [ ] **0.2c** UI Elements & Responsive (1h) — 🔒 Blocked | Dep: 0.2b
 - [ ] **0.3** Reset & Utilities CSS (2h) — 🔒 Blocked | Dep: 0.2c
 - [ ] **0.4** Test Design System (2h) — 🔒 Blocked | Dep: 0.3
 - [ ] **0.5** Templates (2h) — 🔒 Blocked | Dep: 0.1
 
-### SPRINT 1: P0 SECTIONS (0/16 tasks, 0%, 0h/34h)
+### SPRINT 1: P0 SECTIONS (0/16 tasks, 0%)
 
 - [ ] **1.1a** Header HTML (1.5h) — 🔒 Blocked | Dep: 0.2c
 - [ ] **1.1b** Header CSS (2h) — 🔒 Blocked | Dep: 1.1a
@@ -84,7 +49,7 @@ status: "in_progress"
 - [ ] **1.7b** Footer CSS (3h) — 🔒 Blocked | Dep: 1.7a
 - [ ] **1.8** Update Sections YAML (2h) — 🔒 Blocked | Dep: 1.7b
 
-### SPRINT 2: AUTOMATION & AI (0/9 tasks, 0%, 0h/20h)
+### SPRINT 2: AUTOMATION & AI (0/9 tasks, 0%)
 
 - [ ] **2.1a** Python — Project Structure (2h) — 🔒 Blocked | Dep: 1.8
 - [ ] **2.1b** Python — HTML Assembly (2h) — 🔒 Blocked | Dep: 2.1a
@@ -96,7 +61,7 @@ status: "in_progress"
 - [ ] **2.4b** AI Logic — Business-Data Example (3h) — 🔒 Blocked | Dep: 2.4a
 - [ ] **2.5** First E2E Test (3h) — 🔒 Blocked | Dep: 2.4b
 
-### SPRINT 3: TESTING & POLISH (0/6 tasks, 0%, 0h/19h)
+### SPRINT 3: TESTING & POLISH (0/6 tasks, 0%)
 
 - [ ] **3.1a** Performance — PageSpeed Audit (3h) — 🔒 Blocked | Dep: 2.5
 - [ ] **3.1b** Performance — Optimization (3h) — 🔒 Blocked | Dep: 3.1a
@@ -111,61 +76,38 @@ status: "in_progress"
 
 | Sprint | Tasks | Completed | Hours | Completed Hours | Progress |
 |--------|-------|-----------|-------|-----------------|----------|
-| **Sprint 0** | 7 | 1 | 11h | 1h | 14.3% |
-| **Sprint 1** | 16 | 0 | 34h | 0h | 0% |
-| **Sprint 2** | 9 | 0 | 20h | 0h | 0% |
-| **Sprint 3** | 6 | 0 | 19h | 0h | 0% |
+| Sprint 0 | 7 | 1 | 11h | 1h | 14.3% |
+| Sprint 1 | 16 | 0 | 34h | 0h | 0% |
+| Sprint 2 | 9 | 0 | 20h | 0h | 0% |
+| Sprint 3 | 6 | 0 | 19h | 0h | 0% |
 | **TOTAL** | **38** | **1** | **84h** | **1h** | **2.6%** |
 
 *+ 20% buffer = 101h total estimated time*
 
 ---
 
-## 🤖 AUTOMATION WORKFLOW
+## 📝 UPDATE INSTRUCTIONS
 
-**For Claude Code to auto-execute next task:**
+**When completing a task:**
 
-1. **Read this file** → Find "NEXT TASK" section
-2. **Navigate to TASKS.md** → Use "Prompt Location" link
-3. **Extract prompt** → Copy from "📋 COPY TO CLAUDE CODE CLI" block
-4. **Execute task** → Follow prompt instructions
-5. **Update PROGRESS.md:**
-   - Move completed task to "COMPLETED TASKS" section
-   - Add metadata: completion time, commit hash, duration
-   - Update YAML frontmatter (current_task, completed_tasks, progress_percentage, completed_hours)
-   - Set next task in "NEXT TASK" section
-6. **Commit changes** → Use format: `feat: complete Task X.Y - description`
-7. **Repeat** → Read updated PROGRESS.md for next task
+1. Update checkbox: `- [ ]` → `- [x]`
 
----
+2. Add completion metadata to task line:
+   ```markdown
+   - [x] **X.Y** Task Name (Xh) — ✅ **Complete** | `hash` | YYYY-MM-DD HH:MM
+   ```
 
-## 📝 UPDATE TEMPLATE
+3. Update YAML frontmatter:
+   ```yaml
+   completed_tasks: N
+   progress_percentage: X.X
+   completed_hours: N
+   last_updated: "YYYY-MM-DDTHH:MM:SS"
+   last_commit: "hash"
+   ```
 
-**When completing a task, add to "COMPLETED TASKS":**
-
-```markdown
-### ✅ Task X.Y: Task Name
-- **Status:** Complete
-- **Started:** YYYY-MM-DD HH:MM
-- **Completed:** YYYY-MM-DD HH:MM
-- **Duration:** Xh Xmin (estimated Xh)
-- **Commit:** `hash` — commit message
-- **Output:**
-  - File/folder created
-  - Key changes
-```
-
-**Update YAML frontmatter:**
-```yaml
-current_task: "X.Y"
-completed_tasks: N
-progress_percentage: X.X
-completed_hours: N
-last_updated: "YYYY-MM-DDTHH:MM:SS"
-last_commit: "hash"
-```
+4. Update sprint progress in summary table
 
 ---
 
-**Last Manual Update:** 2025-01-24 15:17
-**Next Auto-Update:** After Task 0.2a completion
+**Last Update:** 2025-01-24 15:30
