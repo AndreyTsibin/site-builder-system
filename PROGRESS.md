@@ -2,20 +2,20 @@
 project: "Site Builder"
 current_sprint: 1
 total_tasks: 38
-completed_tasks: 12
-progress_percentage: 31.6
+completed_tasks: 13
+progress_percentage: 34.2
 total_hours: 101
-completed_hours: 20.0
-last_updated: "2025-10-24T17:46:00"
-last_commit: "2f58c60"
+completed_hours: 22.0
+last_updated: "2025-10-24T18:00:00"
+last_commit: "c75e9e2"
 status: "in_progress"
 ---
 
 # PROGRESS TRACKING — SITE BUILDER
 
-**Progress:** 12/38 tasks (31.6%) | 20.0h/101h (19.8%)
-**Last Updated:** 2025-10-24 17:46
-**Last Commit:** `2f58c60` — feat: complete Task 1.2b - Hero-1 CSS
+**Progress:** 13/38 tasks (34.2%) | 22.0h/101h (21.8%)
+**Last Updated:** 2025-10-24 18:00
+**Last Commit:** `c75e9e2` — feat: complete Task 1.3a - Hero-2 HTML
 
 ---
 
@@ -31,15 +31,15 @@ status: "in_progress"
 - [x] **0.4** Test Design System (2h) — ✅ **Complete** | `f628487` | 2025-10-24 17:15
 - [x] **0.5** Templates (2h) — ✅ **Complete** | `60bab4c` | 2025-10-24 17:25
 
-### SPRINT 1: P0 SECTIONS (5/16 tasks, 31.3%)
+### SPRINT 1: P0 SECTIONS (6/16 tasks, 37.5%)
 
 - [x] **1.1a** Header HTML (1.5h) — ✅ **Complete** | `2e7c07a` | 2025-10-24 17:35
 - [x] **1.1b** Header CSS (2h) — ✅ **Complete** | `8f8182b` | 2025-10-24 17:42
 - [x] **1.1c** Header JS (1.5h) — ✅ **Complete** | `36b465f` | 2025-10-24 17:50
 - [x] **1.2a** Hero-1 HTML (2h) — ✅ **Complete** | `3ad61aa` | 2025-10-24 17:41
 - [x] **1.2b** Hero-1 CSS (2h) — ✅ **Complete** | `2f58c60` | 2025-10-24 17:46
-- [ ] **1.3a** Hero-2 HTML (2h) — ⏳ Ready | Dep: 0.2c
-- [ ] **1.3b** Hero-2 CSS (2h) — 🔒 Blocked | Dep: 1.3a
+- [x] **1.3a** Hero-2 HTML (2h) — ✅ **Complete** | `c75e9e2` | 2025-10-24 18:00
+- [ ] **1.3b** Hero-2 CSS (2h) — ⏳ Ready | Dep: 1.3a
 - [ ] **1.4a** Features-2col HTML (2.5h) — ⏳ Ready | Dep: 0.2c
 - [ ] **1.4b** Features-2col CSS (2.5h) — 🔒 Blocked | Dep: 1.4a
 - [ ] **1.5a** Features-3col HTML (2.5h) — ⏳ Ready | Dep: 0.2c
@@ -77,10 +77,10 @@ status: "in_progress"
 | Sprint | Tasks | Completed | Hours | Completed Hours | Progress |
 |--------|-------|-----------|-------|-----------------|----------|
 | Sprint 0 | 7 | 7 | 11h | 11.0h | 100% ✅ |
-| Sprint 1 | 16 | 5 | 34h | 9.0h | 31.3% |
+| Sprint 1 | 16 | 6 | 34h | 11.0h | 37.5% |
 | Sprint 2 | 9 | 0 | 20h | 0h | 0% |
 | Sprint 3 | 6 | 0 | 19h | 0h | 0% |
-| **TOTAL** | **38** | **12** | **84h** | **20.0h** | **31.6%** |
+| **TOTAL** | **38** | **13** | **84h** | **22.0h** | **34.2%** |
 
 *+ 20% buffer = 101h total estimated time*
 
@@ -110,4 +110,4 @@ status: "in_progress"
 
 ---
 
-**Last Update:** 2025-10-24 17:46
+**Last Update:** 2025-10-24 18:00
