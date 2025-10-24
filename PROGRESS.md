@@ -7,7 +7,7 @@ progress_percentage: 65.8
 total_hours: 101
 completed_hours: 51.0
 last_updated: "2025-10-24T18:28:00"
-last_commit: "TBD"
+last_commit: "6e5bbdb"
 status: "in_progress"
 ---
 
@@ -15,7 +15,7 @@ status: "in_progress"
 
 **Progress:** 25/38 tasks (65.8%) | 51.0h/101h (50.5%)
 **Last Updated:** 2025-10-24 18:28
-**Last Commit:** `TBD` — feat: complete Task 2.1c - Python CSS Assembly
+**Last Commit:** `6e5bbdb` — feat: complete Task 2.1c - Python CSS Assembly
 
 ---
 
@@ -53,7 +53,7 @@ status: "in_progress"
 
 - [x] **2.1a** Python — Project Structure (2h) — ✅ **Complete** | `613fd2a` | 2025-10-24 18:21
 - [x] **2.1b** Python — HTML Assembly (2h) — ✅ **Complete** | `6816888` | 2025-10-24 18:26
-- [x] **2.1c** Python — CSS Assembly (2h) — ✅ **Complete** | `TBD` | 2025-10-24 18:28
+- [x] **2.1c** Python — CSS Assembly (2h) — ✅ **Complete** | `6e5bbdb` | 2025-10-24 18:28
 - [ ] **2.1d** Python — Main & CLI (2h) — ⏳ Ready | Dep: 2.1c ✅
 - [ ] **2.2** JSON Template (1h) — 🔒 Blocked | Dep: 2.1d
 - [ ] **2.3** Test Assembly Script (2h) — 🔒 Blocked | Dep: 2.2
