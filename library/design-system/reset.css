@@ -1,0 +1,272 @@
+/**
+ * Site Builder — CSS Reset
+ * Based on CSS Remedy and modern best practices
+ *
+ * References:
+ * - CSS Remedy: https://github.com/jensimmons/cssremedy
+ * - Modern CSS Reset: https://piccalil.li/blog/a-modern-css-reset/
+ */
+
+
+/* ========================================
+   BOX-SIZING
+   ======================================== */
+
+/**
+ * Use border-box for all elements
+ * Makes it easier to calculate element sizes
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   DOCUMENT
+   ======================================== */
+
+/**
+ * Set default font size and smoothing
+ */
+html {
+  font-size: 16px; /* 1rem = 16px */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * Body defaults
+ */
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  background-color: var(--bg-page);
+}
+
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+/**
+ * Remove default margins for typography elements
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+figure, figcaption {
+  margin: 0;
+}
+
+/**
+ * Better text wrapping for headings and paragraphs
+ * Prevents overflow on long words
+ */
+h1, h2, h3, h4, h5, h6,
+p {
+  overflow-wrap: break-word;
+}
+
+/**
+ * Remove list styles for elements with class
+ * This prevents accidental styling of semantic lists
+ */
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * Default list styles for semantic lists (without class)
+ */
+ul:not([class]),
+ol:not([class]) {
+  padding-left: 1.5rem;
+}
+
+
+/* ========================================
+   MEDIA ELEMENTS
+   ======================================== */
+
+/**
+ * Images, videos, and SVGs as block elements
+ * Prevents layout issues with inline display
+ */
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Remove default border on images inside links
+ */
+img {
+  border-style: none;
+}
+
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+/**
+ * Inherit font styles for form elements
+ * Ensures consistency with surrounding text
+ */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/**
+ * Remove default button styles
+ * Allows full customization
+ */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/**
+ * Remove spinners from number inputs
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+/* ========================================
+   LINKS
+   ======================================== */
+
+/**
+ * Remove default underline and inherit color
+ */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+ * Remove outline on links (focus-visible handles this better)
+ */
+a:focus {
+  outline: none;
+}
+
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+/**
+ * Respect user's motion preferences
+ * Disable animations for users who prefer reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/**
+ * Focus styles for keyboard navigation
+ * Only show outline when navigating with keyboard
+ */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/**
+ * Remove outline for mouse/touch interactions
+ */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+/* ========================================
+   SCROLLBAR STYLING (Webkit browsers)
+   ======================================== */
+
+/**
+ * Custom scrollbar for webkit browsers (Chrome, Safari, Edge)
+ */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-section);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-section);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+
+/* ========================================
+   UTILITY RESETS
+   ======================================== */
+
+/**
+ * Remove default margin and padding from common elements
+ */
+blockquote,
+dl, dd,
+figure,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Remove border from fieldset
+ */
+fieldset {
+  border: 0;
+}
+
+/**
+ * Remove default table spacing
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

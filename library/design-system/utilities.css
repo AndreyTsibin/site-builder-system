@@ -1,0 +1,325 @@
+/**
+ * Site Builder — Utility Classes
+ *
+ * Mobile-first responsive utility classes using BEM modifiers
+ * All classes use CSS variables from variables.css
+ */
+
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+
+/**
+ * Container with max-width and responsive padding
+ * Default: 1280px max-width, centered
+ */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);  /* 16px on mobile */
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--space-8);  /* 32px on tablet */
+    padding-right: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--space-12); /* 48px on desktop */
+    padding-right: var(--space-12);
+  }
+}
+
+/**
+ * Container variants (BEM modifiers)
+ */
+.container--narrow {
+  max-width: 768px;
+}
+
+.container--wide {
+  max-width: 1440px;
+}
+
+.container--full {
+  max-width: 100%;
+}
+
+
+/* ========================================
+   TEXT ALIGNMENT
+   ======================================== */
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+
+/* ========================================
+   DISPLAY
+   ======================================== */
+
+.block {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* ========================================
+   FLEXBOX UTILITIES
+   ======================================== */
+
+/**
+ * Flex direction
+ */
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+/**
+ * Justify content
+ */
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+/**
+ * Align items
+ */
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+/**
+ * Flex gaps (using spacing scale)
+ */
+.gap-1 {
+  gap: var(--space-1);  /* 4px */
+}
+
+.gap-2 {
+  gap: var(--space-2);  /* 8px */
+}
+
+.gap-3 {
+  gap: var(--space-3);  /* 12px */
+}
+
+.gap-4 {
+  gap: var(--space-4);  /* 16px */
+}
+
+.gap-5 {
+  gap: var(--space-5);  /* 20px */
+}
+
+.gap-6 {
+  gap: var(--space-6);  /* 24px */
+}
+
+.gap-7 {
+  gap: var(--space-7);  /* 28px */
+}
+
+.gap-8 {
+  gap: var(--space-8);  /* 32px */
+}
+
+
+/* ========================================
+   RESPONSIVE VISIBILITY
+   ======================================== */
+
+/**
+ * Mobile-first approach: show by default, hide on larger screens
+ */
+
+/* Mobile only (hide on tablet and desktop) */
+@media (min-width: 768px) {
+  .hidden-tablet {
+    display: none;
+  }
+}
+
+/* Hide on desktop */
+@media (min-width: 1024px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
+/* Hide on mobile (show on tablet+) */
+.hidden-mobile {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hidden-mobile {
+    display: block;
+  }
+}
+
+/* Show on mobile only (hide on tablet+) */
+.show-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .show-mobile {
+    display: none;
+  }
+}
+
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+/**
+ * Screen reader only
+ * Visually hidden but accessible to screen readers
+ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/**
+ * Skip to main content link
+ * For keyboard navigation
+ */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  z-index: 100;
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.skip-to-main:focus {
+  top: var(--space-4);
+  left: var(--space-4);
+}
+
+
+/* ========================================
+   HELPERS
+   ======================================== */
+
+/**
+ * Disable body scroll (for modals)
+ */
+.no-scroll {
+  overflow: hidden;
+}
+
+/**
+ * Width and height
+ */
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+/**
+ * Positioning
+ */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
