@@ -1,0 +1,178 @@
+/**
+ * CTA-Simple: Simple Call-to-Action Section CSS
+ *
+ * Features:
+ * - Centered layout with contrasting primary background
+ * - Bold heading and supporting text
+ * - Prominent CTA button with hover effects
+ * - Mobile-first responsive design
+ * - CSS variables for theming
+ * - BEM methodology
+ *
+ * Breakpoints:
+ * - Mobile: default (320px+) — compact padding, smaller text
+ * - Tablet: 768px+ — increased padding and text sizes
+ * - Desktop: 1024px+ — maximum spacing and typography
+ */
+
+
+/* ========================================
+   SECTION CONTAINER
+   ======================================== */
+
+.cta-simple {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+}
+
+
+/* ========================================
+   CONTENT WRAPPER
+   ======================================== */
+
+.cta-simple__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   CTA TITLE
+   ======================================== */
+
+.cta-simple__title {
+  margin: 0;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-on-primary);
+}
+
+
+/* ========================================
+   CTA TEXT
+   ======================================== */
+
+.cta-simple__text {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-on-primary);
+  opacity: 0.95;
+}
+
+
+/* ========================================
+   CTA BUTTON
+   ======================================== */
+
+.cta-simple__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--space-8);
+  margin-top: var(--space-4);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--primary);
+  background-color: var(--bg);
+  border: 2px solid var(--bg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+/**
+ * Button hover effect: inverted colors with transparency
+ */
+.cta-simple__button:hover {
+  background-color: transparent;
+  border-color: var(--text-on-primary);
+  color: var(--text-on-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/**
+ * Button focus state for accessibility
+ */
+.cta-simple__button:focus {
+  outline: 3px solid var(--text-on-primary);
+  outline-offset: 4px;
+}
+
+/**
+ * Button active state
+ */
+.cta-simple__button:active {
+  transform: translateY(0);
+}
+
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+
+@media (min-width: 768px) {
+  .cta-simple {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+
+  .cta-simple__content {
+    gap: var(--space-8);
+  }
+
+  .cta-simple__title {
+    font-size: var(--text-4xl);
+  }
+
+  .cta-simple__text {
+    font-size: var(--text-xl);
+  }
+
+  .cta-simple__button {
+    padding: var(--space-5) var(--space-10);
+    font-size: var(--text-lg);
+  }
+}
+
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+
+@media (min-width: 1024px) {
+  .cta-simple {
+    padding-top: var(--space-32);
+    padding-bottom: var(--space-32);
+  }
+
+  .cta-simple__content {
+    gap: var(--space-10);
+  }
+
+  .cta-simple__button {
+    padding: var(--space-6) var(--space-12);
+    margin-top: var(--space-6);
+  }
+}
+
+
+/* ========================================
+   WIDE DESKTOP (1440px+)
+   ======================================== */
+
+@media (min-width: 1440px) {
+  .cta-simple__content {
+    max-width: 900px;
+  }
+}

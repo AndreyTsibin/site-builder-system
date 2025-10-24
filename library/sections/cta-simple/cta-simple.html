@@ -1,0 +1,43 @@
+<!--
+  CTA-Simple: Simple Call-to-Action Section
+
+  Features:
+  - Centered layout with contrasting background
+  - Bold heading (H2)
+  - Supporting text paragraph
+  - Primary CTA button
+  - Full ARIA accessibility support
+  - BEM methodology
+  - Mobile-first responsive design
+
+  Placeholders:
+  - {{cta.title}} — Main CTA heading (H2)
+  - {{cta.text}} — Supporting text/description
+  - {{cta.button_text}} — Button label text
+  - {{cta.button_link}} — Button URL/link
+-->
+
+<section class="cta-simple" role="region" aria-labelledby="ctaTitle">
+  <div class="container">
+
+    <div class="cta-simple__content">
+
+      <!-- CTA Title -->
+      <h2 class="cta-simple__title" id="ctaTitle">
+        {{cta.title}}
+      </h2>
+
+      <!-- CTA Text -->
+      <p class="cta-simple__text">
+        {{cta.text}}
+      </p>
+
+      <!-- CTA Button -->
+      <a href="{{cta.button_link}}" class="cta-simple__button" role="button">
+        {{cta.button_text}}
+      </a>
+
+    </div>
+
+  </div>
+</section>
