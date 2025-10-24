@@ -49,7 +49,6 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 
 - **[README.md](README.md)** — Project overview, workflow, quick start
 - **[docs/USAGE.md](docs/USAGE.md)** — Step-by-step usage guide
-- **[PROGRESS.md](PROGRESS.md)** — Completed tasks history (for reference)
 
 **Component structure:**
 

@@ -300,7 +300,6 @@ open output/[project-name]/index.html
 ## 📖 Документация
 
 - [USAGE.md](docs/USAGE.md) — Полное руководство по использованию Site Builder
-- [PROGRESS.md](PROGRESS.md) — История выполненных задач (для справки)
 
 ---
 
