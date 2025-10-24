@@ -87,13 +87,43 @@ python scripts/assemble.py --config templates/selected-sections.json
 - **Результат:** Готовый "каркас" с пустыми плейсхолдерами
 
 ### Этап 3: AI-генерация контента (15 мин)
-Команда Claude Code: *"Заполни плейсхолдеры в index.html используя business-data.md"*
 
-Claude анализирует:
-- **Данные из business-data.md** (телефон, цены, адрес) → вставляет как есть
-- **Отсутствующие данные** (заголовки, описания, отзывы) → генерирует сам
+**Промпт для Claude Code:**
 
-**Результат:** Полностью заполненный лендинг с релевантным контентом
+```
+Заполни все плейсхолдеры {{...}} в output/{project_name}/index.html
+используя данные из templates/business-data.md.
+
+ПРАВИЛА:
+1. Данные из business-data.md используй как есть
+2. Если данных нет — генерируй релевантный контент для типа бизнеса
+3. НЕ используй слова "пример", "шаблон", "замените"
+4. Формат телефона: +7 (999) 123-45-67
+5. Remix Icon классы: ri-time-line, ri-shield-check-line, ri-tools-line и т.д.
+
+ПЛЕЙСХОЛДЕРЫ:
+- {{meta.title}}, {{meta.description}} — SEO (120-160 символов)
+- {{logo.text}}, {{nav.item1-3}} — Навигация (Услуги, О нас, Контакты)
+- {{contacts.phone}}, {{contacts.email}}, {{contacts.address}}
+- {{hero.title}}, {{hero.subtitle}}, {{hero.cta_text}} — Главный экран
+- {{features.section_title}}, {{features.item1-6.icon/title/text}} — Преимущества
+- {{cta.title}}, {{cta.text}}, {{cta.button_text}} — Призыв к действию
+- {{footer.copyright}}, {{footer.about}} — Подвал
+- {{social.vk/telegram/whatsapp/instagram}} — Соцсети (если нет — оставь плейсхолдер)
+
+КАЧЕСТВО:
+✅ Конкретика: "гарантия 3 года", "выезд за 1 час" (НЕ "высокое качество")
+✅ Цифры и факты: "12 500 заказов", "рейтинг 4.9/5.0"
+✅ Тон: профессиональный, дружелюбный
+❌ Штампы: "мы лучшие", "только у нас"
+
+После заполнения:
+1. Проверь UTF-8: head -50 output/{project_name}/index.html
+2. Проверь незаполненные: grep "{{" output/{project_name}/index.html
+3. Открой в браузере: open output/{project_name}/index.html
+```
+
+**Результат:** Полностью заполненный лендинг с релевантным контентом за 5-10 минут
 
 ### Этап 4: Тестирование (8 мин)
 ```bash
@@ -119,6 +149,62 @@ open output/[project-name]/index.html
 
 ---
 
+## 📝 Примеры плейсхолдеров
+
+**Meta-теги:**
+```html
+<title>{{meta.title}}</title>
+<!-- → РемТехСервис — Ремонт стиральных машин в Москве -->
+
+<meta name="description" content="{{meta.description}}">
+<!-- → Ремонт стиральных машин в Москве. Выезд за 1 час. Гарантия до 3 лет. -->
+```
+
+**Header:**
+```html
+<span>{{logo.text}}</span>                    → РемТехСервис
+<a href="#services">{{nav.item1}}</a>         → Услуги
+<a href="tel:{{contacts.phone}}">...</a>      → +7 (495) 789-45-67
+<button>{{header.cta_text}}</button>          → Вызвать мастера
+```
+
+**Hero:**
+```html
+<h1>{{hero.title}}</h1>
+<!-- → Ремонт стиральных машин в Москве за 1 час -->
+
+<p>{{hero.subtitle}}</p>
+<!-- → Бесплатная диагностика, гарантия до 3 лет, работаем 24/7 -->
+```
+
+**Features:**
+```html
+<h2>{{features.section_title}}</h2>           → Почему выбирают нас
+<i class="{{features.item1.icon}}"></i>       → ri-time-line
+<h3>{{features.item1.title}}</h3>             → Выезд мастера за 1 час
+<p>{{features.item1.text}}</p>
+<!-- → Оперативно выезжаем на заказы в любой район Москвы и МО. -->
+```
+
+**Footer:**
+```html
+<p>{{footer.copyright}}</p>
+<!-- → © 2025 РемТехСервис. Все права защищены. -->
+
+<a href="{{social.vk}}">VK</a>                → https://vk.com/remtechservice
+```
+
+**Remix Icon примеры:**
+- `ri-time-line` — Скорость, время
+- `ri-shield-check-line` — Гарантия, качество
+- `ri-tools-line` — Инструменты, ремонт
+- `ri-award-line` — Награды, достижения
+- `ri-home-line` — Дом, локация
+
+**Полный список:** https://remixicon.com/
+
+---
+
 ## ⚡ Performance Targets
 
 - **PageSpeed Insights:** >90 (mobile + desktop)
@@ -141,9 +227,16 @@ open output/[project-name]/index.html
 
 ### Текущий статус
 
-**STAGE 4 COMPLETE** — Task Orchestration (TASKS.md готов)
+**✅ SPRINT 2 COMPLETE** — Automation & AI (9/9 tasks, 100%)
 
-**Следующий шаг:** STAGE 5 — Development (выполнение задач)
+**Что работает:**
+- ✅ Python скрипт сборки лендингов (0.02s на проект)
+- ✅ AI-генерация контента через Claude Code
+- ✅ E2E тест пройден (washing-machine-repair)
+- ✅ Design System + 7 готовых секций
+- ✅ Полный workflow от business-data до готового лендинга
+
+**Следующий шаг:** Sprint 3 — Testing & Polish (6 tasks, 19h)
 
 ### Начало работы
 
@@ -159,13 +252,21 @@ ls -la library/ templates/ scripts/ output/
 # Task 0.1: Git Setup → Task 0.2a: Colors → ...
 ```
 
-### Команды (после завершения Sprint 2)
+### Команды
 
 ```bash
-# Создать лендинг из выбранных секций
+# 1. Создать лендинг из выбранных секций
 python scripts/assemble.py --config templates/selected-sections.json
 
-# Открыть в браузере
+# 2. Заполнить плейсхолдеры (используй промпт из "Этап 3" выше)
+
+# 3. Проверка UTF-8 encoding
+head -50 output/[project-name]/index.html
+
+# 4. Поиск незаполненных плейсхолдеров
+grep "{{" output/[project-name]/index.html
+
+# 5. Открыть в браузере
 open output/[project-name]/index.html
 ```
 
@@ -224,6 +325,7 @@ open output/[project-name]/index.html
 
 ---
 
-**Status:** 🚧 In Development (Sprint 0 starting)
-**Last Update:** 2025-01-24
-**Next Task:** [Task 0.1 — Git Setup](dox/TASKS.md)
+**Status:** ✅ Sprint 2 Complete (Automation & AI working!)
+**Last Update:** 2025-10-24
+**Progress:** 31/38 tasks (81.6%) | Sprint 3 starting
+**Next Task:** [Task 3.1a — Performance Audit](dox/TASKS.md)
