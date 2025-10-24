@@ -4,42 +4,13 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 
 ---
 
-## 🤖 SESSION START PROTOCOL
-
-**CRITICAL: When user says "продолжай выполнять задачу" / "continue task" / starts new session:**
-
-1. **Read [PROGRESS.md](PROGRESS.md)** first
-2. **Find first unchecked task** `- [ ]` with status `⏳ Ready`
-3. **Go to [dox/TASKS.md](dox/TASKS.md)** → locate that task
-4. **Extract prompt** from `📋 COPY TO CLAUDE CODE CLI` block
-5. **Execute task automatically** (follow prompt instructions)
-6. **After completion:**
-   - Mark task as `[x]` in PROGRESS.md
-   - Move to "COMPLETED TASKS" section with metadata
-   - Update YAML frontmatter (completed_tasks, progress_percentage, last_commit)
-   - Commit: `feat: complete Task X.Y - description`
-7. **Repeat** for next task
-
-**Example user message:**
-
-> "Продолжай выполнять задачу"
-
-**Your action:**
-
-1. Read PROGRESS.md → see Task 0.2a unchecked
-2. Read dox/TASKS.md lines 47-72 → get Task 0.2a prompt
-3. Execute: Create library/design-system/variables.css with HSL colors
-4. Update PROGRESS.md → commit → done
-
----
-
 ## 📋 PROJECT OVERVIEW
 
 **Site Builder** — AI-powered landing page constructor (local, no frameworks)
 
 - **Goal:** Assemble landing pages from ready-made sections ("LEGO approach") + AI content generation
-- **Current Stage:** Development Sprint 0 (Task 0.2a next)
-- **Total:** 38 tasks, 101h estimated
+- **Current Stage:** ✅ MVP Complete (38/38 tasks, 100%)
+- **Phase:** Improvement & Support
 
 ---
 
@@ -53,32 +24,81 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 
 ---
 
-## 📂 KEY FILES (Read for context)
-
-**Must-read for automation:**
-
-- **[PROGRESS.md](PROGRESS.md)** — Current task tracking (38 tasks checklist)
-- **[dox/TASKS.md](dox/TASKS.md)** — 38 ready-to-execute prompts
-
-**Reference documentation:**
-
-- **[README.md](README.md)** — Project overview, workflow, tech stack
-- **[dox/PRD.md](dox/PRD.md)** — Product requirements
-- **[dox/ARCHITECTURE.md](dox/ARCHITECTURE.md)** — Design system, components structure
-- **[dox/PLANNING.md](dox/PLANNING.md)** — 4-sprint roadmap (84h)
-
-**Project structure:**
+## 📂 PROJECT STRUCTURE
 
 ```
 /site-builder/
-├── library/              # Component library (creating now)
-│   ├── design-system/    # CSS variables, reset, utilities
+├── library/              # Component library (sections + design system)
+│   ├── design-system/    # variables.css, reset.css, utilities.css
 │   └── sections/         # HTML/CSS/JS sections (header, hero, footer, etc.)
-├── templates/            # Business data, sections descriptions
-├── scripts/              # Python assembly script
+├── templates/            # Business data examples + sections catalog
+│   ├── business-data/    # business-data.md (content for AI)
+│   ├── sections.yaml     # Sections catalog with metadata
+│   └── *.json            # Selected sections for assembly
+├── scripts/              # Python assembly script (build.py)
 ├── output/               # Generated landing pages
-└── dox/                  # Documentation
+└── docs/                 # Documentation
+    └── USAGE.md          # How to use the builder
 ```
+
+---
+
+## 📖 KEY FILES (Read for context)
+
+**Essential documentation:**
+
+- **[README.md](README.md)** — Project overview, workflow, quick start
+- **[docs/USAGE.md](docs/USAGE.md)** — Step-by-step usage guide
+- **[PROGRESS.md](PROGRESS.md)** — Completed tasks history (for reference)
+
+**Component structure:**
+
+- **[library/design-system/](library/design-system/)** — CSS variables, reset, utilities
+- **[library/sections/](library/sections/)** — All available sections
+- **[templates/sections.yaml](templates/sections.yaml)** — Sections catalog
+- **[templates/business-data/](templates/business-data/)** — Example business data
+
+---
+
+## 🎯 WORKING WITH COMPLETED PROJECT
+
+### When user asks to improve/add features:
+
+1. **Understand the request** — Ask clarifying questions if needed
+2. **Check existing code** — Read relevant files to understand current implementation
+3. **Plan changes** — Break complex tasks into steps (use TodoWrite if 3+ steps)
+4. **Implement** — Follow code standards below
+5. **Test** — Verify changes work (build landing, check output)
+6. **Commit** — Use proper commit format
+
+### When adding new sections:
+
+1. **Create section files** in `library/sections/[section-name]/`:
+   - `[section-name].html` — Semantic HTML with `{{placeholders}}`
+   - `[section-name].css` — BEM methodology, design-system variables
+   - `[section-name].js` — (optional) ES6+ JavaScript
+
+2. **Update sections catalog** in `templates/sections.yaml`:
+   ```yaml
+   - id: section-name
+     name: Section Name
+     category: category-name
+     description: Brief description
+     placeholders:
+       - section.variable1
+       - section.variable2
+   ```
+
+3. **Test assembly** — Create JSON template and run `python3 scripts/build.py`
+
+4. **Document** — Update docs/USAGE.md if needed
+
+### When refactoring/optimizing:
+
+1. **Preserve functionality** — Don't break existing features
+2. **Run tests** — Build existing landing pages to verify nothing broke
+3. **Check performance** — Ensure metrics stay >90 (PageSpeed, Lighthouse)
+4. **Update documentation** — If behavior changes, update docs/USAGE.md
 
 ---
 
@@ -111,14 +131,14 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 
 - **Branch:** `design`
 - **Commit format:** `feat:`, `fix:`, `refactor:`, `chore:`
-- **Commit frequency:** After each task completion
 - **Commit message template:**
 
   ```
-  feat: complete Task X.Y - short description
+  feat: add new pricing section
 
-  - Changes made
-  - Files created
+  - Create library/sections/pricing/pricing.html
+  - Add pricing.css with responsive grid
+  - Update sections.yaml catalog
 
   🤖 Generated with Claude Code
   ```
@@ -130,7 +150,7 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 **MANDATORY after Write tool with Russian text:**
 
 1. Write file
-2. **IMMEDIATELY run:** `head -5 filename.md` (NO EXCEPTIONS)
+2. **IMMEDIATELY run:** `head -5 filename` (NO EXCEPTIONS)
 3. **Verify visually:** Clean Cyrillic (✅ "Данные") or corrupted (❌ "����")
 4. **If corrupted:** Rewrite file with correct encoding
 5. Only then proceed
@@ -163,30 +183,22 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 
 ---
 
-## 🎯 AUTOMATION REMINDERS
+## 🧪 TESTING CHECKLIST
 
-**Before starting work:**
+**Before completing any improvement:**
 
-1. ✅ Read PROGRESS.md to know current task
-2. ✅ Read TASKS.md to get exact prompt
-3. ✅ Check dependencies (Dep: X.Y)
-
-**During work:**
-
-1. ✅ Follow prompt instructions exactly
-2. ✅ UTF-8 check for Cyrillic files
-3. ✅ Use CSS variables from design-system
-4. ✅ English comments in code
-
-**After completion:**
-
-1. ✅ Update PROGRESS.md (mark task complete, add metadata)
-2. ✅ Update YAML frontmatter
-3. ✅ Commit with proper format
-4. ✅ Ready for next task
+1. ✅ Code follows standards (BEM, semantic HTML, ES6+)
+2. ✅ UTF-8 verified for Cyrillic content
+3. ✅ CSS uses design-system variables
+4. ✅ Responsive design tested (mobile-first)
+5. ✅ Accessibility checked (ARIA, alt texts)
+6. ✅ Build script works (`python3 scripts/build.py`)
+7. ✅ Output HTML renders correctly in browser
+8. ✅ No console errors in DevTools
+9. ✅ Git commit with proper format
 
 ---
 
-**Version:** 1.0
-**Last Update:** 2025-01-24
-**Total Lines:** ~170 (optimized for Claude Code context window)
+**Version:** 2.0 (Improvement Phase)
+**Last Update:** 2025-10-24
+**Status:** MVP Complete, ready for enhancements

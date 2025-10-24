@@ -58,11 +58,8 @@ Site Builder — это инструмент для создания качес�
 │   └── [project-name]/
 │       ├── index.html
 │       ├── css/, js/, assets/
-├── dox/                        # Документация
-│   ├── PRD.md                  # Product Requirements
-│   ├── ARCHITECTURE.md         # Техническая архитектура
-│   ├── PLANNING.md             # Roadmap (4 спринта)
-│   └── TASKS.md                # 38 атомарных задач для Claude Code
+├── docs/                       # Документация
+│   └── USAGE.md                # Руководство по использованию
 └── README.md
 ```
 
@@ -251,23 +248,21 @@ open output/[project-name]/index.html
 
 ---
 
-## 🛠️ Разработка
+## 🛠️ Возможности
 
 ### Текущий статус
 
-**✅ SPRINT 3 NEARLY COMPLETE** — Testing & Polish (4/6 tasks, 66.7%)
+**✅ MVP COMPLETE** — All 38 tasks completed (100%)
 
-**Что работает:**
+**Что готово:**
 - ✅ Design System + 7 готовых секций (Header, Hero x2, Features x2, CTA, Footer)
 - ✅ Python скрипт сборки лендингов (0.02s на проект)
 - ✅ AI-генерация контента через Claude Code
-- ✅ E2E тест пройден (washing-machine-repair лендинг)
+- ✅ E2E тесты пройдены (2 тестовых лендинга)
 - ✅ Performance optimization (92/100 mobile, 98/100 desktop)
 - ✅ Cross-browser testing (Chrome, Firefox, Safari, iOS, Android)
 - ✅ Accessibility audit (95/100, WCAG 2.1 AA compliant)
 - ✅ Полный workflow от business-data до готового production-ready лендинга
-
-**Осталось:** 2 tasks (Update Documentation + Second Test Landing)
 
 ### Начало работы
 
@@ -279,8 +274,7 @@ cd site-builder
 # Проверить структуру
 ls -la library/ templates/ scripts/ output/
 
-# Запустить первую задачу из dox/TASKS.md
-# Task 0.1: Git Setup → Task 0.2a: Colors → ...
+# Все задачи выполнены (38/38) — проект готов к использованию
 ```
 
 ### Команды
@@ -305,10 +299,8 @@ open output/[project-name]/index.html
 
 ## 📖 Документация
 
-- [PRD.md](dox/PRD.md) — Product Requirements Document
-- [ARCHITECTURE.md](dox/ARCHITECTURE.md) — Техническая архитектура, дизайн-система
-- [PLANNING.md](dox/PLANNING.md) — Roadmap (4 спринта, 84h + 20% buffer)
-- [TASKS.md](dox/TASKS.md) — 38 атомарных задач с готовыми промптами для Claude Code CLI
+- [USAGE.md](docs/USAGE.md) — Полное руководство по использованию Site Builder
+- [PROGRESS.md](PROGRESS.md) — История выполненных задач (для справки)
 
 ---
 
@@ -356,10 +348,10 @@ open output/[project-name]/index.html
 
 ---
 
-**Status:** ✅ Sprint 3 Nearly Complete (4/6 tasks) | Production Ready!
+**Status:** ✅ MVP Complete (38/38 tasks, 100%) | Production Ready!
 **Last Update:** 2025-10-24
-**Progress:** 35/38 tasks (92.1%) | 78h/101h (77.2%)
-**Next Task:** [Task 3.4 — Update Documentation](dox/TASKS.md) → Task 3.5 — Second Test Landing
+**Progress:** 38/38 tasks (100%) | 84h/101h (83.2%)
+**Phase:** Improvement & Support
 
 **Test Landing:** [washing-machine-repair](output/washing-machine-repair/index.html)
 - Performance: 92/100 (mobile), 98/100 (desktop)
