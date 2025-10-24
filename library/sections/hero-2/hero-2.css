@@ -1,0 +1,266 @@
+/**
+ * Hero-2: Two-Column Hero Section with Image CSS
+ *
+ * Features:
+ * - Two-column CSS Grid layout (text left, image right)
+ * - Large heading and subtitle
+ * - Dual CTA buttons with primary/secondary styles
+ * - Mobile-first responsive design (stacks on mobile)
+ * - Responsive image with proper aspect ratio
+ * - CSS variables for theming
+ * - BEM methodology
+ *
+ * Breakpoints:
+ * - Mobile: default (320px+) — stacked layout
+ * - Tablet: 768px+ — two-column grid
+ * - Desktop: 1024px+ — larger spacing and typography
+ */
+
+
+/* ========================================
+   HERO CONTAINER
+   ======================================== */
+
+.hero-2 {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  background-color: var(--bg-section);
+}
+
+.hero-2__wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+
+/* ========================================
+   TEXT CONTENT COLUMN
+   ======================================== */
+
+.hero-2__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+
+/* ========================================
+   HEADING & SUBTITLE
+   ======================================== */
+
+.hero-2__title {
+  margin: 0;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-body);
+}
+
+.hero-2__subtitle {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-muted);
+  max-width: 540px;
+}
+
+
+/* ========================================
+   CTA BUTTONS GROUP
+   ======================================== */
+
+.hero-2__cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.hero-2__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  font-family: var(--font-base);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  text-align: center;
+}
+
+
+/* ========================================
+   PRIMARY CTA BUTTON
+   ======================================== */
+
+.hero-2__cta--primary {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  border: 2px solid var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-2__cta--primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-2__cta--primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-2__cta--primary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+
+/* ========================================
+   SECONDARY CTA BUTTON (Ghost Style)
+   ======================================== */
+
+.hero-2__cta--secondary {
+  background-color: transparent;
+  color: var(--text-body);
+  border: 2px solid var(--border);
+}
+
+.hero-2__cta--secondary:hover {
+  background-color: var(--bg-card);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-2__cta--secondary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.hero-2__cta--secondary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+
+/* ========================================
+   IMAGE COLUMN
+   ======================================== */
+
+.hero-2__image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-2__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-slow);
+}
+
+/**
+ * Subtle zoom effect on hover
+ */
+.hero-2__image-wrapper:hover .hero-2__image {
+  transform: scale(1.02);
+}
+
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+
+@media (min-width: 768px) {
+  .hero-2 {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+
+  /**
+   * Two-column grid layout on tablet and up
+   */
+  .hero-2__wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .hero-2__title {
+    font-size: var(--text-4xl);
+  }
+
+  .hero-2__subtitle {
+    font-size: var(--text-xl);
+  }
+
+  /**
+   * Horizontal button group on tablet and up
+   */
+  .hero-2__cta-group {
+    flex-direction: row;
+    gap: var(--space-4);
+  }
+
+  .hero-2__cta {
+    width: auto;
+    flex-shrink: 0;
+  }
+}
+
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+
+@media (min-width: 1024px) {
+  .hero-2 {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+
+  .hero-2__wrapper {
+    gap: var(--space-16);
+  }
+
+  .hero-2__content {
+    gap: var(--space-8);
+  }
+
+  .hero-2__title {
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-2__subtitle {
+    max-width: 600px;
+  }
+
+  .hero-2__cta {
+    padding: var(--space-5) var(--space-10);
+    font-size: var(--text-lg);
+  }
+}
+
+
+/* ========================================
+   WIDE DESKTOP (1440px+)
+   ======================================== */
+
+@media (min-width: 1440px) {
+  .hero-2__wrapper {
+    gap: var(--space-20);
+  }
+}
