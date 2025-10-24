@@ -1,0 +1,127 @@
+<!--
+  Features-3col: Three-Column Features Section with Icons
+
+  Features:
+  - Three-column grid layout (6 items total)
+  - Remix Icon for each feature
+  - Section title (H2)
+  - Feature title and description for each item
+  - Full ARIA accessibility support
+  - BEM methodology
+  - Mobile-first responsive design (stacks on mobile, 2 cols on tablet, 3 on desktop)
+
+  Placeholders:
+  - {{features.section_title}} — Main section heading (H2)
+  - {{features.item1.icon}} — Remix Icon class (e.g., ri-shield-check-line)
+  - {{features.item1.title}} — Feature 1 title
+  - {{features.item1.text}} — Feature 1 description
+  - {{features.item2.icon}} — Remix Icon class
+  - {{features.item2.title}} — Feature 2 title
+  - {{features.item2.text}} — Feature 2 description
+  - {{features.item3.icon}} — Remix Icon class
+  - {{features.item3.title}} — Feature 3 title
+  - {{features.item3.text}} — Feature 3 description
+  - {{features.item4.icon}} — Remix Icon class
+  - {{features.item4.title}} — Feature 4 title
+  - {{features.item4.text}} — Feature 4 description
+  - {{features.item5.icon}} — Remix Icon class
+  - {{features.item5.title}} — Feature 5 title
+  - {{features.item5.text}} — Feature 5 description
+  - {{features.item6.icon}} — Remix Icon class
+  - {{features.item6.title}} — Feature 6 title
+  - {{features.item6.text}} — Feature 6 description
+-->
+
+<section class="features-3col" id="features" role="region" aria-labelledby="featuresTitle">
+  <div class="container">
+
+    <!-- Section Title -->
+    <h2 class="features-3col__title" id="featuresTitle">
+      {{features.section_title}}
+    </h2>
+
+    <!-- Features Grid -->
+    <div class="features-3col__grid">
+
+      <!-- Feature Item 1 -->
+      <article class="features-3col__item">
+        <div class="features-3col__icon-wrapper" aria-hidden="true">
+          <i class="features-3col__icon {{features.item1.icon}}"></i>
+        </div>
+        <h3 class="features-3col__item-title">
+          {{features.item1.title}}
+        </h3>
+        <p class="features-3col__item-text">
+          {{features.item1.text}}
+        </p>
+      </article>
+
+      <!-- Feature Item 2 -->
+      <article class="features-3col__item">
+        <div class="features-3col__icon-wrapper" aria-hidden="true">
+          <i class="features-3col__icon {{features.item2.icon}}"></i>
+        </div>
+        <h3 class="features-3col__item-title">
+          {{features.item2.title}}
+        </h3>
+        <p class="features-3col__item-text">
+          {{features.item2.text}}
+        </p>
+      </article>
+
+      <!-- Feature Item 3 -->
+      <article class="features-3col__item">
+        <div class="features-3col__icon-wrapper" aria-hidden="true">
+          <i class="features-3col__icon {{features.item3.icon}}"></i>
+        </div>
+        <h3 class="features-3col__item-title">
+          {{features.item3.title}}
+        </h3>
+        <p class="features-3col__item-text">
+          {{features.item3.text}}
+        </p>
+      </article>
+
+      <!-- Feature Item 4 -->
+      <article class="features-3col__item">
+        <div class="features-3col__icon-wrapper" aria-hidden="true">
+          <i class="features-3col__icon {{features.item4.icon}}"></i>
+        </div>
+        <h3 class="features-3col__item-title">
+          {{features.item4.title}}
+        </h3>
+        <p class="features-3col__item-text">
+          {{features.item4.text}}
+        </p>
+      </article>
+
+      <!-- Feature Item 5 -->
+      <article class="features-3col__item">
+        <div class="features-3col__icon-wrapper" aria-hidden="true">
+          <i class="features-3col__icon {{features.item5.icon}}"></i>
+        </div>
+        <h3 class="features-3col__item-title">
+          {{features.item5.title}}
+        </h3>
+        <p class="features-3col__item-text">
+          {{features.item5.text}}
+        </p>
+      </article>
+
+      <!-- Feature Item 6 -->
+      <article class="features-3col__item">
+        <div class="features-3col__icon-wrapper" aria-hidden="true">
+          <i class="features-3col__icon {{features.item6.icon}}"></i>
+        </div>
+        <h3 class="features-3col__item-title">
+          {{features.item6.title}}
+        </h3>
+        <p class="features-3col__item-text">
+          {{features.item6.text}}
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
