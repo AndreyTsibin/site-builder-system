@@ -1,0 +1,33 @@
+# Site Builder — Sections Library
+#
+# This YAML file describes all available landing page sections.
+# It will be populated in Sprint 1 when sections are created.
+#
+# Structure (for future reference):
+# sections:
+#   - id: "section-id"
+#     name: "Название секции (русский)"
+#     category: "header|hero|features|cta|footer|..."
+#     description: "Описание секции (русский)"
+#     best_for: "Для каких типов бизнеса подходит"
+#     features: ["Особенность 1", "Особенность 2"]
+#     placeholders:
+#       - "{{section.variable1}}"
+#       - "{{section.variable2}}"
+
+sections:
+  # Sections will be added in Sprint 1
+  # Examples:
+  # - header-1 (sticky header with burger menu)
+  # - hero-1 (centered hero with form)
+  # - hero-2 (two-column hero with image)
+  # - features-2col (2-column features grid)
+  # - features-3col (3-column features grid)
+  # - cta-simple (simple call-to-action)
+  # - footer-1 (4-column footer)
+
+metadata:
+  version: "0.1.0"
+  last_updated: "2025-10-24"
+  total_sections: 0
+  status: "empty_template"
