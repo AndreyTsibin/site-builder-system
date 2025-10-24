@@ -1,0 +1,25 @@
+{
+  "project_name": "washing-machine-repair",
+  "sections": [
+    {
+      "id": "header-1",
+      "order": 1
+    },
+    {
+      "id": "hero-2",
+      "order": 2
+    },
+    {
+      "id": "features-3col",
+      "order": 3
+    },
+    {
+      "id": "cta-simple",
+      "order": 4
+    },
+    {
+      "id": "footer-1",
+      "order": 5
+    }
+  ]
+}
