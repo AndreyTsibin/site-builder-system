@@ -2,27 +2,28 @@
  * Site Builder — Design System Variables
  *
  * Color System: HSL format for easy theme switching and color manipulation
- * Default: Dark Theme
- * Light Theme: Toggle via .light-theme class on body/html
+ * Default: Light Theme
+ * Dark Theme: Toggle via .dark-theme class on body/html
  */
 
 /* ========================================
-   ROOT VARIABLES — DARK THEME (DEFAULT)
+   ROOT VARIABLES — LIGHT THEME (DEFAULT)
    ======================================== */
 
 :root {
   /* ===== Background Colors ===== */
-  /* Semantic naming: indicates element purpose, not darkness/lightness */
-  --bg-page: hsl(0, 0%, 0%);        /* Main page background */
-  --bg-section: hsl(0, 0%, 5%);     /* Section backgrounds */
-  --bg-card: hsl(0, 0%, 10%);       /* Cards, content blocks */
-  --bg-popup: hsl(0, 0%, 15%);      /* Modals, dropdowns, tooltips */
+  /* Semantic naming: indicates element purpose */
+  /* Elevation principle: closer to user = brighter (100%) */
+  --bg-page: hsl(0, 0%, 90%);       /* Main page background (furthest) */
+  --bg-section: hsl(0, 0%, 93%);    /* Section backgrounds */
+  --bg-card: hsl(0, 0%, 97%);       /* Cards, content blocks */
+  --bg-popup: hsl(0, 0%, 100%);     /* Modals, dropdowns, tooltips (closest) */
 
   /* ===== Text Colors ===== */
-  /* Lightness scale: 90% (main) → 45% (subtle) */
-  --text: hsl(0, 0%, 90%);          /* Main text (not 100% — too harsh on eyes) */
-  --text-muted: hsl(0, 0%, 60%);    /* Secondary text, descriptions */
-  --text-subtle: hsl(0, 0%, 45%);   /* Tertiary text, captions, timestamps */
+  /* Semantic naming: indicates usage context */
+  --text-body: hsl(0, 0%, 10%);     /* Main body text, paragraphs */
+  --text-muted: hsl(0, 0%, 40%);    /* Secondary text, descriptions */
+  --text-disabled: hsl(0, 0%, 55%); /* Disabled text, captions, timestamps */
 
   /* ===== Brand Colors ===== */
   /* Brand identity — consistent across themes */
@@ -39,29 +40,30 @@
   --info: hsl(200, 98%, 48%);       /* Cyan — informational messages */
 
   /* ===== UI Elements ===== */
-  --border: hsl(0, 0%, 20%);        /* Borders, dividers */
-  --border-subtle: hsl(0, 0%, 15%); /* Subtle borders, light dividers */
-  --shadow: rgba(0, 0, 0, 0.3);     /* Box shadows, overlays */
+  --border: hsl(0, 0%, 80%);        /* Borders, dividers */
+  --border-subtle: hsl(0, 0%, 85%); /* Subtle borders, light dividers */
+  --shadow: rgba(0, 0, 0, 0.1);     /* Box shadows, overlays */
 }
 
 
 /* ========================================
-   LIGHT THEME
+   DARK THEME
    ======================================== */
 
-.light-theme {
+.dark-theme {
   /* ===== Background Colors ===== */
-  /* Inverted lightness: 100 - L */
-  --bg-page: hsl(0, 0%, 100%);      /* 100 - 0 = 100 (white) */
-  --bg-section: hsl(0, 0%, 95%);    /* 100 - 5 = 95 (light gray) */
-  --bg-card: hsl(0, 0%, 90%);       /* 100 - 10 = 90 */
-  --bg-popup: hsl(0, 0%, 85%);      /* 100 - 15 = 85 */
+  /* Symmetric progression with light theme */
+  /* Elevation principle: closer to user = brighter */
+  --bg-page: hsl(0, 0%, 0%);        /* Main page background (furthest) */
+  --bg-section: hsl(0, 0%, 3%);     /* Section backgrounds */
+  --bg-card: hsl(0, 0%, 7%);        /* Cards, content blocks */
+  --bg-popup: hsl(0, 0%, 10%);      /* Modals, dropdowns, tooltips (closest) */
 
   /* ===== Text Colors ===== */
   /* Inverted lightness: 100 - L */
-  --text: hsl(0, 0%, 10%);          /* 100 - 90 = 10 */
-  --text-muted: hsl(0, 0%, 40%);    /* 100 - 60 = 40 */
-  --text-subtle: hsl(0, 0%, 55%);   /* 100 - 45 = 55 */
+  --text-body: hsl(0, 0%, 90%);     /* 100 - 10 = 90 */
+  --text-muted: hsl(0, 0%, 60%);    /* 100 - 40 = 60 */
+  --text-disabled: hsl(0, 0%, 45%); /* 100 - 55 = 45 */
 
   /* ===== Brand Colors ===== */
   /* Brand colors remain consistent across themes */
@@ -79,7 +81,7 @@
 
   /* ===== UI Elements ===== */
   /* Inverted lightness: 100 - L */
-  --border: hsl(0, 0%, 80%);        /* 100 - 20 = 80 */
-  --border-subtle: hsl(0, 0%, 85%); /* 100 - 15 = 85 */
-  --shadow: rgba(0, 0, 0, 0.1);     /* Lighter shadow for light theme */
+  --border: hsl(0, 0%, 20%);        /* 100 - 80 = 20 */
+  --border-subtle: hsl(0, 0%, 15%); /* 100 - 85 = 15 */
+  --shadow: rgba(0, 0, 0, 0.3);     /* Stronger shadow for dark theme */
 }
