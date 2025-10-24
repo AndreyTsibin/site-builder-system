@@ -6,7 +6,7 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 
 ## 🤖 SESSION START PROTOCOL
 
-**CRITICAL: When user says "продолжу выполнять задачу" / "continue task" / starts new session:**
+**CRITICAL: When user says "продолжай выполнять задачу" / "continue task" / starts new session:**
 
 1. **Read [PROGRESS.md](PROGRESS.md)** first
 2. **Find first unchecked task** `- [ ]` with status `⏳ Ready`
@@ -21,9 +21,11 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 7. **Repeat** for next task
 
 **Example user message:**
-> "Продолжу выполнять задачу"
+
+> "Продолжай выполнять задачу"
 
 **Your action:**
+
 1. Read PROGRESS.md → see Task 0.2a unchecked
 2. Read dox/TASKS.md lines 47-72 → get Task 0.2a prompt
 3. Execute: Create library/design-system/variables.css with HSL colors
@@ -54,16 +56,19 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 ## 📂 KEY FILES (Read for context)
 
 **Must-read for automation:**
+
 - **[PROGRESS.md](PROGRESS.md)** — Current task tracking (38 tasks checklist)
 - **[dox/TASKS.md](dox/TASKS.md)** — 38 ready-to-execute prompts
 
 **Reference documentation:**
+
 - **[README.md](README.md)** — Project overview, workflow, tech stack
 - **[dox/PRD.md](dox/PRD.md)** — Product requirements
 - **[dox/ARCHITECTURE.md](dox/ARCHITECTURE.md)** — Design system, components structure
 - **[dox/PLANNING.md](dox/PLANNING.md)** — 4-sprint roadmap (84h)
 
 **Project structure:**
+
 ```
 /site-builder/
 ├── library/              # Component library (creating now)
@@ -90,11 +95,13 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 - **Comments:** English only in code
 
 **CSS Variables:**
+
 - Use design-system variables: `var(--primary)`, `var(--text)`, `var(--space-4)`
 - HSL format: `hsl(220, 90%, 56%)`
 - Mobile-first breakpoints: 320px, 768px, 1024px, 1440px
 
 **Placeholders in HTML:**
+
 - Format: `{{section.variable}}` (English only)
 - Example: `{{hero.title}}`, `{{features.item1.icon}}`, `{{contacts.phone}}`
 
@@ -106,6 +113,7 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 - **Commit format:** `feat:`, `fix:`, `refactor:`, `chore:`
 - **Commit frequency:** After each task completion
 - **Commit message template:**
+
   ```
   feat: complete Task X.Y - short description
 
@@ -128,8 +136,9 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 5. Only then proceed
 
 **HTML files must include:**
+
 ```html
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 ```
 
 **Bug reference:** Claude Code issues #1716, #2154
@@ -157,17 +166,20 @@ Project guidance for Claude Code (claude.ai/code) in this repository.
 ## 🎯 AUTOMATION REMINDERS
 
 **Before starting work:**
+
 1. ✅ Read PROGRESS.md to know current task
 2. ✅ Read TASKS.md to get exact prompt
 3. ✅ Check dependencies (Dep: X.Y)
 
 **During work:**
+
 1. ✅ Follow prompt instructions exactly
 2. ✅ UTF-8 check for Cyrillic files
 3. ✅ Use CSS variables from design-system
 4. ✅ English comments in code
 
 **After completion:**
+
 1. ✅ Update PROGRESS.md (mark task complete, add metadata)
 2. ✅ Update YAML frontmatter
 3. ✅ Commit with proper format
