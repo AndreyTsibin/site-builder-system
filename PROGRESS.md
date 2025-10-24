@@ -7,7 +7,7 @@ progress_percentage: 63.2
 total_hours: 101
 completed_hours: 49.0
 last_updated: "2025-10-24T18:26:00"
-last_commit: "TBD"
+last_commit: "6816888"
 status: "in_progress"
 ---
 
@@ -15,7 +15,7 @@ status: "in_progress"
 
 **Progress:** 24/38 tasks (63.2%) | 49.0h/101h (48.5%)
 **Last Updated:** 2025-10-24 18:26
-**Last Commit:** `TBD` — feat: complete Task 2.1b - Python HTML Assembly
+**Last Commit:** `6816888` — feat: complete Task 2.1b - Python HTML Assembly
 
 ---
 
@@ -52,7 +52,7 @@ status: "in_progress"
 ### SPRINT 2: AUTOMATION & AI (2/9 tasks, 22.2%)
 
 - [x] **2.1a** Python — Project Structure (2h) — ✅ **Complete** | `613fd2a` | 2025-10-24 18:21
-- [x] **2.1b** Python — HTML Assembly (2h) — ✅ **Complete** | `TBD` | 2025-10-24 18:26
+- [x] **2.1b** Python — HTML Assembly (2h) — ✅ **Complete** | `6816888` | 2025-10-24 18:26
 - [ ] **2.1c** Python — CSS Assembly (2h) — ⏳ Ready | Dep: 2.1b ✅
 - [ ] **2.1d** Python — Main & CLI (2h) — 🔒 Blocked | Dep: 2.1c
 - [ ] **2.2** JSON Template (1h) — 🔒 Blocked | Dep: 2.1d
