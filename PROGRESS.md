@@ -2,20 +2,20 @@
 project: "Site Builder"
 current_sprint: 1
 total_tasks: 38
-completed_tasks: 10
-progress_percentage: 26.3
+completed_tasks: 11
+progress_percentage: 28.9
 total_hours: 101
-completed_hours: 16.0
-last_updated: "2025-10-24T17:50:15"
-last_commit: "36b465f"
+completed_hours: 18.0
+last_updated: "2025-10-24T17:41:00"
+last_commit: "3ad61aa"
 status: "in_progress"
 ---
 
 # PROGRESS TRACKING — SITE BUILDER
 
-**Progress:** 10/38 tasks (26.3%) | 16.0h/101h (15.8%)
-**Last Updated:** 2025-10-24 17:50
-**Last Commit:** `36b465f` — feat: complete Task 1.1c - Header JS
+**Progress:** 11/38 tasks (28.9%) | 18.0h/101h (17.8%)
+**Last Updated:** 2025-10-24 17:41
+**Last Commit:** `3ad61aa` — feat: complete Task 1.2a - Hero-1 HTML
 
 ---
 
@@ -31,12 +31,12 @@ status: "in_progress"
 - [x] **0.4** Test Design System (2h) — ✅ **Complete** | `f628487` | 2025-10-24 17:15
 - [x] **0.5** Templates (2h) — ✅ **Complete** | `60bab4c` | 2025-10-24 17:25
 
-### SPRINT 1: P0 SECTIONS (3/16 tasks, 18.8%)
+### SPRINT 1: P0 SECTIONS (4/16 tasks, 25.0%)
 
 - [x] **1.1a** Header HTML (1.5h) — ✅ **Complete** | `2e7c07a` | 2025-10-24 17:35
 - [x] **1.1b** Header CSS (2h) — ✅ **Complete** | `8f8182b` | 2025-10-24 17:42
 - [x] **1.1c** Header JS (1.5h) — ✅ **Complete** | `36b465f` | 2025-10-24 17:50
-- [ ] **1.2a** Hero-1 HTML (2h) — ⏳ Ready | Dep: 0.2c
+- [x] **1.2a** Hero-1 HTML (2h) — ✅ **Complete** | `3ad61aa` | 2025-10-24 17:41
 - [ ] **1.2b** Hero-1 CSS (2h) — 🔒 Blocked | Dep: 1.2a
 - [ ] **1.3a** Hero-2 HTML (2h) — ⏳ Ready | Dep: 0.2c
 - [ ] **1.3b** Hero-2 CSS (2h) — 🔒 Blocked | Dep: 1.3a
@@ -77,10 +77,10 @@ status: "in_progress"
 | Sprint | Tasks | Completed | Hours | Completed Hours | Progress |
 |--------|-------|-----------|-------|-----------------|----------|
 | Sprint 0 | 7 | 7 | 11h | 11.0h | 100% ✅ |
-| Sprint 1 | 16 | 3 | 34h | 5.0h | 18.8% |
+| Sprint 1 | 16 | 4 | 34h | 7.0h | 25.0% |
 | Sprint 2 | 9 | 0 | 20h | 0h | 0% |
 | Sprint 3 | 6 | 0 | 19h | 0h | 0% |
-| **TOTAL** | **38** | **10** | **84h** | **16.0h** | **26.3%** |
+| **TOTAL** | **38** | **11** | **84h** | **18.0h** | **28.9%** |
 
 *+ 20% buffer = 101h total estimated time*
 
@@ -110,4 +110,4 @@ status: "in_progress"
 
 ---
 
-**Last Update:** 2025-10-24 17:50
+**Last Update:** 2025-10-24 17:41
