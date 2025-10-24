@@ -12,11 +12,11 @@
 
 :root {
   /* ===== Background Colors ===== */
-  /* Lightness scale: 0% (darkest) → 15% (elevated) */
-  --bg-dark: hsl(0, 0%, 0%);       /* Darkest background, footer */
-  --bg: hsl(0, 0%, 5%);             /* Base background */
-  --bg-light: hsl(0, 0%, 10%);      /* Elevated elements, sections */
-  --bg-elevated: hsl(0, 0%, 15%);   /* Cards, modals, overlays */
+  /* Semantic naming: indicates element purpose, not darkness/lightness */
+  --bg-page: hsl(0, 0%, 0%);        /* Main page background */
+  --bg-section: hsl(0, 0%, 5%);     /* Section backgrounds */
+  --bg-card: hsl(0, 0%, 10%);       /* Cards, content blocks */
+  --bg-popup: hsl(0, 0%, 15%);      /* Modals, dropdowns, tooltips */
 
   /* ===== Text Colors ===== */
   /* Lightness scale: 90% (main) → 45% (subtle) */
@@ -40,7 +40,7 @@
 
   /* ===== UI Elements ===== */
   --border: hsl(0, 0%, 20%);        /* Borders, dividers */
-  --border-light: hsl(0, 0%, 15%);  /* Subtle borders, light dividers */
+  --border-subtle: hsl(0, 0%, 15%); /* Subtle borders, light dividers */
   --shadow: rgba(0, 0, 0, 0.3);     /* Box shadows, overlays */
 }
 
@@ -52,10 +52,10 @@
 .light-theme {
   /* ===== Background Colors ===== */
   /* Inverted lightness: 100 - L */
-  --bg-dark: hsl(0, 0%, 100%);      /* 100 - 0 = 100 */
-  --bg: hsl(0, 0%, 95%);            /* 100 - 5 = 95 */
-  --bg-light: hsl(0, 0%, 90%);      /* 100 - 10 = 90 */
-  --bg-elevated: hsl(0, 0%, 85%);   /* 100 - 15 = 85 */
+  --bg-page: hsl(0, 0%, 100%);      /* 100 - 0 = 100 (white) */
+  --bg-section: hsl(0, 0%, 95%);    /* 100 - 5 = 95 (light gray) */
+  --bg-card: hsl(0, 0%, 90%);       /* 100 - 10 = 90 */
+  --bg-popup: hsl(0, 0%, 85%);      /* 100 - 15 = 85 */
 
   /* ===== Text Colors ===== */
   /* Inverted lightness: 100 - L */
@@ -80,6 +80,6 @@
   /* ===== UI Elements ===== */
   /* Inverted lightness: 100 - L */
   --border: hsl(0, 0%, 80%);        /* 100 - 20 = 80 */
-  --border-light: hsl(0, 0%, 85%);  /* 100 - 15 = 85 */
+  --border-subtle: hsl(0, 0%, 85%); /* 100 - 15 = 85 */
   --shadow: rgba(0, 0, 0, 0.1);     /* Lighter shadow for light theme */
 }
