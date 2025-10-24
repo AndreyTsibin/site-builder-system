@@ -447,36 +447,20 @@
     <section class="test-section">
       <h2 class="test-section__title">5. Utility Classes</h2>
 
-      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Container</h3>
+      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Container (Universal Layout)</h3>
+      <p style="font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--space-6); line-height: var(--leading-normal);">
+        The <code>.container</code> class provides consistent max-width and responsive padding across all sections.
+      </p>
       <div class="utility-demo">
         <div class="container" style="background-color: var(--bg-popup); padding: var(--space-6); border-radius: var(--radius-md);">
-          <p style="color: var(--text-body); font-weight: var(--font-medium);">.container (max-width: 1280px, responsive padding)</p>
-        </div>
-      </div>
-
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Text Alignment</h3>
-      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
-        <div class="utility-demo">
-          <p class="text-left utility-demo__item">Text Left</p>
-        </div>
-        <div class="utility-demo">
-          <p class="text-center utility-demo__item">Text Center</p>
-        </div>
-        <div class="utility-demo">
-          <p class="text-right utility-demo__item">Text Right</p>
-        </div>
-      </div>
-
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Flexbox</h3>
-      <div class="utility-demo">
-        <div class="flex justify-between items-center gap-4" style="background-color: var(--bg-popup); padding: var(--space-4); border-radius: var(--radius-sm);">
-          <div class="utility-demo__item">Item 1</div>
-          <div class="utility-demo__item">Item 2</div>
-          <div class="utility-demo__item">Item 3</div>
+          <p style="color: var(--text-body); font-weight: var(--font-medium);">.container — max-width: 1280px, responsive padding (16px → 32px → 48px)</p>
         </div>
       </div>
 
       <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Responsive Visibility (resize to test)</h3>
+      <p style="font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--space-6); line-height: var(--leading-normal);">
+        Use for elements that should appear/hide at different breakpoints (e.g., mobile vs desktop navigation).
+      </p>
       <div style="display: flex; flex-direction: column; gap: var(--space-4);">
         <div class="utility-demo">
           <p class="show-mobile utility-demo__item">Visible on mobile only (hide on tablet+)</p>

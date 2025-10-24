@@ -1282,7 +1282,23 @@ metadata:
 - Дизайн-референс `/dox/The Easy Way to Design Top Tier Websites/` рекомендует дизайн-систему
 
 **Decision:**
-Использовать **BEM (Block Element Modifier)** + **CSS Variables** для дизайн-системы.
+Использовать **Component-First архитектуру** с **BEM (Block Element Modifier)** + **CSS Variables** для дизайн-системы.
+
+**Философия: Component-First над Utility-First**
+
+Проект следует **Component-First** подходу, где каждая секция (header, hero, footer) самодостаточна с собственным CSS-файлом.
+
+**Utility Classes используются ТОЛЬКО для:**
+1. ✅ **Universal layout** — `.container` (max-width, responsive padding)
+2. ✅ **Accessibility** — `.sr-only`, `.skip-to-main` (WCAG 2.1 compliance)
+3. ✅ **Responsive visibility** — `.hidden-mobile`, `.show-mobile`, `.hidden-tablet`, `.hidden-desktop`
+4. ✅ **Modal helpers** — `.no-scroll` (disable body scroll)
+
+**НЕ используются утилиты для:**
+- ❌ `display: flex/grid/block` — стили в компонентном CSS
+- ❌ `justify-*`, `items-*`, `gap-*` — стили в компонентном CSS
+- ❌ `text-align` — стили в компонентном CSS
+- ❌ `position` (relative, absolute, etc.) — стили в компонентном CSS
 
 **Rationale:**
 1. **Изоляция:** BEM предотвращает конфликты (`.hero__title` vs `.features__title`)
@@ -1290,6 +1306,8 @@ metadata:
 3. **CSS Variables:** Глобальные стили через `var(--text)`, `var(--space-8)`
 4. **Простота:** Нет build step, работает напрямую в браузере
 5. **Совместимость:** BEM + CSS Variables поддерживаются всеми современными браузерами
+6. **Портируемость:** Секции самодостаточны — копируешь HTML+CSS, и всё работает (важно для Tilda)
+7. **Чистый HTML:** Минимум классов, семантическая разметка, без "class soup"
 
 **Consequences:**
 
