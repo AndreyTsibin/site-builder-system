@@ -36,16 +36,16 @@ status: "in_progress"
 - [x] **1.1a** Header HTML (1.5h) — ✅ **Complete** | `2e7c07a` | 2025-10-24 17:35
 - [x] **1.1b** Header CSS (2h) — ✅ **Complete** | `8f8182b` | 2025-10-24 17:42
 - [ ] **1.1c** Header JS (1.5h) — ⏳ Ready | Dep: 1.1b
-- [ ] **1.2a** Hero-1 HTML (2h) — ⏳ Ready | Dep: 0.5
+- [ ] **1.2a** Hero-1 HTML (2h) — ⏳ Ready | Dep: 0.2c
 - [ ] **1.2b** Hero-1 CSS (2h) — 🔒 Blocked | Dep: 1.2a
-- [ ] **1.3a** Hero-2 HTML (2h) — ⏳ Ready | Dep: 0.5
+- [ ] **1.3a** Hero-2 HTML (2h) — ⏳ Ready | Dep: 0.2c
 - [ ] **1.3b** Hero-2 CSS (2h) — 🔒 Blocked | Dep: 1.3a
-- [ ] **1.4a** Features-2col HTML (2.5h) — ⏳ Ready | Dep: 0.5
+- [ ] **1.4a** Features-2col HTML (2.5h) — ⏳ Ready | Dep: 0.2c
 - [ ] **1.4b** Features-2col CSS (2.5h) — 🔒 Blocked | Dep: 1.4a
-- [ ] **1.5a** Features-3col HTML (2.5h) — ⏳ Ready | Dep: 0.5
+- [ ] **1.5a** Features-3col HTML (2.5h) — ⏳ Ready | Dep: 0.2c
 - [ ] **1.5b** Features-3col CSS (2.5h) — 🔒 Blocked | Dep: 1.5a
-- [ ] **1.6** CTA-Simple (3h) — ⏳ Ready | Dep: 0.5
-- [ ] **1.7a** Footer HTML (3h) — ⏳ Ready | Dep: 0.5
+- [ ] **1.6** CTA-Simple (3h) — ⏳ Ready | Dep: 0.2c
+- [ ] **1.7a** Footer HTML (3h) — ⏳ Ready | Dep: 0.2c
 - [ ] **1.7b** Footer CSS (3h) — 🔒 Blocked | Dep: 1.7a
 - [ ] **1.8** Update Sections YAML (2h) — 🔒 Blocked | Dep: 1.7b
 
