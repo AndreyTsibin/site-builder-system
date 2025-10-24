@@ -1,0 +1,203 @@
+/**
+ * Features-3col: Three-Column Features Section with Icons CSS
+ *
+ * Features:
+ * - Three-column CSS Grid layout (6 items total)
+ * - Remix Icon for each feature with styled wrapper
+ * - Centered section title
+ * - Feature cards with icon, title, and description
+ * - Mobile-first responsive design (1 col mobile, 2 cols tablet, 3 cols desktop)
+ * - CSS variables for theming
+ * - BEM methodology
+ *
+ * Breakpoints:
+ * - Mobile: default (320px+) — single column layout
+ * - Tablet: 768px+ — two-column grid
+ * - Desktop: 1024px+ — three-column grid
+ */
+
+
+/* ========================================
+   SECTION CONTAINER
+   ======================================== */
+
+.features-3col {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  background-color: var(--bg);
+}
+
+
+/* ========================================
+   SECTION TITLE
+   ======================================== */
+
+.features-3col__title {
+  margin: 0 0 var(--space-12) 0;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-body);
+  text-align: center;
+}
+
+
+/* ========================================
+   FEATURES GRID
+   ======================================== */
+
+.features-3col__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+
+/* ========================================
+   FEATURE ITEM (CARD)
+   ======================================== */
+
+.features-3col__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-8);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+/**
+ * Hover effect: subtle elevation and border color change
+ */
+.features-3col__item:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+
+/* ========================================
+   ICON WRAPPER & ICON
+   ======================================== */
+
+.features-3col__icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.features-3col__icon {
+  font-size: var(--text-3xl);
+  color: var(--text-on-primary);
+}
+
+
+/* ========================================
+   ITEM TITLE & TEXT
+   ======================================== */
+
+.features-3col__item-title {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-body);
+}
+
+.features-3col__item-text {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-muted);
+}
+
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+
+@media (min-width: 768px) {
+  .features-3col {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+
+  .features-3col__title {
+    margin-bottom: var(--space-16);
+    font-size: var(--text-4xl);
+  }
+
+  /**
+   * Two-column grid layout on tablet
+   */
+  .features-3col__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10);
+  }
+
+  .features-3col__item {
+    padding: var(--space-10);
+  }
+}
+
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+
+@media (min-width: 1024px) {
+  .features-3col {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+
+  .features-3col__title {
+    margin-bottom: var(--space-20);
+  }
+
+  /**
+   * Three-column grid layout on desktop
+   */
+  .features-3col__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-12);
+  }
+
+  /**
+   * Larger icon wrapper on desktop
+   */
+  .features-3col__icon-wrapper {
+    width: 64px;
+    height: 64px;
+  }
+
+  .features-3col__icon {
+    font-size: var(--text-4xl);
+  }
+
+  .features-3col__item-title {
+    font-size: var(--text-2xl);
+  }
+
+  .features-3col__item-text {
+    font-size: var(--text-lg);
+  }
+}
+
+
+/* ========================================
+   WIDE DESKTOP (1440px+)
+   ======================================== */
+
+@media (min-width: 1440px) {
+  .features-3col__grid {
+    gap: var(--space-16);
+  }
+}
