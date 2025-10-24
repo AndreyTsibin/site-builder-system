@@ -145,6 +145,7 @@ def assemble_html(sections: List[Dict], project_dir: Path) -> Path:
         '  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">',
         '',
         '  <!-- Remix Icon -->',
+        '  <link rel="preconnect" href="https://cdn.jsdelivr.net">',
         '  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">',
         '</head>',
         '<body>',
@@ -213,13 +214,15 @@ def copy_design_system(project_dir: Path) -> None:
     # Design system source directory
     design_system_dir = project_root / 'library' / 'design-system'
 
-    # CSS files to copy
-    css_files = ['variables.css', 'reset.css', 'utilities.css']
+    # CSS files to copy (minified versions for performance)
+    css_files = ['variables.min.css', 'reset.min.css', 'utilities.min.css']
+    # Map minified files to their original names for output
+    output_names = ['variables.css', 'reset.css', 'utilities.css']
 
     # Copy each CSS file
-    for css_file in css_files:
+    for css_file, output_name in zip(css_files, output_names):
         source = design_system_dir / css_file
-        destination = project_dir / 'css' / css_file
+        destination = project_dir / 'css' / output_name
 
         if not source.exists():
             logger.error(f"Design system file not found: {source}")
@@ -275,10 +278,10 @@ def assemble_css(sections: List[Dict], project_dir: Path) -> Path:
         ''
     ]
 
-    # Read and append each section's CSS
+    # Read and append each section's CSS (use minified versions for performance)
     for section in sorted_sections:
         section_id = section['id']
-        section_css_path = project_root / 'library' / 'sections' / section_id / f'{section_id}.css'
+        section_css_path = project_root / 'library' / 'sections' / section_id / f'{section_id}.min.css'
 
         # Some sections might not have CSS (rare, but possible)
         if not section_css_path.exists():
