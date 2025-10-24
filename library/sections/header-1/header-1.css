@@ -68,10 +68,6 @@
   color: var(--primary);
 }
 
-.header__logo-text {
-  /* Logo text styling */
-}
-
 
 /* ========================================
    DESKTOP NAVIGATION
@@ -91,10 +87,6 @@
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.header__nav-item {
-  /* Navigation item container */
 }
 
 .header__nav-link {
@@ -142,10 +134,6 @@
 
 .header__phone-icon {
   font-size: var(--text-lg);
-}
-
-.header__phone-text {
-  /* Phone text styling */
 }
 
 .header__cta {
@@ -253,10 +241,6 @@
   list-style: none;
   margin: 0 0 var(--space-8) 0;
   padding: 0;
-}
-
-.header__mobile-nav-item {
-  /* Mobile navigation item container */
 }
 
 .header__mobile-nav-link {
