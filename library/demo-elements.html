@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог элементов — Site Builder</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Remix Icon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/variables.css">
+
+  <!-- Element Styles -->
+  <link rel="stylesheet" href="elements/buttons/button-primary/button-primary.css">
+  <link rel="stylesheet" href="elements/buttons/button-secondary/button-secondary.css">
+  <link rel="stylesheet" href="elements/buttons/button-outline/button-outline.css">
+  <link rel="stylesheet" href="elements/buttons/button-ghost/button-ghost.css">
+  <link rel="stylesheet" href="elements/forms/input-text/input-text.css">
+  <link rel="stylesheet" href="elements/forms/textarea/textarea.css">
+  <link rel="stylesheet" href="elements/forms/select/select.css">
+  <link rel="stylesheet" href="elements/forms/checkbox/checkbox.css">
+  <link rel="stylesheet" href="elements/forms/radio/radio.css">
+  <link rel="stylesheet" href="elements/grid/grid-2-cols/grid-2-cols.css">
+  <link rel="stylesheet" href="elements/grid/grid-3-cols/grid-3-cols.css">
+  <link rel="stylesheet" href="elements/grid/grid-4-cols/grid-4-cols.css">
+  <link rel="stylesheet" href="elements/cards/card-basic/card-basic.css">
+  <link rel="stylesheet" href="elements/cards/card-with-image/card-with-image.css">
+  <link rel="stylesheet" href="elements/cards/card-pricing/card-pricing.css">
+
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--background);
+      padding: var(--space-8);
+    }
+
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .demo-header {
+      margin-bottom: var(--space-12);
+      padding-bottom: var(--space-8);
+      border-bottom: 2px solid var(--border);
+    }
+
+    .demo-header h1 {
+      font-size: var(--font-size-7);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .demo-header p {
+      font-size: var(--font-size-3);
+      color: var(--text-light);
+    }
+
+    .demo-section {
+      margin-bottom: var(--space-12);
+    }
+
+    .demo-section h2 {
+      font-size: var(--font-size-6);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .demo-item {
+      margin-bottom: var(--space-8);
+      padding: var(--space-6);
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+
+    .demo-item h3 {
+      font-size: var(--font-size-4);
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .demo-item .demo-id {
+      display: inline-block;
+      font-family: 'Courier New', monospace;
+      font-size: var(--font-size-2);
+      color: var(--text-light);
+      background: var(--background);
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-4);
+    }
+
+    .demo-item .demo-preview {
+      padding: var(--space-6);
+      background: var(--background);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-4);
+    }
+
+    .demo-item .demo-code {
+      font-family: 'Courier New', monospace;
+      font-size: var(--font-size-2);
+      color: var(--text);
+      background: var(--background);
+      padding: var(--space-4);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .demo-buttons {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .demo-forms {
+      max-width: 400px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: var(--space-4);
+      }
+
+      .demo-header h1 {
+        font-size: var(--font-size-6);
+      }
+
+      .demo-section h2 {
+        font-size: var(--font-size-5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <!-- Header -->
+    <header class="demo-header">
+      <h1>📚 Каталог элементов Site Builder</h1>
+      <p>Все базовые элементы с ID, примерами использования и кодом</p>
+    </header>
+
+    <!-- Buttons -->
+    <section class="demo-section">
+      <h2>🔘 Кнопки (Buttons)</h2>
+
+      <div class="demo-item" id="button-primary">
+        <h3>Primary Button</h3>
+        <span class="demo-id">ID: button-primary</span>
+        <div class="demo-preview">
+          <button class="btn btn--primary">Заказать звонок</button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--primary"&gt;Заказать звонок&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-secondary">
+        <h3>Secondary Button</h3>
+        <span class="demo-id">ID: button-secondary</span>
+        <div class="demo-preview">
+          <button class="btn btn--secondary">Узнать больше</button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--secondary"&gt;Узнать больше&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-outline">
+        <h3>Outline Button</h3>
+        <span class="demo-id">ID: button-outline</span>
+        <div class="demo-preview">
+          <button class="btn btn--outline">Посмотреть примеры</button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--outline"&gt;Посмотреть примеры&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-ghost">
+        <h3>Ghost Button</h3>
+        <span class="demo-id">ID: button-ghost</span>
+        <div class="demo-preview">
+          <button class="btn btn--ghost">Отмена</button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--ghost"&gt;Отмена&lt;/button&gt;</div>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section class="demo-section">
+      <h2>📝 Формы (Forms)</h2>
+
+      <div class="demo-item" id="input-text">
+        <h3>Text Input</h3>
+        <span class="demo-id">ID: input-text</span>
+        <div class="demo-preview demo-forms">
+          <div class="form-group">
+            <label for="demo-name" class="form-label">Ваше имя</label>
+            <input type="text" id="demo-name" class="form-input" placeholder="Иван Иванов">
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="form-group"&gt;
+  &lt;label for="name" class="form-label"&gt;Ваше имя&lt;/label&gt;
+  &lt;input type="text" id="name" class="form-input" placeholder="Иван Иванов"&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="textarea">
+        <h3>Textarea</h3>
+        <span class="demo-id">ID: textarea</span>
+        <div class="demo-preview demo-forms">
+          <div class="form-group">
+            <label for="demo-message" class="form-label">Сообщение</label>
+            <textarea id="demo-message" class="form-textarea" rows="4" placeholder="Опишите вашу задачу"></textarea>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="form-group"&gt;
+  &lt;label for="message" class="form-label"&gt;Сообщение&lt;/label&gt;
+  &lt;textarea id="message" class="form-textarea" rows="4" placeholder="Опишите вашу задачу"&gt;&lt;/textarea&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="select">
+        <h3>Select</h3>
+        <span class="demo-id">ID: select</span>
+        <div class="demo-preview demo-forms">
+          <div class="form-group">
+            <label for="demo-service" class="form-label">Тип услуги</label>
+            <select id="demo-service" class="form-select">
+              <option value="">Выберите услугу</option>
+              <option value="repair">Ремонт техники</option>
+              <option value="installation">Установка оборудования</option>
+              <option value="consultation">Консультация</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="form-group"&gt;
+  &lt;label for="service" class="form-label"&gt;Тип услуги&lt;/label&gt;
+  &lt;select id="service" class="form-select"&gt;
+    &lt;option value=""&gt;Выберите услугу&lt;/option&gt;
+    &lt;option value="repair"&gt;Ремонт техники&lt;/option&gt;
+    &lt;option value="installation"&gt;Установка оборудования&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="checkbox">
+        <h3>Checkbox</h3>
+        <span class="demo-id">ID: checkbox</span>
+        <div class="demo-preview demo-forms">
+          <div class="form-checkbox">
+            <input type="checkbox" id="demo-agree" class="form-checkbox__input">
+            <label for="demo-agree" class="form-checkbox__label">Я согласен с условиями обработки персональных данных</label>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="form-checkbox"&gt;
+  &lt;input type="checkbox" id="agree" class="form-checkbox__input"&gt;
+  &lt;label for="agree" class="form-checkbox__label"&gt;Я согласен с условиями&lt;/label&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="radio">
+        <h3>Radio Buttons</h3>
+        <span class="demo-id">ID: radio</span>
+        <div class="demo-preview demo-forms">
+          <div class="form-group">
+            <label class="form-label">Выберите способ связи</label>
+            <div class="form-radio">
+              <input type="radio" id="demo-phone" name="demo-contact" class="form-radio__input" checked>
+              <label for="demo-phone" class="form-radio__label">Телефон</label>
+            </div>
+            <div class="form-radio">
+              <input type="radio" id="demo-email" name="demo-contact" class="form-radio__input">
+              <label for="demo-email" class="form-radio__label">Email</label>
+            </div>
+            <div class="form-radio">
+              <input type="radio" id="demo-telegram" name="demo-contact" class="form-radio__input">
+              <label for="demo-telegram" class="form-radio__label">Telegram</label>
+            </div>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="form-radio"&gt;
+  &lt;input type="radio" id="phone" name="contact" class="form-radio__input" checked&gt;
+  &lt;label for="phone" class="form-radio__label"&gt;Телефон&lt;/label&gt;
+&lt;/div&gt;</div>
+      </div>
+    </section>
+
+    <!-- Grid -->
+    <section class="demo-section">
+      <h2>📐 Сетка (Grid)</h2>
+
+      <div class="demo-item" id="grid-2-cols">
+        <h3>Grid 2 Columns</h3>
+        <span class="demo-id">ID: grid-2-cols</span>
+        <div class="demo-preview">
+          <div class="grid grid--2-cols">
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 1</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 2</div>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="grid grid--2-cols"&gt;
+  &lt;div&gt;Колонка 1&lt;/div&gt;
+  &lt;div&gt;Колонка 2&lt;/div&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="grid-3-cols">
+        <h3>Grid 3 Columns</h3>
+        <span class="demo-id">ID: grid-3-cols</span>
+        <div class="demo-preview">
+          <div class="grid grid--3-cols">
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 1</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 2</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 3</div>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="grid grid--3-cols"&gt;
+  &lt;div&gt;Колонка 1&lt;/div&gt;
+  &lt;div&gt;Колонка 2&lt;/div&gt;
+  &lt;div&gt;Колонка 3&lt;/div&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="grid-4-cols">
+        <h3>Grid 4 Columns</h3>
+        <span class="demo-id">ID: grid-4-cols</span>
+        <div class="demo-preview">
+          <div class="grid grid--4-cols">
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 1</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 2</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 3</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 4</div>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="grid grid--4-cols"&gt;
+  &lt;div&gt;Колонка 1&lt;/div&gt;
+  &lt;div&gt;Колонка 2&lt;/div&gt;
+  &lt;div&gt;Колонка 3&lt;/div&gt;
+  &lt;div&gt;Колонка 4&lt;/div&gt;
+&lt;/div&gt;</div>
+      </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="demo-section">
+      <h2>🃏 Карточки (Cards)</h2>
+
+      <div class="demo-item" id="card-basic">
+        <h3>Basic Card</h3>
+        <span class="demo-id">ID: card-basic</span>
+        <div class="demo-preview">
+          <div class="card" style="max-width: 400px;">
+            <h3 class="card__title">Быстрый ремонт</h3>
+            <p class="card__text">Профессиональная диагностика и ремонт любой сложности. Гарантия качества на все работы.</p>
+            <button class="btn btn--primary">Подробнее</button>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="card"&gt;
+  &lt;h3 class="card__title"&gt;Быстрый ремонт&lt;/h3&gt;
+  &lt;p class="card__text"&gt;Профессиональная диагностика...&lt;/p&gt;
+  &lt;button class="btn btn--primary"&gt;Подробнее&lt;/button&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="card-with-image">
+        <h3>Card With Image</h3>
+        <span class="demo-id">ID: card-with-image</span>
+        <div class="demo-preview">
+          <div class="card card--image" style="max-width: 400px;">
+            <img src="https://via.placeholder.com/400x250" alt="Услуга" class="card__image">
+            <div class="card__content">
+              <h3 class="card__title">Установка оборудования</h3>
+              <p class="card__text">Монтаж и настройка климатической техники любой сложности.</p>
+              <button class="btn btn--outline">Заказать</button>
+            </div>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="card card--image"&gt;
+  &lt;img src="image.jpg" alt="Услуга" class="card__image"&gt;
+  &lt;div class="card__content"&gt;
+    &lt;h3 class="card__title"&gt;Установка оборудования&lt;/h3&gt;
+    &lt;p class="card__text"&gt;Монтаж и настройка...&lt;/p&gt;
+    &lt;button class="btn btn--outline"&gt;Заказать&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="card-pricing">
+        <h3>Pricing Card</h3>
+        <span class="demo-id">ID: card-pricing</span>
+        <div class="demo-preview">
+          <div class="card card--pricing" style="max-width: 400px;">
+            <h3 class="card__plan">Стандарт</h3>
+            <div class="card__price">
+              <span class="card__amount">2 500</span>
+              <span class="card__currency">₽/мес</span>
+            </div>
+            <ul class="card__features">
+              <li class="card__feature card__feature--included"><i class="ri-check-line"></i> Диагностика техники</li>
+              <li class="card__feature card__feature--included"><i class="ri-check-line"></i> Гарантия 6 месяцев</li>
+              <li class="card__feature card__feature--included"><i class="ri-check-line"></i> Выезд мастера</li>
+              <li class="card__feature card__feature--excluded"><i class="ri-close-line"></i> Замена запчастей</li>
+            </ul>
+            <button class="btn btn--primary btn--full-width">Выбрать план</button>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="card card--pricing"&gt;
+  &lt;h3 class="card__plan"&gt;Стандарт&lt;/h3&gt;
+  &lt;div class="card__price"&gt;
+    &lt;span class="card__amount"&gt;2 500&lt;/span&gt;
+    &lt;span class="card__currency"&gt;₽/мес&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;ul class="card__features"&gt;
+    &lt;li class="card__feature card__feature--included"&gt;&lt;i class="ri-check-line"&gt;&lt;/i&gt; Диагностика&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;button class="btn btn--primary btn--full-width"&gt;Выбрать план&lt;/button&gt;
+&lt;/div&gt;</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 2px solid var(--border); text-align: center; color: var(--text-light);">
+      <p>Site Builder — элементный подход к созданию лендингов 🚀</p>
+    </footer>
+  </div>
+</body>
+</html>

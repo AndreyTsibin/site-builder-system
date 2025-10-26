@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Kit — Site Builder</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Remix Icon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/variables.css">
+
+  <!-- Element Styles -->
+  <link rel="stylesheet" href="elements/buttons/button-primary/button-primary.css">
+  <link rel="stylesheet" href="elements/buttons/button-secondary/button-secondary.css">
+  <link rel="stylesheet" href="elements/buttons/button-outline/button-outline.css">
+  <link rel="stylesheet" href="elements/buttons/button-ghost/button-ghost.css">
+  <link rel="stylesheet" href="elements/forms/input-text/input-text.css">
+  <link rel="stylesheet" href="elements/forms/textarea/textarea.css">
+  <link rel="stylesheet" href="elements/forms/select/select.css">
+  <link rel="stylesheet" href="elements/forms/checkbox/checkbox.css">
+  <link rel="stylesheet" href="elements/forms/radio/radio.css">
+  <link rel="stylesheet" href="elements/grid/grid-2-cols/grid-2-cols.css">
+  <link rel="stylesheet" href="elements/grid/grid-3-cols/grid-3-cols.css">
+  <link rel="stylesheet" href="elements/grid/grid-4-cols/grid-4-cols.css">
+  <link rel="stylesheet" href="elements/cards/card-basic/card-basic.css">
+  <link rel="stylesheet" href="elements/cards/card-with-image/card-with-image.css">
+  <link rel="stylesheet" href="elements/cards/card-pricing/card-pricing.css">
+
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--background);
+    }
+
+    .ui-kit-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: var(--space-12) var(--space-8);
+      text-align: center;
+    }
+
+    .ui-kit-header h1 {
+      font-size: var(--font-size-8);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+
+    .ui-kit-header p {
+      font-size: var(--font-size-4);
+      opacity: 0.9;
+    }
+
+    .ui-kit-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-10) var(--space-8);
+    }
+
+    .ui-kit-section {
+      margin-bottom: var(--space-16);
+    }
+
+    .ui-kit-section__title {
+      font-size: var(--font-size-6);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--space-8);
+      padding-bottom: var(--space-4);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    .ui-kit-group {
+      margin-bottom: var(--space-10);
+    }
+
+    .ui-kit-group__title {
+      font-size: var(--font-size-5);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: var(--space-6);
+    }
+
+    .ui-kit-showcase {
+      background: white;
+      padding: var(--space-8);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      margin-bottom: var(--space-6);
+    }
+
+    .ui-kit-buttons {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .ui-kit-forms {
+      max-width: 500px;
+    }
+
+    .ui-kit-grid-demo {
+      margin-bottom: var(--space-6);
+    }
+
+    .ui-kit-grid-demo__item {
+      padding: var(--space-6);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      border: 2px dashed var(--border);
+      text-align: center;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .ui-kit-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .ui-kit-footer {
+      background: var(--surface);
+      padding: var(--space-8);
+      text-align: center;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .ui-kit-header h1 {
+        font-size: var(--font-size-6);
+      }
+
+      .ui-kit-container {
+        padding: var(--space-6) var(--space-4);
+      }
+
+      .ui-kit-section__title {
+        font-size: var(--font-size-5);
+      }
+
+      .ui-kit-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="ui-kit-header">
+    <h1>🎨 UI Kit</h1>
+    <p>Визуальный справочник всех элементов Site Builder</p>
+  </header>
+
+  <div class="ui-kit-container">
+    <!-- Buttons Section -->
+    <section class="ui-kit-section">
+      <h2 class="ui-kit-section__title">Кнопки</h2>
+
+      <div class="ui-kit-group">
+        <h3 class="ui-kit-group__title">Все варианты кнопок</h3>
+        <div class="ui-kit-showcase">
+          <div class="ui-kit-buttons">
+            <button class="btn btn--primary">Primary Button</button>
+            <button class="btn btn--secondary">Secondary Button</button>
+            <button class="btn btn--outline">Outline Button</button>
+            <button class="btn btn--ghost">Ghost Button</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-kit-group">
+        <h3 class="ui-kit-group__title">Кнопки с иконками</h3>
+        <div class="ui-kit-showcase">
+          <div class="ui-kit-buttons">
+            <button class="btn btn--primary">
+              <i class="ri-phone-line"></i> Позвонить
+            </button>
+            <button class="btn btn--secondary">
+              <i class="ri-mail-line"></i> Написать
+            </button>
+            <button class="btn btn--outline">
+              <i class="ri-download-line"></i> Скачать
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forms Section -->
+    <section class="ui-kit-section">
+      <h2 class="ui-kit-section__title">Формы</h2>
+
+      <div class="ui-kit-group">
+        <h3 class="ui-kit-group__title">Текстовые поля</h3>
+        <div class="ui-kit-showcase">
+          <div class="ui-kit-forms">
+            <div class="form-group">
+              <label for="name" class="form-label">Ваше имя</label>
+              <input type="text" id="name" class="form-input" placeholder="Иван Иванов">
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-input" placeholder="ivan@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="form-label">Телефон</label>
+              <input type="tel" id="phone" class="form-input" placeholder="+7 (999) 123-45-67">
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Сообщение</label>
+              <textarea id="message" class="form-textarea" rows="4" placeholder="Опишите вашу задачу"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="service" class="form-label">Тип услуги</label>
+              <select id="service" class="form-select">
+                <option value="">Выберите услугу</option>
+                <option value="repair">Ремонт техники</option>
+                <option value="installation">Установка оборудования</option>
+                <option value="consultation">Консультация</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-kit-group">
+        <h3 class="ui-kit-group__title">Чекбоксы и радиокнопки</h3>
+        <div class="ui-kit-showcase">
+          <div class="ui-kit-forms">
+            <div class="form-checkbox">
+              <input type="checkbox" id="agree" class="form-checkbox__input">
+              <label for="agree" class="form-checkbox__label">Я согласен с условиями обработки персональных данных</label>
+            </div>
+
+            <div class="form-checkbox">
+              <input type="checkbox" id="subscribe" class="form-checkbox__input">
+              <label for="subscribe" class="form-checkbox__label">Подписаться на новости и акции</label>
+            </div>
+
+            <div class="form-group" style="margin-top: var(--space-6);">
+              <label class="form-label">Выберите способ связи</label>
+              <div class="form-radio">
+                <input type="radio" id="contact-phone" name="contact" class="form-radio__input" checked>
+                <label for="contact-phone" class="form-radio__label">Телефон</label>
+              </div>
+              <div class="form-radio">
+                <input type="radio" id="contact-email" name="contact" class="form-radio__input">
+                <label for="contact-email" class="form-radio__label">Email</label>
+              </div>
+              <div class="form-radio">
+                <input type="radio" id="contact-telegram" name="contact" class="form-radio__input">
+                <label for="contact-telegram" class="form-radio__label">Telegram</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid Section -->
+    <section class="ui-kit-section">
+      <h2 class="ui-kit-section__title">Сетка</h2>
+
+      <div class="ui-kit-group">
+        <h3 class="ui-kit-group__title">2 колонки</h3>
+        <div class="ui-kit-showcase">
+          <div class="ui-kit-grid-demo">
+            <div class="grid grid--2-cols">
+              <div class="ui-kit-grid-demo__item">Колонка 1</div>
+              <div class="ui-kit-grid-demo__item">Колонка 2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-kit-group">
+        <h3 class="ui-kit-group__title">3 колонки</h3>
+        <div class="ui-kit-showcase">
+          <div class="ui-kit-grid-demo">
+            <div class="grid grid--3-cols">
+              <div class="ui-kit-grid-demo__item">Колонка 1</div>
+              <div class="ui-kit-grid-demo__item">Колонка 2</div>
+              <div class="ui-kit-grid-demo__item">Колонка 3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-kit-group">
+        <h3 class="ui-kit-group__title">4 колонки</h3>
+        <div class="ui-kit-showcase">
+          <div class="ui-kit-grid-demo">
+            <div class="grid grid--4-cols">
+              <div class="ui-kit-grid-demo__item">Колонка 1</div>
+              <div class="ui-kit-grid-demo__item">Колонка 2</div>
+              <div class="ui-kit-grid-demo__item">Колонка 3</div>
+              <div class="ui-kit-grid-demo__item">Колонка 4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="ui-kit-section">
+      <h2 class="ui-kit-section__title">Карточки</h2>
+
+      <div class="ui-kit-group">
+        <h3 class="ui-kit-group__title">Все типы карточек</h3>
+        <div class="ui-kit-showcase">
+          <div class="ui-kit-cards">
+            <!-- Basic Card -->
+            <div class="card">
+              <h3 class="card__title">Быстрый ремонт</h3>
+              <p class="card__text">Профессиональная диагностика и ремонт любой сложности. Гарантия качества на все работы.</p>
+              <button class="btn btn--primary">Подробнее</button>
+            </div>
+
+            <!-- Card with Image -->
+            <div class="card card--image">
+              <img src="https://via.placeholder.com/400x250" alt="Услуга" class="card__image">
+              <div class="card__content">
+                <h3 class="card__title">Установка оборудования</h3>
+                <p class="card__text">Монтаж и настройка климатической техники любой сложности.</p>
+                <button class="btn btn--outline">Заказать</button>
+              </div>
+            </div>
+
+            <!-- Pricing Card -->
+            <div class="card card--pricing">
+              <h3 class="card__plan">Стандарт</h3>
+              <div class="card__price">
+                <span class="card__amount">2 500</span>
+                <span class="card__currency">₽/мес</span>
+              </div>
+              <ul class="card__features">
+                <li class="card__feature card__feature--included"><i class="ri-check-line"></i> Диагностика техники</li>
+                <li class="card__feature card__feature--included"><i class="ri-check-line"></i> Гарантия 6 месяцев</li>
+                <li class="card__feature card__feature--included"><i class="ri-check-line"></i> Выезд мастера</li>
+                <li class="card__feature card__feature--excluded"><i class="ri-close-line"></i> Замена запчастей</li>
+              </ul>
+              <button class="btn btn--primary btn--full-width">Выбрать план</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Color Palette -->
+    <section class="ui-kit-section">
+      <h2 class="ui-kit-section__title">Цветовая палитра</h2>
+      <div class="ui-kit-showcase">
+        <div class="grid grid--4-cols">
+          <div style="padding: var(--space-6); background: var(--primary); color: white; border-radius: var(--radius-sm); text-align: center; font-weight: 600;">Primary</div>
+          <div style="padding: var(--space-6); background: var(--secondary); color: white; border-radius: var(--radius-sm); text-align: center; font-weight: 600;">Secondary</div>
+          <div style="padding: var(--space-6); background: var(--accent); color: white; border-radius: var(--radius-sm); text-align: center; font-weight: 600;">Accent</div>
+          <div style="padding: var(--space-6); background: var(--success); color: white; border-radius: var(--radius-sm); text-align: center; font-weight: 600;">Success</div>
+          <div style="padding: var(--space-6); background: var(--warning); color: white; border-radius: var(--radius-sm); text-align: center; font-weight: 600;">Warning</div>
+          <div style="padding: var(--space-6); background: var(--danger); color: white; border-radius: var(--radius-sm); text-align: center; font-weight: 600;">Danger</div>
+          <div style="padding: var(--space-6); background: var(--surface); color: var(--text); border-radius: var(--radius-sm); text-align: center; font-weight: 600; border: 1px solid var(--border);">Surface</div>
+          <div style="padding: var(--space-6); background: var(--background); color: var(--text); border-radius: var(--radius-sm); text-align: center; font-weight: 600; border: 1px solid var(--border);">Background</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="ui-kit-section">
+      <h2 class="ui-kit-section__title">Типографика</h2>
+      <div class="ui-kit-showcase">
+        <h1 style="font-size: var(--font-size-8); margin-bottom: var(--space-4);">Heading 1 — 48px</h1>
+        <h2 style="font-size: var(--font-size-7); margin-bottom: var(--space-4);">Heading 2 — 40px</h2>
+        <h3 style="font-size: var(--font-size-6); margin-bottom: var(--space-4);">Heading 3 — 32px</h3>
+        <h4 style="font-size: var(--font-size-5); margin-bottom: var(--space-4);">Heading 4 — 24px</h4>
+        <h5 style="font-size: var(--font-size-4); margin-bottom: var(--space-4);">Heading 5 — 20px</h5>
+        <p style="font-size: var(--font-size-3); margin-bottom: var(--space-4);">Body Text — 16px</p>
+        <p style="font-size: var(--font-size-2); color: var(--text-light);">Small Text — 14px</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="ui-kit-footer">
+    <p>Site Builder — элементный подход к созданию лендингов 🚀</p>
+  </footer>
+</body>
+</html>
