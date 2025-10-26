@@ -1,0 +1,51 @@
+/**
+ * Grid 2 Columns — Two-column responsive grid
+ * Used for side-by-side content (features, comparisons, etc.)
+ */
+
+.grid {
+  /* Layout */
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2-cols {
+  /* Default: 1 column on mobile */
+  grid-template-columns: 1fr;
+
+  /* Tablet and up: 2 columns */
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid__item {
+  /* Visual */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  /* Optional: Add padding/background for card-like appearance */
+  /* Uncomment if needed:
+  padding: var(--space-6);
+  background-color: var(--bg-card);
+  border-radius: var(--radius-md);
+  */
+}
+
+.grid__item h3 {
+  /* Typography */
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-body);
+  margin: 0;
+}
+
+.grid__item p {
+  /* Typography */
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-muted);
+  margin: 0;
+}

@@ -1,0 +1,40 @@
+/**
+ * Site Builder — Main Styles
+ *
+ * This file contains all styles for elements and sections used in the landing page.
+ *
+ * WORKFLOW:
+ * 1. Copy CSS from library/elements/ for each element you use
+ * 2. Copy CSS from library/sections/ for each section you use
+ * 3. Add any custom styles specific to this project
+ *
+ * EXAMPLE:
+ * If you use button-primary, copy styles from:
+ * library/elements/buttons/button-primary/button-primary.css
+ *
+ * STRUCTURE:
+ * - Elements (buttons, forms, grid, cards, etc.)
+ * - Sections (header, hero, features, footer, etc.)
+ * - Custom project styles
+ */
+
+
+/* ========================================
+   ELEMENTS
+   ======================================== */
+
+/* Add element styles here */
+
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+
+/* Add section styles here */
+
+
+/* ========================================
+   CUSTOM STYLES
+   ======================================== */
+
+/* Add project-specific styles here */

@@ -2,7 +2,7 @@
 
 **Дата начала:** 2025-10-26
 **Базовый документ:** [CHANGES-PLAN.md](CHANGES-PLAN.md)
-**Статус:** Диалог 1 завершён ✅ → Переход к Диалогу 2
+**Статус:** Диалог 2 завершён ✅ → Переход к Диалогу 3
 
 ---
 
@@ -36,27 +36,27 @@
 
 ---
 
-## Диалог 2: Базовые элементы и шаблоны
+## Диалог 2: Базовые элементы и шаблоны ✅
 
 ### Этап 2.1: Проверка design-system
-- [ ] Проверить `library/design-system/variables.css`
-- [ ] Проверить `library/design-system/reset.css`
-- [ ] Внести правки при необходимости
+- [x] Проверить `library/styles/variables.css` (переименовано)
+- [x] Проверить `library/styles/reset.css`
+- [x] Удалить .min.css файлы
 
 ### Этап 2.2: Создание базовых элементов
-- [ ] Создать элементы buttons (primary, secondary, outline, ghost)
-- [ ] Создать элементы forms (input, textarea, select, checkbox, radio)
-- [ ] Создать элементы grid (2-cols, 3-cols, 4-cols)
-- [ ] Создать элементы cards (basic, with-image, pricing)
+- [x] Создать элементы buttons (primary, secondary, outline, ghost)
+- [x] Создать элементы forms (input, textarea, select, checkbox, radio)
+- [x] Создать элементы grid (2-cols, 3-cols, 4-cols)
+- [x] Создать элементы cards (basic, with-image, pricing)
 
 ### Этап 2.3: Единый JavaScript
-- [ ] Создать `library/js/main.js` с основными функциями
+- [x] Создать `library/js/main.js` с основными функциями
 
 ### Этап 2.4: Настройка output/ шаблона
-- [ ] Создать готовый `output/index.html` с подключёнными стилями
-- [ ] Настроить `output/styles/` (reset.css, variables.css, main.css)
-- [ ] Настроить `output/scripts/main.js`
-- [ ] Создать пустую папку `output/images/`
+- [x] Создать готовый `output/index.html` с подключёнными стилями
+- [x] Настроить `output/styles/` (reset.css, variables.css, main.css)
+- [x] Настроить `output/scripts/main.js`
+- [x] Создать пустую папку `output/images/`
 
 ---
 
@@ -82,5 +82,15 @@
 - [ ] Финальный коммит
 
 ---
+
+---
+
+## Изменения по ходу работы
+
+### Диалог 2:
+- Переименована папка `library/design-system/` → `library/styles/`
+- Удалены минифицированные файлы `.min.css` из styles/
+- Создано 15+ элементов с реальным текстом (БЕЗ placeholders)
+- Готовая структура output/ для быстрого старта проектов
 
 **Последнее обновление:** 2025-10-26

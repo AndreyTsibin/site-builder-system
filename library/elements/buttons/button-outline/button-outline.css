@@ -1,0 +1,45 @@
+/**
+ * Button Outline — Outlined button
+ * Used for secondary CTAs with less visual weight
+ */
+
+.btn--outline {
+  /* Colors */
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+
+  /* Hover state */
+  &:hover {
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Active state */
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  /* Focus state (keyboard navigation) */
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+  }
+
+  /* Disabled state */
+  &:disabled {
+    border-color: var(--border);
+    color: var(--text-disabled);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+
+    &:hover {
+      background-color: transparent;
+      color: var(--text-disabled);
+    }
+  }
+}

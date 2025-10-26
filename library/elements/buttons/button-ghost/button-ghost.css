@@ -1,0 +1,38 @@
+/**
+ * Button Ghost — Minimal button
+ * Used for tertiary actions with minimal visual weight
+ */
+
+.btn--ghost {
+  /* Colors */
+  background-color: transparent;
+  color: var(--text-body);
+
+  /* Hover state */
+  &:hover {
+    background-color: var(--bg-section);
+    color: var(--primary);
+  }
+
+  /* Active state */
+  &:active {
+    background-color: var(--bg-card);
+  }
+
+  /* Focus state (keyboard navigation) */
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+  }
+
+  /* Disabled state */
+  &:disabled {
+    color: var(--text-disabled);
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: transparent;
+      color: var(--text-disabled);
+    }
+  }
+}

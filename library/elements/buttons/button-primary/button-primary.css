@@ -1,0 +1,65 @@
+/**
+ * Button Primary — Main CTA button
+ * Used for primary actions (submit forms, main CTAs)
+ */
+
+.btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  /* Spacing */
+  padding: var(--space-3) var(--space-6);
+
+  /* Typography */
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-tight);
+  text-align: center;
+
+  /* Visual */
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+
+  /* Remove default button styles */
+  border: none;
+  background: none;
+}
+
+.btn--primary {
+  /* Colors */
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-sm);
+
+  /* Hover state */
+  &:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Active state */
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Focus state (keyboard navigation) */
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+  }
+
+  /* Disabled state */
+  &:disabled {
+    background-color: var(--border);
+    color: var(--text-disabled);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}

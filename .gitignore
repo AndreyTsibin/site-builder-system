@@ -62,6 +62,7 @@ ehthumbs.db
 Desktop.ini
 
 # Site Builder specific
-output/
 __pycache__/
 *.pyc
+
+# Note: output/ is now included as ready-to-use template
