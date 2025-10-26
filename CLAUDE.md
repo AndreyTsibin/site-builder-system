@@ -4,28 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ---
 
-## ⚠️ КРИТИЧЕСКИ ВАЖНО — НАЧНИ ЗДЕСЬ
-
-**Статус проекта:** ✅ Реструктуризация завершена!
-
-**Новая архитектура:**
-- ✅ Элементный подход (library/elements/)
-- ✅ Секции из элементов (library/sections/)
-- ✅ Демо файлы и UI Kit
-- ✅ Готовый шаблон output/
-- ✅ Опциональные модули (modules/)
-- ✅ Отказ от автоматизации Python
-- ✅ Отказ от placeholders (всегда реальный текст)
-
----
-
 ## PROJECT OVERVIEW
 
-**Site Builder** — Landing page constructor with element-based approach (local, no frameworks)
+**Site Builder** — Landing page constructor with element-based approach
 
-- **Goal:** Build landing pages from reusable elements and sections
-- **Current Stage:** Production ready
-- **Phase:** Active development
+- Build landing pages from reusable elements and sections
+- No frameworks, no Python automation, no placeholders
+- Production ready
 
 ---
 
