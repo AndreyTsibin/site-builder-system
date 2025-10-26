@@ -179,54 +179,59 @@ function initTabs() {
 
 /**
  * Initialize modals
- * Usage: Add class "js-modal-open" to trigger with data-modal="modal-id"
- * Add class "js-modal" to modal element with data-modal="modal-id"
- * Add class "js-modal-close" to close buttons inside modal
+ * Usage: Add data-modal-open="modal-id" to trigger button
+ * Add class "modal" to modal element with id="modal-id"
+ * Add data-modal-close to close buttons and overlay
  */
 function initModal() {
-  const triggers = document.querySelectorAll('.js-modal-open');
-  const modals = document.querySelectorAll('.js-modal');
+  const openButtons = document.querySelectorAll('[data-modal-open]');
+  const closeButtons = document.querySelectorAll('[data-modal-close]');
 
   // Open modal
-  triggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
+  openButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
       e.preventDefault();
-      const modalId = trigger.dataset.modal;
-      const modal = document.querySelector(`[data-modal="${modalId}"].js-modal`);
+      const modalId = button.getAttribute('data-modal-open');
+      const modal = document.getElementById(modalId);
 
       if (modal) {
-        modal.classList.add('is-open');
+        modal.classList.add('modal--active');
+        modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+
+        // Focus first focusable element
+        const focusableElements = modal.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length > 0) {
+          focusableElements[0].focus();
+        }
       }
     });
   });
 
   // Close modal
-  modals.forEach(modal => {
-    const closeButtons = modal.querySelectorAll('.js-modal-close');
-
-    closeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        modal.classList.remove('is-open');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // Close on overlay click
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('is-open');
+  closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal');
+      if (modal) {
+        modal.classList.remove('modal--active');
+        modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
       }
     });
+  });
 
-    // Close on ESC key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-        modal.classList.remove('is-open');
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const activeModal = document.querySelector('.modal--active');
+      if (activeModal) {
+        activeModal.classList.remove('modal--active');
+        activeModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
       }
-    });
+    }
   });
 }
 

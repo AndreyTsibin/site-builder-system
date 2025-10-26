@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="elements/buttons/button-secondary/button-secondary.css">
   <link rel="stylesheet" href="elements/buttons/button-tertiary/button-tertiary.css">
   <link rel="stylesheet" href="elements/buttons/button-link/button-link.css">
+  <link rel="stylesheet" href="elements/buttons/button-icon/button-icon.css">
   <link rel="stylesheet" href="elements/buttons/button-row-left/button-row-left.css">
   <link rel="stylesheet" href="elements/buttons/button-row-center/button-row-center.css">
   <link rel="stylesheet" href="elements/forms/input-text/input-text.css">
@@ -36,19 +37,126 @@
   <link rel="stylesheet" href="elements/cards/card-basic/card-basic.css">
   <link rel="stylesheet" href="elements/cards/card-with-image/card-with-image.css">
   <link rel="stylesheet" href="elements/cards/card-pricing/card-pricing.css">
+  <link rel="stylesheet" href="elements/modals/modal-center/modal-center.css">
+  <link rel="stylesheet" href="elements/modals/modal-drawer/modal-drawer.css">
+  <link rel="stylesheet" href="elements/modals/modal-fullscreen/modal-fullscreen.css">
 
   <style>
+    * {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
-      color: var(--text);
-      background: var(--background);
+      color: var(--text-body);
+      background: var(--bg-page);
+      margin: 0;
+      padding: 0;
+    }
+
+    .demo-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .demo-sidebar {
+      position: sticky;
+      top: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
       padding: var(--space-8);
     }
 
+    .demo-sidebar__title {
+      font-size: var(--font-size-5);
+      font-weight: var(--font-bold);
+      color: var(--text-body);
+      margin: 0 0 var(--space-6) 0;
+    }
+
+    .demo-nav {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .demo-nav__section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .demo-nav__section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: var(--font-size-2);
+      font-weight: var(--font-bold);
+      color: var(--text-body);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+      padding: var(--space-2) var(--space-3);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition-fast);
+    }
+
+    .demo-nav__section-title:hover {
+      background: var(--bg-section);
+    }
+
+    .demo-nav__section-icon {
+      transition: transform var(--transition-fast);
+    }
+
+    .demo-nav__section--collapsed .demo-nav__section-icon {
+      transform: rotate(-90deg);
+    }
+
+    .demo-nav__section-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+      padding-left: var(--space-3);
+    }
+
+    .demo-nav__section--collapsed .demo-nav__section-links {
+      display: none;
+    }
+
+    .demo-nav__link {
+      display: block;
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--font-size-3);
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .demo-nav__link:hover {
+      background: var(--bg-section);
+      color: var(--text-body);
+    }
+
+    .demo-nav__link--active {
+      background: var(--bg-section);
+      color: var(--primary);
+      font-weight: var(--font-medium);
+    }
+
+    /* Main content */
     .demo-container {
+      flex: 1;
       max-width: 1200px;
-      margin: 0 auto;
+      padding: var(--space-8);
     }
 
     .demo-header {
@@ -73,7 +181,7 @@
       margin-bottom: var(--space-12);
     }
 
-    .demo-section h2 {
+    .demo-section > h2 {
       font-size: var(--font-size-6);
       font-weight: 700;
       color: var(--text);
@@ -85,27 +193,62 @@
     .demo-item {
       margin-bottom: var(--space-8);
       padding: var(--space-6);
-      background: var(--surface);
+      background: white;
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
     }
 
-    .demo-item h3 {
+    .demo-item > h3 {
       font-size: var(--font-size-4);
       font-weight: 600;
       color: var(--primary);
       margin-bottom: var(--space-2);
     }
 
+    .demo-id-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+
     .demo-item .demo-id {
       display: inline-block;
       font-family: 'Courier New', monospace;
       font-size: var(--font-size-2);
-      color: var(--text-light);
-      background: var(--background);
-      padding: var(--space-1) var(--space-2);
+      font-weight: var(--font-medium);
+      color: var(--text-body);
+      background: hsl(220, 90%, 95%);
+      padding: var(--space-2) var(--space-3);
       border-radius: var(--radius-sm);
-      margin-bottom: var(--space-4);
+      border: 1px solid hsl(220, 90%, 85%);
+    }
+
+    .demo-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--font-size-2);
+      font-weight: var(--font-medium);
+      color: var(--text-body);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .demo-copy-btn:hover {
+      background: var(--bg-section);
+      border-color: var(--text-muted);
+    }
+
+    .demo-copy-btn--copied {
+      background: hsl(142, 71%, 95%);
+      border-color: var(--success);
+      color: var(--success);
     }
 
     .demo-item .demo-preview {
@@ -137,8 +280,12 @@
       max-width: 400px;
     }
 
-    @media (max-width: 768px) {
-      body {
+    @media (max-width: 1024px) {
+      .demo-sidebar {
+        display: none;
+      }
+
+      .demo-container {
         padding: var(--space-4);
       }
 
@@ -146,19 +293,109 @@
         font-size: var(--font-size-6);
       }
 
-      .demo-section h2 {
+      .demo-section > h2 {
         font-size: var(--font-size-5);
       }
     }
   </style>
 </head>
 <body>
-  <div class="demo-container">
-    <!-- Header -->
-    <header class="demo-header">
-      <h1>📚 Каталог элементов Site Builder</h1>
-      <p>Все базовые элементы с ID, примерами использования и кодом</p>
-    </header>
+  <div class="demo-layout">
+    <!-- Sidebar -->
+    <aside class="demo-sidebar">
+      <h2 class="demo-sidebar__title">📚 Site Builder</h2>
+      <nav class="demo-nav">
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🔘 Кнопки</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#button" class="demo-nav__link">Button</a>
+            <a href="#button-secondary" class="demo-nav__link">Button Secondary</a>
+            <a href="#button-tertiary" class="demo-nav__link">Button Tertiary</a>
+            <a href="#button-small" class="demo-nav__link">Button Small</a>
+            <a href="#button-link" class="demo-nav__link">Button Link</a>
+            <a href="#button-row-left" class="demo-nav__link">Button Row Left</a>
+            <a href="#button-with-icon" class="demo-nav__link">Button With Icon</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📰 Типографика</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#heading-1" class="demo-nav__link">Heading 1</a>
+            <a href="#heading-2" class="demo-nav__link">Heading 2</a>
+            <a href="#heading-3" class="demo-nav__link">Heading 3</a>
+            <a href="#text" class="demo-nav__link">Text</a>
+            <a href="#text-large" class="demo-nav__link">Text Large</a>
+            <a href="#lead" class="demo-nav__link">Lead</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📝 Формы</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#input-text" class="demo-nav__link">Text Input</a>
+            <a href="#textarea" class="demo-nav__link">Textarea</a>
+            <a href="#select" class="demo-nav__link">Select</a>
+            <a href="#checkbox" class="demo-nav__link">Checkbox</a>
+            <a href="#radio" class="demo-nav__link">Radio</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🃏 Карточки</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#card-basic" class="demo-nav__link">Basic Card</a>
+            <a href="#card-with-image" class="demo-nav__link">Card With Image</a>
+            <a href="#card-pricing" class="demo-nav__link">Pricing Card</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📐 Сетка</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#grid-2-cols" class="demo-nav__link">Grid 2 Columns</a>
+            <a href="#grid-3-cols" class="demo-nav__link">Grid 3 Columns</a>
+            <a href="#grid-4-cols" class="demo-nav__link">Grid 4 Columns</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🪟 Модальные окна</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#modal-center" class="demo-nav__link">Modal Center</a>
+            <a href="#modal-drawer" class="demo-nav__link">Modal Drawer</a>
+            <a href="#modal-fullscreen" class="demo-nav__link">Modal Fullscreen</a>
+            <a href="#button-icon" class="demo-nav__link">Icon Button</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <div class="demo-container">
+      <!-- Header -->
+      <header class="demo-header">
+        <h1>📚 Каталог элементов Site Builder</h1>
+        <p>Все базовые элементы с ID, примерами использования и кодом</p>
+      </header>
 
     <!-- Buttons -->
     <section class="demo-section">
@@ -166,7 +403,13 @@
 
       <div class="demo-item" id="button">
         <h3>Button</h3>
-        <span class="demo-id">ID: button</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button</span>
+          <button class="demo-copy-btn" onclick="copyID('button')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--primary">Button</button>
         </div>
@@ -175,7 +418,13 @@
 
       <div class="demo-item" id="button-secondary">
         <h3>Button Secondary</h3>
-        <span class="demo-id">ID: button-secondary</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-secondary</span>
+          <button class="demo-copy-btn" onclick="copyID('button-secondary')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--secondary">Button</button>
         </div>
@@ -184,7 +433,13 @@
 
       <div class="demo-item" id="button-tertiary">
         <h3>Button Tertiary</h3>
-        <span class="demo-id">ID: button-tertiary</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-tertiary</span>
+          <button class="demo-copy-btn" onclick="copyID('button-tertiary')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--tertiary">Button</button>
         </div>
@@ -193,7 +448,13 @@
 
       <div class="demo-item" id="button-small">
         <h3>Button Small</h3>
-        <span class="demo-id">ID: button-small</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-small</span>
+          <button class="demo-copy-btn" onclick="copyID('button-small')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--primary btn--sm">Button</button>
         </div>
@@ -202,7 +463,13 @@
 
       <div class="demo-item" id="button-secondary-small">
         <h3>Button Secondary Small</h3>
-        <span class="demo-id">ID: button-secondary-small</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-secondary-small</span>
+          <button class="demo-copy-btn" onclick="copyID('button-secondary-small')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--secondary btn--sm">Button</button>
         </div>
@@ -211,7 +478,13 @@
 
       <div class="demo-item" id="button-tertiary-small">
         <h3>Button Tertiary Small</h3>
-        <span class="demo-id">ID: button-tertiary-small</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-tertiary-small</span>
+          <button class="demo-copy-btn" onclick="copyID('button-tertiary-small')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--tertiary btn--sm">Button</button>
         </div>
@@ -220,7 +493,13 @@
 
       <div class="demo-item" id="button-link">
         <h3>Button Link</h3>
-        <span class="demo-id">ID: button-link</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-link</span>
+          <button class="demo-copy-btn" onclick="copyID('button-link')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <a href="#" class="btn btn--link">Button</a>
         </div>
@@ -229,7 +508,13 @@
 
       <div class="demo-item" id="button-row-left">
         <h3>Button Row Align Left</h3>
-        <span class="demo-id">ID: button-row-left</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-row-left</span>
+          <button class="demo-copy-btn" onclick="copyID('button-row-left')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <div class="btn-row btn-row--left">
             <button class="btn btn--primary">Button</button>
@@ -244,7 +529,13 @@
 
       <div class="demo-item" id="button-row-center">
         <h3>Button Row Align Center</h3>
-        <span class="demo-id">ID: button-row-center</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-row-center</span>
+          <button class="demo-copy-btn" onclick="copyID('button-row-center')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <div class="btn-row btn-row--center">
             <button class="btn btn--primary">Button</button>
@@ -259,7 +550,13 @@
 
       <div class="demo-item" id="button-with-icon">
         <h3>Button With Icon</h3>
-        <span class="demo-id">ID: button-with-icon</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--primary">
             <i class="ri-arrow-right-line" aria-hidden="true"></i>
@@ -274,7 +571,13 @@
 
       <div class="demo-item" id="button-secondary-with-icon">
         <h3>Button Secondary With Icon</h3>
-        <span class="demo-id">ID: button-secondary-with-icon</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-secondary-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-secondary-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--secondary">
             <i class="ri-arrow-right-line" aria-hidden="true"></i>
@@ -289,7 +592,13 @@
 
       <div class="demo-item" id="button-tertiary-with-icon">
         <h3>Button Tertiary With Icon</h3>
-        <span class="demo-id">ID: button-tertiary-with-icon</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-tertiary-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-tertiary-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--tertiary">
             <i class="ri-arrow-right-line" aria-hidden="true"></i>
@@ -304,7 +613,13 @@
 
       <div class="demo-item" id="button-link-with-icon">
         <h3>Button Link With Icon</h3>
-        <span class="demo-id">ID: button-link-with-icon</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-link-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-link-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <a href="#" class="btn btn--link">
             <i class="ri-arrow-right-line" aria-hidden="true"></i>
@@ -319,7 +634,13 @@
 
       <div class="demo-item" id="button-small-with-icon">
         <h3>Button Small With Icon</h3>
-        <span class="demo-id">ID: button-small-with-icon</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-small-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-small-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--primary btn--sm">
             <i class="ri-arrow-right-line" aria-hidden="true"></i>
@@ -334,7 +655,13 @@
 
       <div class="demo-item" id="button-secondary-small-with-icon">
         <h3>Button Secondary Small With Icon</h3>
-        <span class="demo-id">ID: button-secondary-small-with-icon</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-secondary-small-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-secondary-small-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--secondary btn--sm">
             <i class="ri-arrow-right-line" aria-hidden="true"></i>
@@ -349,7 +676,13 @@
 
       <div class="demo-item" id="button-tertiary-small-with-icon">
         <h3>Button Tertiary Small With Icon</h3>
-        <span class="demo-id">ID: button-tertiary-small-with-icon</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-tertiary-small-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-tertiary-small-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <button class="btn btn--tertiary btn--sm">
             <i class="ri-arrow-right-line" aria-hidden="true"></i>
@@ -363,13 +696,208 @@
       </div>
     </section>
 
+    <!-- Typography -->
+    <section class="demo-section">
+      <h2>📰 Типографика (Typography)</h2>
+
+      <div class="demo-item" id="heading-1">
+        <h3>Heading 1</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-1</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-1')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h1 class="heading heading--h1">Heading goes here</h1>
+        </div>
+        <div class="demo-code">&lt;h1 class="heading heading--h1"&gt;Heading goes here&lt;/h1&gt;</div>
+      </div>
+
+      <div class="demo-item" id="heading-2">
+        <h3>Heading 2</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-2</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-2')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h2 class="heading heading--h2">Heading goes here</h2>
+        </div>
+        <div class="demo-code">&lt;h2 class="heading heading--h2"&gt;Heading goes here&lt;/h2&gt;</div>
+      </div>
+
+      <div class="demo-item" id="heading-3">
+        <h3>Heading 3</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-3</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-3')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h3 class="heading heading--h3">Heading goes here</h3>
+        </div>
+        <div class="demo-code">&lt;h3 class="heading heading--h3"&gt;Heading goes here&lt;/h3&gt;</div>
+      </div>
+
+      <div class="demo-item" id="heading-4">
+        <h3>Heading 4</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-4</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-4')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h4 class="heading heading--h4">Heading goes here</h4>
+        </div>
+        <div class="demo-code">&lt;h4 class="heading heading--h4"&gt;Heading goes here&lt;/h4&gt;</div>
+      </div>
+
+      <div class="demo-item" id="heading-5">
+        <h3>Heading 5</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-5</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-5')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h5 class="heading heading--h5">Heading goes here</h5>
+        </div>
+        <div class="demo-code">&lt;h5 class="heading heading--h5"&gt;Heading goes here&lt;/h5&gt;</div>
+      </div>
+
+      <div class="demo-item" id="heading-6">
+        <h3>Heading 6</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-6</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-6')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h6 class="heading heading--h6">Heading goes here</h6>
+        </div>
+        <div class="demo-code">&lt;h6 class="heading heading--h6"&gt;Heading goes here&lt;/h6&gt;</div>
+      </div>
+
+      <div class="demo-item" id="text">
+        <h3>Text</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">text</span>
+          <button class="demo-copy-btn" onclick="copyID('text')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+        <div class="demo-code">&lt;p class="text"&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;</div>
+      </div>
+
+      <div class="demo-item" id="text-large">
+        <h3>Text Large</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">text-large</span>
+          <button class="demo-copy-btn" onclick="copyID('text-large')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="text text--lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+        <div class="demo-code">&lt;p class="text text--lg"&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;</div>
+      </div>
+
+      <div class="demo-item" id="text-small">
+        <h3>Text Small</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">text-small</span>
+          <button class="demo-copy-btn" onclick="copyID('text-small')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="text text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+        <div class="demo-code">&lt;p class="text text--sm"&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;</div>
+      </div>
+
+      <div class="demo-item" id="text-muted">
+        <h3>Text Muted</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">text-muted</span>
+          <button class="demo-copy-btn" onclick="copyID('text-muted')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+        <div class="demo-code">&lt;p class="text text--muted"&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;</div>
+      </div>
+
+      <div class="demo-item" id="lead">
+        <h3>Lead Text</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">lead</span>
+          <button class="demo-copy-btn" onclick="copyID('lead')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+        <div class="demo-code">&lt;p class="lead"&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;</div>
+      </div>
+
+      <div class="demo-item" id="heading-alignment">
+        <h3>Heading Alignment</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-alignment</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-alignment')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h2 class="heading heading--h2 heading--left">Left Aligned</h2>
+          <h2 class="heading heading--h2 heading--center">Center Aligned</h2>
+          <h2 class="heading heading--h2 heading--right">Right Aligned</h2>
+        </div>
+        <div class="demo-code">&lt;h2 class="heading heading--h2 heading--left"&gt;Left&lt;/h2&gt;
+&lt;h2 class="heading heading--h2 heading--center"&gt;Center&lt;/h2&gt;
+&lt;h2 class="heading heading--h2 heading--right"&gt;Right&lt;/h2&gt;</div>
+      </div>
+    </section>
+
     <!-- Forms -->
     <section class="demo-section">
       <h2>📝 Формы (Forms)</h2>
 
       <div class="demo-item" id="input-text">
         <h3>Text Input</h3>
-        <span class="demo-id">ID: input-text</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-text</span>
+          <button class="demo-copy-btn" onclick="copyID('input-text')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview demo-forms">
           <div class="form-group">
             <label for="demo-name" class="form-label">Ваше имя</label>
@@ -384,7 +912,13 @@
 
       <div class="demo-item" id="textarea">
         <h3>Textarea</h3>
-        <span class="demo-id">ID: textarea</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">textarea</span>
+          <button class="demo-copy-btn" onclick="copyID('textarea')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview demo-forms">
           <div class="form-group">
             <label for="demo-message" class="form-label">Сообщение</label>
@@ -399,7 +933,13 @@
 
       <div class="demo-item" id="select">
         <h3>Select</h3>
-        <span class="demo-id">ID: select</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">select</span>
+          <button class="demo-copy-btn" onclick="copyID('select')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview demo-forms">
           <div class="form-group">
             <label for="demo-service" class="form-label">Тип услуги</label>
@@ -423,7 +963,13 @@
 
       <div class="demo-item" id="checkbox">
         <h3>Checkbox</h3>
-        <span class="demo-id">ID: checkbox</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">checkbox</span>
+          <button class="demo-copy-btn" onclick="copyID('checkbox')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview demo-forms">
           <div class="form-checkbox">
             <input type="checkbox" id="demo-agree" class="form-checkbox__input">
@@ -438,7 +984,13 @@
 
       <div class="demo-item" id="radio">
         <h3>Radio Buttons</h3>
-        <span class="demo-id">ID: radio</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">radio</span>
+          <button class="demo-copy-btn" onclick="copyID('radio')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview demo-forms">
           <div class="form-group">
             <label class="form-label">Выберите способ связи</label>
@@ -469,7 +1021,13 @@
 
       <div class="demo-item" id="grid-2-cols">
         <h3>Grid 2 Columns</h3>
-        <span class="demo-id">ID: grid-2-cols</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">grid-2-cols</span>
+          <button class="demo-copy-btn" onclick="copyID('grid-2-cols')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <div class="grid grid--2-cols">
             <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 1</div>
@@ -484,7 +1042,13 @@
 
       <div class="demo-item" id="grid-3-cols">
         <h3>Grid 3 Columns</h3>
-        <span class="demo-id">ID: grid-3-cols</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">grid-3-cols</span>
+          <button class="demo-copy-btn" onclick="copyID('grid-3-cols')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <div class="grid grid--3-cols">
             <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 1</div>
@@ -501,7 +1065,13 @@
 
       <div class="demo-item" id="grid-4-cols">
         <h3>Grid 4 Columns</h3>
-        <span class="demo-id">ID: grid-4-cols</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">grid-4-cols</span>
+          <button class="demo-copy-btn" onclick="copyID('grid-4-cols')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <div class="grid grid--4-cols">
             <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 1</div>
@@ -525,7 +1095,13 @@
 
       <div class="demo-item" id="card-basic">
         <h3>Basic Card</h3>
-        <span class="demo-id">ID: card-basic</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-basic</span>
+          <button class="demo-copy-btn" onclick="copyID('card-basic')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <div class="card" style="max-width: 400px;">
             <h3 class="card__title">Быстрый ремонт</h3>
@@ -542,7 +1118,13 @@
 
       <div class="demo-item" id="card-with-image">
         <h3>Card With Image</h3>
-        <span class="demo-id">ID: card-with-image</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-with-image</span>
+          <button class="demo-copy-btn" onclick="copyID('card-with-image')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <div class="card card--image" style="max-width: 400px;">
             <img src="https://via.placeholder.com/400x250" alt="Услуга" class="card__image">
@@ -565,7 +1147,13 @@
 
       <div class="demo-item" id="card-pricing">
         <h3>Pricing Card</h3>
-        <span class="demo-id">ID: card-pricing</span>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-pricing</span>
+          <button class="demo-copy-btn" onclick="copyID('card-pricing')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
         <div class="demo-preview">
           <div class="card card--pricing" style="max-width: 400px;">
             <h3 class="card__plan">Стандарт</h3>
@@ -596,10 +1184,223 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 2px solid var(--border); text-align: center; color: var(--text-light);">
-      <p>Site Builder — элементный подход к созданию лендингов 🚀</p>
-    </footer>
+    <!-- Modals -->
+    <section class="demo-section">
+      <h2>🪟 Модальные окна (Modals)</h2>
+
+      <div class="demo-item" id="modal-center-demo">
+        <h3>Modal Center</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">modal-center</span>
+          <button class="demo-copy-btn" onclick="copyID('modal-center')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary" data-modal-open="demo-modal-center">
+            Открыть центральную модалку
+          </button>
+        </div>
+        <div class="demo-code">&lt;!-- Modal Center --&gt;
+&lt;div class="modal" id="modal-center" aria-hidden="true" role="dialog"&gt;
+  &lt;div class="modal__overlay" data-modal-close&gt;&lt;/div&gt;
+  &lt;div class="modal__container modal__container--center"&gt;
+    &lt;button class="modal__close" data-modal-close&gt;
+      &lt;i class="ri-close-line"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;div class="modal__content"&gt;
+      &lt;h2 class="heading heading--h3"&gt;Heading goes here&lt;/h2&gt;
+      &lt;p class="text text--muted"&gt;Lorem ipsum...&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Trigger --&gt;
+&lt;button data-modal-open="modal-center"&gt;Open&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="modal-drawer-demo">
+        <h3>Modal Drawer</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">modal-drawer</span>
+          <button class="demo-copy-btn" onclick="copyID('modal-drawer')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary" data-modal-open="demo-modal-drawer">
+            Открыть drawer
+          </button>
+        </div>
+        <div class="demo-code">&lt;!-- Modal Drawer --&gt;
+&lt;div class="modal modal--drawer" id="modal-drawer" aria-hidden="true"&gt;
+  &lt;div class="modal__overlay" data-modal-close&gt;&lt;/div&gt;
+  &lt;div class="modal__container modal__container--drawer"&gt;
+    &lt;button class="modal__close" data-modal-close&gt;
+      &lt;i class="ri-close-line"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;div class="modal__content"&gt;
+      &lt;h2 class="heading heading--h3"&gt;Heading goes here&lt;/h2&gt;
+      &lt;p class="text text--muted"&gt;Lorem ipsum...&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Trigger --&gt;
+&lt;button data-modal-open="modal-drawer"&gt;Open Drawer&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="modal-fullscreen-demo">
+        <h3>Modal Fullscreen</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">modal-fullscreen</span>
+          <button class="demo-copy-btn" onclick="copyID('modal-fullscreen')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary" data-modal-open="demo-modal-fullscreen">
+            Открыть fullscreen
+          </button>
+        </div>
+        <div class="demo-code">&lt;!-- Modal Fullscreen --&gt;
+&lt;div class="modal modal--fullscreen" id="modal-fullscreen" aria-hidden="true"&gt;
+  &lt;div class="modal__container modal__container--fullscreen"&gt;
+    &lt;button class="modal__close" data-modal-close&gt;
+      &lt;i class="ri-close-line"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;div class="modal__content"&gt;
+      &lt;h2 class="heading heading--h3"&gt;Heading goes here&lt;/h2&gt;
+      &lt;p class="text text--muted"&gt;Lorem ipsum...&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Trigger --&gt;
+&lt;button data-modal-open="modal-fullscreen"&gt;Open Fullscreen&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-icon">
+        <h3>Icon Button</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div style="display: flex; gap: var(--space-3); align-items: center;">
+            <button class="btn-icon" aria-label="Lightning">
+              <i class="ri-flashlight-line" aria-hidden="true"></i>
+            </button>
+            <button class="btn-icon btn-icon--sm" aria-label="Settings">
+              <i class="ri-settings-line" aria-hidden="true"></i>
+            </button>
+            <button class="btn-icon btn-icon--lg" aria-label="Star">
+              <i class="ri-star-line" aria-hidden="true"></i>
+            </button>
+            <button class="btn-icon btn-icon--secondary" aria-label="Heart">
+              <i class="ri-heart-line" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <div class="demo-code">&lt;button class="btn-icon" aria-label="Action"&gt;
+  &lt;i class="ri-flashlight-line" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;!-- Small --&gt;
+&lt;button class="btn-icon btn-icon--sm"&gt;...&lt;/button&gt;
+
+&lt;!-- Large --&gt;
+&lt;button class="btn-icon btn-icon--lg"&gt;...&lt;/button&gt;
+
+&lt;!-- Secondary --&gt;
+&lt;button class="btn-icon btn-icon--secondary"&gt;...&lt;/button&gt;</div>
+      </div>
+    </section>
+
+    <!-- Actual Modals for Demo -->
+    <!-- Modal Center -->
+    <div class="modal" id="demo-modal-center" aria-hidden="true" role="dialog" aria-labelledby="demo-modal-center-title">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__container modal__container--center">
+        <button class="modal__close" data-modal-close aria-label="Close modal">
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
+        <div class="modal__content">
+          <h2 class="heading heading--h3" id="demo-modal-center-title">Heading goes here</h2>
+          <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Drawer -->
+    <div class="modal modal--drawer" id="demo-modal-drawer" aria-hidden="true" role="dialog" aria-labelledby="demo-modal-drawer-title">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__container modal__container--drawer">
+        <button class="modal__close" data-modal-close aria-label="Close modal">
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
+        <div class="modal__content">
+          <h2 class="heading heading--h3" id="demo-modal-drawer-title">Heading goes here</h2>
+          <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+          <p class="text text--muted">This is a drawer modal that slides in from the right side of the screen. It's perfect for sidebars, settings panels, and navigation menus.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Fullscreen -->
+    <div class="modal modal--fullscreen" id="demo-modal-fullscreen" aria-hidden="true" role="dialog" aria-labelledby="demo-modal-fullscreen-title">
+      <div class="modal__container modal__container--fullscreen">
+        <button class="modal__close" data-modal-close aria-label="Close modal">
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
+        <div class="modal__content">
+          <h2 class="heading heading--h3" id="demo-modal-fullscreen-title">Heading goes here</h2>
+          <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+          <p class="text text--muted">This fullscreen modal takes over the entire viewport. Perfect for important announcements, onboarding flows, or immersive content.</p>
+        </div>
+      </div>
+    </div>
+
+      <!-- Footer -->
+      <footer style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 2px solid var(--border); text-align: center; color: var(--text-muted);">
+        <p>Site Builder — элементный подход к созданию лендингов 🚀</p>
+      </footer>
+    </div>
   </div>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    // Copy ID to clipboard
+    function copyID(id) {
+      navigator.clipboard.writeText(id).then(() => {
+        // Find button that was clicked
+        const btn = event.target.closest('.demo-copy-btn');
+        const originalHTML = btn.innerHTML;
+
+        // Show success state
+        btn.classList.add('demo-copy-btn--copied');
+        btn.innerHTML = '<i class="ri-check-line"></i> Copied!';
+
+        // Reset after 2 seconds
+        setTimeout(() => {
+          btn.classList.remove('demo-copy-btn--copied');
+          btn.innerHTML = originalHTML;
+        }, 2000);
+      });
+    }
+
+    // Toggle sidebar section
+    function toggleSection(titleElement) {
+      const section = titleElement.closest('.demo-nav__section');
+      section.classList.toggle('demo-nav__section--collapsed');
+    }
+  </script>
 </body>
 </html>

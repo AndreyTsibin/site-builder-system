@@ -1,0 +1,41 @@
+/**
+ * Modal Drawer — Slide-in modal from right
+ *
+ * Usage:
+ * 1. Add modal HTML to page with modal--drawer class
+ * 2. Use data-modal-open="modal-id" on trigger button
+ * 3. Modal slides in from right side
+ */
+
+.modal--drawer {
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+/* Drawer container */
+.modal__container--drawer {
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+}
+
+.modal--active .modal__container--drawer {
+  transform: translateX(0);
+}
+
+/* Drawer content */
+.modal--drawer .modal__content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .modal__container--drawer {
+    max-width: 100%;
+  }
+}
