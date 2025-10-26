@@ -21,10 +21,10 @@
 - [x] Коммит "refactor: remove old automation and sections"
 
 ### Этап 1.3: Создание структуры modules/
-- [ ] Создать `modules/minification/` + README.md
-- [ ] Создать `modules/accessibility/` + README.md
-- [ ] Создать `modules/performance/` + README.md
-- [ ] Коммит "feat: add modules structure for optional tools"
+- [x] Создать `modules/minification/` + README.md
+- [x] Создать `modules/accessibility/` + README.md
+- [x] Создать `modules/performance/` + README.md
+- [x] Коммит "feat: add modules structure for optional tools"
 
 ### Этап 1.4: Создание структуры library/elements/
 - [ ] Создать папки: `buttons/`, `forms/`, `lists/`, `cards/`, `accordions/`, `tabs/`, `sliders/`, `modals/`, `grid/`, `spacing/`, `sections/`
