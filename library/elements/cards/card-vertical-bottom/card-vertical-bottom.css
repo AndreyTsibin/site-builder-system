@@ -21,3 +21,9 @@
   gap: var(--space-3);
   flex-wrap: wrap;
 }
+
+/* Image styling */
+.card-vertical-bottom .image-ratio {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}

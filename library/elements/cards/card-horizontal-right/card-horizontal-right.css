@@ -22,6 +22,12 @@
   flex-wrap: wrap;
 }
 
+/* Image styling */
+.card-horizontal-right .image-ratio {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
 /* Tablet and up */
 @media (min-width: 768px) {
   .card-horizontal-right {

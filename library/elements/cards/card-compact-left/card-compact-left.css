@@ -20,6 +20,8 @@
 .card-compact-left .image-ratio {
   width: 120px;
   flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 /* Tablet and up */
