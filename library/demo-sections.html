@@ -11,11 +11,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Remix Icon -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css">
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <!-- Section Styles -->
+  <link rel="stylesheet" href="sections/header/header-1.css">
 
   <style>
     body {
@@ -147,29 +151,48 @@
       <p>Готовые секции, собранные из базовых элементов</p>
     </header>
 
-    <!-- Empty State -->
-    <div class="empty-state">
-      <i class="ri-inbox-line"></i>
-      <h3>Секции скоро появятся</h3>
-      <p>Мы создадим header, hero, features, pricing, footer и другие секции.<br>
-      Они будут добавлены в этот каталог с ID и примерами использования.</p>
-    </div>
-
-    <!-- Секции будут добавлены ниже -->
-    <!--
+    <!-- Секции -->
     <section class="demo-section">
       <h2>🏠 Header Sections</h2>
 
       <div class="demo-item" id="header-1">
         <h3>Header 1 — Simple Navigation</h3>
         <span class="demo-id">ID: header-1</span>
-        <p class="demo-description">Простой хедер с логотипом, навигацией и кнопкой CTA</p>
+        <p class="demo-description">Простой sticky хедер с логотипом, навигацией и кнопкой CTA. Использует готовые классы: .container--xl, .btn--primary. Адаптивный дизайн с burger-меню.</p>
         <div class="demo-preview">
-          [Превью секции]
+          <!-- Header 1 Preview -->
+          <header class="header-1">
+            <div class="container container--xl header-1__container">
+              <!-- Logo -->
+              <a href="#" class="header-1__logo">
+                <i class="ri-tools-fill" aria-hidden="true"></i>
+                <span>РемонтТех</span>
+              </a>
+
+              <!-- Navigation -->
+              <nav class="header-1__nav" aria-label="Основное меню">
+                <ul class="header-1__nav-list">
+                  <li><a href="#services" class="header-1__nav-link">Услуги</a></li>
+                  <li><a href="#about" class="header-1__nav-link">О нас</a></li>
+                  <li><a href="#pricing" class="header-1__nav-link">Цены</a></li>
+                  <li><a href="#contacts" class="header-1__nav-link">Контакты</a></li>
+                </ul>
+              </nav>
+
+              <!-- CTA Button (uses ready-made .btn class) -->
+              <button class="btn btn--primary header-1__cta">Заказать звонок</button>
+
+              <!-- Mobile Menu Button -->
+              <button class="header-1__burger" aria-label="Открыть меню" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </header>
         </div>
       </div>
     </section>
-    -->
 
     <!-- Footer -->
     <footer style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 2px solid var(--border); text-align: center; color: var(--text-light);">

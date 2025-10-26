@@ -521,6 +521,7 @@
             <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
           </h3>
           <div class="demo-nav__section-links">
+            <a href="#navbar" class="demo-nav__link">Navbar</a>
             <a href="#breadcrumb" class="demo-nav__link">Breadcrumb</a>
             <a href="#dropdown" class="demo-nav__link">Dropdown</a>
             <a href="#navbar-dropdown" class="demo-nav__link">Navbar Dropdown</a>
@@ -3152,6 +3153,39 @@
     <section class="demo-section">
       <h2>🧭 Навигация (Navigation)</h2>
 
+      <!-- Navbar -->
+      <div class="demo-item" id="navbar">
+        <h3>Navbar</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">navbar</span>
+          <button class="demo-copy-btn" onclick="copyID('navbar')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="navbar" aria-label="Основное меню">
+            <ul class="navbar__list">
+              <li class="navbar__item">
+                <a href="#services" class="navbar__link navbar__link--active">Услуги</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#about" class="navbar__link">О нас</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#pricing" class="navbar__link">Цены</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#portfolio" class="navbar__link">Портфолио</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#contacts" class="navbar__link">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
       <!-- Breadcrumb -->
       <div class="demo-item" id="breadcrumb">
         <h3>Breadcrumb</h3>
@@ -3772,6 +3806,7 @@
         'card-icon': 'cards/card-icon',
 
         // Navigation
+        'navbar': 'navigation/navbar',
         'breadcrumb': 'navigation/breadcrumb',
         'dropdown': 'navigation/dropdown',
         'navbar-dropdown': 'navigation/navbar-dropdown',

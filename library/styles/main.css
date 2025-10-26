@@ -48,6 +48,90 @@
   user-select: none;
 }
 
+/* Button variant modifiers */
+.btn--primary {
+  background-color: var(--bg-btn-primary);
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover {
+  background-color: var(--bg-btn-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:focus-visible {
+  outline: 2px solid var(--bg-btn-primary);
+  outline-offset: 4px;
+}
+
+.btn--secondary {
+  background-color: var(--bg-btn-secondary);
+  color: var(--text-on-secondary);
+  border: 1px solid var(--border);
+}
+
+.btn--secondary:hover {
+  background-color: var(--bg-btn-secondary-hover);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn--secondary:active {
+  transform: translateY(0);
+}
+
+.btn--secondary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.btn--tertiary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid transparent;
+}
+
+.btn--tertiary:hover {
+  background-color: var(--bg-btn-tertiary-hover);
+  transform: translateY(-2px);
+}
+
+.btn--tertiary:active {
+  transform: translateY(0);
+}
+
+.btn--tertiary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.btn--link {
+  background-color: transparent;
+  color: var(--primary);
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn--link:hover {
+  color: var(--primary-hover);
+  text-decoration: none;
+}
+
+.btn--link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-xs);
+}
+
 /* Button size variants */
 .btn--sm {
   padding: var(--space-2) var(--space-4);
@@ -63,6 +147,92 @@
 .btn:disabled {
   cursor: not-allowed;
   opacity: 0.6;
+  background-color: var(--border);
+  color: var(--text-disabled);
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* ========================================
+   NAVBAR — Navigation Menu
+   ======================================== */
+
+.navbar {
+  /* Layout */
+  display: flex;
+}
+
+.navbar__list {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  /* Reset default list styles */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar__item {
+  /* Reset */
+  margin: 0;
+}
+
+.navbar__link {
+  /* Layout */
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  position: relative;
+
+  /* Typography (from design system) */
+  font-size: var(--font-size-3);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-tight);
+  text-decoration: none;
+
+  /* Colors */
+  color: var(--text);
+
+  /* Visual */
+  transition: color var(--transition-base);
+}
+
+/* Animated underline */
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width var(--transition-base);
+}
+
+.navbar__link:hover {
+  color: var(--primary);
+}
+
+.navbar__link:hover::after {
+  width: calc(100% - var(--space-6));
+}
+
+.navbar__link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Active state */
+.navbar__link--active {
+  color: var(--primary);
+  font-weight: var(--font-semibold);
+}
+
+.navbar__link--active::after {
+  width: calc(100% - var(--space-6));
 }
 
 

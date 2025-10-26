@@ -81,6 +81,7 @@ open library/demo-elements.html
 
 **Ready-made classes in `main.css`:**
 - Buttons: `.btn`, `.btn--primary/secondary/tertiary/link`
+- Navbar: `.navbar`, `.navbar__list`, `.navbar__item`, `.navbar__link`, `.navbar__link--active`
 - Typography: `.heading`, `.heading--h1` to `.h6`, `.text`, `.text--sm/lg/muted`, `.lead`, `.tagline`
 - Forms: `.form-field`, `.form-field__label/input/textarea/select`
 - Cards: `.card`, `.card__header/title/description/body/footer`
