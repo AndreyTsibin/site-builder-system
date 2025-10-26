@@ -4,42 +4,80 @@ This file provides guidance to Claude Code when working with this repository.
 
 ---
 
-## 🎯 CURRENT PHASE
+## 🎯 CURRENT PHASE: Section Development
 
-**Status:** 🔄 Element Library Revision (Phase 2/5)
+**Status:** 🏗️ Phase 3 — Building Sections (Active Development)
 
 **Completed:**
-- ✅ Phase 1: 50+ UI elements created
+- ✅ **Phase 1:** 50+ UI elements created
+- ✅ **Phase 2:** Element library quality audit & main.css consolidation
+  - Moved common elements to main.css (buttons, navbar, forms, cards, badges, breadcrumb, spinner, list-with-icons, section)
+  - Added grid utilities (.grid, .grid-cols-2/3/4, .gap-4/6/8)
+  - Created COMPONENTS.md reference (100+ classes)
+  - Component reuse philosophy established
 
-**Current Work:**
-- 🔄 Phase 2: Element library quality audit
-  - Hover effects consistency
-  - Component reuse validation
-  - Responsive design testing
-  - Accessibility (ARIA, keyboard nav)
+**Current Phase — Building Sections:**
+- 🔄 Creating ready-to-use sections from library elements
+- 🔄 Header variants (sticky, transparent, with mega-menu)
+- 🔄 Hero variants (with image, video, form)
+- 🔄 Features (grid, carousel, tabs)
+- 🔄 Pricing (tables, cards, comparison)
+- 🔄 Testimonials, FAQ, Gallery, Contact, CTA, Footer
 
-**Next:**
-- 📝 Phase 3: Documentation (library/ELEMENTS.md)
-- 🏗️ Phase 4: Build sections from elements
-- 🎨 Phase 5: Complete landing templates
+**Flexible Approach:**
+- 💡 Elements can be added if new patterns emerge
+- 💡 Main.css can be extended with new utilities as needed
+- 💡 Project evolves based on real-world usage
+
+**Next Phases:**
+- 📝 Phase 4: Complete landing templates (SaaS, E-commerce, Portfolio, Corporate)
+- 🚀 Phase 5: Production-ready template library
 
 ---
 
-## PROJECT OVERVIEW
+## PROJECT VISION
 
-**Site Builder** — UI Component Library for Landing Pages
+**Site Builder** — Website Constructor from Ready Components
 
-**Approach:** Atoms → Molecules → Organisms
-1. Elements (50+) → Base components
-2. Sections → Composed layouts
-3. Templates → Complete sites
+**Philosophy:** Build any landing page in minutes
+
+**The System:**
+```
+Elements (Atoms)
+    ↓
+Sections (Molecules) ← WE ARE HERE
+    ↓
+Templates (Organisms)
+    ↓
+Client Sites (Fast Assembly)
+```
+
+**How it works:**
+1. **Library of Elements** → 50+ UI components (buttons, cards, forms, etc.)
+2. **Library of Sections** → Ready layouts (headers, heroes, features, pricing, etc.)
+3. **Fast Assembly** → Client wants a site → Pick sections → Assemble in minutes
+
+**Real-world scenario:**
+```
+Client: "I need a landing page for my SaaS product"
+You: "No problem! Here's what we'll use:"
+     - Header-1 (sticky navbar with logo + CTA)
+     - Hero-2 (with product screenshot)
+     - Features-3-cards (3 main benefits)
+     - Pricing-2 (2 pricing tiers)
+     - Testimonials-carousel (social proof)
+     - FAQ-accordion (common questions)
+     - Footer-4-columns (links + newsletter)
+
+Result: Complete site in 10 minutes, fully responsive, production-ready
+```
 
 **Key Principles:**
-- Component reuse (use `main.css` classes)
-- No frameworks, vanilla HTML/CSS/JS
-- BEM methodology + Semantic HTML5
-- Mobile-first responsive
-- WCAG AA accessibility
+- **Component Reuse:** Everything uses main.css classes
+- **No Frameworks:** Pure HTML/CSS/JS (full control)
+- **Semantic HTML5:** Proper heading hierarchy, ARIA labels
+- **Mobile-First:** 320px → 768px → 1024px → 1440px
+- **WCAG AA:** Accessible by default
 
 ---
 
