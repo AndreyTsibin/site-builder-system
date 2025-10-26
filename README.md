@@ -1,25 +1,28 @@
-# Site Builder — AI-Powered Landing Page Constructor
+# Site Builder — Landing Page Constructor
 
-**Локальный конструктор лендингов с автоматической генерацией контента через Claude Code.**
+**Локальный конструктор лендингов с элементным подходом.**
 
-> Быстрая сборка сайтов из готовых секций ("LEGO-подход") с AI-генерацией контента на основе данных бизнеса клиента.
+> Быстрая сборка сайтов из готовых элементов и секций — полный контроль, без автоматизации.
 
 ---
 
 ## 📋 Описание
 
-Site Builder — это инструмент для создания качественных лендингов за 30 минут:
-- **Компонентная библиотека** — готовые секции (Header, Hero, Features, CTA, Footer и др.)
+Site Builder — это инструмент для создания качественных лендингов с профессиональным кодом:
+
+- **Библиотека элементов** — 15+ готовых компонентов (кнопки, формы, карточки, сетки)
+- **Библиотека секций** — готовые блоки из элементов (Header, Hero, Footer)
 - **Design System** — единая система цветов, типографики, spacing на CSS переменных
-- **Python-скрипт сборки** — автоматическая склейка секций в готовый лендинг
-- **AI-генерация контента** — Claude Code заполняет плейсхолдеры на основе business-data.md
+- **Ручная сборка** — полный контроль над структурой и контентом
 
 **Особенности:**
+
 - ✅ Без фреймворков — чистый HTML/CSS/Vanilla JS
 - ✅ Mobile-first + адаптивный дизайн
 - ✅ Performance: >90 PageSpeed Insights
 - ✅ Accessibility: WCAG AA
 - ✅ BEM + Semantic HTML5
+- ✅ Нет placeholders — всегда реальный контент
 
 ---
 
@@ -27,9 +30,8 @@ Site Builder — это инструмент для создания качес�
 
 - **Фронтенд:** HTML5, CSS3 (Grid/Flexbox), Vanilla JavaScript (ES6+)
 - **Иконки:** [Remix Icon](https://github.com/Remix-Design/RemixIcon) (2800+ open-source)
-- **AI:** Claude Code (терминал) для генерации контента
-- **Скрипты:** Python 3.8+ (сборка лендингов)
-- **Форматы данных:** Markdown (business-data), YAML (sections-library), JSON (selected-sections)
+- **Интеграция:** Figma MCP (дизайн → код)
+- **Форматы данных:** Markdown (business-data)
 
 ---
 
@@ -38,306 +40,317 @@ Site Builder — это инструмент для создания качес�
 ```
 /site-builder/
 ├── library/
-│   ├── design-system/          # CSS переменные, reset, utilities
-│   │   ├── variables.css       # Colors, typography, spacing
-│   │   ├── reset.css           # CSS Remedy reset
-│   │   └── utilities.css       # Container, flex, grid helpers
-│   └── sections/               # Готовые секции (HTML + CSS + JS)
-│       ├── header-1/
-│       ├── hero-1/, hero-2/
-│       ├── features-2col/, features-3col/
-│       ├── cta-simple/
-│       └── footer-1/
+│   ├── styles/
+│   │   ├── reset.css            # CSS Remedy reset
+│   │   └── variables.css        # Design system (colors, typography, spacing)
+│   ├── elements/                # Библиотека элементов
+│   │   ├── buttons/             # button-primary, button-secondary, button-ghost
+│   │   ├── forms/               # input-text, input-email, input-phone, textarea, checkbox
+│   │   ├── grid/                # grid-2-cols, grid-3-cols, grid-4-cols
+│   │   └── cards/               # card-basic, card-with-image, card-pricing
+│   ├── sections/                # Библиотека секций
+│   │   ├── header/              # header-1.html + header-1.css
+│   │   ├── hero/                # hero-1.html + hero-1.css
+│   │   └── footer/              # footer-1.html + footer-1.css
+│   ├── js/
+│   │   └── main.js              # Единый JS файл
+│   ├── demo-elements.html       # Каталог всех элементов
+│   ├── demo-sections.html       # Каталог всех секций
+│   └── ui-kit.html              # Визуальный справочник
 ├── templates/
-│   ├── business-data.md        # Шаблон данных бизнеса (заполняет клиент)
-│   ├── sections-library.yaml   # Описание всех секций для Claude
-│   └── selected-sections.json  # Выбранные секции для сборки
-├── scripts/
-│   └── assemble.py             # Python-скрипт сборки лендинга
-├── output/                     # Готовые проекты (генерируется)
-│   └── [project-name]/
-│       ├── index.html
-│       ├── css/, js/, assets/
-├── docs/                       # Документация
-│   └── USAGE.md                # Руководство по использованию
+│   └── business-data.md         # Шаблон данных бизнеса
+├── output/                      # Готовый шаблон для старта
+│   ├── index.html
+│   ├── styles/
+│   │   ├── reset.css
+│   │   ├── variables.css
+│   │   └── main.css             # Скомпилированные стили
+│   ├── scripts/
+│   │   └── main.js
+│   └── images/
+├── modules/                     # Дополнительные инструменты
+│   └── figma-mcp/               # Интеграция с Figma
+├── docs/                        # Документация
+│   └── USAGE.md
+├── CLAUDE.md                    # Инструкции для Claude Code
 └── README.md
 ```
 
 ---
 
-## 🎯 Workflow — 4 этапа работы
+## 🎯 Workflow — Элементный подход
 
-### Этап 1: Планирование секций (5 мин)
-1. Клиент заполняет `templates/business-data.md` (название, услуги, контакты, УТП)
-2. Команда Claude Code: *"Предложи секции для лендинга на основе business-data.md"*
-3. Claude анализирует данные и предлагает список секций (Header + Hero + Features + CTA + Footer)
-4. Пользователь корректирует список → сохраняется в `templates/selected-sections.json`
+### Философия
 
-### Этап 2: Сборка структуры (2 мин)
+**От элементов к секциям, от секций к лендингам:**
+
+1. **Создаём элементы** — базовые компоненты UI (кнопки, формы, карточки)
+2. **Собираем секции** — из элементов создаём блоки (header, hero, footer)
+3. **Собираем лендинг** — из секций создаём готовую страницу
+
+**Ключевые принципы:**
+
+- ❌ Нет Python автоматизации
+- ❌ Нет placeholders `{{...}}`
+- ✅ Всегда реальный текст
+- ✅ Ручная сборка (полный контроль)
+
+### Быстрый старт
+
+**1. Используй готовый шаблон:**
+
 ```bash
-python scripts/assemble.py --config templates/selected-sections.json
-```
-- Скрипт создаёт `output/[project-name]/`
-- Копирует выбранные секции из `library/sections/`
-- Склеивает HTML с плейсхолдерами `{{hero.title}}`, `{{features.item1}}`
-- Собирает CSS (design-system + секции)
-- **Результат:** Готовый "каркас" с пустыми плейсхолдерами
+# Открой шаблон в браузере
+open output/index.html
 
-### Этап 3: AI-генерация контента (15 мин)
-
-**Промпт для Claude Code:**
-
-```
-Заполни все плейсхолдеры {{...}} в output/{project_name}/index.html
-используя данные из templates/business-data.md.
-
-ПРАВИЛА:
-1. Данные из business-data.md используй как есть
-2. Если данных нет — генерируй релевантный контент для типа бизнеса
-3. НЕ используй слова "пример", "шаблон", "замените"
-4. Формат телефона: +7 (999) 123-45-67
-5. Remix Icon классы: ri-time-line, ri-shield-check-line, ri-tools-line и т.д.
-
-ПЛЕЙСХОЛДЕРЫ:
-- {{meta.title}}, {{meta.description}} — SEO (120-160 символов)
-- {{logo.text}}, {{nav.item1-3}} — Навигация (Услуги, О нас, Контакты)
-- {{contacts.phone}}, {{contacts.email}}, {{contacts.address}}
-- {{hero.title}}, {{hero.subtitle}}, {{hero.cta_text}} — Главный экран
-- {{features.section_title}}, {{features.item1-6.icon/title/text}} — Преимущества
-- {{cta.title}}, {{cta.text}}, {{cta.button_text}} — Призыв к действию
-- {{footer.copyright}}, {{footer.about}} — Подвал
-- {{social.vk/telegram/whatsapp/instagram}} — Соцсети (если нет — оставь плейсхолдер)
-
-КАЧЕСТВО:
-✅ Конкретика: "гарантия 3 года", "выезд за 1 час" (НЕ "высокое качество")
-✅ Цифры и факты: "12 500 заказов", "рейтинг 4.9/5.0"
-✅ Тон: профессиональный, дружелюбный
-❌ Штампы: "мы лучшие", "только у нас"
-
-После заполнения:
-1. Проверь UTF-8: head -50 output/{project_name}/index.html
-2. Проверь незаполненные: grep "{{" output/{project_name}/index.html
-3. Открой в браузере: open output/{project_name}/index.html
+# Отредактируй содержимое под свой проект
+# - Замени текст в секциях
+# - Поменяй изображения
+# - Настрой стили
 ```
 
-**Результат:** Полностью заполненный лендинг с релевантным контентом за 5-10 минут
+**2. Или собери с нуля:**
 
-### Этап 4: Тестирование (8 мин)
 ```bash
-open output/[project-name]/index.html
+# Открой каталог элементов
+open library/demo-elements.html
+
+# Открой каталог секций
+open library/demo-sections.html
+
+# Выбери нужные секции, скопируй в output/index.html
+# Скомпилируй CSS из выбранных элементов/секций
 ```
-- Проверка адаптивности (mobile/tablet/desktop)
-- Проверка форм (tel:, mailto:, WhatsApp)
-- Финальные правки через команды Claude Code
+
+### Создание нового элемента
+
+**Пример: новая кнопка**
+
+```bash
+# 1. Создай папку
+mkdir -p library/elements/buttons/button-success
+
+# 2. Создай HTML
+# library/elements/buttons/button-success/button-success.html
+<button class="btn btn--success">Успешно</button>
+
+# 3. Создай CSS
+# library/elements/buttons/button-success/button-success.css
+.btn--success {
+  background: var(--success);
+  color: var(--white);
+}
+
+# 4. Добавь в demo-elements.html
+
+# 5. Тестируй
+open library/demo-elements.html
+```
+
+### Создание новой секции
+
+**Пример: секция "О компании"**
+
+```bash
+# 1. Создай папку
+mkdir -p library/sections/about
+
+# 2. Создай HTML из элементов
+# library/sections/about/about-1.html
+<section class="about">
+  <div class="about__container">
+    <div class="grid grid--2-cols about__grid">
+      <!-- Используем элементы: grid, card, button -->
+      <div class="card">...</div>
+      <button class="btn btn--primary">...</button>
+    </div>
+  </div>
+</section>
+
+# 3. Создай CSS (BEM)
+# library/sections/about/about-1.css
+
+# 4. Добавь в demo-sections.html
+
+# 5. Тестируй
+open library/demo-sections.html
+```
 
 ---
 
-## 🧩 Библиотека секций (P0 — обязательные)
+## 🧩 Библиотека элементов (15+ компонентов)
 
-| Секция | Описание | Варианты |
-|--------|----------|----------|
-| **Header** | Логотип, меню, телефон, CTA, burger-меню | header-1 (sticky) |
-| **Hero** | Главный экран с заголовком и CTA | hero-1 (centered + form), hero-2 (2-column + image) |
-| **Features** | Преимущества с иконками | features-2col (4 items), features-3col (6 items) |
-| **CTA** | Призыв к действию | cta-simple (centered) |
-| **Footer** | Подвал с контактами и соцсетями | footer-1 (4-column) |
+### Buttons (3)
 
-**Будущие секции (P1/P2):** About, Pricing, Testimonials, FAQ, Gallery, Contact Form, Stats, Team, How it Works
+- `button-primary` — Основная кнопка (синяя)
+- `button-secondary` — Второстепенная кнопка (серая)
+- `button-ghost` — Прозрачная кнопка
 
----
+### Forms (5)
 
-## 📝 Примеры плейсхолдеров
+- `input-text` — Текстовое поле
+- `input-email` — Email поле
+- `input-phone` — Телефон поле
+- `textarea` — Многострочное поле
+- `checkbox` — Чекбокс
 
-**Meta-теги:**
-```html
-<title>{{meta.title}}</title>
-<!-- → РемТехСервис — Ремонт стиральных машин в Москве -->
+### Grid (3)
 
-<meta name="description" content="{{meta.description}}">
-<!-- → Ремонт стиральных машин в Москве. Выезд за 1 час. Гарантия до 3 лет. -->
-```
+- `grid-2-cols` — Сетка 2 колонки
+- `grid-3-cols` — Сетка 3 колонки
+- `grid-4-cols` — Сетка 4 колонки
 
-**Header:**
-```html
-<span>{{logo.text}}</span>                    → РемТехСервис
-<a href="#services">{{nav.item1}}</a>         → Услуги
-<a href="tel:{{contacts.phone}}">...</a>      → +7 (495) 789-45-67
-<button>{{header.cta_text}}</button>          → Вызвать мастера
-```
+### Cards (3)
 
-**Hero:**
-```html
-<h1>{{hero.title}}</h1>
-<!-- → Ремонт стиральных машин в Москве за 1 час -->
+- `card-basic` — Базовая карточка
+- `card-with-image` — Карточка с изображением
+- `card-pricing` — Карточка тарифа
 
-<p>{{hero.subtitle}}</p>
-<!-- → Бесплатная диагностика, гарантия до 3 лет, работаем 24/7 -->
-```
+### Другие (1+)
 
-**Features:**
-```html
-<h2>{{features.section_title}}</h2>           → Почему выбирают нас
-<i class="{{features.item1.icon}}"></i>       → ri-time-line
-<h3>{{features.item1.title}}</h3>             → Выезд мастера за 1 час
-<p>{{features.item1.text}}</p>
-<!-- → Оперативно выезжаем на заказы в любой район Москвы и МО. -->
-```
-
-**Footer:**
-```html
-<p>{{footer.copyright}}</p>
-<!-- → © 2025 РемТехСервис. Все права защищены. -->
-
-<a href="{{social.vk}}">VK</a>                → https://vk.com/remtechservice
-```
-
-**Remix Icon примеры:**
-- `ri-time-line` — Скорость, время
-- `ri-shield-check-line` — Гарантия, качество
-- `ri-tools-line` — Инструменты, ремонт
-- `ri-award-line` — Награды, достижения
-- `ri-home-line` — Дом, локация
-
-**Полный список:** https://remixicon.com/
+- `feature-item` — Элемент преимущества с иконкой
 
 ---
 
-## ⚡ Performance Metrics (Achieved)
+## 🎨 Библиотека секций
 
-### Real Test Results (washing-machine-repair landing):
+| Секция     | Файл                           | Описание                                         |
+| ---------- | ------------------------------ | ------------------------------------------------ |
+| **Header** | `sections/header/header-1`     | Sticky header с логотипом, навигацией, CTA       |
+| **Hero**   | `sections/hero/hero-1`         | 2-колоночный hero с текстом, кнопками, фичами    |
+| **Footer** | `sections/footer/footer-1`     | 4-колоночный footer с контактами и соцсетями     |
 
-**PageSpeed Insights (Mobile):**
-- ✅ **Performance:** 92/100
-- ✅ **Accessibility:** 95/100 (WCAG 2.1 AA compliant)
-- ✅ **Best Practices:** 100/100
-- ✅ **SEO:** 100/100
+**Будущие секции:** About, Features, Pricing, Testimonials, FAQ, Gallery, Contact Form, CTA, Stats, Team
 
-**PageSpeed Insights (Desktop):**
-- ✅ **Performance:** 98/100
-- ✅ **Accessibility:** 95/100
-- ✅ **Best Practices:** 100/100
-- ✅ **SEO:** 100/100
+---
 
-**Core Web Vitals:**
-- ✅ **First Contentful Paint (FCP):** 1.2s (target: <1.8s)
-- ✅ **Largest Contentful Paint (LCP):** 1.8s (target: <2.5s)
-- ✅ **Total Blocking Time (TBT):** 150ms (target: <300ms)
-- ✅ **Cumulative Layout Shift (CLS):** 0.001 (target: <0.1)
-- ✅ **Speed Index:** 2.1s (target: <3.4s)
+## 🎨 Design System
 
-**Optimization Applied:**
-- ✅ Inline critical CSS (variables, reset, utilities)
+**CSS Variables** (`library/styles/variables.css`):
+
+### Цвета (HSL формат)
+
+```css
+:root {
+  --bg: hsl(220, 15%, 5%);        /* Dark background */
+  --text: hsl(220, 15%, 90%);     /* Light text */
+  --primary: hsl(220, 90%, 56%);  /* Brand blue */
+  --success: hsl(142, 76%, 36%);  /* Green */
+  --warning: hsl(38, 92%, 50%);   /* Orange */
+  --error: hsl(0, 72%, 51%);      /* Red */
+}
+```
+
+### Typography
+
+- **Font:** Inter (Google Fonts)
+- **Sizes:** `--font-size-1` (12px) → `--font-size-8` (48px)
+- **Weights:** 400, 500, 700
+
+### Spacing (4px base)
+
+- **Scale:** `--space-1` (4px) → `--space-60` (240px)
+
+### Breakpoints
+
+- `--mobile: 320px`
+- `--tablet: 768px`
+- `--desktop: 1024px`
+- `--wide: 1440px`
+
+---
+
+## 🛠️ Интеграция с Figma
+
+**Модуль Figma MCP** позволяет генерировать элементы и секции из дизайна Figma.
+
+```bash
+# 1. Запусти MCP сервер
+cd "/Users/andrejtsibin/Documents/Development/Claude Talk to Figma MCP/claude-talk-to-figma-mcp"
+bun socket
+
+# 2. Подключи Figma Plugin (получи channel ID)
+
+# 3. В Claude Code работай с дизайном
+Talk to Figma, channel {ID}
+Покажи все кнопки
+Сгенерируй кнопку "Primary"
+```
+
+**Документация:** [modules/figma-mcp/README.md](modules/figma-mcp/README.md)
+
+---
+
+## ⚡ Performance Targets
+
+- **PageSpeed Insights:** >90 (mobile + desktop)
+- **Lighthouse Accessibility:** >90 (WCAG AA)
+- **Time to Interactive:** <3s
+- **First Contentful Paint:** <1.8s
+
+**Оптимизация:**
+
+- ✅ Inline critical CSS
 - ✅ Defer non-critical JS
-- ✅ Image optimization (loading="eager" for hero, lazy for below-fold)
-- ✅ Font display: swap (Google Fonts Inter)
-- ✅ Preconnect to external resources (fonts.googleapis.com, cdn.jsdelivr.net)
-- ✅ Minified CSS in production
-
-**Browser Compatibility:**
-- ✅ Chrome 130+ (Desktop/Mobile)
-- ✅ Firefox 125+ (Desktop)
-- ✅ Safari 17+ (Desktop/iOS)
-- ✅ Android Chrome
-
-**WCAG 2.1 AA Compliance:**
-- ✅ Color contrast ratios >4.5:1
-- ✅ Keyboard navigation support
-- ✅ Screen reader compatibility
-- ✅ Semantic HTML5 with ARIA labels
-- ✅ Alt texts for all images
+- ✅ Image lazy loading
+- ✅ Font display: swap
+- ✅ Minified CSS (опционально, через modules/)
 
 ---
 
-## 🛠️ Возможности
+## 📝 Стандарты кода
 
-### Текущий статус
+**Senior-level code required:**
 
-**✅ MVP COMPLETE** — All 38 tasks completed (100%)
+- **Principles:** DRY, KISS, SOLID
+- **HTML:** Semantic HTML5 (nav, article, section — НЕ div soup)
+- **CSS:** BEM methodology, Grid/Flexbox (НЕ floats/tables для layout)
+- **JavaScript:** ES6+ only (const/let, arrow functions, async/await, destructuring)
+- **Responsive:** Mobile-first approach
+- **Accessibility:** ARIA labels, alt texts, keyboard navigation
 
-**Что готово:**
-- ✅ Design System + 7 готовых секций (Header, Hero x2, Features x2, CTA, Footer)
-- ✅ Python скрипт сборки лендингов (0.02s на проект)
-- ✅ AI-генерация контента через Claude Code
-- ✅ E2E тесты пройдены (2 тестовых лендинга)
-- ✅ Performance optimization (92/100 mobile, 98/100 desktop)
-- ✅ Cross-browser testing (Chrome, Firefox, Safari, iOS, Android)
-- ✅ Accessibility audit (95/100, WCAG 2.1 AA compliant)
-- ✅ Полный workflow от business-data до готового production-ready лендинга
+---
 
-### Начало работы
+## 🤝 Git Workflow
 
-```bash
-# Клонировать репозиторий
-git clone [repo-url]
-cd site-builder
+- **Branch:** `design`
+- **Commit format:** `feat:`, `fix:`, `refactor:`, `chore:`
 
-# Проверить структуру
-ls -la library/ templates/ scripts/ output/
+**Пример коммита:**
 
-# Все задачи выполнены (38/38) — проект готов к использованию
 ```
+feat: add pricing section
 
-### Команды
+- Create library/sections/pricing/pricing-1.html
+- Add pricing-1.css with responsive grid
+- Update demo-sections.html
 
-```bash
-# 1. Создать лендинг из выбранных секций
-python scripts/assemble.py --config templates/selected-sections.json
+🤖 Generated with Claude Code
 
-# 2. Заполнить плейсхолдеры (используй промпт из "Этап 3" выше)
-
-# 3. Проверка UTF-8 encoding
-head -50 output/[project-name]/index.html
-
-# 4. Поиск незаполненных плейсхолдеров
-grep "{{" output/[project-name]/index.html
-
-# 5. Открыть в браузере
-open output/[project-name]/index.html
+Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 ---
 
 ## 📖 Документация
 
-- [USAGE.md](docs/USAGE.md) — Полное руководство по использованию Site Builder
+- [CLAUDE.md](CLAUDE.md) — Инструкции для Claude Code
+- [docs/USAGE.md](docs/USAGE.md) — Руководство по использованию
+- [modules/figma-mcp/README.md](modules/figma-mcp/README.md) — Интеграция с Figma
 
 ---
 
-## 🎨 Design System Highlights
+## 🤖 Разработчик
 
-**Цвета (HSL формат):**
-```css
-:root {
-  --bg: hsl(220, 15%, 5%);        /* Dark background */
-  --text: hsl(220, 15%, 90%);     /* Light text */
-  --primary: hsl(220, 90%, 56%);  /* Brand blue */
-}
-.light-theme {
-  --bg: hsl(220, 15%, 95%);       /* Invert L: 100 - 5 */
-  --text: hsl(220, 15%, 10%);     /* Invert L: 100 - 90 */
-}
-```
-
-**Typography:**
-- Font: Inter (Google Fonts)
-- Sizes: 12px → 48px (8 размеров)
-- Weights: 400, 500, 700
-
-**Spacing (4px base):**
-- Scale: 4px, 8px, 12px ... 240px (15 размеров)
-
----
-
-## 🤝 Разработчик
-
-**Claude Code** (Anthropic) + **Fullstack Architect Skill**
+**Claude Code** (Anthropic)
 
 **Принципы кода:**
+
 - DRY, KISS, SOLID
-- Semantic HTML5 (не div soup)
+- Semantic HTML5
 - BEM CSS methodology
 - Mobile-first responsive
-- Accessibility first (ARIA, keyboard nav, alt texts)
+- Accessibility first
 
 ---
 
@@ -347,12 +360,6 @@ open output/[project-name]/index.html
 
 ---
 
-**Status:** ✅ MVP Complete (38/38 tasks, 100%) | Production Ready!
-**Last Update:** 2025-10-24
-**Progress:** 38/38 tasks (100%) | 84h/101h (83.2%)
-**Phase:** Improvement & Support
-
-**Test Landing:** [washing-machine-repair](output/washing-machine-repair/index.html)
-- Performance: 92/100 (mobile), 98/100 (desktop)
-- Accessibility: 95/100 (WCAG 2.1 AA)
-- Cross-browser: ✅ Chrome, Firefox, Safari, iOS, Android
+**Status:** ✅ Production Ready
+**Last Update:** 2025-10-26
+**Architecture:** Element-based approach
