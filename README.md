@@ -1,37 +1,84 @@
 # Site Builder — Landing Page Constructor
 
-**Локальный конструктор лендингов с элементным подходом.**
+**Библиотека UI элементов для создания лендингов с профессиональным кодом.**
 
-> Быстрая сборка сайтов из готовых элементов и секций — полный контроль, без автоматизации.
+> Модульная библиотека готовых компонентов — от элементов к секциям, от секций к лендингам.
 
 ---
 
-## 📋 Описание
+## 📋 О проекте
 
-Site Builder — это инструмент для создания качественных лендингов с профессиональным кодом:
+Site Builder — это библиотека UI компонентов для быстрой сборки качественных лендингов:
 
-- **Библиотека элементов** — 15+ готовых компонентов (кнопки, формы, карточки, сетки)
-- **Библиотека секций** — готовые блоки из элементов (Header, Hero, Footer)
-- **Design System** — единая система цветов, типографики, spacing на CSS переменных
-- **Ручная сборка** — полный контроль над структурой и контентом
+- **Библиотека элементов** — 50+ готовых компонентов (кнопки, формы, карточки, навигация, пагинация, и т.д.)
+- **Design System** — единая система на CSS переменных (цвета, типографика, spacing)
+- **Component Reuse** — все элементы используют готовые базовые классы
+- **Mobile-first** — адаптивный дизайн для всех устройств
 
-**Особенности:**
+**Ключевые особенности:**
 
 - ✅ Без фреймворков — чистый HTML/CSS/Vanilla JS
-- ✅ Mobile-first + адаптивный дизайн
+- ✅ BEM методология + Semantic HTML5
+- ✅ Готовые классы в `library/styles/main.css`
 - ✅ Performance: >90 PageSpeed Insights
-- ✅ Accessibility: WCAG AA
-- ✅ BEM + Semantic HTML5
-- ✅ Нет placeholders — всегда реальный контент
+- ✅ Accessibility: WCAG AA compliance
+- ✅ Реальный контент (NO placeholders!)
 
 ---
 
-## 🚀 Технологии
+## 🎯 Текущая фаза: Разработка библиотеки элементов
 
-- **Фронтенд:** HTML5, CSS3 (Grid/Flexbox), Vanilla JavaScript (ES6+)
-- **Иконки:** [Remix Icon](https://github.com/Remix-Design/RemixIcon) (2800+ open-source)
-- **Интеграция:** Figma MCP (дизайн → код)
-- **Форматы данных:** Markdown (business-data)
+**Что мы делаем сейчас:**
+
+1. ✅ **Создание элементов** — полный набор UI компонентов
+2. 🔄 **Текущий этап:** Ревизия элементов
+   - Проверка hover-эффектов
+   - Валидация использования готовых классов
+   - Проверка CSS переменных
+   - Тестирование JavaScript функций
+   - Accessibility audit
+3. 📝 **Следующий этап:** Документация элементов
+   - Создать Markdown файл со списком всех элементов
+   - Описать варианты использования
+   - Примеры композиций
+4. 🏗️ **Будущее:** Создание секций
+   - Собирать полноценные секции из готовых элементов
+   - Header, Hero, Features, Pricing, Footer и т.д.
+   - Готовые шаблоны лендингов
+
+---
+
+## 🚀 Быстрый старт
+
+### Просмотр библиотеки элементов
+
+```bash
+# Открой каталог всех элементов
+open library/demo-elements.html
+
+# Открой visual reference (UI Kit)
+open library/ui-kit.html
+```
+
+### Создание нового элемента
+
+```bash
+# 1. Создай папку для элемента
+mkdir -p library/elements/buttons/button-new-variant
+
+# 2. Создай HTML с готовыми классами
+# library/elements/buttons/button-new-variant/button-new-variant.html
+
+# 3. Создай CSS (ТОЛЬКО layout — grid, flex, gap, padding)
+# library/elements/buttons/button-new-variant/button-new-variant.css
+
+# 4. Добавь CSS линк в demo-elements.html
+# 5. Добавь в navigation sidebar
+# 6. Добавь demo с ID в соответствующую секцию
+
+# 7. Тестируй
+open library/demo-elements.html
+```
 
 ---
 
@@ -41,195 +88,59 @@ Site Builder — это инструмент для создания качес�
 /site-builder/
 ├── library/
 │   ├── styles/
-│   │   ├── reset.css            # CSS Remedy reset
-│   │   └── variables.css        # Design system (colors, typography, spacing)
-│   ├── elements/                # Библиотека элементов
-│   │   ├── buttons/             # button-primary, button-secondary, button-ghost
-│   │   ├── forms/               # input-text, input-email, input-phone, textarea, checkbox
-│   │   ├── grid/                # grid-2-cols, grid-3-cols, grid-4-cols
-│   │   └── cards/               # card-basic, card-with-image, card-pricing
-│   ├── sections/                # Библиотека секций
-│   │   ├── header/              # header-1.html + header-1.css
-│   │   ├── hero/                # hero-1.html + hero-1.css
-│   │   └── footer/              # footer-1.html + footer-1.css
+│   │   ├── reset.css              # CSS Remedy reset
+│   │   ├── variables.css          # Design system variables
+│   │   └── main.css               # 🔥 Готовые базовые классы (buttons, typography, forms, cards, etc.)
+│   ├── elements/                  # 🎨 Библиотека элементов (50+)
+│   │   ├── buttons/               # button, button-secondary, button-tertiary, button-link, button-icon, etc.
+│   │   ├── forms/                 # input-text, textarea, select, checkbox, radio, toggle, etc.
+│   │   ├── cards/                 # card-horizontal, card-vertical, card-compact, card-icon, etc.
+│   │   ├── navigation/            # breadcrumb, dropdown, navbar-dropdown
+│   │   ├── pagination/            # pagination-numbers, pagination-compact, pagination-simple
+│   │   ├── accordions/            # accordion-chevron, accordion-plus, accordion-bordered, etc.
+│   │   ├── tabs/                  # tabs-left, tabs-center, tabs-right, tabs-bottom, etc.
+│   │   ├── modals/                # modal-center, modal-drawer, modal-fullscreen
+│   │   ├── sliders/               # slider-1, slider-2, slider-carousel
+│   │   ├── tooltips/              # tooltip (top, bottom, left, right)
+│   │   ├── media/                 # image-ratios, image-shapes, image-overlay, image-caption
+│   │   ├── lists/                 # list-with-icons
+│   │   ├── social/                # social-icons-1, social-icons-2
+│   │   ├── loaders/               # spinner
+│   │   ├── grid/                  # grid-2-cols, grid-3-cols, grid-4-cols
+│   │   └── typography/            # heading-1 to heading-6, text, text-large, text-small, text-muted, lead
+│   ├── sections/                  # 🏗️ Библиотека секций (в разработке)
+│   │   ├── header/                # header-1
+│   │   ├── hero/                  # hero-1
+│   │   └── footer/                # footer-1
+│   ├── assets/
+│   │   └── images/                # placeholder.svg, placeholder-square.svg
 │   ├── js/
-│   │   └── main.js              # Единый JS файл
-│   ├── demo-elements.html       # Каталог всех элементов
-│   ├── demo-sections.html       # Каталог всех секций
-│   └── ui-kit.html              # Визуальный справочник
-├── templates/
-│   └── business-data.md         # Шаблон данных бизнеса
-├── output/                      # Готовый шаблон для старта
+│   │   └── main.js                # Единый JS файл
+│   ├── demo-elements.html         # 📚 Полный каталог элементов
+│   ├── demo-sections.html         # 📚 Каталог секций
+│   └── ui-kit.html                # 🎨 Визуальный справочник
+├── output/                        # Готовые шаблоны (в разработке)
 │   ├── index.html
 │   ├── styles/
-│   │   ├── reset.css
-│   │   ├── variables.css
-│   │   └── main.css             # Скомпилированные стили
 │   ├── scripts/
-│   │   └── main.js
 │   └── images/
-├── modules/                     # Дополнительные инструменты
-│   └── figma-mcp/               # Интеграция с Figma
-├── docs/                        # Документация
-│   └── USAGE.md
-├── CLAUDE.md                    # Инструкции для Claude Code
-└── README.md
+├── modules/                       # Дополнительные инструменты
+│   ├── figma-integration/         # Интеграция с Figma MCP
+│   ├── minification/              # CSS/JS минификация (опционально)
+│   ├── accessibility/             # Accessibility проверки
+│   └── performance/               # Performance анализ
+├── docs/                          # Документация
+├── CLAUDE.md                      # 🤖 Инструкции для Claude Code
+└── README.md                      # Этот файл
 ```
-
----
-
-## 🎯 Workflow — Элементный подход
-
-### Философия
-
-**От элементов к секциям, от секций к лендингам:**
-
-1. **Создаём элементы** — базовые компоненты UI (кнопки, формы, карточки)
-2. **Собираем секции** — из элементов создаём блоки (header, hero, footer)
-3. **Собираем лендинг** — из секций создаём готовую страницу
-
-**Ключевые принципы:**
-
-- ❌ Нет Python автоматизации
-- ❌ Нет placeholders `{{...}}`
-- ✅ Всегда реальный текст
-- ✅ Ручная сборка (полный контроль)
-
-### Быстрый старт
-
-**1. Используй готовый шаблон:**
-
-```bash
-# Открой шаблон в браузере
-open output/index.html
-
-# Отредактируй содержимое под свой проект
-# - Замени текст в секциях
-# - Поменяй изображения
-# - Настрой стили
-```
-
-**2. Или собери с нуля:**
-
-```bash
-# Открой каталог элементов
-open library/demo-elements.html
-
-# Открой каталог секций
-open library/demo-sections.html
-
-# Выбери нужные секции, скопируй в output/index.html
-# Скомпилируй CSS из выбранных элементов/секций
-```
-
-### Создание нового элемента
-
-**Пример: новая кнопка**
-
-```bash
-# 1. Создай папку
-mkdir -p library/elements/buttons/button-success
-
-# 2. Создай HTML
-# library/elements/buttons/button-success/button-success.html
-<button class="btn btn--success">Успешно</button>
-
-# 3. Создай CSS
-# library/elements/buttons/button-success/button-success.css
-.btn--success {
-  background: var(--success);
-  color: var(--white);
-}
-
-# 4. Добавь в demo-elements.html
-
-# 5. Тестируй
-open library/demo-elements.html
-```
-
-### Создание новой секции
-
-**Пример: секция "О компании"**
-
-```bash
-# 1. Создай папку
-mkdir -p library/sections/about
-
-# 2. Создай HTML из элементов
-# library/sections/about/about-1.html
-<section class="about">
-  <div class="about__container">
-    <div class="grid grid--2-cols about__grid">
-      <!-- Используем элементы: grid, card, button -->
-      <div class="card">...</div>
-      <button class="btn btn--primary">...</button>
-    </div>
-  </div>
-</section>
-
-# 3. Создай CSS (BEM)
-# library/sections/about/about-1.css
-
-# 4. Добавь в demo-sections.html
-
-# 5. Тестируй
-open library/demo-sections.html
-```
-
----
-
-## 🧩 Библиотека элементов (15+ компонентов)
-
-### Buttons (3)
-
-- `button-primary` — Основная кнопка (синяя)
-- `button-secondary` — Второстепенная кнопка (серая)
-- `button-ghost` — Прозрачная кнопка
-
-### Forms (5)
-
-- `input-text` — Текстовое поле
-- `input-email` — Email поле
-- `input-phone` — Телефон поле
-- `textarea` — Многострочное поле
-- `checkbox` — Чекбокс
-
-### Grid (3)
-
-- `grid-2-cols` — Сетка 2 колонки
-- `grid-3-cols` — Сетка 3 колонки
-- `grid-4-cols` — Сетка 4 колонки
-
-### Cards (3)
-
-- `card-basic` — Базовая карточка
-- `card-with-image` — Карточка с изображением
-- `card-pricing` — Карточка тарифа
-
-### Другие (1+)
-
-- `feature-item` — Элемент преимущества с иконкой
-
----
-
-## 🎨 Библиотека секций
-
-| Секция     | Файл                           | Описание                                         |
-| ---------- | ------------------------------ | ------------------------------------------------ |
-| **Header** | `sections/header/header-1`     | Sticky header с логотипом, навигацией, CTA       |
-| **Hero**   | `sections/hero/hero-1`         | 2-колоночный hero с текстом, кнопками, фичами    |
-| **Footer** | `sections/footer/footer-1`     | 4-колоночный footer с контактами и соцсетями     |
-
-**Будущие секции:** About, Features, Pricing, Testimonials, FAQ, Gallery, Contact Form, CTA, Stats, Team
 
 ---
 
 ## 🎨 Design System
 
-**CSS Variables** (`library/styles/variables.css`):
+### CSS Variables (`library/styles/variables.css`)
 
-### Цвета (HSL формат)
-
+**Цвета (HSL формат для лёгкой темизации):**
 ```css
 :root {
   --bg: hsl(220, 15%, 5%);        /* Dark background */
@@ -241,43 +152,214 @@ open library/demo-sections.html
 }
 ```
 
-### Typography
+**Typography:**
+- Font: Inter (Google Fonts)
+- Sizes: `--font-size-1` (12px) → `--font-size-8` (48px)
+- Weights: `--font-regular` (400), `--font-medium` (500), `--font-bold` (700)
 
-- **Font:** Inter (Google Fonts)
-- **Sizes:** `--font-size-1` (12px) → `--font-size-8` (48px)
-- **Weights:** 400, 500, 700
+**Spacing (4px base scale):**
+- `--space-1` (4px) → `--space-60` (240px)
 
-### Spacing (4px base)
-
-- **Scale:** `--space-1` (4px) → `--space-60` (240px)
-
-### Breakpoints
-
+**Breakpoints:**
 - `--mobile: 320px`
 - `--tablet: 768px`
 - `--desktop: 1024px`
 - `--wide: 1440px`
 
+### Базовые классы (`library/styles/main.css`)
+
+**Кнопки:**
+- `.btn .btn--primary` — основная кнопка (чёрная с белым текстом)
+- `.btn .btn--secondary` — outline кнопка
+- `.btn .btn--tertiary` — ghost кнопка
+- `.btn .btn--link` — кнопка-ссылка
+
+**Типографика:**
+- `.heading .heading--h1` до `.heading--h6`
+- `.text`, `.text--sm`, `.text--lg`, `.text--muted`
+- `.lead` — крупный вводный текст
+
+**Формы:**
+- `.form-field`, `.form-field__label`, `.form-field__input`, `.form-field__textarea`, `.form-field__select`
+
+**Карточки:**
+- `.card`, `.card__header`, `.card__title`, `.card__description`, `.card__body`, `.card__footer`
+
+**Контейнеры:**
+- `.container`, `.container--default`, `.container--narrow`, `.container--wide`
+- `.section`, `.section--sm`, `.section--lg`
+
 ---
 
-## 🛠️ Интеграция с Figma
+## 🧩 Философия: Component Reuse
 
-**Модуль Figma MCP** позволяет генерировать элементы и секции из дизайна Figma.
+**🚨 КРИТИЧЕСКИ ВАЖНО:**
 
-```bash
-# 1. Запусти MCP сервер
-cd "/Users/andrejtsibin/Documents/Development/Claude Talk to Figma MCP/claude-talk-to-figma-mcp"
-bun socket
+Мы **НЕ создаём новые стили** для базовых элементов! Все элементы используют готовые классы из `library/styles/main.css`.
 
-# 2. Подключи Figma Plugin (получи channel ID)
-
-# 3. В Claude Code работай с дизайном
-Talk to Figma, channel {ID}
-Покажи все кнопки
-Сгенерируй кнопку "Primary"
+**✅ ПРАВИЛЬНО:**
+```html
+<article class="card-new-variant">
+  <h3 class="heading heading--h3">Heading</h3>
+  <p class="text">Description text</p>
+  <button class="btn btn--primary">Button</button>
+</article>
 ```
 
-**Документация:** [modules/figma-mcp/README.md](modules/figma-mcp/README.md)
+```css
+/* CSS элемента — ТОЛЬКО layout */
+.card-new-variant {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background: var(--bg-card);
+}
+```
+
+**❌ НЕПРАВИЛЬНО:**
+```css
+/* НЕ делай так! */
+.card-new-variant__heading {
+  font-size: var(--font-size-3);
+  font-weight: 700;
+  /* ... дублирующие стили */
+}
+```
+
+**Почему это важно:**
+- 🎯 **Гибкость** — элементы переиспользуются везде
+- 🚀 **Скорость** — не изобретаем велосипед
+- 🔧 **Поддержка** — изменения в `main.css` применяются глобально
+- 📦 **Меньше кода** — нет дублирования
+
+---
+
+## 📚 Библиотека элементов (50+)
+
+### Кнопки (17)
+- Primary, Secondary, Tertiary, Link, Icon
+- Small variants, With icons, Loading states
+- Button rows (left, center, right align)
+- Back-to-top button
+
+### Формы (15)
+- Text, Email, Phone, URL, Search, Currency inputs
+- Textarea, Select
+- Checkbox, Radio, Toggle, Toggle with description
+- Checkbox toggle, Checkbox card
+- Signup form
+
+### Карточки (10)
+- Basic, With image, Pricing
+- Horizontal (left/right), Vertical (top/bottom)
+- Compact (left/right), Icon card
+
+### Навигация (3)
+- Breadcrumb, Dropdown, Navbar dropdown
+
+### Пагинация (3)
+- Numbers, Compact, Simple
+
+### Аккордеоны (5)
+- Chevron, Plus, Bordered, With icons, Nested
+
+### Табы (6)
+- Left/Center/Right align
+- Center bordered
+- Bottom cards, Bottom features
+
+### Модальные окна (3)
+- Center, Drawer, Fullscreen
+
+### Слайдеры (5)
+- Slider 1-4, Carousel
+
+### Tooltips (1)
+- Tooltip (all positions)
+
+### Медиа (4)
+- Image ratios, Image shapes, Image overlay, Image caption
+
+### Списки (1)
+- List with icons
+
+### Социальные сети (2)
+- Social icons variant 1 & 2
+
+### Загрузка (1)
+- Spinner
+
+### Сетка (3)
+- 2, 3, 4 columns
+
+### Типографика (9)
+- Headings 1-6, Text, Text large/small/muted, Lead
+
+---
+
+## 🔄 Текущий Workflow
+
+### Фаза 1: Создание элементов ✅
+
+Создан полный набор UI компонентов (50+ элементов).
+
+### Фаза 2: Ревизия элементов 🔄 (текущая фаза)
+
+**Задачи:**
+1. Проверить все hover-эффекты
+2. Валидировать использование готовых классов
+3. Проверить использование CSS переменных
+4. Протестировать JavaScript функции
+5. Accessibility audit (ARIA, keyboard navigation)
+6. Responsive тестирование (320px, 768px, 1024px, 1440px)
+
+### Фаза 3: Документация 📝 (следующая)
+
+**Создать:**
+- `library/ELEMENTS.md` — полный список элементов с описаниями
+- Примеры использования
+- Варианты композиций
+
+### Фаза 4: Создание секций 🏗️ (будущее)
+
+**Собрать секции из готовых элементов:**
+- Header variants
+- Hero variants
+- Features
+- Pricing
+- Testimonials
+- FAQ
+- Gallery
+- Contact Form
+- CTA sections
+- Footer variants
+
+### Фаза 5: Шаблоны лендингов 🎨 (будущее)
+
+**Собрать готовые шаблоны:**
+- SaaS landing
+- E-commerce landing
+- Portfolio landing
+- Corporate landing
+
+---
+
+## 📖 Документация
+
+- [CLAUDE.md](CLAUDE.md) — 🤖 Инструкции для Claude Code
+- [library/demo-elements.html](library/demo-elements.html) — 📚 Полный каталог элементов
+- [library/ui-kit.html](library/ui-kit.html) — 🎨 Визуальный справочник
+
+---
+
+## 🛠️ Технологии
+
+- **HTML5** — Semantic markup
+- **CSS3** — Grid/Flexbox, CSS Variables
+- **JavaScript (ES6+)** — Vanilla JS, NO frameworks
+- **Icons** — [Remix Icon](https://github.com/Remix-Design/RemixIcon) (2800+ open-source icons)
+- **Integration** — Figma MCP (design → code)
 
 ---
 
@@ -289,23 +371,22 @@ Talk to Figma, channel {ID}
 - **First Contentful Paint:** <1.8s
 
 **Оптимизация:**
-
-- ✅ Inline critical CSS
-- ✅ Defer non-critical JS
+- ✅ Semantic HTML5
+- ✅ Mobile-first responsive
 - ✅ Image lazy loading
 - ✅ Font display: swap
-- ✅ Minified CSS (опционально, через modules/)
+- ✅ CSS/JS минификация (optional, через modules/)
 
 ---
 
 ## 📝 Стандарты кода
 
-**Senior-level code required:**
+**Senior-level code (10+ years best practices):**
 
 - **Principles:** DRY, KISS, SOLID
-- **HTML:** Semantic HTML5 (nav, article, section — НЕ div soup)
-- **CSS:** BEM methodology, Grid/Flexbox (НЕ floats/tables для layout)
-- **JavaScript:** ES6+ only (const/let, arrow functions, async/await, destructuring)
+- **HTML:** Semantic HTML5 (nav, article, section — NOT div soup)
+- **CSS:** BEM methodology, Grid/Flexbox (NO floats/tables for layout)
+- **JavaScript:** ES6+ (const/let, arrow functions, async/await, destructuring)
 - **Responsive:** Mobile-first approach
 - **Accessibility:** ARIA labels, alt texts, keyboard navigation
 
@@ -317,13 +398,13 @@ Talk to Figma, channel {ID}
 - **Commit format:** `feat:`, `fix:`, `refactor:`, `chore:`
 
 **Пример коммита:**
-
 ```
-feat: add pricing section
+feat: add pagination elements
 
-- Create library/sections/pricing/pricing-1.html
-- Add pricing-1.css with responsive grid
-- Update demo-sections.html
+- Create 3 pagination variants (numbers, compact, simple)
+- Add breadcrumb navigation
+- Update demo-elements.html
+- All elements use ready-made classes from main.css
 
 🤖 Generated with Claude Code
 
@@ -332,20 +413,12 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ---
 
-## 📖 Документация
+## 🤖 Разработка
 
-- [CLAUDE.md](CLAUDE.md) — Инструкции для Claude Code
-- [docs/USAGE.md](docs/USAGE.md) — Руководство по использованию
-- [modules/figma-mcp/README.md](modules/figma-mcp/README.md) — Интеграция с Figma
+**Powered by Claude Code** (Anthropic)
 
----
-
-## 🤖 Разработчик
-
-**Claude Code** (Anthropic)
-
-**Принципы кода:**
-
+**Принципы:**
+- Component Reuse Philosophy
 - DRY, KISS, SOLID
 - Semantic HTML5
 - BEM CSS methodology
@@ -354,12 +427,17 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ---
 
-## 📝 License
+## 📊 Статус проекта
 
-Проект создан для личного/коммерческого использования.
+**Текущая фаза:** 🔄 Ревизия библиотеки элементов
 
----
+**Прогресс:**
+- ✅ Создано 50+ UI элементов
+- 🔄 Ревизия и проверка качества (в процессе)
+- 📝 Документация элементов (следующий этап)
+- 🏗️ Создание секций (будущее)
+- 🎨 Шаблоны лендингов (будущее)
 
-**Status:** ✅ Production Ready
 **Last Update:** 2025-10-26
 **Architecture:** Element-based approach
+**Status:** 🚀 Active Development
