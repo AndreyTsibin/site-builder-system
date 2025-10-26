@@ -423,13 +423,14 @@ Use these variables from `library/styles/variables.css`:
 - [CSS-Tricks: Nested Border-Radii](https://css-tricks.com/public-service-announcement-careful-with-your-nested-border-radii/)
 
 **Utility Classes (IMPORTANT):**
-- **ALWAYS use utility classes for alignment** instead of creating custom styles
+- **ALWAYS use utility classes** instead of creating custom styles or inline styles
+- **Tagline**: `.tagline` — uppercase accent text with brand color (use for section headers, card labels)
 - Text alignment: `.text-left`, `.text-center`, `.text-right`
 - Button alignment: `.btn--align-left`, `.btn--align-center`, `.btn--align-right`
 - Flexbox: `.flex`, `.flex-col`, `.justify-center`, `.items-center`, `.gap-4`
 - Display: `.block`, `.inline-block`, `.hidden`
 - Width: `.w-full`, `.w-auto`
-- See full list in `library/styles/main.css` (Alignment Utilities section)
+- See full list in `library/styles/main.css` (Text Utilities, Alignment Utilities sections)
 
 ---
 
