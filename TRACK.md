@@ -13,12 +13,12 @@
 - [x] Создать коммит "chore: snapshot before restructuring"
 
 ### Этап 1.2: Удаление старых файлов
-- [ ] Удалить `scripts/` (вся папка)
-- [ ] Удалить все секции в `library/sections/*`
-- [ ] Удалить `library/design-system/utilities.css`
-- [ ] Удалить `templates/selected-sections.json`
-- [ ] Удалить `templates/sections.yaml`
-- [ ] Коммит "refactor: remove old automation and sections"
+- [x] Удалить `scripts/` (вся папка)
+- [x] Удалить все секции в `library/sections/*`
+- [x] Удалить `library/design-system/utilities.css`
+- [x] Удалить `templates/selected-sections.json`
+- [x] Удалить `templates/sections.yaml`
+- [x] Коммит "refactor: remove old automation and sections"
 
 ### Этап 1.3: Создание структуры modules/
 - [ ] Создать `modules/minification/` + README.md
