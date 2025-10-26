@@ -45,6 +45,8 @@
   <link rel="stylesheet" href="elements/sliders/slider-3/slider-3.css">
   <link rel="stylesheet" href="elements/sliders/slider-4/slider-4.css">
   <link rel="stylesheet" href="elements/sliders/slider-carousel/slider-carousel.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-chevron/accordion-chevron.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-plus/accordion-plus.css">
 
   <style>
     * {
@@ -390,6 +392,17 @@
             <a href="#slider-5" class="demo-nav__link">Slider 5 (Carousel auto)</a>
             <a href="#slider-6" class="demo-nav__link">Slider 6 (Carousel 3)</a>
             <a href="#slider-7" class="demo-nav__link">Slider 7 (Carousel auto)</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📋 Аккордеоны</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#accordion-chevron" class="demo-nav__link">Accordion Chevron</a>
+            <a href="#accordion-plus" class="demo-nav__link">Accordion Plus</a>
           </div>
         </div>
       </nav>
@@ -1466,6 +1479,146 @@
                     <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accordions -->
+    <section class="demo-section">
+      <h2>📋 Аккордеоны (Accordions)</h2>
+
+      <!-- Accordion Chevron -->
+      <div class="demo-element" id="accordion-chevron">
+        <div class="demo-element__header">
+          <div class="demo-element__info">
+            <h3 class="demo-element__title">Accordion Chevron</h3>
+            <code class="demo-element__id" onclick="copyID('accordion-chevron')">
+              #accordion-chevron
+              <button class="demo-copy-btn" aria-label="Copy ID"><i class="ri-file-copy-line"></i></button>
+            </code>
+          </div>
+        </div>
+
+        <div class="demo-element__preview">
+          <div class="accordion accordion--chevron">
+            <div class="accordion__item">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">What is your return policy?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  We offer a 30-day money-back guarantee. If you're not satisfied with your purchase,
+                  contact our support team within 30 days for a full refund.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">How long does shipping take?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Standard shipping takes 5-7 business days. Express shipping is available for 2-3 business days delivery.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Do you ship internationally?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Yes, we ship to over 100 countries worldwide. International shipping rates and delivery times vary by location.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Can I track my order?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Absolutely! Once your order ships, you'll receive a tracking number via email to monitor your delivery status.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Plus -->
+      <div class="demo-element" id="accordion-plus">
+        <div class="demo-element__header">
+          <div class="demo-element__info">
+            <h3 class="demo-element__title">Accordion Plus</h3>
+            <code class="demo-element__id" onclick="copyID('accordion-plus')">
+              #accordion-plus
+              <button class="demo-copy-btn" aria-label="Copy ID"><i class="ri-file-copy-line"></i></button>
+            </code>
+          </div>
+        </div>
+
+        <div class="demo-element__preview">
+          <div class="accordion accordion--plus">
+            <div class="accordion__item accordion__item--card">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">What payment methods do you accept?</span>
+                <i class="ri-add-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  We accept all major credit cards (Visa, MasterCard, American Express), PayPal,
+                  Apple Pay, and Google Pay for your convenience.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--card">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Is my payment information secure?</span>
+                <i class="ri-add-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Yes, we use industry-standard SSL encryption to protect your payment information.
+                  We never store your full credit card details on our servers.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--card">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Can I change my subscription plan?</span>
+                <i class="ri-add-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Absolutely! You can upgrade or downgrade your plan at any time from your account settings.
+                  Changes take effect immediately.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--card">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Do you offer customer support?</span>
+                <i class="ri-add-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Yes, our support team is available 24/7 via live chat, email, and phone.
+                  Premium members get priority support with faster response times.
+                </p>
               </div>
             </div>
           </div>
