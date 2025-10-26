@@ -60,6 +60,8 @@
   <link rel="stylesheet" href="elements/media/image-shapes/image-shapes.css">
   <link rel="stylesheet" href="elements/media/image-overlay/image-overlay.css">
   <link rel="stylesheet" href="elements/media/image-caption/image-caption.css">
+  <link rel="stylesheet" href="elements/navigation/dropdown/dropdown.css">
+  <link rel="stylesheet" href="elements/navigation/navbar-dropdown/navbar-dropdown.css">
 
   <style>
     * {
@@ -447,6 +449,17 @@
             <a href="#image-shapes" class="demo-nav__link">Image Shapes</a>
             <a href="#image-overlay" class="demo-nav__link">Image Overlay</a>
             <a href="#image-caption" class="demo-nav__link">Image Caption</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🧭 Навигация</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#dropdown" class="demo-nav__link">Dropdown</a>
+            <a href="#navbar-dropdown" class="demo-nav__link">Navbar Dropdown</a>
           </div>
         </div>
       </nav>
@@ -2518,6 +2531,142 @@
                 <div class="image-caption__credit">Photo by John Doe</div>
               </figcaption>
             </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="demo-section">
+      <h2>🧭 Навигация (Navigation)</h2>
+
+      <!-- Dropdown -->
+      <div class="demo-item" id="dropdown">
+        <h3>Dropdown</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">dropdown</span>
+          <button class="demo-copy-btn" onclick="copyID('dropdown')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div style="display: flex; gap: var(--space-6); flex-wrap: wrap;">
+            <!-- Dropdown 1 - Simple -->
+            <div class="dropdown" data-dropdown>
+              <button class="dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown</span>
+                <i class="ri-arrow-down-s-line dropdown__icon"></i>
+              </button>
+              <div class="dropdown__menu" data-dropdown-menu role="menu">
+                <a href="#" class="dropdown__item" role="menuitem">Option One</a>
+                <a href="#" class="dropdown__item" role="menuitem">Option Two</a>
+                <a href="#" class="dropdown__item" role="menuitem">Option Three</a>
+              </div>
+            </div>
+
+            <!-- Dropdown 2 - With Border -->
+            <div class="dropdown dropdown--bordered" data-dropdown>
+              <button class="dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown</span>
+                <i class="ri-arrow-down-s-line dropdown__icon"></i>
+              </button>
+              <div class="dropdown__menu" data-dropdown-menu role="menu">
+                <a href="#" class="dropdown__item" role="menuitem">Option One</a>
+                <a href="#" class="dropdown__item" role="menuitem">Option Two</a>
+                <a href="#" class="dropdown__item" role="menuitem">Option Three</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navbar Dropdown -->
+      <div class="demo-item" id="navbar-dropdown">
+        <h3>Navbar Dropdown (9 variants)</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">navbar-dropdown</span>
+          <button class="demo-copy-btn" onclick="copyID('navbar-dropdown')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div style="display: flex; gap: var(--space-6); flex-wrap: wrap; align-items: flex-start;">
+
+            <!-- Navbar Dropdown 1 - Simple -->
+            <div class="navbar-dropdown navbar-dropdown--simple" data-dropdown>
+              <button class="navbar-dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown 1</span>
+                <i class="ri-arrow-down-s-line navbar-dropdown__icon"></i>
+              </button>
+              <div class="navbar-dropdown__menu" data-dropdown-menu role="menu">
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <span class="navbar-dropdown__link-text">Link One</span>
+                </a>
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <span class="navbar-dropdown__link-text">Link Two</span>
+                </a>
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <span class="navbar-dropdown__link-text">Link Three</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Navbar Dropdown 2 - With Descriptions -->
+            <div class="navbar-dropdown navbar-dropdown--with-desc" data-dropdown>
+              <button class="navbar-dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown 2</span>
+                <i class="ri-arrow-down-s-line navbar-dropdown__icon"></i>
+              </button>
+              <div class="navbar-dropdown__menu navbar-dropdown__menu--wide" data-dropdown-menu role="menu">
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <i class="ri-dashboard-line navbar-dropdown__link-icon"></i>
+                  <div class="navbar-dropdown__link-content">
+                    <span class="navbar-dropdown__link-title">Dashboard</span>
+                    <span class="navbar-dropdown__link-desc">View analytics and reports</span>
+                  </div>
+                </a>
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <i class="ri-settings-3-line navbar-dropdown__link-icon"></i>
+                  <div class="navbar-dropdown__link-content">
+                    <span class="navbar-dropdown__link-title">Settings</span>
+                    <span class="navbar-dropdown__link-desc">Manage preferences</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Navbar Dropdown 8 - Single Column -->
+            <div class="navbar-dropdown navbar-dropdown--single-col" data-dropdown>
+              <button class="navbar-dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown 8</span>
+                <i class="ri-arrow-down-s-line navbar-dropdown__icon"></i>
+              </button>
+              <div class="navbar-dropdown__menu navbar-dropdown__menu--single" data-dropdown-menu role="menu">
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <i class="ri-file-line navbar-dropdown__link-icon"></i>
+                  <div class="navbar-dropdown__link-content">
+                    <span class="navbar-dropdown__link-title">Page one</span>
+                    <span class="navbar-dropdown__link-desc">Lorem ipsum dolor sit</span>
+                  </div>
+                </a>
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <i class="ri-folder-line navbar-dropdown__link-icon"></i>
+                  <div class="navbar-dropdown__link-content">
+                    <span class="navbar-dropdown__link-title">Page two</span>
+                    <span class="navbar-dropdown__link-desc">Lorem ipsum dolor sit</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--bg-section); border-radius: var(--radius-md);">
+            <p style="margin: 0; color: var(--text-muted); font-size: var(--font-size-2);">
+              <strong>💡 Note:</strong> This component includes 9 variants (simple, with-desc, grid, two-col, sidebar, compact-grid, categories, single-col, pages).
+              Check <code>library/elements/navigation/navbar-dropdown/navbar-dropdown.html</code> for all variants.
+            </p>
           </div>
         </div>
       </div>

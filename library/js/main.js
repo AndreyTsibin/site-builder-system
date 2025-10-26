@@ -7,6 +7,7 @@
  * - Smooth scroll
  * - Accordion
  * - Tabs
+ * - Dropdown
  * - Modal
  * - Form validation
  * - Lazy loading images
@@ -222,6 +223,93 @@ function initTabs() {
         const currentPanel = container.querySelector(`[data-tab-panel="${tabId}"]`);
         if (currentPanel) {
           currentPanel.classList.add('tabs__panel--active');
+        }
+      });
+    });
+  });
+}
+
+
+// ========================================
+// DROPDOWN
+// ========================================
+
+/**
+ * Initialize dropdowns
+ * Usage: Add data-dropdown to container
+ * Add data-dropdown-trigger to trigger button
+ * Add data-dropdown-menu to dropdown menu
+ */
+function initDropdown() {
+  const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+    const menu = dropdown.querySelector('[data-dropdown-menu]');
+
+    if (!trigger || !menu) return;
+
+    // Toggle dropdown
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = dropdown.hasAttribute('data-dropdown-active');
+
+      // Close all other dropdowns
+      document.querySelectorAll('[data-dropdown-active]').forEach(d => {
+        if (d !== dropdown) {
+          d.removeAttribute('data-dropdown-active');
+          const otherTrigger = d.querySelector('[data-dropdown-trigger]');
+          if (otherTrigger) {
+            otherTrigger.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      // Toggle current dropdown
+      if (isActive) {
+        dropdown.removeAttribute('data-dropdown-active');
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        dropdown.setAttribute('data-dropdown-active', '');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.removeAttribute('data-dropdown-active');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close dropdown on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdown.hasAttribute('data-dropdown-active')) {
+        dropdown.removeAttribute('data-dropdown-active');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus();
+      }
+    });
+
+    // Keyboard navigation for menu items
+    const menuItems = menu.querySelectorAll('a[role="menuitem"]');
+    menuItems.forEach((item, index) => {
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const nextItem = menuItems[index + 1] || menuItems[0];
+          nextItem.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prevItem = menuItems[index - 1] || menuItems[menuItems.length - 1];
+          prevItem.focus();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          menuItems[0].focus();
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          menuItems[menuItems.length - 1].focus();
         }
       });
     });
@@ -590,6 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initAccordion();
   initTabs();
+  initDropdown();
   initModal();
   initFormValidation();
   initLazyLoading();
