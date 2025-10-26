@@ -356,6 +356,171 @@ function initLazyLoading() {
 
 
 // ========================================
+// SLIDERS
+// ========================================
+
+/**
+ * Initialize sliders
+ * Usage: Add data-slider="unique-id" to slider container
+ * Supports: single slide, multi-slide, and carousel layouts
+ */
+function initSliders() {
+  const sliders = document.querySelectorAll('[data-slider]');
+
+  sliders.forEach(slider => {
+    const track = slider.querySelector('.slider__track');
+    const slides = slider.querySelectorAll('.slider__slide');
+    const prevBtn = slider.querySelector('[data-slider-prev]');
+    const nextBtn = slider.querySelector('[data-slider-next]');
+    const dotsContainer = slider.querySelector('.slider__dots');
+
+    let currentIndex = 0;
+
+    // Check if this is a scrollable multi-slide slider
+    const isScrollable = track.classList.contains('slider__track--2-cols') ||
+                        track.classList.contains('slider__track--3-cols') ||
+                        track.classList.contains('slider__track--carousel');
+
+    // Initialize dots
+    if (dotsContainer && slides.length > 0) {
+      // Clear existing dots (for dynamic initialization)
+      dotsContainer.innerHTML = '';
+
+      // For scrollable sliders, create dots based on visible groups
+      const dotsCount = isScrollable ? Math.ceil(slides.length / getVisibleSlidesCount(slider)) : slides.length;
+
+      for (let i = 0; i < dotsCount; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'slider__dot';
+        if (i === 0) dot.classList.add('slider__dot--active');
+        dot.setAttribute('data-slider-dot', i);
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    // Get number of visible slides for multi-slide sliders
+    function getVisibleSlidesCount(slider) {
+      if (slider.classList.contains('slider--3-cols') ||
+          slider.classList.contains('slider--carousel-3')) {
+        return window.innerWidth < 768 ? 1 : (window.innerWidth < 1024 ? 2 : 3);
+      }
+      if (slider.classList.contains('slider--2-cols')) {
+        return window.innerWidth < 768 ? 1 : 2;
+      }
+      return 1;
+    }
+
+    // Navigate to specific slide
+    function goToSlide(index) {
+      if (isScrollable) {
+        // For scrollable sliders, scroll to position
+        const slideWidth = slides[0].offsetWidth;
+        const gap = parseInt(getComputedStyle(track).gap) || 0;
+        const visibleCount = getVisibleSlidesCount(slider);
+        const scrollPosition = index * (slideWidth + gap) * visibleCount;
+
+        track.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        // For single-slide sliders, toggle active class
+        slides.forEach(slide => slide.classList.remove('slider__slide--active'));
+        if (slides[index]) {
+          slides[index].classList.add('slider__slide--active');
+        }
+      }
+
+      currentIndex = index;
+      updateDots();
+      updateButtons();
+    }
+
+    // Update active dot
+    function updateDots() {
+      const dots = dotsContainer?.querySelectorAll('.slider__dot');
+      if (dots) {
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('slider__dot--active', i === currentIndex);
+        });
+      }
+    }
+
+    // Update button states
+    function updateButtons() {
+      const maxIndex = isScrollable
+        ? Math.ceil(slides.length / getVisibleSlidesCount(slider)) - 1
+        : slides.length - 1;
+
+      if (prevBtn) {
+        prevBtn.disabled = currentIndex === 0;
+      }
+      if (nextBtn) {
+        nextBtn.disabled = currentIndex >= maxIndex;
+      }
+    }
+
+    // Previous slide
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          goToSlide(currentIndex - 1);
+        }
+      });
+    }
+
+    // Next slide
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const maxIndex = isScrollable
+          ? Math.ceil(slides.length / getVisibleSlidesCount(slider)) - 1
+          : slides.length - 1;
+
+        if (currentIndex < maxIndex) {
+          goToSlide(currentIndex + 1);
+        }
+      });
+    }
+
+    // Keyboard navigation
+    slider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevBtn?.click();
+      } else if (e.key === 'ArrowRight') {
+        nextBtn?.click();
+      }
+    });
+
+    // Update on scroll for scrollable sliders
+    if (isScrollable) {
+      let scrollTimeout;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          const slideWidth = slides[0].offsetWidth;
+          const gap = parseInt(getComputedStyle(track).gap) || 0;
+          const visibleCount = getVisibleSlidesCount(slider);
+          const scrollLeft = track.scrollLeft;
+          const newIndex = Math.round(scrollLeft / ((slideWidth + gap) * visibleCount));
+
+          if (newIndex !== currentIndex) {
+            currentIndex = newIndex;
+            updateDots();
+            updateButtons();
+          }
+        }, 100);
+      });
+    }
+
+    // Initialize
+    updateButtons();
+  });
+}
+
+
+// ========================================
 // INITIALIZE ALL
 // ========================================
 
@@ -370,6 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   initFormValidation();
   initLazyLoading();
+  initSliders();
 
   console.log('Site Builder JS initialized ✅');
 });

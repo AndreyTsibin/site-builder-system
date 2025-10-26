@@ -40,6 +40,11 @@
   <link rel="stylesheet" href="elements/modals/modal-center/modal-center.css">
   <link rel="stylesheet" href="elements/modals/modal-drawer/modal-drawer.css">
   <link rel="stylesheet" href="elements/modals/modal-fullscreen/modal-fullscreen.css">
+  <link rel="stylesheet" href="elements/sliders/slider-1/slider-1.css">
+  <link rel="stylesheet" href="elements/sliders/slider-2/slider-2.css">
+  <link rel="stylesheet" href="elements/sliders/slider-3/slider-3.css">
+  <link rel="stylesheet" href="elements/sliders/slider-4/slider-4.css">
+  <link rel="stylesheet" href="elements/sliders/slider-carousel/slider-carousel.css">
 
   <style>
     * {
@@ -384,6 +389,22 @@
             <a href="#modal-drawer-demo" class="demo-nav__link">Modal Drawer</a>
             <a href="#modal-fullscreen-demo" class="demo-nav__link">Modal Fullscreen</a>
             <a href="#button-icon" class="demo-nav__link">Icon Button</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🎠 Слайдеры</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#slider-1" class="demo-nav__link">Slider 1 (Single)</a>
+            <a href="#slider-2" class="demo-nav__link">Slider 2 (2 cols)</a>
+            <a href="#slider-3" class="demo-nav__link">Slider 3 (3 cols)</a>
+            <a href="#slider-4" class="demo-nav__link">Slider 4 (Bottom controls)</a>
+            <a href="#slider-5" class="demo-nav__link">Slider 5 (Carousel auto)</a>
+            <a href="#slider-6" class="demo-nav__link">Slider 6 (Carousel 3)</a>
+            <a href="#slider-7" class="demo-nav__link">Slider 7 (Carousel auto)</a>
           </div>
         </div>
       </nav>
@@ -1366,6 +1387,285 @@
         </div>
       </div>
     </div>
+
+    <!-- Sliders -->
+    <section class="demo-section">
+      <h2>🎠 Слайдеры (Sliders)</h2>
+
+      <!-- Slider 1 -->
+      <div class="demo-item" id="slider-1">
+        <h3>Slider 1 — Single Slide (Arrows Top, Dots Bottom-Left)</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-1</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-1')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider" data-slider="demo-slider-1" style="max-width: 800px; margin: 0 auto;">
+            <div class="slider__container">
+              <div class="slider__arrows slider__arrows--top">
+                <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous slide">
+                  <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                </button>
+                <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next slide">
+                  <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="slider__track">
+                <div class="slider__slide slider__slide--active">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 1</h3>
+                    <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </div>
+                <div class="slider__slide">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 2</h3>
+                    <p class="text text--muted">Suspendisse varius enim in eros elementum tristique.</p>
+                  </div>
+                </div>
+                <div class="slider__slide">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 3</h3>
+                    <p class="text text--muted">Duis cursus, mi quis viverra ornare.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__dots slider__dots--bottom-left"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 2 -->
+      <div class="demo-item" id="slider-2">
+        <h3>Slider 2 — Two Slides Visible</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-2</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-2')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--2-cols" data-slider="demo-slider-2">
+            <div class="slider__container">
+              <div class="slider__arrows slider__arrows--top">
+                <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                  <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                </button>
+                <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                  <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="slider__track slider__track--2-cols">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h4">Slide 1</h3><p class="text text--muted text--sm">Lorem ipsum dolor.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h4">Slide 2</h3><p class="text text--muted text--sm">Suspendisse varius.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h4">Slide 3</h3><p class="text text--muted text--sm">Duis cursus mi.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h4">Slide 4</h3><p class="text text--muted text--sm">Eros dolor.</p></div></div>
+              </div>
+              <div class="slider__dots slider__dots--bottom-left"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 3 -->
+      <div class="demo-item" id="slider-3">
+        <h3>Slider 3 — Three Slides Visible</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-3</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-3')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--3-cols" data-slider="demo-slider-3">
+            <div class="slider__container">
+              <div class="slider__arrows slider__arrows--top">
+                <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                  <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                </button>
+                <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                  <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="slider__track slider__track--3-cols">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 1</h3><p class="text text--muted text--sm">Lorem.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 2</h3><p class="text text--muted text--sm">Ipsum.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 3</h3><p class="text text--muted text--sm">Dolor.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 4</h3><p class="text text--muted text--sm">Sit.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 5</h3><p class="text text--muted text--sm">Amet.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 6</h3><p class="text text--muted text--sm">Elit.</p></div></div>
+              </div>
+              <div class="slider__dots slider__dots--bottom-left"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 4 -->
+      <div class="demo-item" id="slider-4">
+        <h3>Slider 4 — Bottom Controls (Arrows + Dots)</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-4</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-4')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--controls-bottom" data-slider="demo-slider-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="slider__container">
+              <div class="slider__track">
+                <div class="slider__slide slider__slide--active">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 1</h3>
+                    <p class="text text--muted">Lorem ipsum dolor sit amet.</p>
+                  </div>
+                </div>
+                <div class="slider__slide">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 2</h3>
+                    <p class="text text--muted">Suspendisse varius enim.</p>
+                  </div>
+                </div>
+                <div class="slider__slide">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 3</h3>
+                    <p class="text text--muted">Duis cursus mi quis.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__controls slider__controls--bottom-right">
+                <div class="slider__dots"></div>
+                <div class="slider__arrows">
+                  <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                    <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                  </button>
+                  <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                    <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 5 -->
+      <div class="demo-item" id="slider-5">
+        <h3>Slider 5 — Carousel Auto Width</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-carousel-auto</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-carousel-auto')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--carousel-auto slider--controls-bottom" data-slider="demo-slider-5">
+            <div class="slider__container">
+              <div class="slider__track slider__track--carousel">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 1</h3><p class="text text--muted text--sm">Lorem ipsum.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 2</h3><p class="text text--muted text--sm">Suspendisse.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 3</h3><p class="text text--muted text--sm">Duis cursus.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 4</h3><p class="text text--muted text--sm">Eros dolor.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 5</h3><p class="text text--muted text--sm">Viverra.</p></div></div>
+              </div>
+              <div class="slider__controls slider__controls--bottom-right">
+                <div class="slider__dots"></div>
+                <div class="slider__arrows">
+                  <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                    <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                  </button>
+                  <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                    <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 6 -->
+      <div class="demo-item" id="slider-6">
+        <h3>Slider 6 — Carousel 3 Columns</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-carousel-3</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-carousel-3')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--carousel-3 slider--controls-bottom" data-slider="demo-slider-6">
+            <div class="slider__container">
+              <div class="slider__track slider__track--carousel">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 1</h3><p class="text text--muted text--sm">Lorem ipsum.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 2</h3><p class="text text--muted text--sm">Suspendisse.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 3</h3><p class="text text--muted text--sm">Duis cursus.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 4</h3><p class="text text--muted text--sm">Eros dolor.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 5</h3><p class="text text--muted text--sm">Viverra.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 6</h3><p class="text text--muted text--sm">Interdum.</p></div></div>
+              </div>
+              <div class="slider__controls slider__controls--bottom-right">
+                <div class="slider__dots"></div>
+                <div class="slider__arrows">
+                  <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                    <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                  </button>
+                  <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                    <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 7 -->
+      <div class="demo-item" id="slider-7">
+        <h3>Slider 7 — Carousel Auto Width (Alternative)</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-carousel-auto</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-carousel-auto')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--carousel-auto slider--controls-bottom" data-slider="demo-slider-7">
+            <div class="slider__container">
+              <div class="slider__track slider__track--carousel">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 1</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 2</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 3</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 4</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 5</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 6</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+              </div>
+              <div class="slider__controls slider__controls--bottom-right">
+                <div class="slider__dots"></div>
+                <div class="slider__arrows">
+                  <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                    <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                  </button>
+                  <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                    <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
       <!-- Footer -->
       <footer style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 2px solid var(--border); text-align: center; color: var(--text-muted);">
