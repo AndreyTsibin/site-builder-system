@@ -667,6 +667,84 @@ function initSliders() {
 
 
 // ========================================
+// TOOLTIPS
+// ========================================
+
+/**
+ * Initialize tooltips
+ * Usage: Add class "tooltip" to wrapper element
+ * Tooltips show on hover (desktop) and click (mobile)
+ */
+function initTooltips() {
+  const tooltips = document.querySelectorAll('.tooltip');
+
+  if (!tooltips.length) return;
+
+  tooltips.forEach(tooltip => {
+    const trigger = tooltip.querySelector('.tooltip__trigger');
+    const content = tooltip.querySelector('.tooltip__content');
+
+    if (!trigger || !content) return;
+
+    let hideTimeout;
+
+    // Show tooltip
+    const showTooltip = () => {
+      clearTimeout(hideTimeout);
+      tooltip.classList.add('is-active');
+    };
+
+    // Hide tooltip
+    const hideTooltip = () => {
+      hideTimeout = setTimeout(() => {
+        tooltip.classList.remove('is-active');
+      }, 100);
+    };
+
+    // Desktop: hover
+    trigger.addEventListener('mouseenter', showTooltip);
+    trigger.addEventListener('mouseleave', hideTooltip);
+    content.addEventListener('mouseenter', showTooltip);
+    content.addEventListener('mouseleave', hideTooltip);
+
+    // Mobile: click toggle
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = tooltip.classList.contains('is-active');
+
+      // Close all other tooltips
+      document.querySelectorAll('.tooltip.is-active').forEach(t => {
+        if (t !== tooltip) t.classList.remove('is-active');
+      });
+
+      // Toggle current
+      if (isActive) {
+        tooltip.classList.remove('is-active');
+      } else {
+        tooltip.classList.add('is-active');
+      }
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        tooltip.classList.remove('is-active');
+      }
+    });
+  });
+
+  // Close all tooltips when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.tooltip')) {
+      document.querySelectorAll('.tooltip.is-active').forEach(tooltip => {
+        tooltip.classList.remove('is-active');
+      });
+    }
+  });
+}
+
+
+// ========================================
 // INITIALIZE ALL
 // ========================================
 
@@ -683,6 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormValidation();
   initLazyLoading();
   initSliders();
+  initTooltips();
 
   console.log('Site Builder JS initialized ✅');
 });

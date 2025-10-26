@@ -62,6 +62,7 @@
   <link rel="stylesheet" href="elements/media/image-caption/image-caption.css">
   <link rel="stylesheet" href="elements/navigation/dropdown/dropdown.css">
   <link rel="stylesheet" href="elements/navigation/navbar-dropdown/navbar-dropdown.css">
+  <link rel="stylesheet" href="elements/tooltips/tooltip/tooltip.css">
 
   <style>
     * {
@@ -460,6 +461,16 @@
           <div class="demo-nav__section-links">
             <a href="#dropdown" class="demo-nav__link">Dropdown</a>
             <a href="#navbar-dropdown" class="demo-nav__link">Navbar Dropdown</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>💬 Подсказки</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#tooltip" class="demo-nav__link">Tooltip</a>
           </div>
         </div>
       </nav>
@@ -2668,6 +2679,192 @@
               Check <code>library/elements/navigation/navbar-dropdown/navbar-dropdown.html</code> for all variants.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tooltips -->
+    <section class="demo-section">
+      <h2>💬 Подсказки (Tooltips)</h2>
+
+      <div class="demo-item" id="tooltip">
+        <h3>Tooltip</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">tooltip</span>
+          <button class="demo-copy-btn" onclick="copyID('tooltip')">
+            <i class="ri-file-copy-line"></i> Копировать ID
+          </button>
+        </div>
+
+        <!-- Tooltip 1 - Simple -->
+        <div class="demo-subsection">
+          <h4>Tooltip 1 (Simple) - 4 позиции</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); padding: var(--space-8);">
+
+            <!-- Top -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 200px;">
+              <div class="tooltip tooltip--simple" data-tooltip-position="top">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-simple-top">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-simple-top" role="tooltip">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 1 (Top)</p>
+            </div>
+
+            <!-- Right -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 200px;">
+              <div class="tooltip tooltip--simple" data-tooltip-position="right">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-simple-right">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-simple-right" role="tooltip">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 1 (Right)</p>
+            </div>
+
+            <!-- Bottom -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 200px;">
+              <div class="tooltip tooltip--simple" data-tooltip-position="bottom">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-simple-bottom">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-simple-bottom" role="tooltip">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 1 (Bottom)</p>
+            </div>
+
+            <!-- Left -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 200px;">
+              <div class="tooltip tooltip--simple" data-tooltip-position="left">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-simple-left">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-simple-left" role="tooltip">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 1 (Left)</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tooltip 2 - Rich -->
+        <div class="demo-subsection">
+          <h4>Tooltip 2 (Rich) - 4 позиции</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); padding: var(--space-8);">
+
+            <!-- Top -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 400px;">
+              <div class="tooltip tooltip--rich" data-tooltip-position="top">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-rich-top">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-rich-top" role="tooltip">
+                  <div class="tooltip__image">
+                    <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400&h=300&fit=crop" alt="Tooltip visual">
+                  </div>
+                  <div class="tooltip__body">
+                    <h3 class="tooltip__title">Tooltip Title</h3>
+                    <p class="tooltip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <a href="#" class="tooltip__link">
+                      Find out more
+                      <i class="ri-arrow-right-line"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 2 (Top)</p>
+            </div>
+
+            <!-- Right -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 400px;">
+              <div class="tooltip tooltip--rich" data-tooltip-position="right">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-rich-right">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-rich-right" role="tooltip">
+                  <div class="tooltip__image">
+                    <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400&h=300&fit=crop" alt="Tooltip visual">
+                  </div>
+                  <div class="tooltip__body">
+                    <h3 class="tooltip__title">Tooltip Title</h3>
+                    <p class="tooltip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <a href="#" class="tooltip__link">
+                      Find out more
+                      <i class="ri-arrow-right-line"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 2 (Right)</p>
+            </div>
+
+            <!-- Bottom -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 400px;">
+              <div class="tooltip tooltip--rich" data-tooltip-position="bottom">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-rich-bottom">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-rich-bottom" role="tooltip">
+                  <div class="tooltip__image">
+                    <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400&h=300&fit=crop" alt="Tooltip visual">
+                  </div>
+                  <div class="tooltip__body">
+                    <h3 class="tooltip__title">Tooltip Title</h3>
+                    <p class="tooltip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <a href="#" class="tooltip__link">
+                      Find out more
+                      <i class="ri-arrow-right-line"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 2 (Bottom)</p>
+            </div>
+
+            <!-- Left -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 400px;">
+              <div class="tooltip tooltip--rich" data-tooltip-position="left">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-rich-left">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-rich-left" role="tooltip">
+                  <div class="tooltip__image">
+                    <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400&h=300&fit=crop" alt="Tooltip visual">
+                  </div>
+                  <div class="tooltip__body">
+                    <h3 class="tooltip__title">Tooltip Title</h3>
+                    <p class="tooltip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <a href="#" class="tooltip__link">
+                      Find out more
+                      <i class="ri-arrow-right-line"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 2 (Left)</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="demo-code">
+          <strong>HTML:</strong>
+          <code>library/elements/tooltips/tooltip/tooltip.html</code>
+          <br>
+          <strong>CSS:</strong>
+          <code>library/elements/tooltips/tooltip/tooltip.css</code>
+          <br>
+          <strong>JavaScript:</strong>
+          <code>library/js/main.js (initTooltips)</code>
         </div>
       </div>
     </section>
