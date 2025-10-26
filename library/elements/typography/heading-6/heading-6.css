@@ -1,0 +1,9 @@
+/**
+ * Heading 6 — Smallest headings
+ * Uses base .heading class from main.css
+ */
+
+/* Base styles inherited from main.css:
+   .heading (base heading styles)
+   .heading--h6 (H6 font size from --font-size-3)
+*/

@@ -1,0 +1,38 @@
+/* Card Horizontal Left - Content Left, Image Right (Layout only) */
+
+.card-horizontal-left {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, hsl(220, 10%, 90%));
+  border-radius: var(--radius-md);
+}
+
+.card-horizontal-left__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.card-horizontal-left__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .card-horizontal-left {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .card-horizontal-left {
+    padding: var(--space-8);
+  }
+}

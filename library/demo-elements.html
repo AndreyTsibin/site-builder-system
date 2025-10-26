@@ -26,6 +26,17 @@
   <link rel="stylesheet" href="elements/buttons/button-icon/button-icon.css">
   <link rel="stylesheet" href="elements/buttons/button-row-left/button-row-left.css">
   <link rel="stylesheet" href="elements/buttons/button-row-center/button-row-center.css">
+  <link rel="stylesheet" href="elements/typography/heading-1/heading-1.css">
+  <link rel="stylesheet" href="elements/typography/heading-2/heading-2.css">
+  <link rel="stylesheet" href="elements/typography/heading-3/heading-3.css">
+  <link rel="stylesheet" href="elements/typography/heading-4/heading-4.css">
+  <link rel="stylesheet" href="elements/typography/heading-5/heading-5.css">
+  <link rel="stylesheet" href="elements/typography/heading-6/heading-6.css">
+  <link rel="stylesheet" href="elements/typography/text/text.css">
+  <link rel="stylesheet" href="elements/typography/text-large/text-large.css">
+  <link rel="stylesheet" href="elements/typography/text-small/text-small.css">
+  <link rel="stylesheet" href="elements/typography/text-muted/text-muted.css">
+  <link rel="stylesheet" href="elements/typography/lead/lead.css">
   <link rel="stylesheet" href="elements/forms/input-text/input-text.css">
   <link rel="stylesheet" href="elements/forms/textarea/textarea.css">
   <link rel="stylesheet" href="elements/forms/select/select.css">
@@ -37,6 +48,13 @@
   <link rel="stylesheet" href="elements/cards/card-basic/card-basic.css">
   <link rel="stylesheet" href="elements/cards/card-with-image/card-with-image.css">
   <link rel="stylesheet" href="elements/cards/card-pricing/card-pricing.css">
+  <link rel="stylesheet" href="elements/cards/card-horizontal-left/card-horizontal-left.css">
+  <link rel="stylesheet" href="elements/cards/card-horizontal-right/card-horizontal-right.css">
+  <link rel="stylesheet" href="elements/cards/card-vertical-top/card-vertical-top.css">
+  <link rel="stylesheet" href="elements/cards/card-vertical-bottom/card-vertical-bottom.css">
+  <link rel="stylesheet" href="elements/cards/card-compact-left/card-compact-left.css">
+  <link rel="stylesheet" href="elements/cards/card-compact-right/card-compact-right.css">
+  <link rel="stylesheet" href="elements/cards/card-icon/card-icon.css">
   <link rel="stylesheet" href="elements/modals/modal-center/modal-center.css">
   <link rel="stylesheet" href="elements/modals/modal-drawer/modal-drawer.css">
   <link rel="stylesheet" href="elements/modals/modal-fullscreen/modal-fullscreen.css">
@@ -384,6 +402,13 @@
             <a href="#card-basic" class="demo-nav__link">Basic Card</a>
             <a href="#card-with-image" class="demo-nav__link">Card With Image</a>
             <a href="#card-pricing" class="demo-nav__link">Pricing Card</a>
+            <a href="#card-horizontal-left" class="demo-nav__link">Horizontal Left</a>
+            <a href="#card-horizontal-right" class="demo-nav__link">Horizontal Right</a>
+            <a href="#card-vertical-top" class="demo-nav__link">Vertical Top</a>
+            <a href="#card-vertical-bottom" class="demo-nav__link">Vertical Bottom</a>
+            <a href="#card-compact-left" class="demo-nav__link">Compact Left</a>
+            <a href="#card-compact-right" class="demo-nav__link">Compact Right</a>
+            <a href="#card-icon" class="demo-nav__link">Icon Card</a>
           </div>
         </div>
 
@@ -1339,11 +1364,11 @@
         </div>
         <div class="demo-preview">
           <div class="card card--image" style="max-width: 400px;">
-            <img src="https://via.placeholder.com/400x250" alt="Услуга" class="card__image">
+            <img src="assets/images/placeholder.svg" alt="Услуга" class="card__image">
             <div class="card__content">
               <h3 class="card__title">Установка оборудования</h3>
               <p class="card__text">Монтаж и настройка климатической техники любой сложности.</p>
-              <button class="btn btn--outline">Заказать</button>
+              <a href="#" class="btn btn--primary">Заказать</a>
             </div>
           </div>
         </div>
@@ -1373,6 +1398,207 @@
             </ul>
             <button class="btn btn--primary btn--full-width">Выбрать план</button>
           </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-horizontal-left">
+        <h3>Card Horizontal Left</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-horizontal-left</span>
+          <button class="demo-copy-btn" onclick="copyID('card-horizontal-left')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-horizontal-left">
+            <div class="card-horizontal-left__content">
+              <p class="text text--sm" style="text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Tagline</p>
+              <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+              <div class="card-horizontal-left__actions">
+                <button class="btn btn--secondary">Button</button>
+                <a href="#" class="btn btn--link">
+                  Button
+                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div class="image-ratio image-ratio--3-2">
+              <img src="assets/images/placeholder.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-horizontal-right">
+        <h3>Card Horizontal Right</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-horizontal-right</span>
+          <button class="demo-copy-btn" onclick="copyID('card-horizontal-right')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-horizontal-right">
+            <div class="image-ratio image-ratio--3-2">
+              <img src="assets/images/placeholder.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+            <div class="card-horizontal-right__content">
+              <p class="text text--sm" style="text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Tagline</p>
+              <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+              <div class="card-horizontal-right__actions">
+                <button class="btn btn--secondary">Button</button>
+                <a href="#" class="btn btn--link">
+                  Button
+                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-vertical-top">
+        <h3>Card Vertical Top</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-vertical-top</span>
+          <button class="demo-copy-btn" onclick="copyID('card-vertical-top')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-vertical-top" style="max-width: 500px;">
+            <div class="image-ratio image-ratio--3-2">
+              <img src="assets/images/placeholder.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+            <div class="card-vertical-top__content">
+              <p class="text text--sm" style="text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Tagline</p>
+              <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+              <div class="card-vertical-top__actions">
+                <button class="btn btn--secondary">Button</button>
+                <a href="#" class="btn btn--link">
+                  Button
+                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-vertical-bottom">
+        <h3>Card Vertical Bottom</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-vertical-bottom</span>
+          <button class="demo-copy-btn" onclick="copyID('card-vertical-bottom')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-vertical-bottom" style="max-width: 500px;">
+            <div class="card-vertical-bottom__content">
+              <p class="text text--sm" style="text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Tagline</p>
+              <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+              <div class="card-vertical-bottom__actions">
+                <button class="btn btn--secondary">Button</button>
+                <a href="#" class="btn btn--link">
+                  Button
+                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div class="image-ratio image-ratio--3-2">
+              <img src="assets/images/placeholder.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-compact-left">
+        <h3>Card Compact Left</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-compact-left</span>
+          <button class="demo-copy-btn" onclick="copyID('card-compact-left')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-compact-left" style="max-width: 600px;">
+            <div class="card-compact-left__content">
+              <p class="text text--sm" style="text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Tagline</p>
+              <h3 class="heading heading--h4">Medium length section heading goes here</h3>
+              <p class="text text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+              <a href="#" class="btn btn--link">
+                Button
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="image-ratio image-ratio--1-1">
+              <img src="assets/images/placeholder-square.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-compact-right">
+        <h3>Card Compact Right</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-compact-right</span>
+          <button class="demo-copy-btn" onclick="copyID('card-compact-right')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-compact-right" style="max-width: 600px;">
+            <div class="image-ratio image-ratio--1-1">
+              <img src="assets/images/placeholder-square.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+            <div class="card-compact-right__content">
+              <p class="text text--sm" style="text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Tagline</p>
+              <h3 class="heading heading--h4">Medium length section heading goes here</h3>
+              <p class="text text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+              <a href="#" class="btn btn--link">
+                Button
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-icon">
+        <h3>Icon Card</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('card-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-icon" style="max-width: 500px;">
+            <div class="card-icon__icon">
+              <i class="ri-shield-check-line"></i>
+            </div>
+            <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+            <div class="card-icon__actions">
+              <button class="btn btn--secondary">Button</button>
+              <a href="#" class="btn btn--link">
+                Button
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -2995,7 +3221,7 @@
                 </button>
                 <div class="tooltip__content" id="tooltip-demo-rich-top" role="tooltip">
                   <div class="tooltip__image">
-                    <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400&h=300&fit=crop" alt="Tooltip visual">
+                    <img src="assets/images/placeholder.svg" alt="Tooltip visual">
                   </div>
                   <div class="tooltip__body">
                     <h3 class="tooltip__title">Tooltip Title</h3>
@@ -3018,7 +3244,7 @@
                 </button>
                 <div class="tooltip__content" id="tooltip-demo-rich-right" role="tooltip">
                   <div class="tooltip__image">
-                    <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400&h=300&fit=crop" alt="Tooltip visual">
+                    <img src="assets/images/placeholder.svg" alt="Tooltip visual">
                   </div>
                   <div class="tooltip__body">
                     <h3 class="tooltip__title">Tooltip Title</h3>
@@ -3041,7 +3267,7 @@
                 </button>
                 <div class="tooltip__content" id="tooltip-demo-rich-bottom" role="tooltip">
                   <div class="tooltip__image">
-                    <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400&h=300&fit=crop" alt="Tooltip visual">
+                    <img src="assets/images/placeholder.svg" alt="Tooltip visual">
                   </div>
                   <div class="tooltip__body">
                     <h3 class="tooltip__title">Tooltip Title</h3>
@@ -3064,7 +3290,7 @@
                 </button>
                 <div class="tooltip__content" id="tooltip-demo-rich-left" role="tooltip">
                   <div class="tooltip__image">
-                    <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400&h=300&fit=crop" alt="Tooltip visual">
+                    <img src="assets/images/placeholder.svg" alt="Tooltip visual">
                   </div>
                   <div class="tooltip__body">
                     <h3 class="tooltip__title">Tooltip Title</h3>

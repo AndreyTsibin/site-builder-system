@@ -1,0 +1,10 @@
+/**
+ * Heading 2 — Section headings
+ * Uses base .heading class from main.css
+ * Section titles, major subsections
+ */
+
+/* Base styles inherited from main.css:
+   .heading (base heading styles)
+   .heading--h2 (H2 font size from --font-size-7)
+*/
