@@ -42,7 +42,6 @@
 /* Button with Spinner */
 .btn--loading {
   position: relative;
-  color: transparent !important;
   pointer-events: none;
 }
 
@@ -53,8 +52,9 @@
   transform: translate(-50%, -50%);
 }
 
-.btn__spinner .spinner {
-  --spinner-color: currentColor;
+.btn__spinner .spinner__circle {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
 }
 
 .btn--loading .btn__text {
