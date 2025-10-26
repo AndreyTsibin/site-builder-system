@@ -1,0 +1,444 @@
+/**
+ * Site Builder — Main Base Styles
+ *
+ * Base classes for all UI elements in the library
+ * All styles use CSS variables from variables.css for flexibility
+ *
+ * Usage:
+ * 1. Apply base class (e.g., .btn) for common styles
+ * 2. Add modifier class (e.g., .btn--primary) for specific variant
+ *
+ * Example:
+ * <button class="btn btn--primary">Click me</button>
+ */
+
+
+/* ========================================
+   BUTTONS — Base Styles
+   ======================================== */
+
+.btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  /* Spacing */
+  padding: var(--space-3) var(--space-6);
+
+  /* Typography */
+  font-family: var(--font-base);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-tight);
+  text-align: center;
+  text-decoration: none;
+
+  /* Visual */
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+
+  /* Remove default button styles */
+  border: none;
+  background: none;
+
+  /* Accessibility */
+  user-select: none;
+}
+
+/* Button size variants */
+.btn--sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-2);
+}
+
+.btn--lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-4);
+}
+
+/* Button disabled state */
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+/* ========================================
+   FORM FIELDS — Base Styles
+   ======================================== */
+
+.form-field {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.form-field__label {
+  /* Typography */
+  font-family: var(--font-base);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-medium);
+  color: var(--text-body);
+}
+
+.form-field__input,
+.form-field__textarea,
+.form-field__select {
+  /* Spacing */
+  padding: var(--space-3) var(--space-4);
+  width: 100%;
+
+  /* Typography */
+  font-family: var(--font-base);
+  font-size: var(--font-size-3);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+
+  /* Visual */
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+
+  /* Remove default styles */
+  outline: none;
+}
+
+/* Textarea specific */
+.form-field__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Hover state */
+.form-field__input:hover,
+.form-field__textarea:hover,
+.form-field__select:hover {
+  border-color: var(--text-muted);
+}
+
+/* Focus state */
+.form-field__input:focus,
+.form-field__textarea:focus,
+.form-field__select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px hsla(220, 90%, 56%, 0.1);
+}
+
+/* Disabled state */
+.form-field__input:disabled,
+.form-field__textarea:disabled,
+.form-field__select:disabled {
+  background-color: var(--bg-section);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+/* Placeholder */
+.form-field__input::placeholder,
+.form-field__textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Error state */
+.form-field--error .form-field__input,
+.form-field--error .form-field__textarea,
+.form-field--error .form-field__select {
+  border-color: var(--error);
+}
+
+.form-field--error .form-field__input:focus,
+.form-field--error .form-field__textarea:focus,
+.form-field--error .form-field__select:focus {
+  box-shadow: 0 0 0 3px hsla(4, 90%, 58%, 0.1);
+}
+
+/* Success state */
+.form-field--success .form-field__input,
+.form-field--success .form-field__textarea,
+.form-field--success .form-field__select {
+  border-color: var(--success);
+}
+
+.form-field--success .form-field__input:focus,
+.form-field--success .form-field__textarea:focus,
+.form-field--success .form-field__select:focus {
+  box-shadow: 0 0 0 3px hsla(142, 71%, 45%, 0.1);
+}
+
+/* Help text / Error message */
+.form-field__hint {
+  font-size: var(--font-size-2);
+  color: var(--text-muted);
+}
+
+.form-field--error .form-field__hint {
+  color: var(--error);
+}
+
+
+/* ========================================
+   CARDS — Base Styles
+   ======================================== */
+
+.card {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+
+  /* Spacing */
+  padding: var(--space-8);
+
+  /* Visual */
+  background-color: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+/* Card hover effect */
+.card--hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Card header */
+.card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Card title */
+.card__title {
+  font-family: var(--font-base);
+  font-size: var(--font-size-6);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* Card description */
+.card__description {
+  font-family: var(--font-base);
+  font-size: var(--font-size-3);
+  line-height: var(--leading-normal);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Card body */
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Card footer */
+.card__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+}
+
+
+/* ========================================
+   TYPOGRAPHY — Base Styles
+   ======================================== */
+
+/* Headings */
+.heading {
+  font-family: var(--font-base);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-body);
+  margin: 0;
+}
+
+.heading--h1 {
+  font-size: var(--font-size-8);
+}
+
+.heading--h2 {
+  font-size: var(--font-size-7);
+}
+
+.heading--h3 {
+  font-size: var(--font-size-6);
+}
+
+.heading--h4 {
+  font-size: var(--font-size-5);
+}
+
+/* Body text */
+.text {
+  font-family: var(--font-base);
+  font-size: var(--font-size-3);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  margin: 0;
+}
+
+.text--muted {
+  color: var(--text-muted);
+}
+
+.text--sm {
+  font-size: var(--font-size-2);
+}
+
+.text--lg {
+  font-size: var(--font-size-4);
+}
+
+/* Lead text (intro paragraphs) */
+.lead {
+  font-family: var(--font-base);
+  font-size: var(--font-size-4);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  margin: 0;
+}
+
+
+/* ========================================
+   LINKS — Base Styles
+   ======================================== */
+
+.link {
+  font-family: var(--font-base);
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+
+/* ========================================
+   BADGES — Base Styles
+   ======================================== */
+
+.badge {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Spacing */
+  padding: var(--space-1) var(--space-3);
+
+  /* Typography */
+  font-family: var(--font-base);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  /* Visual */
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   CONTAINERS — Base Styles
+   ======================================== */
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.container--default {
+  max-width: var(--container-default);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+/* Section spacing */
+.section {
+  padding-top: var(--space-40);
+  padding-bottom: var(--space-40);
+}
+
+.section--sm {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+}
+
+.section--lg {
+  padding-top: var(--space-60);
+  padding-bottom: var(--space-60);
+}
+
+
+/* ========================================
+   UTILITIES — Common Helper Classes
+   ======================================== */
+
+/* Visually hidden (for screen readers only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: var(--z-index-skip-link);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transform: translateY(-150%);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Focus ring for keyboard navigation */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
