@@ -1,0 +1,117 @@
+/* Spinner Component */
+.spinner {
+  --spinner-size: 2.5rem;
+  --spinner-border: 3px;
+  --spinner-color: var(--primary);
+
+  display: inline-block;
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+}
+
+.spinner__circle {
+  width: 100%;
+  height: 100%;
+  border: var(--spinner-border) solid var(--bg-section);
+  border-top-color: var(--spinner-color);
+  border-radius: 50%;
+  animation: spinner-rotate 0.8s linear infinite;
+}
+
+/* Size variants */
+.spinner--sm {
+  --spinner-size: 1rem;
+  --spinner-border: 2px;
+}
+
+.spinner--lg {
+  --spinner-size: 4rem;
+  --spinner-border: 4px;
+}
+
+/* Animation */
+@keyframes spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button with Spinner */
+.btn--loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn__spinner .spinner {
+  --spinner-color: currentColor;
+}
+
+.btn--loading .btn__text {
+  visibility: hidden;
+}
+
+/* Inverted spinner (for dark backgrounds) */
+.spinner--inverted .spinner__circle {
+  border-color: rgba(255, 255, 255, 0.2);
+  border-top-color: #fff;
+}
+
+/* Page Loader Overlay */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+}
+
+.loader-overlay__text {
+  margin: 0;
+  font-size: var(--font-size-3);
+  font-weight: 500;
+  color: var(--text-body);
+}
+
+/* Hidden by default */
+.loader-overlay {
+  display: none;
+}
+
+.loader-overlay.is-active {
+  display: flex;
+}
+
+/* Inline loader (for content areas) */
+.loader-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .spinner--lg {
+    --spinner-size: 3rem;
+    --spinner-border: 3px;
+  }
+}

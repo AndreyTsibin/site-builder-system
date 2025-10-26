@@ -1,0 +1,118 @@
+/* Checkbox Cards */
+.checkbox-card-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.checkbox-card__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  background-color: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.checkbox-card:hover {
+  border-color: var(--text-muted);
+}
+
+.checkbox-card__input:checked + .checkbox-card {
+  border-color: var(--text-body);
+}
+
+.checkbox-card__input:focus + .checkbox-card {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.checkbox-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.checkbox-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: var(--font-size-5);
+  color: var(--text-body);
+  background-color: var(--bg-section);
+  border-radius: var(--radius-md);
+}
+
+.checkbox-card__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+}
+
+.checkbox-card__check i {
+  font-size: var(--font-size-3);
+  color: var(--bg-card);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.checkbox-card__input:checked + .checkbox-card .checkbox-card__check {
+  background-color: var(--text-body);
+  border-color: var(--text-body);
+}
+
+.checkbox-card__input:checked + .checkbox-card .checkbox-card__check i {
+  opacity: 1;
+}
+
+.checkbox-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.checkbox-card__title {
+  margin: 0;
+  font-size: var(--font-size-3);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-body);
+}
+
+.checkbox-card__text {
+  margin: 0;
+  font-size: var(--font-size-2);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .checkbox-card {
+    padding: var(--space-4);
+  }
+
+  .checkbox-card__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: var(--font-size-4);
+  }
+}

@@ -63,6 +63,15 @@
   <link rel="stylesheet" href="elements/navigation/dropdown/dropdown.css">
   <link rel="stylesheet" href="elements/navigation/navbar-dropdown/navbar-dropdown.css">
   <link rel="stylesheet" href="elements/tooltips/tooltip/tooltip.css">
+  <link rel="stylesheet" href="elements/forms/input-search/input-search.css">
+  <link rel="stylesheet" href="elements/forms/input-with-icon/input-with-icon.css">
+  <link rel="stylesheet" href="elements/forms/input-url/input-url.css">
+  <link rel="stylesheet" href="elements/forms/input-currency/input-currency.css">
+  <link rel="stylesheet" href="elements/forms/checkbox-toggle/checkbox-toggle.css">
+  <link rel="stylesheet" href="elements/forms/checkbox-card/checkbox-card.css">
+  <link rel="stylesheet" href="elements/forms/toggle/toggle.css">
+  <link rel="stylesheet" href="elements/forms/toggle-description/toggle-description.css">
+  <link rel="stylesheet" href="elements/loaders/spinner/spinner.css">
 
   <style>
     * {
@@ -351,10 +360,18 @@
           </h3>
           <div class="demo-nav__section-links">
             <a href="#input-text" class="demo-nav__link">Text Input</a>
+            <a href="#input-search" class="demo-nav__link">Input Search</a>
+            <a href="#input-with-icon" class="demo-nav__link">Input with Icon</a>
+            <a href="#input-url" class="demo-nav__link">Input URL</a>
+            <a href="#input-currency" class="demo-nav__link">Input Currency</a>
             <a href="#textarea" class="demo-nav__link">Textarea</a>
             <a href="#select" class="demo-nav__link">Select</a>
             <a href="#checkbox" class="demo-nav__link">Checkbox</a>
+            <a href="#checkbox-toggle" class="demo-nav__link">Checkbox Toggle</a>
+            <a href="#checkbox-card" class="demo-nav__link">Checkbox Card</a>
             <a href="#radio" class="demo-nav__link">Radio</a>
+            <a href="#toggle" class="demo-nav__link">Toggle</a>
+            <a href="#toggle-description" class="demo-nav__link">Toggle Description</a>
           </div>
         </div>
 
@@ -471,6 +488,16 @@
           </h3>
           <div class="demo-nav__section-links">
             <a href="#tooltip" class="demo-nav__link">Tooltip</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>⏳ Загрузка</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#spinner" class="demo-nav__link">Spinner</a>
           </div>
         </div>
       </nav>
@@ -1015,6 +1042,205 @@
             <div class="form-radio">
               <input type="radio" id="demo-telegram" name="demo-contact" class="form-radio__input">
               <label for="demo-telegram" class="form-radio__label">Telegram</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="input-search">
+        <h3>Input Search</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-search</span>
+          <button class="demo-copy-btn" onclick="copyID('input-search')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 400px;">
+          <div class="input-group input-group--search">
+            <i class="ri-search-line input-group__icon"></i>
+            <input type="search" class="input-group__field" placeholder="Search" aria-label="Search">
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="input-with-icon">
+        <h3>Input with Icon</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('input-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 400px;">
+          <div class="input-with-icon input-with-icon--right">
+            <input type="text" class="input-with-icon__field" placeholder="Placeholder" aria-label="Input with clear button">
+            <button class="input-with-icon__btn" type="button" aria-label="Clear input">
+              <i class="ri-close-circle-line"></i>
+            </button>
+          </div>
+          <div class="input-with-icon input-with-icon--both">
+            <i class="ri-bank-card-line input-with-icon__icon-left"></i>
+            <input type="text" class="input-with-icon__field" placeholder="Placeholder" aria-label="Input with card icon">
+            <button class="input-with-icon__btn" type="button" aria-label="Clear input">
+              <i class="ri-close-circle-line"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="input-url">
+        <h3>Input URL</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-url</span>
+          <button class="demo-copy-btn" onclick="copyID('input-url')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 400px;">
+          <div class="input-url">
+            <span class="input-url__prefix">http://</span>
+            <input type="url" class="input-url__field" placeholder="www.relume.io" aria-label="Website URL">
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="input-currency">
+        <h3>Input Currency</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-currency</span>
+          <button class="demo-copy-btn" onclick="copyID('input-currency')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 400px;">
+          <div class="input-currency">
+            <select class="input-currency__select" aria-label="Currency selector">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="RUB">RUB</option>
+            </select>
+            <input type="number" class="input-currency__field" placeholder="Placeholder" aria-label="Amount">
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="checkbox-toggle">
+        <h3>Checkbox Toggle</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">checkbox-toggle</span>
+          <button class="demo-copy-btn" onclick="copyID('checkbox-toggle')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="checkbox-toggle">
+            <input type="radio" id="demo-toggle-option-1" name="demo-toggle-group" class="checkbox-toggle__input" checked>
+            <label for="demo-toggle-option-1" class="checkbox-toggle__label">Option one</label>
+
+            <input type="radio" id="demo-toggle-option-2" name="demo-toggle-group" class="checkbox-toggle__input">
+            <label for="demo-toggle-option-2" class="checkbox-toggle__label">Option two</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="checkbox-card">
+        <h3>Checkbox Card</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">checkbox-card</span>
+          <button class="demo-copy-btn" onclick="copyID('checkbox-card')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 500px;">
+          <div class="checkbox-card-group">
+            <input type="checkbox" id="demo-card-option-1" class="checkbox-card__input" checked>
+            <label for="demo-card-option-1" class="checkbox-card">
+              <div class="checkbox-card__header">
+                <i class="ri-box-3-line checkbox-card__icon"></i>
+                <div class="checkbox-card__check">
+                  <i class="ri-check-line"></i>
+                </div>
+              </div>
+              <div class="checkbox-card__body">
+                <h3 class="checkbox-card__title">Option one</h3>
+                <p class="checkbox-card__text">Lorem ipsum dolor sit amet</p>
+              </div>
+            </label>
+
+            <input type="checkbox" id="demo-card-option-2" class="checkbox-card__input">
+            <label for="demo-card-option-2" class="checkbox-card">
+              <div class="checkbox-card__header">
+                <i class="ri-box-3-line checkbox-card__icon"></i>
+                <div class="checkbox-card__check">
+                  <i class="ri-check-line"></i>
+                </div>
+              </div>
+              <div class="checkbox-card__body">
+                <h3 class="checkbox-card__title">Option two</h3>
+                <p class="checkbox-card__text">Lorem ipsum dolor sit amet</p>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="toggle">
+        <h3>Toggle</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">toggle</span>
+          <button class="demo-copy-btn" onclick="copyID('toggle')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 300px;">
+          <div class="toggle-group">
+            <div class="toggle-item">
+              <input type="checkbox" id="demo-toggle-1" class="toggle__input">
+              <label for="demo-toggle-1" class="toggle">
+                <span class="toggle__slider"></span>
+              </label>
+              <label for="demo-toggle-1" class="toggle__label">Option one</label>
+            </div>
+
+            <div class="toggle-item">
+              <input type="checkbox" id="demo-toggle-2" class="toggle__input" checked>
+              <label for="demo-toggle-2" class="toggle">
+                <span class="toggle__slider"></span>
+              </label>
+              <label for="demo-toggle-2" class="toggle__label">Option two</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="toggle-description">
+        <h3>Toggle Description</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">toggle-description</span>
+          <button class="demo-copy-btn" onclick="copyID('toggle-description')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 600px;">
+          <div class="toggle-description-group">
+            <div class="toggle-description">
+              <div class="toggle-description__content">
+                <h3 class="toggle-description__title">Option one</h3>
+                <p class="toggle-description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+              </div>
+              <input type="checkbox" id="demo-toggle-desc-1" class="toggle-description__input">
+              <label for="demo-toggle-desc-1" class="toggle-description__switch">
+                <span class="toggle-description__slider"></span>
+              </label>
             </div>
           </div>
         </div>
@@ -2853,6 +3079,89 @@
               <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 2 (Left)</p>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loaders -->
+    <section class="demo-section">
+      <h2>⏳ Загрузка (Loaders)</h2>
+
+      <div class="demo-item" id="spinner">
+        <h3>Spinner</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">spinner</span>
+          <button class="demo-copy-btn" onclick="copyID('spinner')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+
+        <div class="demo-subsection">
+          <h4>Spinner Sizes</h4>
+          <div class="demo-preview" style="display: flex; align-items: center; gap: var(--space-8); padding: var(--space-8);">
+            <div style="text-align: center;">
+              <div class="spinner spinner--sm" role="status" aria-label="Loading">
+                <div class="spinner__circle"></div>
+              </div>
+              <p style="margin-top: var(--space-2); font-size: var(--font-size-2); color: var(--text-muted);">Small</p>
+            </div>
+            <div style="text-align: center;">
+              <div class="spinner" role="status" aria-label="Loading">
+                <div class="spinner__circle"></div>
+              </div>
+              <p style="margin-top: var(--space-2); font-size: var(--font-size-2); color: var(--text-muted);">Medium</p>
+            </div>
+            <div style="text-align: center;">
+              <div class="spinner spinner--lg" role="status" aria-label="Loading">
+                <div class="spinner__circle"></div>
+              </div>
+              <p style="margin-top: var(--space-2); font-size: var(--font-size-2); color: var(--text-muted);">Large</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-subsection">
+          <h4>Button with Spinner</h4>
+          <div class="demo-preview" style="display: flex; gap: var(--space-4); padding: var(--space-8);">
+            <button class="btn">
+              Normal Button
+            </button>
+            <button class="btn btn--loading" disabled>
+              <span class="btn__spinner">
+                <div class="spinner spinner--sm">
+                  <div class="spinner__circle"></div>
+                </div>
+              </span>
+              <span class="btn__text">Saving...</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="demo-subsection">
+          <h4>Inline Loader</h4>
+          <div class="demo-preview">
+            <div class="loader-inline">
+              <div class="spinner" role="status" aria-label="Loading">
+                <div class="spinner__circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-subsection">
+          <h4>Page Overlay (hidden by default)</h4>
+          <p style="margin-bottom: var(--space-4); color: var(--text-muted);">
+            Use <code>.loader-overlay.is-active</code> to show overlay
+          </p>
+          <div class="demo-preview" style="position: relative; height: 300px; overflow: hidden;">
+            <div class="loader-overlay is-active" style="position: absolute;">
+              <div class="spinner spinner--lg">
+                <div class="spinner__circle"></div>
+              </div>
+              <p class="loader-overlay__text">Loading...</p>
+            </div>
           </div>
         </div>
       </div>
