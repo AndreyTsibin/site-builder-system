@@ -56,6 +56,7 @@
   <link rel="stylesheet" href="elements/tabs/tabs-right-align/tabs-right-align.css">
   <link rel="stylesheet" href="elements/tabs/tabs-bottom-cards/tabs-bottom-cards.css">
   <link rel="stylesheet" href="elements/tabs/tabs-bottom-features/tabs-bottom-features.css">
+  <link rel="stylesheet" href="elements/media/image-ratios/image-ratios.css">
 
   <style>
     * {
@@ -430,6 +431,16 @@
             <a href="#tabs-right-align" class="demo-nav__link">Tabs Right Align</a>
             <a href="#tabs-bottom-cards" class="demo-nav__link">Tabs Bottom Cards</a>
             <a href="#tabs-bottom-features" class="demo-nav__link">Tabs Bottom Features</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🖼️ Медиа</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#image-ratios" class="demo-nav__link">Image Ratios</a>
           </div>
         </div>
       </nav>
@@ -2254,6 +2265,70 @@
                   Profile
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Media -->
+    <section class="demo-section">
+      <h2>🖼️ Медиа (Media)</h2>
+
+      <!-- Image Ratios -->
+      <div class="demo-item" id="image-ratios">
+        <h3>Image Ratios</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">image-ratios</span>
+          <button class="demo-copy-btn" onclick="copyID('image-ratios')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="image-ratios-grid">
+            <!-- Image Aspect Ratio 1:1 (Square) -->
+            <div class="image-ratio image-ratio--1-1">
+              <img
+                src="https://placehold.co/600x600/e5e7eb/9ca3af?text=1:1"
+                alt="Square image example"
+                class="image-ratio__img"
+                loading="lazy"
+              />
+              <div class="image-ratio__label">Image Aspect Ratio 1:1</div>
+            </div>
+
+            <!-- Image Aspect Ratio 3:2 -->
+            <div class="image-ratio image-ratio--3-2">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=3:2"
+                alt="3:2 aspect ratio image example"
+                class="image-ratio__img"
+                loading="lazy"
+              />
+              <div class="image-ratio__label">Image Aspect Ratio 3:2</div>
+            </div>
+
+            <!-- Image Aspect Ratio 4:3 -->
+            <div class="image-ratio image-ratio--4-3">
+              <img
+                src="https://placehold.co/600x450/e5e7eb/9ca3af?text=4:3"
+                alt="4:3 aspect ratio image example"
+                class="image-ratio__img"
+                loading="lazy"
+              />
+              <div class="image-ratio__label">Image Aspect Ratio 4:3</div>
+            </div>
+
+            <!-- Image Aspect Ratio 16:9 (Widescreen) -->
+            <div class="image-ratio image-ratio--16-9">
+              <img
+                src="https://placehold.co/600x338/e5e7eb/9ca3af?text=16:9"
+                alt="16:9 widescreen image example"
+                class="image-ratio__img"
+                loading="lazy"
+              />
+              <div class="image-ratio__label">Image Aspect Ratio 16:9</div>
             </div>
           </div>
         </div>
