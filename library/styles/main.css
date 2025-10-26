@@ -529,6 +529,227 @@
   white-space: nowrap;
 }
 
+/* Badge color variants */
+.badge--primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.badge--success {
+  background-color: hsl(142, 76%, 36%);
+  color: hsl(0, 0%, 100%);
+}
+
+.badge--warning {
+  background-color: hsl(45, 93%, 47%);
+  color: hsl(0, 0%, 0%);
+}
+
+.badge--error {
+  background-color: hsl(0, 84%, 60%);
+  color: hsl(0, 0%, 100%);
+}
+
+.badge--info {
+  background-color: hsl(199, 89%, 48%);
+  color: hsl(0, 0%, 100%);
+}
+
+
+/* ========================================
+   BREADCRUMB — Navigation Crumbs
+   ======================================== */
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.breadcrumb__item:not(:last-child)::after {
+  content: '›';
+  color: var(--text-muted);
+  font-size: var(--font-size-4);
+}
+
+.breadcrumb__item:last-child .text {
+  font-weight: var(--font-medium);
+}
+
+@media (max-width: 768px) {
+  .breadcrumb__list {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* ========================================
+   SPINNER — Loading Indicator
+   ======================================== */
+
+.spinner {
+  --spinner-size: 2.5rem;
+  --spinner-border: 3px;
+  --spinner-color: var(--primary);
+
+  display: inline-block;
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+}
+
+.spinner__circle {
+  width: 100%;
+  height: 100%;
+  border: var(--spinner-border) solid var(--bg-section);
+  border-top-color: var(--spinner-color);
+  border-radius: 50%;
+  animation: spinner-rotate 0.8s linear infinite;
+}
+
+.spinner--sm {
+  --spinner-size: 1rem;
+  --spinner-border: 2px;
+}
+
+.spinner--lg {
+  --spinner-size: 4rem;
+  --spinner-border: 4px;
+}
+
+@keyframes spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button with Spinner */
+.btn--loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn__spinner .spinner__circle {
+  border-color: var(--border-transparent-light);
+  border-top-color: var(--text-on-primary);
+}
+
+.btn--loading .btn__text {
+  visibility: hidden;
+}
+
+.spinner--inverted .spinner__circle {
+  border-color: var(--border-transparent-light);
+  border-top-color: var(--text-on-dark);
+}
+
+/* Loader Overlay */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  background-color: var(--bg-popup);
+  backdrop-filter: blur(4px);
+}
+
+.loader-overlay.is-active {
+  display: flex;
+}
+
+.loader-overlay__text {
+  margin: 0;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-medium);
+  color: var(--text);
+}
+
+.loader-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .spinner--lg {
+    --spinner-size: 3rem;
+    --spinner-border: 3px;
+  }
+}
+
+
+/* ========================================
+   LIST WITH ICONS
+   ======================================== */
+
+.list-with-icons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-with-icons__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.list-with-icons__icon {
+  flex-shrink: 0;
+  font-size: var(--font-size-4);
+  color: var(--primary);
+  margin-top: 2px;
+}
+
+
+/* ========================================
+   SECTION — Wrapper for Content Sections
+   ======================================== */
+
+.section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+.section--sm {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+
+.section--lg {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
 
 /* ========================================
    CONTAINERS — Base Styles

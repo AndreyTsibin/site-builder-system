@@ -80,11 +80,17 @@ open library/demo-elements.html
 **🚨 CRITICAL: Use existing classes, DON'T create new ones for base elements!**
 
 **Ready-made classes in `main.css`:**
-- Buttons: `.btn`, `.btn--primary/secondary/tertiary/link`
+- Buttons: `.btn`, `.btn--primary/secondary/tertiary/link`, `.btn--loading`
 - Navbar: `.navbar`, `.navbar__list`, `.navbar__item`, `.navbar__link`, `.navbar__link--active`
 - Typography: `.heading`, `.heading--h1` to `.h6`, `.text`, `.text--sm/lg/muted`, `.lead`, `.tagline`
 - Forms: `.form-field`, `.form-field__label/input/textarea/select`
 - Cards: `.card`, `.card__header/title/description/body/footer`
+- Links: `.link` (with hover underline)
+- Badges: `.badge`, `.badge--primary/success/warning/error/info`
+- Breadcrumb: `.breadcrumb__list`, `.breadcrumb__item`
+- Spinner: `.spinner`, `.spinner--sm/lg`, `.loader-overlay`, `.loader-inline`
+- List with Icons: `.list-with-icons`, `.list-with-icons__item`, `.list-with-icons__icon`
+- Section: `.section`, `.section--sm/lg` (vertical padding)
 - Containers: `.container`, `.container--xs/sm/md/lg/xl/2xl`
 - Utilities: `.text-left/center/right`, `.btn--align-left`, `.flex`, `.hidden`, `.w-full`
 
