@@ -1,0 +1,102 @@
+/* Tabs Center Align */
+.tabs--center-align .tabs__header {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs--center-align .tabs__nav {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tabs--center-align .tabs__tab {
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-medium);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.tabs--center-align .tabs__tab:hover {
+  background: var(--bg-section);
+  color: var(--text-body);
+}
+
+.tabs--center-align .tabs__tab--active {
+  background: var(--bg-section);
+  color: var(--text-body);
+}
+
+.tabs--center-align .tabs__content {
+  padding: var(--space-6);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+}
+
+.tabs--center-align .tabs__panel {
+  display: none;
+}
+
+.tabs--center-align .tabs__panel--active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.tabs--center-align .tabs__panel h3 {
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-5);
+  font-weight: var(--font-bold);
+  color: var(--text-body);
+}
+
+.tabs--center-align .tabs__panel p {
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-3);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.tabs--center-align .tabs__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.tabs--center-align .tabs__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-3);
+  color: var(--text-body);
+}
+
+.tabs--center-align .tabs__list i {
+  color: var(--success);
+  font-size: var(--font-size-4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabs--center-align .tabs__nav {
+    width: 100%;
+  }
+
+  .tabs--center-align .tabs__tab {
+    flex: 1;
+    text-align: center;
+  }
+
+  .tabs--center-align .tabs__content {
+    padding: var(--space-4);
+  }
+}

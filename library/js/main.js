@@ -164,14 +164,14 @@ function initAccordion() {
 
 /**
  * Initialize tabs
- * Usage: Add class "js-tabs" to container
- * Add class "js-tab-trigger" to tab buttons with data-tab="tab-id"
- * Add class "js-tab-content" to content panels with data-tab="tab-id"
+ * Usage (Old): Add class "js-tabs" to container
+ * Usage (New): Add data-tabs to container, data-tab-trigger to buttons, data-tab-panel to panels
  */
 function initTabs() {
-  const tabContainers = document.querySelectorAll('.js-tabs');
+  // Legacy tabs support (js-tabs classes)
+  const legacyTabContainers = document.querySelectorAll('.js-tabs');
 
-  tabContainers.forEach(container => {
+  legacyTabContainers.forEach(container => {
     const triggers = container.querySelectorAll('.js-tab-trigger');
 
     triggers.forEach(trigger => {
@@ -189,6 +189,39 @@ function initTabs() {
         const currentContent = container.querySelector(`[data-tab="${tabId}"].js-tab-content`);
         if (currentContent) {
           currentContent.classList.add('is-active');
+        }
+      });
+    });
+  });
+
+  // New tabs support (data-tabs)
+  const newTabContainers = document.querySelectorAll('[data-tabs]');
+
+  newTabContainers.forEach(container => {
+    const triggers = container.querySelectorAll('[data-tab-trigger]');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const tabId = trigger.getAttribute('data-tab-trigger');
+        const allTriggers = container.querySelectorAll('[data-tab-trigger]');
+        const allPanels = container.querySelectorAll('[data-tab-panel]');
+
+        // Remove active state from all
+        allTriggers.forEach(t => {
+          t.classList.remove('tabs__tab--active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        allPanels.forEach(p => {
+          p.classList.remove('tabs__panel--active');
+        });
+
+        // Add active state to current
+        trigger.classList.add('tabs__tab--active');
+        trigger.setAttribute('aria-selected', 'true');
+
+        const currentPanel = container.querySelector(`[data-tab-panel="${tabId}"]`);
+        if (currentPanel) {
+          currentPanel.classList.add('tabs__panel--active');
         }
       });
     });
