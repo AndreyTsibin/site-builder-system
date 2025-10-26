@@ -1,0 +1,105 @@
+/* Nested Accordion (Multi-level) */
+.accordion--nested {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Category Item (Top Level) */
+.accordion__item--category {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+/* Category Trigger */
+.accordion__trigger--category {
+  font-weight: var(--font-bold);
+  padding: 0;
+}
+
+.accordion__trigger--category .accordion__title {
+  font-size: var(--font-size-5);
+  color: var(--text-body);
+}
+
+/* Nested Inner Accordion */
+.accordion--nested-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.accordion--nested-inner .accordion__item {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-3);
+}
+
+.accordion--nested-inner .accordion__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.accordion--nested-inner .accordion__trigger {
+  padding: 0;
+  font-size: var(--font-size-3);
+}
+
+.accordion--nested-inner .accordion__title {
+  font-size: var(--font-size-3);
+  font-weight: var(--font-medium);
+}
+
+.accordion--nested-inner .accordion__icon {
+  font-size: var(--font-size-4);
+}
+
+/* Plus icon rotation for nested items */
+.accordion--nested-inner .accordion__trigger[aria-expanded="true"] .accordion__icon {
+  transform: rotate(45deg);
+}
+
+/* Panel spacing for category */
+.accordion__item--category .accordion__panel[data-accordion-open="true"] {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Panel spacing for nested items */
+.accordion--nested-inner .accordion__panel[data-accordion-open="true"] {
+  padding-top: var(--space-3);
+  padding-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .accordion--nested {
+    gap: var(--space-3);
+  }
+
+  .accordion__item--category {
+    padding: var(--space-4);
+  }
+
+  .accordion__trigger--category .accordion__title {
+    font-size: var(--font-size-4);
+  }
+
+  .accordion--nested-inner {
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .accordion--nested-inner .accordion__trigger {
+    font-size: var(--font-size-2);
+  }
+
+  .accordion--nested-inner .accordion__title {
+    font-size: var(--font-size-2);
+  }
+}

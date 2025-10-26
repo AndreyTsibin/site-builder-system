@@ -98,11 +98,11 @@ function initSmoothScroll() {
 
 /**
  * Initialize accordion
- * Usage: Add class "js-accordion" to container
- * Add class "js-accordion-trigger" to triggers
- * Add class "js-accordion-content" to content panels
+ * Usage (Old): Add class "js-accordion" to container
+ * Usage (New): Add data-accordion-trigger to buttons, data-accordion-panel to panels
  */
 function initAccordion() {
+  // Legacy accordion support (js-accordion classes)
   const accordions = document.querySelectorAll('.js-accordion');
 
   accordions.forEach(accordion => {
@@ -130,6 +130,29 @@ function initAccordion() {
           content.style.maxHeight = content.scrollHeight + 'px';
         }
       });
+    });
+  });
+
+  // New accordion support (data-accordion-trigger)
+  const newTriggers = document.querySelectorAll('[data-accordion-trigger]');
+
+  newTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const panel = trigger.nextElementSibling;
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Toggle current item
+      if (isOpen) {
+        // Close
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.setAttribute('data-accordion-open', 'false');
+        panel.style.maxHeight = null;
+      } else {
+        // Open
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.setAttribute('data-accordion-open', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
     });
   });
 }

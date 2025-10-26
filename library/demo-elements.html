@@ -47,6 +47,9 @@
   <link rel="stylesheet" href="elements/sliders/slider-carousel/slider-carousel.css">
   <link rel="stylesheet" href="elements/accordions/accordion-chevron/accordion-chevron.css">
   <link rel="stylesheet" href="elements/accordions/accordion-plus/accordion-plus.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-bordered/accordion-bordered.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-with-icons/accordion-with-icons.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-nested/accordion-nested.css">
 
   <style>
     * {
@@ -403,6 +406,9 @@
           <div class="demo-nav__section-links">
             <a href="#accordion-chevron" class="demo-nav__link">Accordion Chevron</a>
             <a href="#accordion-plus" class="demo-nav__link">Accordion Plus</a>
+            <a href="#accordion-bordered" class="demo-nav__link">Accordion Bordered</a>
+            <a href="#accordion-with-icons" class="demo-nav__link">Accordion With Icons</a>
+            <a href="#accordion-nested" class="demo-nav__link">Accordion Nested</a>
           </div>
         </div>
       </nav>
@@ -1490,19 +1496,16 @@
     <section class="demo-section">
       <h2>📋 Аккордеоны (Accordions)</h2>
 
-      <!-- Accordion Chevron -->
-      <div class="demo-element" id="accordion-chevron">
-        <div class="demo-element__header">
-          <div class="demo-element__info">
-            <h3 class="demo-element__title">Accordion Chevron</h3>
-            <code class="demo-element__id" onclick="copyID('accordion-chevron')">
-              #accordion-chevron
-              <button class="demo-copy-btn" aria-label="Copy ID"><i class="ri-file-copy-line"></i></button>
-            </code>
-          </div>
+      <div class="demo-item" id="accordion-chevron">
+        <h3>Accordion Chevron</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-chevron</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-chevron')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
         </div>
-
-        <div class="demo-element__preview">
+        <div class="demo-preview">
           <div class="accordion accordion--chevron">
             <div class="accordion__item">
               <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
@@ -1556,19 +1559,16 @@
         </div>
       </div>
 
-      <!-- Accordion Plus -->
-      <div class="demo-element" id="accordion-plus">
-        <div class="demo-element__header">
-          <div class="demo-element__info">
-            <h3 class="demo-element__title">Accordion Plus</h3>
-            <code class="demo-element__id" onclick="copyID('accordion-plus')">
-              #accordion-plus
-              <button class="demo-copy-btn" aria-label="Copy ID"><i class="ri-file-copy-line"></i></button>
-            </code>
-          </div>
+      <div class="demo-item" id="accordion-plus">
+        <h3>Accordion Plus</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-plus</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-plus')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
         </div>
-
-        <div class="demo-element__preview">
+        <div class="demo-preview">
           <div class="accordion accordion--plus">
             <div class="accordion__item accordion__item--card">
               <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
@@ -1619,6 +1619,224 @@
                   Yes, our support team is available 24/7 via live chat, email, and phone.
                   Premium members get priority support with faster response times.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="accordion-bordered">
+        <h3>Accordion Bordered</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-bordered</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-bordered')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="accordion accordion--bordered">
+            <div class="accordion__item accordion__item--bordered">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">How do I create an account?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Click the "Sign Up" button in the top right corner, enter your email and password, and verify your email address. You'll be ready to go in minutes!
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--bordered">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">What are the system requirements?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Our platform works on all modern browsers (Chrome, Firefox, Safari, Edge). For mobile apps, you need iOS 14+ or Android 10+.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--bordered">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Can I cancel my subscription?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Yes, you can cancel anytime from your account settings. Your subscription will remain active until the end of the billing period.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--bordered">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Do you offer a free trial?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Absolutely! We offer a 14-day free trial with full access to all features. No credit card required to start.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="accordion-with-icons">
+        <h3>Accordion With Icons</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-with-icons</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-with-icons')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="accordion accordion--with-icons">
+            <div class="accordion__item">
+              <button class="accordion__trigger accordion__trigger--with-icon" data-accordion-trigger aria-expanded="false">
+                <div class="accordion__title-wrapper">
+                  <i class="ri-user-line accordion__title-icon"></i>
+                  <span class="accordion__title">Account Settings</span>
+                </div>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Manage your profile information, change your password, and update notification preferences from your account dashboard.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger accordion__trigger--with-icon" data-accordion-trigger aria-expanded="false">
+                <div class="accordion__title-wrapper">
+                  <i class="ri-shield-check-line accordion__title-icon"></i>
+                  <span class="accordion__title">Privacy & Security</span>
+                </div>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Control who can see your information, manage two-factor authentication, and review your privacy settings and data usage.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger accordion__trigger--with-icon" data-accordion-trigger aria-expanded="false">
+                <div class="accordion__title-wrapper">
+                  <i class="ri-notification-line accordion__title-icon"></i>
+                  <span class="accordion__title">Notifications</span>
+                </div>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Choose what notifications you receive via email, push, and SMS. Customize alerts for updates, messages, and important events.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger accordion__trigger--with-icon" data-accordion-trigger aria-expanded="false">
+                <div class="accordion__title-wrapper">
+                  <i class="ri-money-dollar-circle-line accordion__title-icon"></i>
+                  <span class="accordion__title">Billing & Payments</span>
+                </div>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  View your billing history, update payment methods, manage subscriptions, and download invoices for your records.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="accordion-nested">
+        <h3>Accordion Nested</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-nested</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-nested')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="accordion accordion--nested">
+            <!-- Category 1 -->
+            <div class="accordion__item accordion__item--category">
+              <button class="accordion__trigger accordion__trigger--category" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Getting Started</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <div class="accordion accordion--nested-inner">
+                  <div class="accordion__item">
+                    <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                      <span class="accordion__title">How do I sign up?</span>
+                      <i class="ri-add-line accordion__icon"></i>
+                    </button>
+                    <div class="accordion__panel" data-accordion-panel>
+                      <p class="accordion__text">
+                        Click "Sign Up", enter your email and password, then verify your email. It takes less than 2 minutes!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="accordion__item">
+                    <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                      <span class="accordion__title">What's included in the free plan?</span>
+                      <i class="ri-add-line accordion__icon"></i>
+                    </button>
+                    <div class="accordion__panel" data-accordion-panel>
+                      <p class="accordion__text">
+                        The free plan includes 1 project, 100MB storage, and basic features. Upgrade anytime for unlimited access.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="accordion__item accordion__item--category">
+              <button class="accordion__trigger accordion__trigger--category" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Account & Billing</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <div class="accordion accordion--nested-inner">
+                  <div class="accordion__item">
+                    <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                      <span class="accordion__title">How do I upgrade my plan?</span>
+                      <i class="ri-add-line accordion__icon"></i>
+                    </button>
+                    <div class="accordion__panel" data-accordion-panel>
+                      <p class="accordion__text">
+                        Go to Settings → Billing, select your preferred plan, and complete the payment. Changes are instant!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="accordion__item">
+                    <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                      <span class="accordion__title">Can I get a refund?</span>
+                      <i class="ri-add-line accordion__icon"></i>
+                    </button>
+                    <div class="accordion__panel" data-accordion-panel>
+                      <p class="accordion__text">
+                        Yes! We offer a 30-day money-back guarantee on all plans. Contact support to request a refund.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
