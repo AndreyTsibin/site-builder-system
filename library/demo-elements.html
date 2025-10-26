@@ -57,6 +57,9 @@
   <link rel="stylesheet" href="elements/tabs/tabs-bottom-cards/tabs-bottom-cards.css">
   <link rel="stylesheet" href="elements/tabs/tabs-bottom-features/tabs-bottom-features.css">
   <link rel="stylesheet" href="elements/media/image-ratios/image-ratios.css">
+  <link rel="stylesheet" href="elements/media/image-shapes/image-shapes.css">
+  <link rel="stylesheet" href="elements/media/image-overlay/image-overlay.css">
+  <link rel="stylesheet" href="elements/media/image-caption/image-caption.css">
 
   <style>
     * {
@@ -441,6 +444,9 @@
           </h3>
           <div class="demo-nav__section-links">
             <a href="#image-ratios" class="demo-nav__link">Image Ratios</a>
+            <a href="#image-shapes" class="demo-nav__link">Image Shapes</a>
+            <a href="#image-overlay" class="demo-nav__link">Image Overlay</a>
+            <a href="#image-caption" class="demo-nav__link">Image Caption</a>
           </div>
         </div>
       </nav>
@@ -2330,6 +2336,188 @@
               />
               <div class="image-ratio__label">Image Aspect Ratio 16:9</div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Shapes -->
+      <div class="demo-item" id="image-shapes">
+        <h3>Image Shapes</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">image-shapes</span>
+          <button class="demo-copy-btn" onclick="copyID('image-shapes')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="image-shapes-grid">
+            <!-- Image Circle -->
+            <div class="image-shape image-shape--circle">
+              <img
+                src="https://placehold.co/400x400/667eea/ffffff?text=Circle"
+                alt="Circle image example"
+                class="image-shape__img"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Image Rounded -->
+            <div class="image-shape image-shape--rounded">
+              <img
+                src="https://placehold.co/600x400/f093fb/ffffff?text=Rounded"
+                alt="Rounded corners image example"
+                class="image-shape__img"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Image Semi-circle -->
+            <div class="image-shape image-shape--semicircle">
+              <img
+                src="https://placehold.co/600x400/4facfe/ffffff?text=Semi-Circle"
+                alt="Semi-circle image example"
+                class="image-shape__img"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Image with Badge -->
+            <div class="image-shape image-shape--rounded image-shape--with-badge">
+              <img
+                src="https://placehold.co/600x400/43e97b/ffffff?text=With+Badge"
+                alt="Image with badge example"
+                class="image-shape__img"
+                loading="lazy"
+              />
+              <span class="image-shape__badge">New</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Overlay -->
+      <div class="demo-item" id="image-overlay">
+        <h3>Image Overlay</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">image-overlay</span>
+          <button class="demo-copy-btn" onclick="copyID('image-overlay')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="image-overlays-grid">
+            <!-- Image with Dark Overlay -->
+            <div class="image-overlay image-overlay--dark">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=Dark+Overlay"
+                alt="Image with dark overlay"
+                class="image-overlay__img"
+                loading="lazy"
+              />
+              <div class="image-overlay__content">
+                <h3 class="image-overlay__title">Dark Overlay</h3>
+                <p class="image-overlay__text">Perfect for hero sections</p>
+              </div>
+            </div>
+
+            <!-- Image with Gradient Overlay -->
+            <div class="image-overlay image-overlay--gradient">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=Gradient"
+                alt="Image with gradient overlay"
+                class="image-overlay__img"
+                loading="lazy"
+              />
+              <div class="image-overlay__content">
+                <h3 class="image-overlay__title">Gradient Overlay</h3>
+                <p class="image-overlay__text">Smooth transition effect</p>
+              </div>
+            </div>
+
+            <!-- Image with Color Overlay -->
+            <div class="image-overlay image-overlay--color">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=Color+Overlay"
+                alt="Image with color overlay"
+                class="image-overlay__img"
+                loading="lazy"
+              />
+              <div class="image-overlay__content">
+                <h3 class="image-overlay__title">Color Overlay</h3>
+                <p class="image-overlay__text">Brand color tint</p>
+              </div>
+            </div>
+
+            <!-- Image with Hover Overlay -->
+            <div class="image-overlay image-overlay--hover">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=Hover+Me"
+                alt="Image with hover overlay"
+                class="image-overlay__img"
+                loading="lazy"
+              />
+              <div class="image-overlay__content">
+                <h3 class="image-overlay__title">Hover to Reveal</h3>
+                <p class="image-overlay__text">Interactive overlay effect</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Caption -->
+      <div class="demo-item" id="image-caption">
+        <h3>Image Caption</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">image-caption</span>
+          <button class="demo-copy-btn" onclick="copyID('image-caption')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="image-captions-grid">
+            <!-- Image with Caption Below -->
+            <figure class="image-caption image-caption--below">
+              <img
+                src="https://placehold.co/600x400/667eea/ffffff?text=Caption+Below"
+                alt="Image with caption below"
+                class="image-caption__img"
+                loading="lazy"
+              />
+              <figcaption class="image-caption__text">
+                Beautiful landscape captured at sunset
+              </figcaption>
+            </figure>
+
+            <!-- Image with Caption Overlay -->
+            <figure class="image-caption image-caption--overlay-bottom">
+              <img
+                src="https://placehold.co/600x400/f093fb/ffffff?text=Overlay+Bottom"
+                alt="Image with overlay caption"
+                class="image-caption__img"
+                loading="lazy"
+              />
+              <figcaption class="image-caption__text">
+                Caption over image with gradient
+              </figcaption>
+            </figure>
+
+            <!-- Image with Caption and Credits -->
+            <figure class="image-caption image-caption--with-credits">
+              <img
+                src="https://placehold.co/600x400/4facfe/ffffff?text=With+Credits"
+                alt="Image with credits"
+                class="image-caption__img"
+                loading="lazy"
+              />
+              <figcaption class="image-caption__text">
+                <div class="image-caption__title">Modern Architecture</div>
+                <div class="image-caption__credit">Photo by John Doe</div>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>

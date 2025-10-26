@@ -1,0 +1,127 @@
+/* ================================
+   Image Caption Component
+   ================================ */
+
+.image-caption {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.image-caption:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Image element */
+.image-caption__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-base);
+}
+
+.image-caption:hover .image-caption__img {
+  transform: scale(1.02);
+}
+
+/* Caption text */
+.image-caption__text {
+  font-size: var(--font-size-3);
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+/* Caption Variants */
+
+/* Caption Below Image */
+.image-caption--below {
+  background-color: var(--bg-card);
+}
+
+.image-caption--below .image-caption__text {
+  padding: var(--space-4);
+  text-align: center;
+}
+
+/* Caption Overlay Bottom */
+.image-caption--overlay-bottom .image-caption__text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-5) var(--space-4);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  color: white;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Caption with Credits */
+.image-caption--with-credits {
+  background-color: var(--bg-card);
+}
+
+.image-caption--with-credits .image-caption__text {
+  padding: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.image-caption__title {
+  font-size: var(--font-size-4);
+  font-weight: var(--font-bold);
+  color: var(--text-body);
+  margin-bottom: var(--space-2);
+}
+
+.image-caption__credit {
+  font-size: var(--font-size-2);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.image-caption__credit::before {
+  content: '📷';
+  font-size: var(--font-size-3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .image-caption__text {
+    font-size: var(--font-size-2);
+  }
+
+  .image-caption__title {
+    font-size: var(--font-size-3);
+  }
+
+  .image-caption--below .image-caption__text,
+  .image-caption--with-credits .image-caption__text {
+    padding: var(--space-3);
+  }
+
+  .image-caption--overlay-bottom .image-caption__text {
+    padding: var(--space-4) var(--space-3);
+  }
+}
+
+/* Grid layout for demo */
+.image-captions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  padding: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .image-captions-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+}
