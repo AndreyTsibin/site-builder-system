@@ -450,23 +450,22 @@ function initSliders() {
 
     // Update button states
     function updateButtons() {
-      const maxIndex = isScrollable
-        ? Math.ceil(slides.length / getVisibleSlidesCount(slider)) - 1
-        : slides.length - 1;
-
-      if (prevBtn) {
-        prevBtn.disabled = currentIndex === 0;
-      }
-      if (nextBtn) {
-        nextBtn.disabled = currentIndex >= maxIndex;
-      }
+      // Buttons are always enabled for looped slider
+      // No disabled state needed
     }
 
     // Previous slide
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
+        const maxIndex = isScrollable
+          ? Math.ceil(slides.length / getVisibleSlidesCount(slider)) - 1
+          : slides.length - 1;
+
         if (currentIndex > 0) {
           goToSlide(currentIndex - 1);
+        } else {
+          // Loop to last slide
+          goToSlide(maxIndex);
         }
       });
     }
@@ -480,6 +479,9 @@ function initSliders() {
 
         if (currentIndex < maxIndex) {
           goToSlide(currentIndex + 1);
+        } else {
+          // Loop to first slide
+          goToSlide(0);
         }
       });
     }
