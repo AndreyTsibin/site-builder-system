@@ -1,0 +1,22 @@
+/* List With Icons — Layout Only */
+.list-with-icons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-with-icons__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.list-with-icons__icon {
+  flex-shrink: 0;
+  font-size: var(--font-size-4);
+  color: var(--primary);
+  margin-top: 2px;
+}

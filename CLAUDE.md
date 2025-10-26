@@ -47,11 +47,13 @@ cd output && python3 -m http.server 8000
 ### Элементный подход (Element-based Approach):
 
 1. **Создаём библиотеку элементов** (`library/elements/`)
+
    - Buttons, forms, grid, cards, etc.
    - Каждый элемент — отдельная папка с HTML + CSS
    - Реальный текст (NO placeholders!)
 
 2. **Собираем секции из элементов** (`library/sections/`)
+
    - Header, hero, footer, etc.
    - Композиция готовых элементов
    - BEM методология
@@ -62,6 +64,7 @@ cd output && python3 -m http.server 8000
    - Компилируем CSS в `output/styles/main.css`
 
 **Ключевые принципы:**
+
 - ✅ Нет автоматизации Python
 - ✅ Нет placeholders `{{...}}`
 - ✅ Всегда реальный текст
@@ -70,12 +73,14 @@ cd output && python3 -m http.server 8000
 ### Design System
 
 **CSS Variables** (`library/styles/variables.css`):
+
 - Colors: HSL format for easy theme switching
 - Typography: 8 font sizes (`--font-size-1` ... `--font-size-8`), Inter font family
 - Spacing: 4px base scale (4px → 240px)
 - Breakpoints: 320px (mobile), 768px (tablet), 1024px (desktop), 1440px (wide)
 
 **Key Features:**
+
 - Mobile-first responsive design
 - BEM methodology for CSS class names
 - Semantic HTML5 (nav, article, section, not div soup)
@@ -84,6 +89,7 @@ cd output && python3 -m http.server 8000
 ---
 
 ## PROJECT STRUCTURE
+
 ```
 /site-builder/
 ├── library/
@@ -106,6 +112,7 @@ cd output && python3 -m http.server 8000
 ```
 
 **Key files:**
+
 - [README.md](README.md) — Project overview
 - [docs/USAGE.md](docs/USAGE.md) — Usage guide
 - [library/demo-elements.html](library/demo-elements.html) — Elements catalog
@@ -115,13 +122,100 @@ cd output && python3 -m http.server 8000
 
 ## WORKING WITH PROJECT
 
-### При создании элементов:
+### 🚨 КРИТИЧЕСКИ ВАЖНО: Component Reuse Philosophy
 
-1. **Создай папку** в `library/elements/[element-type]/[element-name]/`
-2. **HTML** — с реальным текстом (НЕ placeholders)
-3. **CSS** — BEM, design-system переменные
-4. **Добавь в demo-elements.html** с уникальным ID
-5. **Тест** — открой `demo-elements.html` в браузере
+**Мы НЕ создаём новые классы для базовых элементов!**
+
+У нас уже есть полная база готовых классов в `library/styles/main.css`:
+
+- ✅ **Кнопки:** `.btn`, `.btn--primary`, `.btn--secondary`, `.btn--tertiary`, `.btn--link`
+- ✅ **Типографика:** `.heading`, `.heading--h1` до `.heading--h6`, `.text`, `.text--sm`, `.text--lg`, `.text--muted`, `.lead`
+- ✅ **Формы:** `.form-field`, `.form-field__label`, `.form-field__input`, `.form-field__textarea`, `.form-field__select`
+- ✅ **Карточки:** `.card`, `.card__header`, `.card__title`, `.card__description`, `.card__body`, `.card__footer`
+- ✅ **Бейджи:** `.badge`
+- ✅ **Контейнеры:** `.container`, `.container--default`, `.container--narrow`, `.container--wide`, `.section`
+- ✅ **Утилиты:** `.sr-only`, `.skip-link`, `.focus-ring`
+
+**Также у нас есть готовые элементы:**
+
+- ✅ **Кнопки:** все варианты в `library/elements/buttons/`
+- ✅ **Типографика:** все варианты в `library/elements/typography/`
+- ✅ **Формы:** все input/textarea/select в `library/elements/forms/`
+- ✅ **Изображения:** все варианты в `library/elements/media/`
+- ✅ **Карточки:** все варианты в `library/elements/cards/`
+- ✅ **И многое другое...**
+
+### При создании НОВОГО элемента:
+
+**1. СНАЧАЛА проверь, что УЖЕ есть:**
+
+- Открой `library/demo-elements.html` в браузере
+- Посмотри `library/styles/main.css` — какие базовые классы есть
+- Посмотри `library/elements/` — какие готовые элементы есть
+
+**2. ИСПОЛЬЗУЙ готовые классы:**
+
+```html
+<!-- ✅ ПРАВИЛЬНО: используем готовые классы -->
+<article class="card-new-variant">
+  <h3 class="heading heading--h3">Heading</h3>
+  <p class="text">Description text here</p>
+  <button class="btn btn--primary">Button</button>
+</article>
+```
+
+```css
+/* ✅ ПРАВИЛЬНО: создаём ТОЛЬКО layout */
+.card-new-variant {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+```
+
+```html
+<!-- ❌ НЕПРАВИЛЬНО: создаём новые стили для заголовка -->
+<article class="card-new-variant">
+  <h3 class="card-new-variant__heading">Heading</h3>
+  ...
+</article>
+```
+
+```css
+/* ❌ НЕПРАВИЛЬНО: дублируем стили заголовка */
+.card-new-variant__heading {
+  font-size: var(--font-size-3);
+  font-weight: 700;
+  /* ... куча дублированных стилей */
+}
+```
+
+**3. Workflow создания элемента:**
+
+1.  **Создай папку** в `library/elements/[element-type]/[element-name]/`
+2.  **HTML** — с готовыми классами + реальным текстом (НЕ placeholders)
+3.  **CSS** — ТОЛЬКО layout (grid, flex, gap, padding), НЕ стили кнопок/текста
+4.  **Добавь CSS линк** в `<head>` секцию `demo-elements.html`
+5.  **Добавь в navigation** в sidebar `demo-elements.html`
+6.  **Добавь demo** в соответствующую секцию `demo-elements.html`
+7.  **Тест** — открой `demo-elements.html` в браузере
+
+**Почему это важно:**
+
+- 🎯 **Гибкость** — можем переиспользовать элементы везде
+- 🚀 **Скорость** — не изобретаем велосипед каждый раз
+- 🔧 **Поддержка** — изменения в `main.css` применяются везде автоматически
+- 📦 **Меньше кода** — нет дублирования стилей
+
+**В будущих сессиях:**
+
+- Будем создавать СЕКЦИИ (собранные композиции элементов)
+- Будем использовать ГОТОВЫЕ элементы из библиотеки
+- НЕ будем создавать новые стили для базовых вещей
 
 ---
 
@@ -210,4 +304,3 @@ cd output && python3 -m http.server 8000
 
 **Version:** 3.0 (Реструктуризация)
 **Last Update:** 2025-10-26
-**Status:** Фундаментальные изменения архитектуры — см. [CHANGES-PLAN.md](CHANGES-PLAN.md)

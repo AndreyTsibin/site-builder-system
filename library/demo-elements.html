@@ -90,6 +90,14 @@
   <link rel="stylesheet" href="elements/forms/toggle/toggle.css">
   <link rel="stylesheet" href="elements/forms/toggle-description/toggle-description.css">
   <link rel="stylesheet" href="elements/loaders/spinner/spinner.css">
+  <link rel="stylesheet" href="elements/pagination/pagination-numbers/pagination-numbers.css">
+  <link rel="stylesheet" href="elements/pagination/pagination-compact/pagination-compact.css">
+  <link rel="stylesheet" href="elements/pagination/pagination-simple/pagination-simple.css">
+  <link rel="stylesheet" href="elements/navigation/breadcrumb/breadcrumb.css">
+  <link rel="stylesheet" href="elements/forms/signup-form/signup-form.css">
+  <link rel="stylesheet" href="elements/buttons/button-back-to-top/button-back-to-top.css">
+  <link rel="stylesheet" href="elements/lists/list-with-icons/list-with-icons.css">
+  <link rel="stylesheet" href="elements/social/social-icons-1/social-icons-1.css">
 
   <style>
     * {
@@ -414,6 +422,18 @@
 
         <div class="demo-nav__section demo-nav__section--collapsed">
           <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📄 Пагинация</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#pagination-numbers" class="demo-nav__link">Pagination Numbers</a>
+            <a href="#pagination-compact" class="demo-nav__link">Pagination Compact</a>
+            <a href="#pagination-simple" class="demo-nav__link">Pagination Simple</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
             <span>📐 Сетка</span>
             <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
           </h3>
@@ -501,8 +521,30 @@
             <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
           </h3>
           <div class="demo-nav__section-links">
+            <a href="#breadcrumb" class="demo-nav__link">Breadcrumb</a>
             <a href="#dropdown" class="demo-nav__link">Dropdown</a>
             <a href="#navbar-dropdown" class="demo-nav__link">Navbar Dropdown</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📝 Списки</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#list-with-icons" class="demo-nav__link">List With Icons</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🌐 Социальные сети</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#social-icons-1" class="demo-nav__link">Social Icons 1</a>
+            <a href="#social-icons-2" class="demo-nav__link">Social Icons 2</a>
           </div>
         </div>
 
@@ -513,6 +555,17 @@
           </h3>
           <div class="demo-nav__section-links">
             <a href="#tooltip" class="demo-nav__link">Tooltip</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🔧 Другие</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#signup-form" class="demo-nav__link">Signup Form</a>
+            <a href="#back-to-top" class="demo-nav__link">Back To Top</a>
           </div>
         </div>
 
@@ -1599,6 +1652,98 @@
               </a>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pagination -->
+    <section class="demo-section">
+      <h2>📄 Пагинация (Pagination)</h2>
+
+      <div class="demo-item" id="pagination-numbers">
+        <h3>Pagination Numbers</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">pagination-numbers</span>
+          <button class="demo-copy-btn" onclick="copyID('pagination-numbers')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="pagination" aria-label="Page navigation">
+            <button class="btn btn--secondary" aria-label="Previous page">
+              <i class="ri-arrow-left-s-line"></i>
+              Prev
+            </button>
+
+            <ul class="pagination__list">
+              <li><button class="btn btn--primary" aria-label="Page 1" aria-current="page">1</button></li>
+              <li><button class="btn btn--tertiary" aria-label="Page 2">2</button></li>
+              <li><button class="btn btn--tertiary" aria-label="Page 3">3</button></li>
+              <li><button class="btn btn--tertiary" aria-label="Page 4">4</button></li>
+              <li><button class="btn btn--tertiary" aria-label="Page 5">5</button></li>
+            </ul>
+
+            <button class="btn btn--secondary" aria-label="Next page">
+              Next
+              <i class="ri-arrow-right-s-line"></i>
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      <div class="demo-item" id="pagination-compact">
+        <h3>Pagination Compact</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">pagination-compact</span>
+          <button class="demo-copy-btn" onclick="copyID('pagination-compact')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="pagination-compact" aria-label="Page navigation">
+            <span class="text text--sm text--muted">Page 1 / 5 of 100 results</span>
+
+            <div class="pagination-compact__controls">
+              <button class="btn btn--secondary" aria-label="Previous page">
+                <i class="ri-arrow-left-s-line"></i>
+              </button>
+
+              <ul class="pagination-compact__list">
+                <li><button class="btn btn--primary" aria-label="Page 1" aria-current="page">1</button></li>
+                <li><button class="btn btn--tertiary" aria-label="Page 2">2</button></li>
+                <li><button class="btn btn--tertiary" aria-label="Page 3">3</button></li>
+                <li><button class="btn btn--tertiary" aria-label="Page 4">4</button></li>
+                <li><button class="btn btn--tertiary" aria-label="Page 5">5</button></li>
+              </ul>
+
+              <button class="btn btn--secondary" aria-label="Next page">
+                <i class="ri-arrow-right-s-line"></i>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="demo-item" id="pagination-simple">
+        <h3>Pagination Simple</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">pagination-simple</span>
+          <button class="demo-copy-btn" onclick="copyID('pagination-simple')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="pagination-simple" aria-label="Page navigation">
+            <span class="text text--sm text--muted">Page 1 / 5 of 100 results</span>
+
+            <div class="pagination-simple__controls">
+              <button class="btn btn--secondary" aria-label="Previous page">Previous</button>
+              <button class="btn btn--secondary" aria-label="Next page">Next</button>
+            </div>
+          </nav>
         </div>
       </div>
     </section>
@@ -3003,6 +3148,33 @@
     <section class="demo-section">
       <h2>🧭 Навигация (Navigation)</h2>
 
+      <!-- Breadcrumb -->
+      <div class="demo-item" id="breadcrumb">
+        <h3>Breadcrumb</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">breadcrumb</span>
+          <button class="demo-copy-btn" onclick="copyID('breadcrumb')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a href="#" class="link">Link One</a>
+              </li>
+              <li class="breadcrumb__item">
+                <a href="#" class="link">Link Two</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="text">Link Three</span>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
       <!-- Dropdown -->
       <div class="demo-item" id="dropdown">
         <h3>Dropdown</h3>
@@ -3306,6 +3478,147 @@
             </div>
 
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lists -->
+    <section class="demo-section">
+      <h2>📝 Списки (Lists)</h2>
+
+      <div class="demo-item" id="list-with-icons">
+        <h3>List With Icons</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">list-with-icons</span>
+          <button class="demo-copy-btn" onclick="copyID('list-with-icons')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <ul class="list-with-icons" style="max-width: 600px;">
+            <li class="list-with-icons__item">
+              <i class="ri-checkbox-circle-line list-with-icons__icon"></i>
+              <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+            </li>
+            <li class="list-with-icons__item">
+              <i class="ri-checkbox-circle-line list-with-icons__icon"></i>
+              <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+            </li>
+            <li class="list-with-icons__item">
+              <i class="ri-checkbox-circle-line list-with-icons__icon"></i>
+              <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Icons -->
+    <section class="demo-section">
+      <h2>🌐 Социальные сети (Social Icons)</h2>
+
+      <div class="demo-item" id="social-icons-1">
+        <h3>Social Icons 1</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">social-icons-1</span>
+          <button class="demo-copy-btn" onclick="copyID('social-icons-1')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="social-icons">
+            <a href="#" class="social-icons__link" aria-label="Facebook">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Twitter/X">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="LinkedIn">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="YouTube">
+              <i class="ri-youtube-fill"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="social-icons-2">
+        <h3>Social Icons 2</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">social-icons-2</span>
+          <button class="demo-copy-btn" onclick="copyID('social-icons-2')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="social-icons">
+            <a href="#" class="social-icons__link" aria-label="Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Twitter/X">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Behance">
+              <i class="ri-behance-fill"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Dribbble">
+              <i class="ri-dribbble-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="GitHub">
+              <i class="ri-github-fill"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Elements -->
+    <section class="demo-section">
+      <h2>🔧 Другие элементы (Other)</h2>
+
+      <div class="demo-item" id="signup-form">
+        <h3>Signup Form</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">signup-form</span>
+          <button class="demo-copy-btn" onclick="copyID('signup-form')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <form class="signup-form">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="form-field__input signup-form__input"
+              required
+              aria-label="Email address"
+            >
+            <button type="submit" class="btn btn--primary">Sign Up</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="demo-item" id="back-to-top">
+        <h3>Back To Top Button</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">back-to-top</span>
+          <button class="demo-copy-btn" onclick="copyID('back-to-top')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--secondary back-to-top" aria-label="Back to top">
+            <i class="ri-arrow-up-line"></i>
+          </button>
         </div>
       </div>
     </section>
