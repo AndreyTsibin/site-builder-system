@@ -1,0 +1,28 @@
+/**
+ * Features Section — 3 Cards Grid
+ *
+ * Uses ready-made components from main.css:
+ * - .section — vertical padding
+ * - .container--xl — max-width 1140px
+ * - .heading, .text — typography
+ * - .card structure — card layout
+ * - .grid .grid-cols-3 .gap-6 — grid utilities (responsive)
+ *
+ * This file contains ONLY custom spacing for this section.
+ */
+
+/* Section header spacing */
+.features-3-cards__header {
+  margin-bottom: var(--space-8);
+}
+
+.features-3-cards__subtitle {
+  margin-top: var(--space-3);
+}
+
+/* Icon styling */
+.features-3-cards__icon {
+  font-size: var(--font-size-7);
+  color: var(--primary);
+  margin-bottom: var(--space-3);
+}

@@ -20,6 +20,7 @@
 
   <!-- Section Styles -->
   <link rel="stylesheet" href="sections/header/header-1.css">
+  <link rel="stylesheet" href="sections/features/features-3-cards.css">
 
   <style>
     body {
@@ -190,6 +191,62 @@
               </button>
             </div>
           </header>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="demo-section">
+      <h2>✨ Features Sections</h2>
+
+      <div class="demo-item" id="features-3-cards">
+        <h3>Features — 3 Cards Grid</h3>
+        <span class="demo-id">ID: features-3-cards</span>
+        <p class="demo-description">Секция с 3 карточками преимуществ. Использует готовые классы: .section, .container--xl, .card. Адаптивная сетка: 3 колонки → 2 → 1.</p>
+        <div class="demo-preview">
+          <!-- Features 3 Cards Preview -->
+          <section class="section">
+            <div class="container container--xl">
+              <div class="text-center features-3-cards__header">
+                <h2 class="heading heading--h2">Наши преимущества</h2>
+                <p class="text text--lg features-3-cards__subtitle">
+                  Мы предлагаем лучшие решения для вашего бизнеса
+                </p>
+              </div>
+
+              <div class="grid grid-cols-3 gap-6">
+                <article class="card">
+                  <div class="card__header">
+                    <i class="ri-rocket-fill features-3-cards__icon"></i>
+                    <h3 class="card__title">Быстрый старт</h3>
+                  </div>
+                  <div class="card__body">
+                    <p class="card__description">Начните работать за 5 минут с нашей готовой библиотекой компонентов</p>
+                  </div>
+                </article>
+
+                <article class="card">
+                  <div class="card__header">
+                    <i class="ri-palette-fill features-3-cards__icon"></i>
+                    <h3 class="card__title">Гибкий дизайн</h3>
+                  </div>
+                  <div class="card__body">
+                    <p class="card__description">Настройте внешний вид под свой бренд через CSS переменные</p>
+                  </div>
+                </article>
+
+                <article class="card">
+                  <div class="card__header">
+                    <i class="ri-code-s-slash-fill features-3-cards__icon"></i>
+                    <h3 class="card__title">Чистый код</h3>
+                  </div>
+                  <div class="card__body">
+                    <p class="card__description">Семантичный HTML5, BEM методология, без лишних зависимостей</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </section>

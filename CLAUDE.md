@@ -92,7 +92,8 @@ open library/demo-elements.html
 - List with Icons: `.list-with-icons`, `.list-with-icons__item`, `.list-with-icons__icon`
 - Section: `.section`, `.section--sm/lg` (vertical padding)
 - Containers: `.container`, `.container--xs/sm/md/lg/xl/2xl`
-- Utilities: `.text-left/center/right`, `.btn--align-left`, `.flex`, `.hidden`, `.w-full`
+- Grid: `.grid`, `.grid-cols-2/3/4` (responsive), `.gap-4/6/8`
+- Utilities: `.text-left/center/right`, `.flex`, `.flex-col/row`, `.justify-start/center/end`, `.hidden`, `.w-full`
 
 **Creating new elements:**
 1. Check existing: `demo-elements.html` + `main.css` + `library/elements/`
