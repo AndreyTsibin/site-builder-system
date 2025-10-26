@@ -6,36 +6,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## ⚠️ КРИТИЧЕСКИ ВАЖНО — НАЧНИ ЗДЕСЬ
 
-**Статус проекта:** Полная реструктуризация в процессе
+**Статус проекта:** ✅ Реструктуризация завершена!
 
-📋 **ОБЯЗАТЕЛЬНО:** Перед любой работой прочитай [CHANGES-PLAN.md](CHANGES-PLAN.md)
-
-Этот файл содержит **полный план фундаментальных изменений** архитектуры проекта:
-- Переход от автоматизации к ручной разработке
-- Новая философия: элементный подход (от элементов к секциям)
-- Отказ от Python-автоматизации (навсегда)
-- Отказ от placeholders
-- Новая структура library/, output/, templates/
-
-**План согласован и готов к поэтапному внедрению.**
-
-**Твоя задача:** Читай план, следуй ему пошагово, вноси изменения согласно описанию.
+**Новая архитектура:**
+- ✅ Элементный подход (library/elements/)
+- ✅ Секции из элементов (library/sections/)
+- ✅ Демо файлы и UI Kit
+- ✅ Готовый шаблон output/
+- ✅ Опциональные модули (modules/)
+- ✅ Отказ от автоматизации Python
+- ✅ Отказ от placeholders (всегда реальный текст)
 
 ---
 
-## PROJECT OVERVIEW (УСТАРЕВАЕТ — см. CHANGES-PLAN.md)
+## PROJECT OVERVIEW
 
-**Site Builder** — AI-powered landing page constructor (local, no frameworks)
+**Site Builder** — Landing page constructor with element-based approach (local, no frameworks)
 
-- **Goal:** ~~Assemble landing pages from ready-made sections~~ → **Новый подход:** элементный подход (см. CHANGES-PLAN.md)
-- **Current Stage:** ~~MVP Complete~~ → **Реструктуризация**
-- **Phase:** Фундаментальные изменения архитектуры
+- **Goal:** Build landing pages from reusable elements and sections
+- **Current Stage:** Production ready
+- **Phase:** Active development
 
 ---
 
-## ESSENTIAL COMMANDS (УСТАРЕВАЮТ — см. CHANGES-PLAN.md)
-
-⚠️ **ВНИМАНИЕ:** Команды ниже устаревают. Новый workflow описан в [CHANGES-PLAN.md](CHANGES-PLAN.md).
+## ESSENTIAL COMMANDS
 
 ### Verify & Test (актуально)
 
@@ -57,34 +51,42 @@ cd output && python3 -m http.server 8000
 
 - **Frontend:** HTML5, CSS3 (Grid/Flexbox), Vanilla JavaScript ES6+
 - **Icons:** [Remix Icon](https://github.com/Remix-Design/RemixIcon) (2800+ open-source)
-- **Automation:** ~~Python 3.8+ (assembly script)~~ → **ОТКАЗАЛИСЬ** (см. CHANGES-PLAN.md)
+- **Automation:** None (manual development, full control)
 - **AI:** Claude Code terminal (commands, NOT API)
 - **Data Formats:** Markdown (business-data)
 
 ---
 
-## ARCHITECTURE (МЕНЯЕТСЯ — см. CHANGES-PLAN.md)
+## ARCHITECTURE
 
-⚠️ **Архитектура полностью меняется.** Детали в [CHANGES-PLAN.md](CHANGES-PLAN.md).
+### Элементный подход (Element-based Approach):
 
-### Новая философия (кратко):
+1. **Создаём библиотеку элементов** (`library/elements/`)
+   - Buttons, forms, grid, cards, etc.
+   - Каждый элемент — отдельная папка с HTML + CSS
+   - Реальный текст (NO placeholders!)
 
-**Элементный подход:**
-1. Создаём библиотеку элементов (`library/elements/`)
-2. Собираем секции из элементов (`library/sections/`)
-3. Собираем лендинг из секций вручную (`output/index.html`)
+2. **Собираем секции из элементов** (`library/sections/`)
+   - Header, hero, footer, etc.
+   - Композиция готовых элементов
+   - BEM методология
 
-**Ключевые изменения:**
-- ❌ Нет автоматизации Python
-- ❌ Нет placeholders `{{...}}`
+3. **Собираем лендинг из секций вручную** (`output/index.html`)
+   - Копируем нужные секции
+   - Полный контроль над результатом
+   - Компилируем CSS в `output/styles/main.css`
+
+**Ключевые принципы:**
+- ✅ Нет автоматизации Python
+- ✅ Нет placeholders `{{...}}`
 - ✅ Всегда реальный текст
 - ✅ Ручная сборка (полный контроль)
 
 ### Design System
 
-**CSS Variables** (`library/design-system/variables.css`):
+**CSS Variables** (`library/styles/variables.css`):
 - Colors: HSL format for easy theme switching
-- Typography: 8 font sizes (12px → 48px), Inter font family
+- Typography: 8 font sizes (`--font-size-1` ... `--font-size-8`), Inter font family
 - Spacing: 4px base scale (4px → 240px)
 - Breakpoints: 320px (mobile), 768px (tablet), 1024px (desktop), 1440px (wide)
 
@@ -92,21 +94,17 @@ cd output && python3 -m http.server 8000
 - Mobile-first responsive design
 - BEM methodology for CSS class names
 - Semantic HTML5 (nav, article, section, not div soup)
-- ~~Performance-optimized (minified CSS, deferred JS)~~ → Минификация опциональна (modules/)
+- Performance optimization optional (modules/minification/)
 
 ---
 
-## PROJECT STRUCTURE (МЕНЯЕТСЯ — см. CHANGES-PLAN.md)
-
-⚠️ **Новая структура описана в** [CHANGES-PLAN.md](CHANGES-PLAN.md)
-
-**Целевая структура (после изменений):**
+## PROJECT STRUCTURE
 ```
 /site-builder/
 ├── library/
-│   ├── design-system/        # variables.css, reset.css (utilities.css УДАЛЁН)
-│   ├── elements/             # Новая папка: buttons/, forms/, grid/, cards/, etc.
-│   ├── sections/             # Переделывается: будут созданы заново
+│   ├── styles/               # variables.css, reset.css
+│   ├── elements/             # buttons/, forms/, grid/, cards/, etc.
+│   ├── sections/             # header/, hero/, footer/, etc.
 │   ├── js/main.js            # Единый JS файл
 │   ├── demo-elements.html
 │   ├── demo-sections.html
@@ -118,35 +116,21 @@ cd output && python3 -m http.server 8000
 │   ├── styles/               # reset.css, variables.css, main.css
 │   ├── images/
 │   └── scripts/main.js
-├── modules/                   # Новая папка: minification, accessibility, performance
-├── docs/
-└── CHANGES-PLAN.md           # ГЛАВНЫЙ ДОКУМЕНТ ДЛЯ РАБОТЫ
+├── modules/                   # minification/, accessibility/, performance/, figma-mcp/
+└── docs/
 ```
 
 **Key files:**
-- 📋 **[CHANGES-PLAN.md](CHANGES-PLAN.md)** — ГЛАВНЫЙ ДОКУМЕНТ, с него начинай работу
-- [README.md](README.md) — Overview (устаревает)
-- [docs/USAGE.md](docs/USAGE.md) — Usage guide (устаревает)
+- [README.md](README.md) — Project overview
+- [docs/USAGE.md](docs/USAGE.md) — Usage guide
+- [library/demo-elements.html](library/demo-elements.html) — Elements catalog
+- [library/ui-kit.html](library/ui-kit.html) — Visual reference
 
 ---
 
-## WORKING WITH PROJECT (ОБНОВЛЁННОЕ)
+## WORKING WITH PROJECT
 
-### Начало работы в новой сессии:
-
-1. ✅ **ОБЯЗАТЕЛЬНО:** Прочитай [CHANGES-PLAN.md](CHANGES-PLAN.md)
-2. Определи, на каком этапе внедрения находимся
-3. Следуй плану пошагово
-4. После каждого этапа — коммит
-
-### При внедрении изменений:
-
-1. **Читай план** — [CHANGES-PLAN.md](CHANGES-PLAN.md) содержит все детали
-2. **Пошагово** — не делай всё сразу, двигайся по плану
-3. **Тестируй** — после каждого изменения проверяй работоспособность
-4. **Коммить** — фиксируй каждый этап
-
-### При создании элементов (новый подход):
+### При создании элементов:
 
 1. **Создай папку** в `library/elements/[element-type]/[element-name]/`
 2. **HTML** — с реальным текстом (НЕ placeholders)
