@@ -9,7 +9,7 @@
   padding-right: var(--space-10); /* Space for dropdown arrow */
 
   /* Typography */
-  font-size: var(--text-base);
+  font-size: var(--font-size-3);
   line-height: var(--leading-normal);
   color: var(--text-body);
 

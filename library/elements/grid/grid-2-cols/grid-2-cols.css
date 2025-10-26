@@ -35,7 +35,7 @@
 
 .grid__item h3 {
   /* Typography */
-  font-size: var(--text-2xl);
+  font-size: var(--font-size-6);
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
   color: var(--text-body);
@@ -44,7 +44,7 @@
 
 .grid__item p {
   /* Typography */
-  font-size: var(--text-base);
+  font-size: var(--font-size-3);
   line-height: var(--leading-normal);
   color: var(--text-muted);
   margin: 0;

@@ -64,17 +64,17 @@
 
   /* Font Sizes — Fluid Typography System */
   /* Static sizes (body text, stable across devices) */
-  --text-xs: 0.75rem;    /* 12px — small text, labels */
-  --text-sm: 0.875rem;   /* 14px — captions, secondary text */
-  --text-base: 1rem;     /* 16px — body text */
-  --text-lg: 1.125rem;   /* 18px — large text */
-  --text-xl: 1.25rem;    /* 20px — subheadings */
+  --font-size-1: 0.75rem;    /* 12px — small text, labels */
+  --font-size-2: 0.875rem;   /* 14px — captions, secondary text */
+  --font-size-3: 1rem;       /* 16px — body text */
+  --font-size-4: 1.125rem;   /* 18px — large text */
+  --font-size-5: 1.25rem;    /* 20px — subheadings */
 
   /* Fluid sizes (headings, scale smoothly from mobile to desktop) */
   /* Format: clamp(MIN, PREFERRED, MAX) */
-  --text-2xl: clamp(1.25rem, 1rem + 1vw, 1.75rem);      /* 20px → 28px (H3) */
-  --text-3xl: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);  /* 28px → 40px (H2) */
-  --text-4xl: clamp(2rem, 1.5rem + 2.5vw, 3.25rem);     /* 32px → 52px (H1) */
+  --font-size-6: clamp(1.25rem, 1rem + 1vw, 1.75rem);      /* 20px → 28px (H3) */
+  --font-size-7: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);  /* 28px → 40px (H2) */
+  --font-size-8: clamp(2rem, 1.5rem + 2.5vw, 3.25rem);     /* 32px → 52px (H1) */
 
   /* Font Weights */
   --font-regular: 400;   /* Body text */

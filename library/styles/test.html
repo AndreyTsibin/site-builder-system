@@ -27,7 +27,7 @@
     }
 
     .test-section__title {
-      font-size: var(--text-3xl);
+      font-size: var(--font-size-7);
       font-weight: var(--font-bold);
       margin-bottom: var(--space-8);
       color: var(--text-body);
@@ -55,7 +55,7 @@
     }
 
     .color-swatch__label {
-      font-size: var(--text-sm);
+      font-size: var(--font-size-2);
       color: var(--text-muted);
       font-weight: var(--font-medium);
     }
@@ -66,7 +66,7 @@
     }
 
     .typography-example__label {
-      font-size: var(--text-xs);
+      font-size: var(--font-size-1);
       color: var(--text-muted);
       font-weight: var(--font-medium);
       margin-bottom: var(--space-2);
@@ -84,7 +84,7 @@
       align-items: center;
       justify-content: center;
       color: var(--text-on-primary);
-      font-size: var(--text-xs);
+      font-size: var(--font-size-1);
       font-weight: var(--font-bold);
       min-height: 40px;
     }
@@ -95,7 +95,7 @@
       background-color: var(--bg-card);
       border-radius: var(--radius-md);
       text-align: center;
-      font-size: var(--text-sm);
+      font-size: var(--font-size-2);
       color: var(--text-muted);
       font-weight: var(--font-medium);
     }
@@ -144,7 +144,7 @@
       justify-content: center;
       color: var(--text-on-primary);
       font-weight: var(--font-bold);
-      font-size: var(--text-sm);
+      font-size: var(--font-size-2);
     }
 
     /* Theme toggle button */
@@ -157,7 +157,7 @@
       color: var(--text-on-primary);
       border-radius: var(--radius-full);
       font-weight: var(--font-bold);
-      font-size: var(--text-sm);
+      font-size: var(--font-size-2);
       box-shadow: var(--shadow-lg);
       cursor: pointer;
       transition: all var(--transition-base);
@@ -184,7 +184,7 @@
       color: var(--text-on-dark);
       border-radius: var(--radius-sm);
       font-weight: var(--font-medium);
-      font-size: var(--text-sm);
+      font-size: var(--font-size-2);
     }
 
     /* Page header */
@@ -195,7 +195,7 @@
     }
 
     .page-header__title {
-      font-size: var(--text-4xl);
+      font-size: var(--font-size-8);
       font-weight: var(--font-bold);
       margin-bottom: var(--space-4);
       line-height: var(--leading-tight);
@@ -203,7 +203,7 @@
     }
 
     .page-header__subtitle {
-      font-size: var(--text-xl);
+      font-size: var(--font-size-5);
       color: var(--text-muted);
       line-height: var(--leading-normal);
     }
@@ -228,7 +228,7 @@
     <section class="test-section">
       <h2 class="test-section__title">1. Color System</h2>
 
-      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Background Colors</h3>
+      <h3 style="font-size: var(--font-size-5); margin-bottom: var(--space-4); color: var(--text-body);">Background Colors</h3>
       <div class="test-section__grid">
         <div class="color-swatch">
           <div class="color-swatch__box" style="background-color: var(--bg-page);"></div>
@@ -248,7 +248,7 @@
         </div>
       </div>
 
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Text Colors</h3>
+      <h3 style="font-size: var(--font-size-5); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Text Colors</h3>
       <div class="test-section__grid">
         <div class="color-swatch">
           <div class="color-swatch__box" style="background-color: var(--text-body);"></div>
@@ -264,7 +264,7 @@
         </div>
       </div>
 
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Brand Colors</h3>
+      <h3 style="font-size: var(--font-size-5); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Brand Colors</h3>
       <div class="test-section__grid">
         <div class="color-swatch">
           <div class="color-swatch__box" style="background-color: var(--primary);"></div>
@@ -280,7 +280,7 @@
         </div>
       </div>
 
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Semantic Colors</h3>
+      <h3 style="font-size: var(--font-size-5); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Semantic Colors</h3>
       <div class="test-section__grid">
         <div class="color-swatch">
           <div class="color-swatch__box" style="background-color: var(--success);"></div>
@@ -305,75 +305,75 @@
     <section class="test-section">
       <h2 class="test-section__title">2. Typography</h2>
 
-      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Font Sizes</h3>
+      <h3 style="font-size: var(--font-size-5); margin-bottom: var(--space-4); color: var(--text-body);">Font Sizes</h3>
       <div style="display: flex; flex-direction: column; gap: var(--space-4);">
         <div class="typography-example">
-          <div class="typography-example__label">--text-xs (12px)</div>
-          <div class="typography-example__text" style="font-size: var(--text-xs);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__label">--font-size-1 (12px)</div>
+          <div class="typography-example__text" style="font-size: var(--font-size-1);">The quick brown fox jumps over the lazy dog</div>
         </div>
         <div class="typography-example">
-          <div class="typography-example__label">--text-sm (14px)</div>
-          <div class="typography-example__text" style="font-size: var(--text-sm);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__label">--font-size-2 (14px)</div>
+          <div class="typography-example__text" style="font-size: var(--font-size-2);">The quick brown fox jumps over the lazy dog</div>
         </div>
         <div class="typography-example">
-          <div class="typography-example__label">--text-base (16px)</div>
-          <div class="typography-example__text" style="font-size: var(--text-base);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__label">--font-size-3 (16px)</div>
+          <div class="typography-example__text" style="font-size: var(--font-size-3);">The quick brown fox jumps over the lazy dog</div>
         </div>
         <div class="typography-example">
-          <div class="typography-example__label">--text-lg (18px)</div>
-          <div class="typography-example__text" style="font-size: var(--text-lg);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__label">--font-size-4 (18px)</div>
+          <div class="typography-example__text" style="font-size: var(--font-size-4);">The quick brown fox jumps over the lazy dog</div>
         </div>
         <div class="typography-example">
-          <div class="typography-example__label">--text-xl (20px)</div>
-          <div class="typography-example__text" style="font-size: var(--text-xl);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__label">--font-size-5 (20px)</div>
+          <div class="typography-example__text" style="font-size: var(--font-size-5);">The quick brown fox jumps over the lazy dog</div>
         </div>
         <div class="typography-example">
-          <div class="typography-example__label">--text-2xl (20px → 28px, fluid)</div>
-          <div class="typography-example__text" style="font-size: var(--text-2xl);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__label">--font-size-6 (20px → 28px, fluid)</div>
+          <div class="typography-example__text" style="font-size: var(--font-size-6);">The quick brown fox jumps over the lazy dog</div>
         </div>
         <div class="typography-example">
-          <div class="typography-example__label">--text-3xl (28px → 40px, fluid)</div>
-          <div class="typography-example__text" style="font-size: var(--text-3xl);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__label">--font-size-7 (28px → 40px, fluid)</div>
+          <div class="typography-example__text" style="font-size: var(--font-size-7);">The quick brown fox jumps over the lazy dog</div>
         </div>
         <div class="typography-example">
-          <div class="typography-example__label">--text-4xl (32px → 52px, fluid)</div>
-          <div class="typography-example__text" style="font-size: var(--text-4xl);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__label">--font-size-8 (32px → 52px, fluid)</div>
+          <div class="typography-example__text" style="font-size: var(--font-size-8);">The quick brown fox jumps over the lazy dog</div>
         </div>
       </div>
 
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Font Weights</h3>
+      <h3 style="font-size: var(--font-size-5); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Font Weights</h3>
       <div style="display: flex; flex-direction: column; gap: var(--space-4);">
         <div class="typography-example">
           <div class="typography-example__label">--font-regular (400)</div>
-          <div class="typography-example__text" style="font-weight: var(--font-regular); font-size: var(--text-lg);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__text" style="font-weight: var(--font-regular); font-size: var(--font-size-4);">The quick brown fox jumps over the lazy dog</div>
         </div>
         <div class="typography-example">
           <div class="typography-example__label">--font-medium (500)</div>
-          <div class="typography-example__text" style="font-weight: var(--font-medium); font-size: var(--text-lg);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__text" style="font-weight: var(--font-medium); font-size: var(--font-size-4);">The quick brown fox jumps over the lazy dog</div>
         </div>
         <div class="typography-example">
           <div class="typography-example__label">--font-bold (700)</div>
-          <div class="typography-example__text" style="font-weight: var(--font-bold); font-size: var(--text-lg);">The quick brown fox jumps over the lazy dog</div>
+          <div class="typography-example__text" style="font-weight: var(--font-bold); font-size: var(--font-size-4);">The quick brown fox jumps over the lazy dog</div>
         </div>
       </div>
 
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Line Heights</h3>
+      <h3 style="font-size: var(--font-size-5); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Line Heights</h3>
       <div style="display: flex; flex-direction: column; gap: var(--space-6);">
         <div class="typography-example">
           <div class="typography-example__label">--leading-tight (1.2)</div>
-          <div class="typography-example__text" style="line-height: var(--leading-tight); font-size: var(--text-lg);">
+          <div class="typography-example__text" style="line-height: var(--leading-tight); font-size: var(--font-size-4);">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
         </div>
         <div class="typography-example">
           <div class="typography-example__label">--leading-normal (1.5)</div>
-          <div class="typography-example__text" style="line-height: var(--leading-normal); font-size: var(--text-lg);">
+          <div class="typography-example__text" style="line-height: var(--leading-normal); font-size: var(--font-size-4);">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
         </div>
         <div class="typography-example">
           <div class="typography-example__label">--leading-relaxed (1.8)</div>
-          <div class="typography-example__text" style="line-height: var(--leading-relaxed); font-size: var(--text-lg);">
+          <div class="typography-example__text" style="line-height: var(--leading-relaxed); font-size: var(--font-size-4);">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
         </div>
@@ -403,7 +403,7 @@
     <section class="test-section">
       <h2 class="test-section__title">4. UI Elements</h2>
 
-      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Border Radius</h3>
+      <h3 style="font-size: var(--font-size-5); margin-bottom: var(--space-4); color: var(--text-body);">Border Radius</h3>
       <div style="display: flex; flex-direction: column; gap: var(--space-4);">
         <div class="radius-demo" style="border-radius: var(--radius-sm);">--radius-sm (4px)</div>
         <div class="radius-demo" style="border-radius: var(--radius-md);">--radius-md (8px)</div>
@@ -412,30 +412,30 @@
         <div class="radius-demo" style="border-radius: var(--radius-full);">--radius-full (9999px)</div>
       </div>
 
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Box Shadows (3D Effect)</h3>
-      <p style="font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--space-6); line-height: var(--leading-normal);">
+      <h3 style="font-size: var(--font-size-5); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Box Shadows (3D Effect)</h3>
+      <p style="font-size: var(--font-size-2); color: var(--text-muted); margin-bottom: var(--space-6); line-height: var(--leading-normal);">
         Professional shadow system with <strong>inset white highlight</strong> (mimics light from above) + layered black shadows. Works universally on both light and dark themes.
       </p>
       <div class="test-section__grid">
         <div class="shadow-box" style="box-shadow: var(--shadow-sm);">
           <strong>--shadow-sm</strong><br>
-          <span style="font-size: var(--text-xs); opacity: 0.7;">Buttons, inputs</span>
+          <span style="font-size: var(--font-size-1); opacity: 0.7;">Buttons, inputs</span>
         </div>
         <div class="shadow-box" style="box-shadow: var(--shadow-md);">
           <strong>--shadow-md</strong><br>
-          <span style="font-size: var(--text-xs); opacity: 0.7;">Cards, panels</span>
+          <span style="font-size: var(--font-size-1); opacity: 0.7;">Cards, panels</span>
         </div>
         <div class="shadow-box" style="box-shadow: var(--shadow-lg);">
           <strong>--shadow-lg</strong><br>
-          <span style="font-size: var(--text-xs); opacity: 0.7;">Modals, dropdowns</span>
+          <span style="font-size: var(--font-size-1); opacity: 0.7;">Modals, dropdowns</span>
         </div>
         <div class="shadow-box" style="box-shadow: var(--shadow-xl);">
           <strong>--shadow-xl</strong><br>
-          <span style="font-size: var(--text-xs); opacity: 0.7;">Popovers, overlays</span>
+          <span style="font-size: var(--font-size-1); opacity: 0.7;">Popovers, overlays</span>
         </div>
       </div>
 
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Transitions (hover to test)</h3>
+      <h3 style="font-size: var(--font-size-5); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Transitions (hover to test)</h3>
       <div class="transition-demo">
         <button class="transition-btn transition-btn--fast">Fast (150ms)</button>
         <button class="transition-btn transition-btn--base">Base (250ms)</button>
@@ -447,8 +447,8 @@
     <section class="test-section">
       <h2 class="test-section__title">5. Utility Classes</h2>
 
-      <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4); color: var(--text-body);">Container (Universal Layout)</h3>
-      <p style="font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--space-6); line-height: var(--leading-normal);">
+      <h3 style="font-size: var(--font-size-5); margin-bottom: var(--space-4); color: var(--text-body);">Container (Universal Layout)</h3>
+      <p style="font-size: var(--font-size-2); color: var(--text-muted); margin-bottom: var(--space-6); line-height: var(--leading-normal);">
         The <code>.container</code> class provides consistent max-width and responsive padding across all sections.
       </p>
       <div class="utility-demo">
@@ -457,8 +457,8 @@
         </div>
       </div>
 
-      <h3 style="font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Responsive Visibility (resize to test)</h3>
-      <p style="font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--space-6); line-height: var(--leading-normal);">
+      <h3 style="font-size: var(--font-size-5); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--text-body);">Responsive Visibility (resize to test)</h3>
+      <p style="font-size: var(--font-size-2); color: var(--text-muted); margin-bottom: var(--space-6); line-height: var(--leading-normal);">
         Use for elements that should appear/hide at different breakpoints (e.g., mobile vs desktop navigation).
       </p>
       <div style="display: flex; flex-direction: column; gap: var(--space-4);">

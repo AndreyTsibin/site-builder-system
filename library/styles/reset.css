@@ -43,7 +43,7 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: var(--font-base);
-  font-size: var(--text-base);
+  font-size: var(--font-size-3);
   font-weight: var(--font-regular);
   line-height: var(--leading-normal);
   color: var(--text-body);
