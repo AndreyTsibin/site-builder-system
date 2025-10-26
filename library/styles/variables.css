@@ -149,10 +149,19 @@
   --transition-base: 250ms ease-in-out;  /* Standard transitions (buttons, links) */
   --transition-slow: 350ms ease-in-out;  /* Smooth animations (modals, menus) */
 
-  /* ===== Layout ===== */
-  --container-default: 1280px;  /* Default container max-width */
-  --container-narrow: 768px;    /* Narrow container for text-heavy content */
-  --container-wide: 1440px;     /* Wide container for large screens */
+  /* ===== Container Max-Width ===== */
+  /* Progressive container sizes for different content types */
+  --container-xs: 480px;      /* Extra Small — modals, compact forms, alerts */
+  --container-sm: 640px;      /* Small — login forms, narrow content, newsletter signup */
+  --container-md: 768px;      /* Medium — blog articles, text-heavy content (optimal readability) */
+  --container-lg: 1024px;     /* Large — standard sections, 2-3 column layouts */
+  --container-xl: 1140px;     /* Extra Large — main content (most common, industry standard) */
+  --container-2xl: 1280px;    /* 2XL — wide sections, dashboards, galleries */
+
+  /* Legacy aliases for backward compatibility (will be removed in future) */
+  --container-narrow: var(--container-md);   /* Use --container-md instead */
+  --container-default: var(--container-xl);  /* Use --container-xl instead */
+  --container-wide: var(--container-2xl);    /* Use --container-2xl instead */
 
   /* ===== Text on Colored Backgrounds ===== */
   --text-on-primary: hsl(0, 0%, 100%);    /* White text on primary buttons/backgrounds */

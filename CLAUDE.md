@@ -350,6 +350,33 @@ const categoryMap = {
 - HSL format: `hsl(220, 90%, 56%)`
 - Mobile-first breakpoints: 320px, 768px, 1024px, 1440px
 
+**Container Max-Width System:**
+
+We use 6 progressive container sizes for different content types:
+
+| Variable | Size | Use Case |
+|----------|------|----------|
+| `--container-xs` | 480px | Modals, compact forms, alerts |
+| `--container-sm` | 640px | Login/signup forms, narrow content, newsletter |
+| `--container-md` | 768px | Blog articles, text-heavy content (optimal readability) |
+| `--container-lg` | 1024px | Standard sections, 2-3 column layouts |
+| `--container-xl` | 1140px | **Main content (MOST COMMON, industry standard)** |
+| `--container-2xl` | 1280px | Wide sections, dashboards, galleries |
+
+**Usage Examples:**
+```html
+<!-- Blog article -->
+<div class="container container--md">...</div>
+
+<!-- Main content section (default) -->
+<div class="container container--xl">...</div>
+
+<!-- Wide hero section -->
+<div class="container container--2xl">...</div>
+```
+
+**Default Choice:** Use `--container-xl` (1140px) for most content unless you have a specific reason to go narrower or wider.
+
 ---
 
 ### 🎨 NESTED BORDER RADIUS — CRITICAL RULE
