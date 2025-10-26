@@ -79,27 +79,26 @@ open library/demo-elements.html
 
 **🚨 CRITICAL: Use existing classes, DON'T create new ones for base elements!**
 
-**Ready-made classes in `main.css`:**
-- Buttons: `.btn`, `.btn--primary/secondary/tertiary/link`, `.btn--loading`
-- Navbar: `.navbar`, `.navbar__list`, `.navbar__item`, `.navbar__link`, `.navbar__link--active`
-- Typography: `.heading`, `.heading--h1` to `.h6`, `.text`, `.text--sm/lg/muted`, `.lead`, `.tagline`
-- Forms: `.form-field`, `.form-field__label/input/textarea/select`
-- Cards: `.card`, `.card__header/title/description/body/footer`
-- Links: `.link` (with hover underline)
-- Badges: `.badge`, `.badge--primary/success/warning/error/info`
-- Breadcrumb: `.breadcrumb__list`, `.breadcrumb__item`
-- Spinner: `.spinner`, `.spinner--sm/lg`, `.loader-overlay`, `.loader-inline`
-- List with Icons: `.list-with-icons`, `.list-with-icons__item`, `.list-with-icons__icon`
-- Section: `.section`, `.section--sm/lg` (vertical padding)
-- Containers: `.container`, `.container--xs/sm/md/lg/xl/2xl`
-- Grid: `.grid`, `.grid-cols-2/3/4` (responsive), `.gap-4/6/8`
-- Utilities: `.text-left/center/right`, `.flex`, `.flex-col/row`, `.justify-start/center/end`, `.hidden`, `.w-full`
+**📚 Full reference:** See [`library/COMPONENTS.md`](library/COMPONENTS.md) for complete list of 100+ classes with examples.
 
-**Creating new elements:**
-1. Check existing: `demo-elements.html` + `main.css` + `library/elements/`
-2. Use ready-made classes for typography, buttons, text
-3. Write ONLY layout CSS (grid, flex, gap, padding)
-4. Add to `demo-elements.html` + update `getElementPath()` mapping
+**Main categories in `main.css`:**
+- **Buttons:** `.btn .btn--primary/secondary/tertiary/link` + sizes/states
+- **Navbar:** `.navbar .navbar__list .navbar__link` (animated underline)
+- **Forms:** `.form-field .form-field__input/textarea/select` + states
+- **Cards:** `.card .card__header .card__title` (use `<h3>` for titles)
+- **Typography:** `.heading .heading--h1/h2/h3` + `.text .lead .tagline`
+- **Badges:** `.badge .badge--success/warning/error/info`
+- **Breadcrumb:** `.breadcrumb__list .breadcrumb__item`
+- **Spinner/Loader:** `.spinner .loader-overlay .btn--loading`
+- **Section/Container:** `.section .container--xs/sm/md/lg/xl/2xl`
+- **Grid:** `.grid .grid-cols-2/3/4 .gap-4/6/8` (auto-responsive)
+- **Utilities:** `.flex .text-center .justify-center .items-center .hidden .w-full`
+
+**Creating sections/elements:**
+1. **FIRST:** Check [`library/COMPONENTS.md`](library/COMPONENTS.md) for available classes
+2. Use ready-made classes from `main.css` (buttons, typography, grid, flex)
+3. Write ONLY custom CSS for specific spacing/layout
+4. Always use semantic HTML (`<h2>` for section titles, `<h3>` for card titles)
 5. Test in browser
 
 **Example:**
