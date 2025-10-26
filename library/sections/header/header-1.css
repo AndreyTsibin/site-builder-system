@@ -1,71 +1,108 @@
-/* Header Section */
-.header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: var(--space-4) 0;
+/**
+ * Header 1 — Simple Header with Logo, Nav, and CTA
+ *
+ * Uses ready-made components:
+ * - .container--xl (from main.css)
+ * - .btn .btn--primary (from main.css)
+ *
+ * This file contains ONLY layout CSS (positioning, grid, flex, spacing)
+ */
+
+/* ========================================
+   HEADER LAYOUT
+   ======================================== */
+
+.header-1 {
+  /* Positioning */
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  /* Visual */
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
+
+  /* Spacing */
+  padding: var(--space-4) 0;
 }
 
-.header__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-6);
+.header-1__container {
+  /* Layout */
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-6);
 }
 
-/* Logo */
-.header__logo-link {
+/* ========================================
+   LOGO
+   ======================================== */
+
+.header-1__logo {
+  /* Layout */
   display: flex;
   align-items: center;
   gap: var(--space-2);
+
+  /* Typography */
   font-size: var(--font-size-4);
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: var(--primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+
+  /* Interaction */
+  transition: color var(--transition-base);
 }
 
-.header__logo-link i {
+.header-1__logo i {
   font-size: var(--font-size-5);
 }
 
-.header__logo-link:hover {
-  color: var(--secondary);
+.header-1__logo:hover {
+  color: var(--primary-hover);
 }
 
-/* Navigation */
-.header__nav {
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+.header-1__nav {
+  /* Layout */
   flex: 1;
   display: flex;
   justify-content: center;
 }
 
-.header__nav-list {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
+.header-1__nav-list {
+  /* Reset */
   list-style: none;
   margin: 0;
   padding: 0;
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
 }
 
-.header__nav-link {
+.header-1__nav-link {
+  /* Typography */
   font-size: var(--font-size-3);
-  font-weight: 500;
-  color: var(--text);
+  font-weight: var(--font-medium);
+  color: var(--text-body);
   text-decoration: none;
-  transition: color 0.3s ease;
+
+  /* Spacing */
   padding: var(--space-2) 0;
+
+  /* Interaction */
   position: relative;
+  transition: color var(--transition-base);
 }
 
-.header__nav-link::after {
+/* Underline effect */
+.header-1__nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -73,88 +110,103 @@
   width: 0;
   height: 2px;
   background: var(--primary);
-  transition: width 0.3s ease;
+  transition: width var(--transition-base);
 }
 
-.header__nav-link:hover {
+.header-1__nav-link:hover {
   color: var(--primary);
 }
 
-.header__nav-link:hover::after {
+.header-1__nav-link:hover::after {
   width: 100%;
 }
 
-/* CTA Button */
-.header__cta {
+/* ========================================
+   CTA BUTTON
+   ======================================== */
+
+.header-1__cta {
+  /* Prevent text wrapping */
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-/* Burger Menu */
-.header__burger {
+/* ========================================
+   MOBILE MENU BUTTON
+   ======================================== */
+
+.header-1__burger {
+  /* Hidden by default */
   display: none;
   flex-direction: column;
   gap: 5px;
+
+  /* Reset */
   background: transparent;
   border: none;
   cursor: pointer;
   padding: var(--space-2);
+
+  /* Make it shrink-resistant */
+  flex-shrink: 0;
 }
 
-.header__burger span {
+.header-1__burger span {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--text);
+  background: var(--text-body);
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: all var(--transition-base);
 }
 
-.header__burger:hover span {
+.header-1__burger:hover span {
   background: var(--primary);
 }
 
-/* Mobile Styles */
+/* Active state (for JS toggle) */
+.header-1__burger[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.header-1__burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.header-1__burger[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+/* Tablet and below */
 @media (max-width: 1024px) {
-  .header__nav {
+  .header-1__nav {
     display: none;
   }
 
-  .header__cta {
+  .header-1__cta {
     display: none;
   }
 
-  .header__burger {
+  .header-1__burger {
     display: flex;
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-  .header {
+  .header-1 {
     padding: var(--space-3) 0;
   }
 
-  .header__container {
-    padding: 0 var(--space-4);
-  }
-
-  .header__logo-link {
+  .header-1__logo {
     font-size: var(--font-size-3);
   }
 
-  .header__logo-link i {
+  .header-1__logo i {
     font-size: var(--font-size-4);
   }
-}
-
-/* Active Burger Menu (для JS) */
-.header__burger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.header__burger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.header__burger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
 }
