@@ -1013,9 +1013,9 @@
           </button>
         </div>
         <div class="demo-preview">
-          <h2 class="heading heading--h2 heading--left">Left Aligned</h2>
-          <h2 class="heading heading--h2 heading--center">Center Aligned</h2>
-          <h2 class="heading heading--h2 heading--right">Right Aligned</h2>
+          <h2 class="heading heading--h2 text-left">Left Aligned</h2>
+          <h2 class="heading heading--h2 text-center">Center Aligned</h2>
+          <h2 class="heading heading--h2 text-right">Right Aligned</h2>
         </div>
       </div>
     </section>
@@ -1416,14 +1416,18 @@
           </button>
         </div>
         <div class="demo-preview">
-          <div class="card card--image" style="max-width: 400px;">
-            <img src="assets/images/placeholder.svg" alt="Услуга" class="card__image">
-            <div class="card__content">
-              <h3 class="card__title">Установка оборудования</h3>
-              <p class="card__text">Монтаж и настройка климатической техники любой сложности.</p>
-              <a href="#" class="btn btn--primary">Заказать</a>
+          <article class="card card--with-image" style="max-width: 400px;">
+            <div class="image-ratio image-ratio--16-9">
+              <img src="assets/images/placeholder.svg" alt="Команда профессионалов" class="image-ratio__img" loading="lazy">
             </div>
-          </div>
+            <div class="card__body">
+              <h3 class="card__title">Работа в команде</h3>
+              <p class="card__description">
+                Объединяем лучших специалистов для решения ваших задач. Каждый проект получает персональную команду экспертов
+              </p>
+              <a href="#" class="btn btn--primary">Смотреть портфолио</a>
+            </div>
+          </article>
         </div>
       </div>
 
@@ -1589,7 +1593,7 @@
               <p class="text text--sm" style="text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Tagline</p>
               <h3 class="heading heading--h4">Medium length section heading goes here</h3>
               <p class="text text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-              <a href="#" class="btn btn--link">
+              <a href="#" class="btn btn--link btn--align-left">
                 Button
                 <i class="ri-arrow-right-line" aria-hidden="true"></i>
               </a>
@@ -1619,7 +1623,7 @@
               <p class="text text--sm" style="text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Tagline</p>
               <h3 class="heading heading--h4">Medium length section heading goes here</h3>
               <p class="text text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-              <a href="#" class="btn btn--link">
+              <a href="#" class="btn btn--link btn--align-left">
                 Button
                 <i class="ri-arrow-right-line" aria-hidden="true"></i>
               </a>
@@ -3716,9 +3720,153 @@
   <script src="js/main.js"></script>
 
   <script>
-    // Copy ID to clipboard
+    // Get element path based on ID
+    function getElementPath(id) {
+      // Category mapping based on element structure
+      const categoryMap = {
+        // Buttons
+        'button': 'buttons/button',
+        'button-secondary': 'buttons/button-secondary',
+        'button-tertiary': 'buttons/button-tertiary',
+        'button-link': 'buttons/button-link',
+        'button-icon': 'buttons/button-icon',
+        'button-small': 'buttons/button-small',
+        'button-with-icon': 'buttons/button-with-icon',
+        'button-link-with-icon': 'buttons/button-link-with-icon',
+        'button-secondary-small': 'buttons/button-secondary-small',
+        'button-secondary-with-icon': 'buttons/button-secondary-with-icon',
+        'button-small-with-icon': 'buttons/button-small-with-icon',
+        'button-tertiary-small': 'buttons/button-tertiary-small',
+        'button-tertiary-with-icon': 'buttons/button-tertiary-with-icon',
+        'button-tertiary-small-with-icon': 'buttons/button-tertiary-small-with-icon',
+        'button-row-left': 'buttons/button-row-left',
+        'button-row-center': 'buttons/button-row-center',
+        'back-to-top': 'buttons/button-back-to-top',
+
+        // Forms
+        'input-text': 'forms/input-text',
+        'input-url': 'forms/input-url',
+        'input-search': 'forms/input-search',
+        'input-currency': 'forms/input-currency',
+        'input-with-icon': 'forms/input-with-icon',
+        'textarea': 'forms/textarea',
+        'select': 'forms/select',
+        'checkbox': 'forms/checkbox',
+        'checkbox-card': 'forms/checkbox-card',
+        'checkbox-toggle': 'forms/checkbox-toggle',
+        'radio': 'forms/radio',
+        'toggle': 'forms/toggle',
+        'toggle-description': 'forms/toggle-description',
+        'signup-form': 'forms/signup-form',
+
+        // Cards
+        'card-basic': 'cards/card-basic',
+        'card-with-image': 'cards/card-with-image',
+        'card-pricing': 'cards/card-pricing',
+        'card-horizontal-left': 'cards/card-horizontal-left',
+        'card-horizontal-right': 'cards/card-horizontal-right',
+        'card-vertical-top': 'cards/card-vertical-top',
+        'card-vertical-bottom': 'cards/card-vertical-bottom',
+        'card-compact-left': 'cards/card-compact-left',
+        'card-compact-right': 'cards/card-compact-right',
+        'card-icon': 'cards/card-icon',
+
+        // Navigation
+        'breadcrumb': 'navigation/breadcrumb',
+        'dropdown': 'navigation/dropdown',
+        'navbar-dropdown': 'navigation/navbar-dropdown',
+
+        // Pagination
+        'pagination-numbers': 'pagination/pagination-numbers',
+        'pagination-compact': 'pagination/pagination-compact',
+        'pagination-simple': 'pagination/pagination-simple',
+
+        // Accordions
+        'accordion-chevron': 'accordions/accordion-chevron',
+        'accordion-plus': 'accordions/accordion-plus',
+        'accordion-bordered': 'accordions/accordion-bordered',
+        'accordion-with-icons': 'accordions/accordion-with-icons',
+        'accordion-nested': 'accordions/accordion-nested',
+
+        // Tabs
+        'tabs-left-align': 'tabs/tabs-left-align',
+        'tabs-center-align': 'tabs/tabs-center-align',
+        'tabs-right-align': 'tabs/tabs-right-align',
+        'tabs-center-bordered': 'tabs/tabs-center-bordered',
+        'tabs-bottom-cards': 'tabs/tabs-bottom-cards',
+        'tabs-bottom-features': 'tabs/tabs-bottom-features',
+
+        // Modals
+        'modal-center': 'modals/modal-center',
+        'modal-drawer-demo': 'modals/modal-drawer',
+        'modal-fullscreen-demo': 'modals/modal-fullscreen',
+
+        // Tooltips
+        'tooltip': 'tooltips/tooltip',
+
+        // Media
+        'image-ratios': 'media/image-ratios',
+        'image-shapes': 'media/image-shapes',
+        'image-overlay': 'media/image-overlay',
+        'image-caption': 'media/image-caption',
+
+        // Lists
+        'list-with-icons': 'lists/list-with-icons',
+
+        // Social
+        'social-icons-1': 'social/social-icons-1',
+        'social-icons-2': 'social/social-icons-2',
+
+        // Loaders
+        'spinner': 'loaders/spinner',
+
+        // Grid
+        'grid-2-cols': 'grid/grid-2-cols',
+        'grid-3-cols': 'grid/grid-3-cols',
+        'grid-4-cols': 'grid/grid-4-cols',
+
+        // Typography
+        'heading-1': 'typography/heading-1',
+        'heading-2': 'typography/heading-2',
+        'heading-3': 'typography/heading-3',
+        'heading-4': 'typography/heading-4',
+        'heading-5': 'typography/heading-5',
+        'heading-6': 'typography/heading-6',
+        'heading-alignment': 'demo-elements.html#heading-alignment',
+        'text': 'typography/text',
+        'text-large': 'typography/text-large',
+        'text-small': 'typography/text-small',
+        'text-muted': 'typography/text-muted',
+        'lead': 'typography/lead',
+
+        // Sliders
+        'slider-1': 'sliders/slider-1',
+        'slider-2': 'sliders/slider-2',
+        'slider-3': 'sliders/slider-3',
+        'slider-4': 'sliders/slider-4',
+        'slider-carousel': 'sliders/slider-carousel',
+      };
+
+      const path = categoryMap[id];
+      if (path) {
+        // Special case for demo-only items
+        if (path.startsWith('demo-elements.html')) {
+          return path;
+        }
+        return `library/elements/${path}/`;
+      }
+
+      // Fallback
+      return `library/demo-elements.html#${id}`;
+    }
+
+    // Copy ID to clipboard with path
     function copyID(id) {
-      navigator.clipboard.writeText(id).then(() => {
+      // Create text with ID and path
+      const elementPath = getElementPath(id);
+      const textToCopy = `${id}\n${elementPath}`;
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
         // Find button that was clicked
         const btn = event.target.closest('.demo-copy-btn');
         const originalHTML = btn.innerHTML;

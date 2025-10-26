@@ -31,7 +31,7 @@
 }
 
 .dropdown__trigger:focus {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--border-dark);
   outline-offset: 2px;
 }
 
@@ -82,11 +82,10 @@
 
 .dropdown__item:hover {
   background: var(--bg-section);
-  color: var(--primary);
 }
 
 .dropdown__item:focus {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--border-dark);
   outline-offset: -2px;
 }
 
@@ -96,7 +95,7 @@
 }
 
 .dropdown--bordered .dropdown__trigger:hover {
-  border-color: var(--primary);
+  border-color: var(--border-dark);
 }
 
 /* Responsive adjustments */

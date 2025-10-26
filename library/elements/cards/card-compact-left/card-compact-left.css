@@ -5,8 +5,8 @@
   grid-template-columns: 1fr auto;
   gap: var(--space-4);
   padding: var(--space-5);
-  background: var(--bg-card, #ffffff);
-  border: 1px solid var(--border, hsl(220, 10%, 90%));
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   align-items: center;
 }

@@ -167,7 +167,7 @@
 
 .navbar-dropdown__grid-item:hover {
   background: var(--primary);
-  color: white;
+  color: var(--text-on-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -178,7 +178,7 @@
 }
 
 .navbar-dropdown__grid-item:hover .navbar-dropdown__grid-icon {
-  color: white;
+  color: var(--text-on-primary);
 }
 
 .navbar-dropdown__grid-content {
@@ -194,7 +194,7 @@
 }
 
 .navbar-dropdown__grid-item:hover .navbar-dropdown__grid-title {
-  color: white;
+  color: var(--text-on-primary);
 }
 
 .navbar-dropdown__grid-desc {
@@ -204,7 +204,7 @@
 }
 
 .navbar-dropdown__grid-item:hover .navbar-dropdown__grid-desc {
-  color: rgba(255, 255, 255, 0.9);
+  color: hsl(0, 0%, 100%, 0.9);
 }
 
 /* ================================
@@ -277,7 +277,7 @@
 
 .navbar-dropdown__sidebar-link--active {
   background: var(--primary);
-  color: white;
+  color: var(--text-on-primary);
   font-weight: var(--font-medium);
 }
 
@@ -316,7 +316,7 @@
 
 .navbar-dropdown__compact-item:hover {
   background: var(--primary);
-  color: white;
+  color: var(--text-on-primary);
   transform: scale(1.05);
 }
 
@@ -326,7 +326,7 @@
 }
 
 .navbar-dropdown__compact-item:hover .navbar-dropdown__compact-icon {
-  color: white;
+  color: var(--text-on-primary);
 }
 
 .navbar-dropdown__compact-text {
@@ -336,7 +336,7 @@
 }
 
 .navbar-dropdown__compact-item:hover .navbar-dropdown__compact-text {
-  color: white;
+  color: var(--text-on-primary);
 }
 
 /* ================================
@@ -397,7 +397,7 @@
 
 .navbar-dropdown__category-item:hover {
   background: var(--primary);
-  color: white;
+  color: var(--text-on-primary);
   cursor: pointer;
 }
 
@@ -415,8 +415,8 @@
 }
 
 .navbar-dropdown__category-item:hover .navbar-dropdown__category-icon {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: hsl(0, 0%, 100%, 0.2);
+  color: var(--text-on-primary);
 }
 
 .navbar-dropdown__category-info {
@@ -432,7 +432,7 @@
 }
 
 .navbar-dropdown__category-item:hover .navbar-dropdown__category-name {
-  color: white;
+  color: var(--text-on-primary);
 }
 
 .navbar-dropdown__category-desc {
@@ -442,7 +442,7 @@
 }
 
 .navbar-dropdown__category-item:hover .navbar-dropdown__category-desc {
-  color: rgba(255, 255, 255, 0.9);
+  color: hsl(0, 0%, 100%, 0.9);
 }
 
 /* ================================

@@ -1,6 +1,13 @@
 /**
  * Card with Image — Card with image header
  * Used for blog posts, portfolio items, case studies
+ *
+ * Uses ready-made components:
+ * - .card (from main.css)
+ * - .card__body (from main.css - already has gap: var(--space-3))
+ * - .card__title, .card__description (from main.css)
+ * - .image-ratio (from media/image-ratios)
+ * - .btn (from main.css)
  */
 
 .card--with-image {
@@ -9,22 +16,26 @@
   overflow: hidden;
 }
 
-.card__image {
-  /* Layout */
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-
-  /* Visual */
-  display: block;
+.card--with-image .image-ratio {
+  /* Fix border radius for image - rounded top corners only */
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
 }
 
-.card__content {
+.card--with-image .card__body {
   /* Layout */
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 
   /* Spacing */
-  padding: var(--space-8);
+  padding: var(--space-6);
+}
+
+.card--with-image .card__title {
+  margin: 0;
+}
+
+.card--with-image .card__description {
+  margin: 0;
 }

@@ -56,7 +56,7 @@
   right: var(--space-3);
   padding: var(--space-2) var(--space-4);
   background: var(--primary);
-  color: white;
+  color: var(--text-on-dark);
   font-size: var(--font-size-2);
   font-weight: var(--font-bold);
   text-transform: uppercase;

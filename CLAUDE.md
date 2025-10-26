@@ -70,6 +70,11 @@ head -50 library/demo-elements.html
 open library/demo-elements.html
 # Then use browser DevTools (Cmd+Option+I)
 # Test breakpoints: 320px, 768px, 1024px, 1440px
+
+# Update element path mapping (after adding new element)
+# Edit demo-elements.html → find getElementPath() function
+# Add new entry in categoryMap object:
+# 'element-id': 'category/element-name',
 ```
 
 ---
@@ -79,6 +84,7 @@ open library/demo-elements.html
 - **Frontend:** HTML5, CSS3 (Grid/Flexbox), Vanilla JavaScript ES6+
 - **Icons:** [Remix Icon](https://github.com/Remix-Design/RemixIcon) (2800+ open-source)
 - **Base Classes:** `library/styles/main.css` (buttons, typography, forms, cards, etc.)
+- **Utility Classes:** Alignment utilities (text-left/center/right, btn--align-*, flexbox, gap, display)
 - **Design System:** CSS Variables in `library/styles/variables.css`
 - **Automation:** None (manual development, full control)
 - **No Frameworks:** Pure HTML/CSS/JS
@@ -275,9 +281,46 @@ Future templates:
    4. **Добавь CSS линк** в `<head>` секцию `demo-elements.html`
    5. **Добавь в navigation** в sidebar `demo-elements.html`
    6. **Добавь demo** в соответствующую секцию `demo-elements.html`
-   7. **Тест** — открой `demo-elements.html` в браузере
+   7. **ОБНОВИТЬ маппинг элементов** (ВАЖНО!) — см. ниже
+   8. **Тест** — открой `demo-elements.html` в браузере
 
-**Почему это важно:**
+**4. ОБЯЗАТЕЛЬНО: Обновление маппинга элементов для Copy ID**
+
+После добавления нового элемента в `demo-elements.html`, нужно обновить функцию `getElementPath()` в том же файле (внизу, перед `</body>`):
+
+```javascript
+// Найди функцию getElementPath(id) в demo-elements.html
+// Добавь новый элемент в соответствующую категорию:
+
+const categoryMap = {
+  // Например, добавляешь новую кнопку
+  'button-gradient': 'buttons/button-gradient',  // <-- добавь эту строку
+
+  // Или новую карточку
+  'card-testimonial': 'cards/card-testimonial',  // <-- добавь эту строку
+};
+```
+
+**Формат записи:**
+- **Ключ:** ID элемента (из `<div id="element-id">`)
+- **Значение:** путь относительно `library/elements/`
+
+**Пример:**
+```javascript
+// Для элемента library/elements/buttons/button-gradient/
+'button-gradient': 'buttons/button-gradient',
+
+// Для элемента library/elements/cards/card-testimonial/
+'card-testimonial': 'cards/card-testimonial',
+```
+
+**Почему обновление маппинга важно:**
+- ✅ Кнопка "Copy ID" будет копировать полный путь к элементу
+- ✅ Пользователь (или Claude) сразу понимает, где находится элемент
+- ✅ Формат: `element-id\nlibrary/elements/category/element-name/`
+- ✅ Без маппинга копируется только ID — нет контекста
+
+**Почему Component Reuse Philosophy важна:**
 - 🎯 **Гибкость** — можем переиспользовать элементы везде
 - 🚀 **Скорость** — не изобретаем велосипед каждый раз
 - 🔧 **Поддержка** — изменения в `main.css` применяются везде автоматически
@@ -306,6 +349,87 @@ Future templates:
 - Use design-system variables: `var(--primary)`, `var(--text)`, `var(--space-4)`
 - HSL format: `hsl(220, 90%, 56%)`
 - Mobile-first breakpoints: 320px, 768px, 1024px, 1440px
+
+---
+
+### 🎨 NESTED BORDER RADIUS — CRITICAL RULE
+
+**When an element with border-radius is inside a container with padding, the inner element MUST use a smaller radius to look visually correct.**
+
+**Formula:**
+```
+innerRadius = outerRadius - padding
+```
+
+**Example:**
+```css
+.card {
+  border-radius: var(--radius-md);  /* 8px */
+  padding: var(--space-4);          /* 16px */
+}
+
+.card__image {
+  /* If image touches card edge, calculate nested radius */
+  border-radius: calc(var(--radius-md) - var(--space-4));  /* 8px - 16px = -8px (can't be negative!) */
+  /* In this case, image should NOT touch edges, or use predefined nested variable */
+}
+```
+
+**Pre-defined Nested Radius Variables:**
+
+Use these variables from `library/styles/variables.css`:
+
+```css
+/* Nested Border Radius Variables */
+--radius-nested-2: calc(var(--radius-sm) - var(--space-1));   /* 4px - 4px = 2px */
+--radius-nested-4: calc(var(--radius-md) - var(--space-1));   /* 8px - 4px = 4px */
+--radius-nested-6: calc(var(--radius-md) - var(--space-2));   /* 8px - 8px = 6px */
+--radius-nested-8: calc(var(--radius-lg) - var(--space-1));   /* 12px - 4px = 8px */
+--radius-nested-10: calc(var(--radius-lg) - var(--space-2));  /* 12px - 8px = 10px */
+--radius-nested-12: calc(var(--radius-xl) - var(--space-1));  /* 16px - 4px = 12px */
+```
+
+**When to use:**
+- ✅ Images touching parent edges (card images, thumbnails)
+- ✅ Nested cards inside larger cards
+- ✅ Any element that visually touches the container's rounded corners
+- ❌ Buttons inside cards (they don't touch edges, use standard `--radius-sm`)
+- ❌ Text content (no border-radius needed)
+
+**Real Example:**
+
+```css
+/* Card with medium radius and small padding */
+.card--image {
+  border-radius: var(--radius-md);  /* 8px */
+  padding: var(--space-2);          /* 8px */
+}
+
+/* Image inside card, touching top edge */
+.card--image .image-ratio {
+  border-radius: var(--radius-nested-6) var(--radius-nested-6) 0 0;  /* Top corners: 6px */
+  /* Formula: 8px outer - 8px padding = 0, but we use minimum 6px for visual balance */
+}
+```
+
+**Best Practice:**
+1. **Check padding** of parent container
+2. **Check border-radius** of parent container
+3. **Calculate or use predefined** nested radius variable
+4. **Apply to inner element** that touches parent edges
+
+**Resources:**
+- [Perfect Nested Border Radius](https://www.30secondsofcode.org/css/s/nested-border-radius/)
+- [CSS-Tricks: Nested Border-Radii](https://css-tricks.com/public-service-announcement-careful-with-your-nested-border-radii/)
+
+**Utility Classes (IMPORTANT):**
+- **ALWAYS use utility classes for alignment** instead of creating custom styles
+- Text alignment: `.text-left`, `.text-center`, `.text-right`
+- Button alignment: `.btn--align-left`, `.btn--align-center`, `.btn--align-right`
+- Flexbox: `.flex`, `.flex-col`, `.justify-center`, `.items-center`, `.gap-4`
+- Display: `.block`, `.inline-block`, `.hidden`
+- Width: `.w-full`, `.w-auto`
+- See full list in `library/styles/main.css` (Alignment Utilities section)
 
 ---
 

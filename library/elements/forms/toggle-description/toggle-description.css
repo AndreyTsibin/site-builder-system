@@ -65,7 +65,7 @@
   height: 1.25rem;
   background-color: var(--bg-card);
   border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   transition: transform var(--transition-base);
 }
 

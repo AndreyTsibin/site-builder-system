@@ -51,9 +51,19 @@
   --error: hsl(4, 90%, 58%);        /* Errors */
   --info: hsl(200, 98%, 48%);       /* Info messages */
 
-  /* ===== UI Elements ===== */
-  --border: hsl(0, 0%, 80%);        /* Borders, dividers */
+  /* ===== Borders ===== */
+  --border: hsl(0, 0%, 80%);        /* Default borders, dividers */
   --border-subtle: hsl(0, 0%, 85%); /* Subtle borders, light dividers */
+  --border-dark: hsl(0, 0%, 20%);   /* Dark borders (on light backgrounds) */
+  --border-light: hsl(0, 0%, 90%);  /* Light borders (on dark backgrounds) */
+
+  /* Transparent borders (for overlays, special effects) */
+  --border-transparent-light: hsl(0, 0%, 100%, 0.1);  /* Semi-transparent white border */
+  --border-transparent-dark: hsl(0, 0%, 0%, 0.1);     /* Semi-transparent black border */
+
+  /* Special UI element colors */
+  --bg-tooltip-simple: hsl(0, 0%, 0%);   /* Black background for simple tooltips */
+  --text-tooltip-simple: hsl(0, 0%, 100%);  /* White text for simple tooltips */
 
   /* ===== Shadows (3D Effect with Inset Highlight) ===== */
   /* Based on professional UI design: combines inset white highlight + layered black shadows */
@@ -124,6 +134,16 @@
   --radius-xl: 1rem;     /* 16px — large containers */
   --radius-full: 9999px; /* Circular elements (avatars, badges, pills) */
 
+  /* Nested Border Radius — for elements inside containers with padding */
+  /* Formula: innerRadius = outerRadius - padding */
+  /* Use these for images, nested cards, or any element touching the parent's edge */
+  --radius-nested-2: calc(var(--radius-sm) - var(--space-1));   /* 4px - 4px = 0 → use 2px minimum */
+  --radius-nested-4: calc(var(--radius-md) - var(--space-1));   /* 8px - 4px = 4px */
+  --radius-nested-6: calc(var(--radius-md) - var(--space-2));   /* 8px - 8px = 0 → use 6px minimum */
+  --radius-nested-8: calc(var(--radius-lg) - var(--space-1));   /* 12px - 4px = 8px */
+  --radius-nested-10: calc(var(--radius-lg) - var(--space-2));  /* 12px - 8px = 4px → use 10px */
+  --radius-nested-12: calc(var(--radius-xl) - var(--space-1));  /* 16px - 4px = 12px */
+
   /* ===== Transitions ===== */
   --transition-fast: 150ms ease-in-out;  /* Quick interactions (hover, focus) */
   --transition-base: 250ms ease-in-out;  /* Standard transitions (buttons, links) */
@@ -181,9 +201,19 @@
   --error: hsl(4, 90%, 58%);
   --info: hsl(200, 98%, 48%);
 
-  /* ===== UI Elements ===== */
-  --border: hsl(0, 0%, 20%);
-  --border-subtle: hsl(0, 0%, 15%);
+  /* ===== Borders ===== */
+  --border: hsl(0, 0%, 20%);        /* Default borders, dividers */
+  --border-subtle: hsl(0, 0%, 15%); /* Subtle borders, darker dividers */
+  --border-dark: hsl(0, 0%, 10%);   /* Very dark borders */
+  --border-light: hsl(0, 0%, 30%);  /* Lighter borders (more visible on dark bg) */
+
+  /* Transparent borders (for overlays, special effects) */
+  --border-transparent-light: hsl(0, 0%, 100%, 0.1);  /* Semi-transparent white border */
+  --border-transparent-dark: hsl(0, 0%, 0%, 0.1);     /* Semi-transparent black border */
+
+  /* Special UI element colors */
+  --bg-tooltip-simple: hsl(0, 0%, 0%);   /* Black background for simple tooltips */
+  --text-tooltip-simple: hsl(0, 0%, 100%);  /* White text for simple tooltips */
 
   /* ===== Shadows (3D Effect with Inset Highlight) ===== */
   /* Same values as light theme - universal shadow system */

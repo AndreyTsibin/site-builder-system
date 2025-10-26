@@ -53,8 +53,8 @@
 }
 
 .btn__spinner .spinner__circle {
-  border-color: rgba(255, 255, 255, 0.3);
-  border-top-color: #fff;
+  border-color: var(--border-transparent-light);
+  border-top-color: var(--text-on-primary);
 }
 
 .btn--loading .btn__text {
@@ -63,8 +63,8 @@
 
 /* Inverted spinner (for dark backgrounds) */
 .spinner--inverted .spinner__circle {
-  border-color: rgba(255, 255, 255, 0.2);
-  border-top-color: #fff;
+  border-color: var(--border-transparent-light);
+  border-top-color: var(--text-on-dark);
 }
 
 /* Page Loader Overlay */
@@ -80,7 +80,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-4);
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--bg-popup);
   backdrop-filter: blur(4px);
 }
 

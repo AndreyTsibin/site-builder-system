@@ -17,7 +17,7 @@
 }
 
 .accordion__item--bordered:hover {
-  border-color: var(--primary);
+  border-color: var(--border-dark);
 }
 
 /* Override trigger padding for bordered variant */

@@ -1,6 +1,6 @@
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-page) 100%);
   padding: var(--space-16) 0;
   overflow: hidden;
 }
@@ -75,7 +75,7 @@
   width: 100%;
   height: auto;
   border-radius: var(--radius-lg);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-xl);
   object-fit: cover;
 }
 

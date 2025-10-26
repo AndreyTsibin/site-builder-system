@@ -54,8 +54,8 @@
   left: 0;
   right: 0;
   padding: var(--space-5) var(--space-4);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
-  color: white;
+  background: linear-gradient(to top, hsl(0, 0%, 0%, 0.85), transparent);
+  color: var(--text-on-dark);
   text-align: center;
   z-index: 10;
 }
