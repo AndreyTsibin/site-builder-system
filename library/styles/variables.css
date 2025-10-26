@@ -28,6 +28,12 @@
   --bg-card: hsl(0, 0%, 97%);       /* Cards, content blocks */
   --bg-popup: hsl(0, 0%, 100%);     /* Modals, dropdowns, tooltips */
 
+  /* Button backgrounds */
+  --bg-btn-primary: hsl(0, 0%, 10%);      /* Primary button background (dark) */
+  --bg-btn-primary-hover: hsl(0, 0%, 20%); /* Primary button hover state */
+  --bg-btn-secondary: transparent;         /* Secondary button background */
+  --bg-btn-tertiary: transparent;          /* Tertiary button background */
+
   /* ===== Text Colors ===== */
   --text-body: hsl(0, 0%, 10%);     /* Main body text, paragraphs */
   --text-muted: hsl(0, 0%, 40%);    /* Secondary text, descriptions */
@@ -151,6 +157,12 @@
   --bg-section: hsl(0, 0%, 3%);     /* Section backgrounds */
   --bg-card: hsl(0, 0%, 7%);        /* Cards, content blocks */
   --bg-popup: hsl(0, 0%, 10%);      /* Modals, dropdowns, tooltips */
+
+  /* Button backgrounds */
+  --bg-btn-primary: hsl(0, 0%, 90%);      /* Primary button background (light on dark) */
+  --bg-btn-primary-hover: hsl(0, 0%, 100%); /* Primary button hover state */
+  --bg-btn-secondary: transparent;         /* Secondary button background */
+  --bg-btn-tertiary: transparent;          /* Tertiary button background */
 
   /* ===== Text Colors ===== */
   --text-body: hsl(0, 0%, 90%);     /* Main body text, paragraphs */

@@ -1,17 +1,18 @@
 /**
- * Button Secondary — Secondary actions
- * Used for less important actions
+ * Button Secondary — Transparent button with border
+ * Secondary actions, less prominent than primary
  */
 
 .btn--secondary {
   /* Colors */
-  background-color: var(--secondary);
-  color: var(--text-on-primary);
-  box-shadow: var(--shadow-sm);
+  background-color: var(--bg-btn-secondary);
+  color: var(--text-body);
+  border: 1px solid var(--text-body);
 
   /* Hover state */
   &:hover {
-    background-color: hsl(280, 60%, 52%);
+    background-color: var(--bg-btn-primary);
+    color: var(--text-on-primary);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }
@@ -24,16 +25,20 @@
 
   /* Focus state (keyboard navigation) */
   &:focus-visible {
-    outline: 2px solid var(--secondary);
+    outline: 2px solid var(--text-body);
     outline-offset: 4px;
   }
 
   /* Disabled state */
   &:disabled {
-    background-color: var(--border);
+    border-color: var(--border);
     color: var(--text-disabled);
-    cursor: not-allowed;
     transform: none;
     box-shadow: none;
+  }
+
+  &:disabled:hover {
+    background-color: var(--bg-btn-secondary);
+    color: var(--text-disabled);
   }
 }

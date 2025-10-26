@@ -1,0 +1,11 @@
+/**
+ * Button Small — Small primary button
+ * Uses .btn--sm modifier from main.css for size
+ * Uses .btn--primary for colors
+ */
+
+/* No additional styles needed - using base classes:
+   .btn (base button styles)
+   .btn--sm (small size from main.css)
+   .btn--primary (primary colors)
+*/

@@ -1,0 +1,11 @@
+/**
+ * Button With Icon — Primary button with icon
+ * Uses base .btn--primary styles with icon inside
+ * Icon spacing handled by .btn gap property
+ */
+
+/* No additional styles needed - using base classes:
+   .btn (base button with gap for icon spacing)
+   .btn--primary (primary colors)
+   Icon positioned via flexbox gap
+*/

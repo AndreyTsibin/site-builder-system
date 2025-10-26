@@ -16,12 +16,15 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css">
 
   <!-- Element Styles -->
-  <link rel="stylesheet" href="elements/buttons/button-primary/button-primary.css">
+  <link rel="stylesheet" href="elements/buttons/button/button.css">
   <link rel="stylesheet" href="elements/buttons/button-secondary/button-secondary.css">
-  <link rel="stylesheet" href="elements/buttons/button-outline/button-outline.css">
-  <link rel="stylesheet" href="elements/buttons/button-ghost/button-ghost.css">
+  <link rel="stylesheet" href="elements/buttons/button-tertiary/button-tertiary.css">
+  <link rel="stylesheet" href="elements/buttons/button-link/button-link.css">
+  <link rel="stylesheet" href="elements/buttons/button-row-left/button-row-left.css">
+  <link rel="stylesheet" href="elements/buttons/button-row-center/button-row-center.css">
   <link rel="stylesheet" href="elements/forms/input-text/input-text.css">
   <link rel="stylesheet" href="elements/forms/textarea/textarea.css">
   <link rel="stylesheet" href="elements/forms/select/select.css">
@@ -161,40 +164,202 @@
     <section class="demo-section">
       <h2>🔘 Кнопки (Buttons)</h2>
 
-      <div class="demo-item" id="button-primary">
-        <h3>Primary Button</h3>
-        <span class="demo-id">ID: button-primary</span>
+      <div class="demo-item" id="button">
+        <h3>Button</h3>
+        <span class="demo-id">ID: button</span>
         <div class="demo-preview">
-          <button class="btn btn--primary">Заказать звонок</button>
+          <button class="btn btn--primary">Button</button>
         </div>
-        <div class="demo-code">&lt;button class="btn btn--primary"&gt;Заказать звонок&lt;/button&gt;</div>
+        <div class="demo-code">&lt;button class="btn btn--primary"&gt;Button&lt;/button&gt;</div>
       </div>
 
       <div class="demo-item" id="button-secondary">
-        <h3>Secondary Button</h3>
+        <h3>Button Secondary</h3>
         <span class="demo-id">ID: button-secondary</span>
         <div class="demo-preview">
-          <button class="btn btn--secondary">Узнать больше</button>
+          <button class="btn btn--secondary">Button</button>
         </div>
-        <div class="demo-code">&lt;button class="btn btn--secondary"&gt;Узнать больше&lt;/button&gt;</div>
+        <div class="demo-code">&lt;button class="btn btn--secondary"&gt;Button&lt;/button&gt;</div>
       </div>
 
-      <div class="demo-item" id="button-outline">
-        <h3>Outline Button</h3>
-        <span class="demo-id">ID: button-outline</span>
+      <div class="demo-item" id="button-tertiary">
+        <h3>Button Tertiary</h3>
+        <span class="demo-id">ID: button-tertiary</span>
         <div class="demo-preview">
-          <button class="btn btn--outline">Посмотреть примеры</button>
+          <button class="btn btn--tertiary">Button</button>
         </div>
-        <div class="demo-code">&lt;button class="btn btn--outline"&gt;Посмотреть примеры&lt;/button&gt;</div>
+        <div class="demo-code">&lt;button class="btn btn--tertiary"&gt;Button&lt;/button&gt;</div>
       </div>
 
-      <div class="demo-item" id="button-ghost">
-        <h3>Ghost Button</h3>
-        <span class="demo-id">ID: button-ghost</span>
+      <div class="demo-item" id="button-small">
+        <h3>Button Small</h3>
+        <span class="demo-id">ID: button-small</span>
         <div class="demo-preview">
-          <button class="btn btn--ghost">Отмена</button>
+          <button class="btn btn--primary btn--sm">Button</button>
         </div>
-        <div class="demo-code">&lt;button class="btn btn--ghost"&gt;Отмена&lt;/button&gt;</div>
+        <div class="demo-code">&lt;button class="btn btn--primary btn--sm"&gt;Button&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-secondary-small">
+        <h3>Button Secondary Small</h3>
+        <span class="demo-id">ID: button-secondary-small</span>
+        <div class="demo-preview">
+          <button class="btn btn--secondary btn--sm">Button</button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--secondary btn--sm"&gt;Button&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-tertiary-small">
+        <h3>Button Tertiary Small</h3>
+        <span class="demo-id">ID: button-tertiary-small</span>
+        <div class="demo-preview">
+          <button class="btn btn--tertiary btn--sm">Button</button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--tertiary btn--sm"&gt;Button&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-link">
+        <h3>Button Link</h3>
+        <span class="demo-id">ID: button-link</span>
+        <div class="demo-preview">
+          <a href="#" class="btn btn--link">Button</a>
+        </div>
+        <div class="demo-code">&lt;a href="#" class="btn btn--link"&gt;Button&lt;/a&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-row-left">
+        <h3>Button Row Align Left</h3>
+        <span class="demo-id">ID: button-row-left</span>
+        <div class="demo-preview">
+          <div class="btn-row btn-row--left">
+            <button class="btn btn--primary">Button</button>
+            <button class="btn btn--secondary">Button</button>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="btn-row btn-row--left"&gt;
+  &lt;button class="btn btn--primary"&gt;Button&lt;/button&gt;
+  &lt;button class="btn btn--secondary"&gt;Button&lt;/button&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-row-center">
+        <h3>Button Row Align Center</h3>
+        <span class="demo-id">ID: button-row-center</span>
+        <div class="demo-preview">
+          <div class="btn-row btn-row--center">
+            <button class="btn btn--primary">Button</button>
+            <button class="btn btn--secondary">Button</button>
+          </div>
+        </div>
+        <div class="demo-code">&lt;div class="btn-row btn-row--center"&gt;
+  &lt;button class="btn btn--primary"&gt;Button&lt;/button&gt;
+  &lt;button class="btn btn--secondary"&gt;Button&lt;/button&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-with-icon">
+        <h3>Button With Icon</h3>
+        <span class="demo-id">ID: button-with-icon</span>
+        <div class="demo-preview">
+          <button class="btn btn--primary">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--primary"&gt;
+  &lt;i class="ri-arrow-right-line" aria-hidden="true"&gt;&lt;/i&gt;
+  Button
+&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-secondary-with-icon">
+        <h3>Button Secondary With Icon</h3>
+        <span class="demo-id">ID: button-secondary-with-icon</span>
+        <div class="demo-preview">
+          <button class="btn btn--secondary">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--secondary"&gt;
+  &lt;i class="ri-arrow-right-line" aria-hidden="true"&gt;&lt;/i&gt;
+  Button
+&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-tertiary-with-icon">
+        <h3>Button Tertiary With Icon</h3>
+        <span class="demo-id">ID: button-tertiary-with-icon</span>
+        <div class="demo-preview">
+          <button class="btn btn--tertiary">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--tertiary"&gt;
+  &lt;i class="ri-arrow-right-line" aria-hidden="true"&gt;&lt;/i&gt;
+  Button
+&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-link-with-icon">
+        <h3>Button Link With Icon</h3>
+        <span class="demo-id">ID: button-link-with-icon</span>
+        <div class="demo-preview">
+          <a href="#" class="btn btn--link">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </a>
+        </div>
+        <div class="demo-code">&lt;a href="#" class="btn btn--link"&gt;
+  &lt;i class="ri-arrow-right-line" aria-hidden="true"&gt;&lt;/i&gt;
+  Button
+&lt;/a&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-small-with-icon">
+        <h3>Button Small With Icon</h3>
+        <span class="demo-id">ID: button-small-with-icon</span>
+        <div class="demo-preview">
+          <button class="btn btn--primary btn--sm">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--primary btn--sm"&gt;
+  &lt;i class="ri-arrow-right-line" aria-hidden="true"&gt;&lt;/i&gt;
+  Button
+&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-secondary-small-with-icon">
+        <h3>Button Secondary Small With Icon</h3>
+        <span class="demo-id">ID: button-secondary-small-with-icon</span>
+        <div class="demo-preview">
+          <button class="btn btn--secondary btn--sm">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--secondary btn--sm"&gt;
+  &lt;i class="ri-arrow-right-line" aria-hidden="true"&gt;&lt;/i&gt;
+  Button
+&lt;/button&gt;</div>
+      </div>
+
+      <div class="demo-item" id="button-tertiary-small-with-icon">
+        <h3>Button Tertiary Small With Icon</h3>
+        <span class="demo-id">ID: button-tertiary-small-with-icon</span>
+        <div class="demo-preview">
+          <button class="btn btn--tertiary btn--sm">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+        <div class="demo-code">&lt;button class="btn btn--tertiary btn--sm"&gt;
+  &lt;i class="ri-arrow-right-line" aria-hidden="true"&gt;&lt;/i&gt;
+  Button
+&lt;/button&gt;</div>
       </div>
     </section>
 
