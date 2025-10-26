@@ -9,8 +9,8 @@
 ## Диалог 1: Подготовка и очистка
 
 ### Этап 1.1: Коммит текущего состояния
-- [ ] Проверить git status
-- [ ] Создать коммит "chore: snapshot before restructuring"
+- [x] Проверить git status
+- [x] Создать коммит "chore: snapshot before restructuring"
 
 ### Этап 1.2: Удаление старых файлов
 - [ ] Удалить `scripts/` (вся папка)
