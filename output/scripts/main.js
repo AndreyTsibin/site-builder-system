@@ -7,6 +7,7 @@
  * - Smooth scroll
  * - Accordion
  * - Tabs
+ * - Dropdown
  * - Modal
  * - Form validation
  * - Lazy loading images
@@ -98,11 +99,11 @@ function initSmoothScroll() {
 
 /**
  * Initialize accordion
- * Usage: Add class "js-accordion" to container
- * Add class "js-accordion-trigger" to triggers
- * Add class "js-accordion-content" to content panels
+ * Usage (Old): Add class "js-accordion" to container
+ * Usage (New): Add data-accordion-trigger to buttons, data-accordion-panel to panels
  */
 function initAccordion() {
+  // Legacy accordion support (js-accordion classes)
   const accordions = document.querySelectorAll('.js-accordion');
 
   accordions.forEach(accordion => {
@@ -132,6 +133,29 @@ function initAccordion() {
       });
     });
   });
+
+  // New accordion support (data-accordion-trigger)
+  const newTriggers = document.querySelectorAll('[data-accordion-trigger]');
+
+  newTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const panel = trigger.nextElementSibling;
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Toggle current item
+      if (isOpen) {
+        // Close
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.setAttribute('data-accordion-open', 'false');
+        panel.style.maxHeight = null;
+      } else {
+        // Open
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.setAttribute('data-accordion-open', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
 }
 
 
@@ -141,14 +165,14 @@ function initAccordion() {
 
 /**
  * Initialize tabs
- * Usage: Add class "js-tabs" to container
- * Add class "js-tab-trigger" to tab buttons with data-tab="tab-id"
- * Add class "js-tab-content" to content panels with data-tab="tab-id"
+ * Usage (Old): Add class "js-tabs" to container
+ * Usage (New): Add data-tabs to container, data-tab-trigger to buttons, data-tab-panel to panels
  */
 function initTabs() {
-  const tabContainers = document.querySelectorAll('.js-tabs');
+  // Legacy tabs support (js-tabs classes)
+  const legacyTabContainers = document.querySelectorAll('.js-tabs');
 
-  tabContainers.forEach(container => {
+  legacyTabContainers.forEach(container => {
     const triggers = container.querySelectorAll('.js-tab-trigger');
 
     triggers.forEach(trigger => {
@@ -170,6 +194,126 @@ function initTabs() {
       });
     });
   });
+
+  // New tabs support (data-tabs)
+  const newTabContainers = document.querySelectorAll('[data-tabs]');
+
+  newTabContainers.forEach(container => {
+    const triggers = container.querySelectorAll('[data-tab-trigger]');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const tabId = trigger.getAttribute('data-tab-trigger');
+        const allTriggers = container.querySelectorAll('[data-tab-trigger]');
+        const allPanels = container.querySelectorAll('[data-tab-panel]');
+
+        // Remove active state from all
+        allTriggers.forEach(t => {
+          t.classList.remove('tabs__tab--active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        allPanels.forEach(p => {
+          p.classList.remove('tabs__panel--active');
+        });
+
+        // Add active state to current
+        trigger.classList.add('tabs__tab--active');
+        trigger.setAttribute('aria-selected', 'true');
+
+        const currentPanel = container.querySelector(`[data-tab-panel="${tabId}"]`);
+        if (currentPanel) {
+          currentPanel.classList.add('tabs__panel--active');
+        }
+      });
+    });
+  });
+}
+
+
+// ========================================
+// DROPDOWN
+// ========================================
+
+/**
+ * Initialize dropdowns
+ * Usage: Add data-dropdown to container
+ * Add data-dropdown-trigger to trigger button
+ * Add data-dropdown-menu to dropdown menu
+ */
+function initDropdown() {
+  const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+    const menu = dropdown.querySelector('[data-dropdown-menu]');
+
+    if (!trigger || !menu) return;
+
+    // Toggle dropdown
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = dropdown.hasAttribute('data-dropdown-active');
+
+      // Close all other dropdowns
+      document.querySelectorAll('[data-dropdown-active]').forEach(d => {
+        if (d !== dropdown) {
+          d.removeAttribute('data-dropdown-active');
+          const otherTrigger = d.querySelector('[data-dropdown-trigger]');
+          if (otherTrigger) {
+            otherTrigger.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      // Toggle current dropdown
+      if (isActive) {
+        dropdown.removeAttribute('data-dropdown-active');
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        dropdown.setAttribute('data-dropdown-active', '');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.removeAttribute('data-dropdown-active');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close dropdown on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdown.hasAttribute('data-dropdown-active')) {
+        dropdown.removeAttribute('data-dropdown-active');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus();
+      }
+    });
+
+    // Keyboard navigation for menu items
+    const menuItems = menu.querySelectorAll('a[role="menuitem"]');
+    menuItems.forEach((item, index) => {
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const nextItem = menuItems[index + 1] || menuItems[0];
+          nextItem.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prevItem = menuItems[index - 1] || menuItems[menuItems.length - 1];
+          prevItem.focus();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          menuItems[0].focus();
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          menuItems[menuItems.length - 1].focus();
+        }
+      });
+    });
+  });
 }
 
 
@@ -179,54 +323,59 @@ function initTabs() {
 
 /**
  * Initialize modals
- * Usage: Add class "js-modal-open" to trigger with data-modal="modal-id"
- * Add class "js-modal" to modal element with data-modal="modal-id"
- * Add class "js-modal-close" to close buttons inside modal
+ * Usage: Add data-modal-open="modal-id" to trigger button
+ * Add class "modal" to modal element with id="modal-id"
+ * Add data-modal-close to close buttons and overlay
  */
 function initModal() {
-  const triggers = document.querySelectorAll('.js-modal-open');
-  const modals = document.querySelectorAll('.js-modal');
+  const openButtons = document.querySelectorAll('[data-modal-open]');
+  const closeButtons = document.querySelectorAll('[data-modal-close]');
 
   // Open modal
-  triggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
+  openButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
       e.preventDefault();
-      const modalId = trigger.dataset.modal;
-      const modal = document.querySelector(`[data-modal="${modalId}"].js-modal`);
+      const modalId = button.getAttribute('data-modal-open');
+      const modal = document.getElementById(modalId);
 
       if (modal) {
-        modal.classList.add('is-open');
+        modal.classList.add('modal--active');
+        modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+
+        // Focus first focusable element
+        const focusableElements = modal.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length > 0) {
+          focusableElements[0].focus();
+        }
       }
     });
   });
 
   // Close modal
-  modals.forEach(modal => {
-    const closeButtons = modal.querySelectorAll('.js-modal-close');
-
-    closeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        modal.classList.remove('is-open');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // Close on overlay click
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('is-open');
+  closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal');
+      if (modal) {
+        modal.classList.remove('modal--active');
+        modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
       }
     });
+  });
 
-    // Close on ESC key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-        modal.classList.remove('is-open');
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const activeModal = document.querySelector('.modal--active');
+      if (activeModal) {
+        activeModal.classList.remove('modal--active');
+        activeModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
       }
-    });
+    }
   });
 }
 
@@ -351,6 +500,251 @@ function initLazyLoading() {
 
 
 // ========================================
+// SLIDERS
+// ========================================
+
+/**
+ * Initialize sliders
+ * Usage: Add data-slider="unique-id" to slider container
+ * Supports: single slide, multi-slide, and carousel layouts
+ */
+function initSliders() {
+  const sliders = document.querySelectorAll('[data-slider]');
+
+  sliders.forEach(slider => {
+    const track = slider.querySelector('.slider__track');
+    const slides = slider.querySelectorAll('.slider__slide');
+    const prevBtn = slider.querySelector('[data-slider-prev]');
+    const nextBtn = slider.querySelector('[data-slider-next]');
+    const dotsContainer = slider.querySelector('.slider__dots');
+
+    let currentIndex = 0;
+
+    // Check if this is a scrollable multi-slide slider
+    const isScrollable = track.classList.contains('slider__track--2-cols') ||
+                        track.classList.contains('slider__track--3-cols') ||
+                        track.classList.contains('slider__track--carousel');
+
+    // Initialize dots
+    if (dotsContainer && slides.length > 0) {
+      // Clear existing dots (for dynamic initialization)
+      dotsContainer.innerHTML = '';
+
+      // For scrollable sliders, create dots based on visible groups
+      const dotsCount = isScrollable ? Math.ceil(slides.length / getVisibleSlidesCount(slider)) : slides.length;
+
+      for (let i = 0; i < dotsCount; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'slider__dot';
+        if (i === 0) dot.classList.add('slider__dot--active');
+        dot.setAttribute('data-slider-dot', i);
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    // Get number of visible slides for multi-slide sliders
+    function getVisibleSlidesCount(slider) {
+      if (slider.classList.contains('slider--3-cols') ||
+          slider.classList.contains('slider--carousel-3')) {
+        return window.innerWidth < 768 ? 1 : (window.innerWidth < 1024 ? 2 : 3);
+      }
+      if (slider.classList.contains('slider--2-cols')) {
+        return window.innerWidth < 768 ? 1 : 2;
+      }
+      return 1;
+    }
+
+    // Navigate to specific slide
+    function goToSlide(index) {
+      if (isScrollable) {
+        // For scrollable sliders, scroll to position
+        const slideWidth = slides[0].offsetWidth;
+        const gap = parseInt(getComputedStyle(track).gap) || 0;
+        const visibleCount = getVisibleSlidesCount(slider);
+        const scrollPosition = index * (slideWidth + gap) * visibleCount;
+
+        track.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        // For single-slide sliders, toggle active class
+        slides.forEach(slide => slide.classList.remove('slider__slide--active'));
+        if (slides[index]) {
+          slides[index].classList.add('slider__slide--active');
+        }
+      }
+
+      currentIndex = index;
+      updateDots();
+      updateButtons();
+    }
+
+    // Update active dot
+    function updateDots() {
+      const dots = dotsContainer?.querySelectorAll('.slider__dot');
+      if (dots) {
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('slider__dot--active', i === currentIndex);
+        });
+      }
+    }
+
+    // Update button states
+    function updateButtons() {
+      // Buttons are always enabled for looped slider
+      // No disabled state needed
+    }
+
+    // Previous slide
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const maxIndex = isScrollable
+          ? Math.ceil(slides.length / getVisibleSlidesCount(slider)) - 1
+          : slides.length - 1;
+
+        if (currentIndex > 0) {
+          goToSlide(currentIndex - 1);
+        } else {
+          // Loop to last slide
+          goToSlide(maxIndex);
+        }
+      });
+    }
+
+    // Next slide
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const maxIndex = isScrollable
+          ? Math.ceil(slides.length / getVisibleSlidesCount(slider)) - 1
+          : slides.length - 1;
+
+        if (currentIndex < maxIndex) {
+          goToSlide(currentIndex + 1);
+        } else {
+          // Loop to first slide
+          goToSlide(0);
+        }
+      });
+    }
+
+    // Keyboard navigation
+    slider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevBtn?.click();
+      } else if (e.key === 'ArrowRight') {
+        nextBtn?.click();
+      }
+    });
+
+    // Update on scroll for scrollable sliders
+    if (isScrollable) {
+      let scrollTimeout;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          const slideWidth = slides[0].offsetWidth;
+          const gap = parseInt(getComputedStyle(track).gap) || 0;
+          const visibleCount = getVisibleSlidesCount(slider);
+          const scrollLeft = track.scrollLeft;
+          const newIndex = Math.round(scrollLeft / ((slideWidth + gap) * visibleCount));
+
+          if (newIndex !== currentIndex) {
+            currentIndex = newIndex;
+            updateDots();
+            updateButtons();
+          }
+        }, 100);
+      });
+    }
+
+    // Initialize
+    updateButtons();
+  });
+}
+
+
+// ========================================
+// TOOLTIPS
+// ========================================
+
+/**
+ * Initialize tooltips
+ * Usage: Add class "tooltip" to wrapper element
+ * Tooltips show on hover (desktop) and click (mobile)
+ */
+function initTooltips() {
+  const tooltips = document.querySelectorAll('.tooltip');
+
+  if (!tooltips.length) return;
+
+  tooltips.forEach(tooltip => {
+    const trigger = tooltip.querySelector('.tooltip__trigger');
+    const content = tooltip.querySelector('.tooltip__content');
+
+    if (!trigger || !content) return;
+
+    let hideTimeout;
+
+    // Show tooltip
+    const showTooltip = () => {
+      clearTimeout(hideTimeout);
+      tooltip.classList.add('is-active');
+    };
+
+    // Hide tooltip
+    const hideTooltip = () => {
+      hideTimeout = setTimeout(() => {
+        tooltip.classList.remove('is-active');
+      }, 100);
+    };
+
+    // Desktop: hover
+    trigger.addEventListener('mouseenter', showTooltip);
+    trigger.addEventListener('mouseleave', hideTooltip);
+    content.addEventListener('mouseenter', showTooltip);
+    content.addEventListener('mouseleave', hideTooltip);
+
+    // Mobile: click toggle
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = tooltip.classList.contains('is-active');
+
+      // Close all other tooltips
+      document.querySelectorAll('.tooltip.is-active').forEach(t => {
+        if (t !== tooltip) t.classList.remove('is-active');
+      });
+
+      // Toggle current
+      if (isActive) {
+        tooltip.classList.remove('is-active');
+      } else {
+        tooltip.classList.add('is-active');
+      }
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        tooltip.classList.remove('is-active');
+      }
+    });
+  });
+
+  // Close all tooltips when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.tooltip')) {
+      document.querySelectorAll('.tooltip.is-active').forEach(tooltip => {
+        tooltip.classList.remove('is-active');
+      });
+    }
+  });
+}
+
+
+// ========================================
 // INITIALIZE ALL
 // ========================================
 
@@ -362,9 +756,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initAccordion();
   initTabs();
+  initDropdown();
   initModal();
   initFormValidation();
   initLazyLoading();
+  initSliders();
+  initTooltips();
 
   console.log('Site Builder JS initialized ✅');
 });
