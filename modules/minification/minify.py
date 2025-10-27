@@ -1,13 +1,53 @@
 #!/usr/bin/env python3
 """
-CSS Minification Module
-Minifies CSS files by removing comments, whitespace, and unnecessary characters.
+CSS & JavaScript Minification Module
+Minifies CSS and JS files by removing comments, whitespace, and unnecessary characters.
 """
 
 import os
 import re
 import sys
 from pathlib import Path
+
+
+def minify_js(js_content):
+    """
+    Minify JavaScript content by removing comments, whitespace, and unnecessary characters.
+
+    Args:
+        js_content (str): Original JavaScript content
+
+    Returns:
+        str: Minified JavaScript content
+    """
+    # Remove single-line comments (// ...) but preserve URLs (http://, https://)
+    js_content = re.sub(r'(?<!:)//(?![/\s]).*?(?=\n|$)', '', js_content)
+    js_content = re.sub(r'(?<!:)//\s.*?(?=\n|$)', '', js_content)
+
+    # Remove multi-line comments (/* ... */)
+    js_content = re.sub(r'/\*[\s\S]*?\*/', '', js_content)
+
+    # Remove leading/trailing whitespace from lines
+    js_content = re.sub(r'^\s+', '', js_content, flags=re.MULTILINE)
+    js_content = re.sub(r'\s+$', '', js_content, flags=re.MULTILINE)
+
+    # Remove empty lines
+    js_content = re.sub(r'\n\s*\n', '\n', js_content)
+
+    # Remove spaces around operators and punctuation (conservative approach)
+    js_content = re.sub(r'\s*([{}();,:])\s*', r'\1', js_content)
+    js_content = re.sub(r'\s*([\[\]])\s*', r'\1', js_content)
+
+    # Remove spaces around = + - * / % operators (but keep for => and other special cases)
+    js_content = re.sub(r'(?<![=!<>+\-*/%])\s*([=+\-*/%])\s*(?![=])', r'\1', js_content)
+
+    # Remove newlines (keep semicolons as statement separators)
+    js_content = js_content.replace('\n', '')
+
+    # Clean up any remaining multiple spaces
+    js_content = re.sub(r' {2,}', ' ', js_content)
+
+    return js_content.strip()
 
 
 def minify_css(css_content):
@@ -58,11 +98,11 @@ def format_size(size_bytes):
 
 def minify_file(input_path, output_path=None):
     """
-    Minify a single CSS file.
+    Minify a single CSS or JavaScript file.
 
     Args:
-        input_path (str): Path to input CSS file
-        output_path (str, optional): Path to output file. If None, creates .min.css version
+        input_path (str): Path to input CSS or JS file
+        output_path (str, optional): Path to output file. If None, creates .min.css or .min.js version
 
     Returns:
         bool: True if successful, False otherwise
@@ -74,9 +114,19 @@ def minify_file(input_path, output_path=None):
         print(f"❌ Error: File not found: {input_path}")
         return False
 
+    # Determine file type and output extension
+    file_ext = input_file.suffix.lower()
+    is_js = file_ext == '.js'
+    is_css = file_ext == '.css'
+
+    if not (is_js or is_css):
+        print(f"❌ Error: Unsupported file type: {file_ext}")
+        return False
+
     # Determine output path
     if output_path is None:
-        output_file = input_file.parent / f"{input_file.stem}.min.css"
+        min_ext = '.min.js' if is_js else '.min.css'
+        output_file = input_file.parent / f"{input_file.stem}{min_ext}"
     else:
         output_file = Path(output_path)
 
@@ -85,8 +135,11 @@ def minify_file(input_path, output_path=None):
         with open(input_file, 'r', encoding='utf-8') as f:
             original_content = f.read()
 
-        # Minify content
-        minified_content = minify_css(original_content)
+        # Minify content based on file type
+        if is_js:
+            minified_content = minify_js(original_content)
+        else:
+            minified_content = minify_css(original_content)
 
         # Write minified file
         with open(output_file, 'w', encoding='utf-8') as f:
@@ -113,17 +166,20 @@ def minify_file(input_path, output_path=None):
 
 
 def main():
-    """Main function to minify CSS files."""
-    print("🚀 CSS Minification Module\n")
+    """Main function to minify CSS and JavaScript files."""
+    print("🚀 CSS & JavaScript Minification Module\n")
 
     # Get project root (2 levels up from this script)
     project_root = Path(__file__).parent.parent.parent
 
     # Define files to minify (only production output folder)
     files_to_minify = [
+        # CSS files
         project_root / "output/styles/reset.css",
         project_root / "output/styles/variables.css",
         project_root / "output/styles/main.css",
+        # JavaScript files
+        project_root / "output/scripts/main.js",
     ]
 
     # Check if specific file was provided as argument

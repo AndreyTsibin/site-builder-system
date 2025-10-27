@@ -257,7 +257,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ---
 
-## CSS MINIFICATION
+## CSS & JAVASCRIPT MINIFICATION
 
 **Production optimization for client deployment.**
 
@@ -270,38 +270,45 @@ python3 modules/minification/minify.py
 
 ### What Gets Minified
 
-**Only production files** (`output/styles/`):
+**Only production files** (`output/` folder):
+
+**CSS Files:**
 - `reset.css` → `reset.min.css` (64.6% reduction)
 - `variables.css` → `variables.min.css` (65.0% reduction)
 - `main.css` → `main.min.css` (33.5% reduction)
+
+**JavaScript Files:**
+- `main.js` → `main.min.js` (40.3% reduction)
 
 **Library files NOT minified** — kept readable for development.
 
 ### Workflow
 
-1. **Development:** Edit files in `library/styles/` or `output/styles/`
+1. **Development:** Edit files in `library/` or `output/`
 2. **Before deployment:** Run minification script
-3. **In HTML:** Use `.min.css` versions for production
+3. **In HTML:** Use `.min.css` and `.min.js` versions for production
 
 ```html
 <!-- Production -->
 <link rel="stylesheet" href="styles/reset.min.css">
 <link rel="stylesheet" href="styles/variables.min.css">
 <link rel="stylesheet" href="styles/main.min.css">
+<script src="scripts/main.min.js"></script>
 ```
 
 ### Features
 
+- Minifies CSS and JavaScript files
 - Removes comments and whitespace
 - No external dependencies (Python stdlib only)
-- Can minify specific files: `python3 modules/minification/minify.py path/to/file.css`
-- Shows compression statistics
+- Can minify specific files: `python3 modules/minification/minify.py path/to/file.js`
+- Shows compression statistics (33-65% reduction)
 
 ### When to Minify
 
 - ✅ Before deploying to client
 - ✅ Before pushing to hosting/Tilda
-- ✅ After major CSS changes
+- ✅ After major CSS/JS changes
 - ❌ NOT during active development (use readable versions)
 
 ---
