@@ -123,6 +123,7 @@ def main():
     files_to_minify = [
         project_root / "output/styles/reset.css",
         project_root / "output/styles/variables.css",
+        project_root / "output/styles/main.css",
     ]
 
     # Check if specific file was provided as argument
