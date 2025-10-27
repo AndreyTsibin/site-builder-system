@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог секций — Site Builder</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Remix Icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <!-- Section Styles will be added here as we create them -->
+
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--background);
+      padding: var(--space-8);
+    }
+
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .demo-header {
+      margin-bottom: var(--space-12);
+      padding-bottom: var(--space-8);
+      border-bottom: 2px solid var(--border);
+    }
+
+    .demo-header h1 {
+      font-size: var(--font-size-7);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .demo-header p {
+      font-size: var(--font-size-3);
+      color: var(--text-light);
+    }
+
+    .demo-section {
+      margin-bottom: var(--space-12);
+    }
+
+    .demo-section h2 {
+      font-size: var(--font-size-6);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .demo-item {
+      margin-bottom: var(--space-10);
+      padding: var(--space-6);
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+
+    .demo-item h3 {
+      font-size: var(--font-size-5);
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .demo-item .demo-id {
+      display: inline-block;
+      font-family: 'Courier New', monospace;
+      font-size: var(--font-size-2);
+      color: var(--text-light);
+      background: var(--background);
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-2);
+    }
+
+    .demo-item .demo-description {
+      font-size: var(--font-size-3);
+      color: var(--text-light);
+      margin-bottom: var(--space-4);
+    }
+
+    .demo-item .demo-preview {
+      margin-bottom: var(--space-4);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: var(--space-12);
+      color: var(--text-light);
+    }
+
+    .empty-state i {
+      font-size: 64px;
+      margin-bottom: var(--space-4);
+      color: var(--border);
+    }
+
+    .empty-state h3 {
+      font-size: var(--font-size-5);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: var(--space-2);
+    }
+
+    .empty-state p {
+      font-size: var(--font-size-3);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: var(--space-4);
+      }
+
+      .demo-header h1 {
+        font-size: var(--font-size-6);
+      }
+
+      .demo-section h2 {
+        font-size: var(--font-size-5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <!-- Header -->
+    <header class="demo-header">
+      <h1>🧩 Каталог секций Site Builder</h1>
+      <p>Готовые секции, собранные из базовых элементов</p>
+    </header>
+
+    <!-- Empty State -->
+    <div style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: var(--space-12);
+      gap: var(--space-6);
+    ">
+      <i class="ri-tools-fill" style="font-size: 96px; color: var(--text-muted);"></i>
+      <div>
+        <h2 style="font-size: var(--font-size-7); font-weight: var(--font-bold); color: var(--text-body); margin-bottom: var(--space-3);">
+          Секции будут созданы с нуля
+        </h2>
+        <p style="font-size: var(--font-size-4); color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+          Предыдущие секции были тестовыми набросками. Начиная со следующей сессии, мы создадим полноценную библиотеку секций по продуманной системе.
+        </p>
+      </div>
+      <div style="
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-6);
+        background: var(--bg-card);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+      ">
+        <p style="font-size: var(--font-size-3); font-weight: var(--font-semibold); color: var(--text-body);">
+          Запланированные секции:
+        </p>
+        <ul style="
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--space-2);
+          text-align: left;
+        ">
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• Headers (sticky, transparent)</li>
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• Heroes (image, video, form)</li>
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• Features (grid, carousel, tabs)</li>
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• Pricing (cards, tables)</li>
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• Testimonials (carousel, grid)</li>
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• FAQ (accordion, grid)</li>
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• Gallery (grid, masonry)</li>
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• Contact (form, map, info)</li>
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• CTA (centered, split)</li>
+          <li style="font-size: var(--font-size-2); color: var(--text-muted);">• Footers (4-column, minimal)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 2px solid var(--border); text-align: center; color: var(--text-light);">
+      <p>Site Builder — элементный подход к созданию лендингов 🚀</p>
+    </footer>
+  </div>
+</body>
+</html>

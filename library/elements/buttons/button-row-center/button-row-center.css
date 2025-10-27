@@ -1,0 +1,8 @@
+/**
+ * Button Row Align Center — Multiple buttons aligned center
+ * Container for button groups with center alignment
+ */
+
+.btn-row--center {
+  justify-content: center;
+}

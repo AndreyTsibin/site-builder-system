@@ -1,0 +1,10 @@
+/**
+ * Text Muted — Muted/secondary text
+ * Uses base .text class from main.css with .text--muted modifier
+ * Secondary information, descriptions, hints
+ */
+
+/* Base styles inherited from main.css:
+   .text (base text styles)
+   .text--muted (muted color from --text-muted)
+*/

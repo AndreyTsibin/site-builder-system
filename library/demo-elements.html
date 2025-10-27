@@ -1,0 +1,3925 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог элементов — Site Builder</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Remix Icon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <!-- Element Styles -->
+  <link rel="stylesheet" href="elements/buttons/button/button.css">
+  <link rel="stylesheet" href="elements/buttons/button-secondary/button-secondary.css">
+  <link rel="stylesheet" href="elements/buttons/button-tertiary/button-tertiary.css">
+  <link rel="stylesheet" href="elements/buttons/button-link/button-link.css">
+  <link rel="stylesheet" href="elements/buttons/button-icon/button-icon.css">
+  <link rel="stylesheet" href="elements/buttons/button-row-left/button-row-left.css">
+  <link rel="stylesheet" href="elements/buttons/button-row-center/button-row-center.css">
+  <link rel="stylesheet" href="elements/typography/heading-1/heading-1.css">
+  <link rel="stylesheet" href="elements/typography/heading-2/heading-2.css">
+  <link rel="stylesheet" href="elements/typography/heading-3/heading-3.css">
+  <link rel="stylesheet" href="elements/typography/heading-4/heading-4.css">
+  <link rel="stylesheet" href="elements/typography/heading-5/heading-5.css">
+  <link rel="stylesheet" href="elements/typography/heading-6/heading-6.css">
+  <link rel="stylesheet" href="elements/typography/text/text.css">
+  <link rel="stylesheet" href="elements/typography/text-large/text-large.css">
+  <link rel="stylesheet" href="elements/typography/text-small/text-small.css">
+  <link rel="stylesheet" href="elements/typography/text-muted/text-muted.css">
+  <link rel="stylesheet" href="elements/typography/lead/lead.css">
+  <link rel="stylesheet" href="elements/forms/input-text/input-text.css">
+  <link rel="stylesheet" href="elements/forms/textarea/textarea.css">
+  <link rel="stylesheet" href="elements/forms/select/select.css">
+  <link rel="stylesheet" href="elements/forms/checkbox/checkbox.css">
+  <link rel="stylesheet" href="elements/forms/radio/radio.css">
+  <link rel="stylesheet" href="elements/grid/grid-2-cols/grid-2-cols.css">
+  <link rel="stylesheet" href="elements/grid/grid-3-cols/grid-3-cols.css">
+  <link rel="stylesheet" href="elements/grid/grid-4-cols/grid-4-cols.css">
+  <link rel="stylesheet" href="elements/cards/card-basic/card-basic.css">
+  <link rel="stylesheet" href="elements/cards/card-with-image/card-with-image.css">
+  <link rel="stylesheet" href="elements/cards/card-pricing/card-pricing.css">
+  <link rel="stylesheet" href="elements/cards/card-horizontal-left/card-horizontal-left.css">
+  <link rel="stylesheet" href="elements/cards/card-horizontal-right/card-horizontal-right.css">
+  <link rel="stylesheet" href="elements/cards/card-vertical-top/card-vertical-top.css">
+  <link rel="stylesheet" href="elements/cards/card-vertical-bottom/card-vertical-bottom.css">
+  <link rel="stylesheet" href="elements/cards/card-compact-left/card-compact-left.css">
+  <link rel="stylesheet" href="elements/cards/card-compact-right/card-compact-right.css">
+  <link rel="stylesheet" href="elements/cards/card-icon/card-icon.css">
+  <link rel="stylesheet" href="elements/modals/modal-center/modal-center.css">
+  <link rel="stylesheet" href="elements/modals/modal-drawer/modal-drawer.css">
+  <link rel="stylesheet" href="elements/modals/modal-fullscreen/modal-fullscreen.css">
+  <link rel="stylesheet" href="elements/sliders/slider-1/slider-1.css">
+  <link rel="stylesheet" href="elements/sliders/slider-2/slider-2.css">
+  <link rel="stylesheet" href="elements/sliders/slider-3/slider-3.css">
+  <link rel="stylesheet" href="elements/sliders/slider-4/slider-4.css">
+  <link rel="stylesheet" href="elements/sliders/slider-carousel/slider-carousel.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-chevron/accordion-chevron.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-plus/accordion-plus.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-bordered/accordion-bordered.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-with-icons/accordion-with-icons.css">
+  <link rel="stylesheet" href="elements/accordions/accordion-nested/accordion-nested.css">
+  <link rel="stylesheet" href="elements/tabs/tabs-left-align/tabs-left-align.css">
+  <link rel="stylesheet" href="elements/tabs/tabs-center-align/tabs-center-align.css">
+  <link rel="stylesheet" href="elements/tabs/tabs-center-bordered/tabs-center-bordered.css">
+  <link rel="stylesheet" href="elements/tabs/tabs-right-align/tabs-right-align.css">
+  <link rel="stylesheet" href="elements/tabs/tabs-bottom-cards/tabs-bottom-cards.css">
+  <link rel="stylesheet" href="elements/tabs/tabs-bottom-features/tabs-bottom-features.css">
+  <link rel="stylesheet" href="elements/media/image-ratios/image-ratios.css">
+  <link rel="stylesheet" href="elements/media/image-shapes/image-shapes.css">
+  <link rel="stylesheet" href="elements/media/image-overlay/image-overlay.css">
+  <link rel="stylesheet" href="elements/media/image-caption/image-caption.css">
+  <link rel="stylesheet" href="elements/navigation/dropdown/dropdown.css">
+  <link rel="stylesheet" href="elements/navigation/navbar-dropdown/navbar-dropdown.css">
+  <link rel="stylesheet" href="elements/tooltips/tooltip/tooltip.css">
+  <link rel="stylesheet" href="elements/forms/input-search/input-search.css">
+  <link rel="stylesheet" href="elements/forms/input-with-icon/input-with-icon.css">
+  <link rel="stylesheet" href="elements/forms/input-url/input-url.css">
+  <link rel="stylesheet" href="elements/forms/input-currency/input-currency.css">
+  <link rel="stylesheet" href="elements/forms/checkbox-toggle/checkbox-toggle.css">
+  <link rel="stylesheet" href="elements/forms/checkbox-card/checkbox-card.css">
+  <link rel="stylesheet" href="elements/forms/toggle/toggle.css">
+  <link rel="stylesheet" href="elements/forms/toggle-description/toggle-description.css">
+  <link rel="stylesheet" href="elements/pagination/pagination-numbers/pagination-numbers.css">
+  <link rel="stylesheet" href="elements/pagination/pagination-compact/pagination-compact.css">
+  <link rel="stylesheet" href="elements/pagination/pagination-simple/pagination-simple.css">
+  <link rel="stylesheet" href="elements/forms/signup-form/signup-form.css">
+  <link rel="stylesheet" href="elements/buttons/button-back-to-top/button-back-to-top.css">
+  <link rel="stylesheet" href="elements/social/social-icons-1/social-icons-1.css">
+
+  <style>
+    * {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-body);
+      background: var(--bg-page);
+      margin: 0;
+      padding: 0;
+    }
+
+    .demo-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .demo-sidebar {
+      position: sticky;
+      top: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: var(--space-8);
+    }
+
+    .demo-sidebar__title {
+      font-size: var(--font-size-5);
+      font-weight: var(--font-bold);
+      color: var(--text-body);
+      margin: 0 0 var(--space-6) 0;
+    }
+
+    .demo-nav {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .demo-nav__section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .demo-nav__section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: var(--font-size-2);
+      font-weight: var(--font-bold);
+      color: var(--text-body);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+      padding: var(--space-2) var(--space-3);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition-fast);
+    }
+
+    .demo-nav__section-title:hover {
+      background: var(--bg-section);
+    }
+
+    .demo-nav__section-icon {
+      transition: transform var(--transition-fast);
+    }
+
+    .demo-nav__section--collapsed .demo-nav__section-icon {
+      transform: rotate(-90deg);
+    }
+
+    .demo-nav__section-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+      padding-left: var(--space-3);
+    }
+
+    .demo-nav__section--collapsed .demo-nav__section-links {
+      display: none;
+    }
+
+    .demo-nav__link {
+      display: block;
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--font-size-3);
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .demo-nav__link:hover {
+      background: var(--bg-section);
+      color: var(--text-body);
+    }
+
+    .demo-nav__link--active {
+      background: var(--bg-section);
+      color: var(--primary);
+      font-weight: var(--font-medium);
+    }
+
+    /* Main content */
+    .demo-container {
+      flex: 1;
+      max-width: 1200px;
+      padding: var(--space-8);
+    }
+
+    .demo-header {
+      margin-bottom: var(--space-12);
+      padding-bottom: var(--space-8);
+      border-bottom: 2px solid var(--border);
+    }
+
+    .demo-header h1 {
+      font-size: var(--font-size-7);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .demo-header p {
+      font-size: var(--font-size-3);
+      color: var(--text-light);
+    }
+
+    .demo-section {
+      margin-bottom: var(--space-12);
+    }
+
+    .demo-section > h2 {
+      font-size: var(--font-size-6);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .demo-item {
+      margin-bottom: var(--space-8);
+      padding: var(--space-6);
+      background: white;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .demo-item > h3 {
+      font-size: var(--font-size-4);
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .demo-id-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+
+    .demo-item .demo-id {
+      display: inline-block;
+      font-family: 'Courier New', monospace;
+      font-size: var(--font-size-2);
+      font-weight: var(--font-medium);
+      color: var(--text-body);
+      background: hsl(220, 90%, 95%);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+      border: 1px solid hsl(220, 90%, 85%);
+    }
+
+    .demo-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--font-size-2);
+      font-weight: var(--font-medium);
+      color: var(--text-body);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .demo-copy-btn:hover {
+      background: var(--bg-section);
+      border-color: var(--text-muted);
+    }
+
+    .demo-copy-btn--copied {
+      background: hsl(142, 71%, 95%);
+      border-color: var(--success);
+      color: var(--success);
+    }
+
+    .demo-item .demo-preview {
+      padding: var(--space-6);
+      background: var(--background);
+      border-radius: var(--radius-sm);
+    }    .demo-buttons {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .demo-forms {
+      max-width: 400px;
+    }
+
+    @media (max-width: 1024px) {
+      .demo-sidebar {
+        display: none;
+      }
+
+      .demo-container {
+        padding: var(--space-4);
+      }
+
+      .demo-header h1 {
+        font-size: var(--font-size-6);
+      }
+
+      .demo-section > h2 {
+        font-size: var(--font-size-5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-layout">
+    <!-- Sidebar -->
+    <aside class="demo-sidebar">
+      <h2 class="demo-sidebar__title">📚 Site Builder</h2>
+      <nav class="demo-nav">
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🔘 Кнопки</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#button" class="demo-nav__link">Button</a>
+            <a href="#button-secondary" class="demo-nav__link">Button Secondary</a>
+            <a href="#button-tertiary" class="demo-nav__link">Button Tertiary</a>
+            <a href="#button-small" class="demo-nav__link">Button Small</a>
+            <a href="#button-link" class="demo-nav__link">Button Link</a>
+            <a href="#button-row-left" class="demo-nav__link">Button Row Left</a>
+            <a href="#button-with-icon" class="demo-nav__link">Button With Icon</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📰 Типографика</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#heading-1" class="demo-nav__link">Heading 1</a>
+            <a href="#heading-2" class="demo-nav__link">Heading 2</a>
+            <a href="#heading-3" class="demo-nav__link">Heading 3</a>
+            <a href="#text" class="demo-nav__link">Text</a>
+            <a href="#text-large" class="demo-nav__link">Text Large</a>
+            <a href="#lead" class="demo-nav__link">Lead</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📝 Формы</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#input-text" class="demo-nav__link">Text Input</a>
+            <a href="#input-search" class="demo-nav__link">Input Search</a>
+            <a href="#input-with-icon" class="demo-nav__link">Input with Icon</a>
+            <a href="#input-url" class="demo-nav__link">Input URL</a>
+            <a href="#input-currency" class="demo-nav__link">Input Currency</a>
+            <a href="#textarea" class="demo-nav__link">Textarea</a>
+            <a href="#select" class="demo-nav__link">Select</a>
+            <a href="#checkbox" class="demo-nav__link">Checkbox</a>
+            <a href="#checkbox-toggle" class="demo-nav__link">Checkbox Toggle</a>
+            <a href="#checkbox-card" class="demo-nav__link">Checkbox Card</a>
+            <a href="#radio" class="demo-nav__link">Radio</a>
+            <a href="#toggle" class="demo-nav__link">Toggle</a>
+            <a href="#toggle-description" class="demo-nav__link">Toggle Description</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🃏 Карточки</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#card-basic" class="demo-nav__link">Basic Card</a>
+            <a href="#card-with-image" class="demo-nav__link">Card With Image</a>
+            <a href="#card-pricing" class="demo-nav__link">Pricing Card</a>
+            <a href="#card-horizontal-left" class="demo-nav__link">Horizontal Left</a>
+            <a href="#card-horizontal-right" class="demo-nav__link">Horizontal Right</a>
+            <a href="#card-vertical-top" class="demo-nav__link">Vertical Top</a>
+            <a href="#card-vertical-bottom" class="demo-nav__link">Vertical Bottom</a>
+            <a href="#card-compact-left" class="demo-nav__link">Compact Left</a>
+            <a href="#card-compact-right" class="demo-nav__link">Compact Right</a>
+            <a href="#card-icon" class="demo-nav__link">Icon Card</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📄 Пагинация</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#pagination-numbers" class="demo-nav__link">Pagination Numbers</a>
+            <a href="#pagination-compact" class="demo-nav__link">Pagination Compact</a>
+            <a href="#pagination-simple" class="demo-nav__link">Pagination Simple</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📐 Сетка</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#grid-2-cols" class="demo-nav__link">Grid 2 Columns</a>
+            <a href="#grid-3-cols" class="demo-nav__link">Grid 3 Columns</a>
+            <a href="#grid-4-cols" class="demo-nav__link">Grid 4 Columns</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🪟 Модальные окна</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#modal-center-demo" class="demo-nav__link">Modal Center</a>
+            <a href="#modal-drawer-demo" class="demo-nav__link">Modal Drawer</a>
+            <a href="#modal-fullscreen-demo" class="demo-nav__link">Modal Fullscreen</a>
+            <a href="#button-icon" class="demo-nav__link">Icon Button</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🎠 Слайдеры</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#slider-1" class="demo-nav__link">Slider 1 (Single)</a>
+            <a href="#slider-2" class="demo-nav__link">Slider 2 (2 cols)</a>
+            <a href="#slider-3" class="demo-nav__link">Slider 3 (3 cols)</a>
+            <a href="#slider-4" class="demo-nav__link">Slider 4 (Bottom controls)</a>
+            <a href="#slider-5" class="demo-nav__link">Slider 5 (Carousel auto)</a>
+            <a href="#slider-6" class="demo-nav__link">Slider 6 (Carousel 3)</a>
+            <a href="#slider-7" class="demo-nav__link">Slider 7 (Carousel auto)</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📋 Аккордеоны</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#accordion-chevron" class="demo-nav__link">Accordion Chevron</a>
+            <a href="#accordion-plus" class="demo-nav__link">Accordion Plus</a>
+            <a href="#accordion-bordered" class="demo-nav__link">Accordion Bordered</a>
+            <a href="#accordion-with-icons" class="demo-nav__link">Accordion With Icons</a>
+            <a href="#accordion-nested" class="demo-nav__link">Accordion Nested</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🗂️ Табы</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#tabs-left-align" class="demo-nav__link">Tabs Left Align</a>
+            <a href="#tabs-center-align" class="demo-nav__link">Tabs Center Align</a>
+            <a href="#tabs-center-bordered" class="demo-nav__link">Tabs Center Bordered</a>
+            <a href="#tabs-right-align" class="demo-nav__link">Tabs Right Align</a>
+            <a href="#tabs-bottom-cards" class="demo-nav__link">Tabs Bottom Cards</a>
+            <a href="#tabs-bottom-features" class="demo-nav__link">Tabs Bottom Features</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🖼️ Медиа</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#image-ratios" class="demo-nav__link">Image Ratios</a>
+            <a href="#image-shapes" class="demo-nav__link">Image Shapes</a>
+            <a href="#image-overlay" class="demo-nav__link">Image Overlay</a>
+            <a href="#image-caption" class="demo-nav__link">Image Caption</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🧭 Навигация</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#navbar" class="demo-nav__link">Navbar</a>
+            <a href="#breadcrumb" class="demo-nav__link">Breadcrumb</a>
+            <a href="#dropdown" class="demo-nav__link">Dropdown</a>
+            <a href="#navbar-dropdown" class="demo-nav__link">Navbar Dropdown</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>📝 Списки</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#list-with-icons" class="demo-nav__link">List With Icons</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🌐 Социальные сети</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#social-icons-1" class="demo-nav__link">Social Icons 1</a>
+            <a href="#social-icons-2" class="demo-nav__link">Social Icons 2</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>💬 Подсказки</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#tooltip" class="demo-nav__link">Tooltip</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>🔧 Другие</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#signup-form" class="demo-nav__link">Signup Form</a>
+            <a href="#back-to-top" class="demo-nav__link">Back To Top</a>
+          </div>
+        </div>
+
+        <div class="demo-nav__section demo-nav__section--collapsed">
+          <h3 class="demo-nav__section-title" onclick="toggleSection(this)">
+            <span>⏳ Загрузка</span>
+            <i class="ri-arrow-down-s-line demo-nav__section-icon"></i>
+          </h3>
+          <div class="demo-nav__section-links">
+            <a href="#spinner" class="demo-nav__link">Spinner</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <div class="demo-container">
+      <!-- Header -->
+      <header class="demo-header">
+        <h1>📚 Каталог элементов Site Builder</h1>
+        <p>Все базовые элементы с ID, примерами использования и кодом</p>
+      </header>
+
+    <!-- Buttons -->
+    <section class="demo-section">
+      <h2>🔘 Кнопки (Buttons)</h2>
+
+      <div class="demo-item" id="button">
+        <h3>Button</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button</span>
+          <button class="demo-copy-btn" onclick="copyID('button')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary">Button</button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-secondary">
+        <h3>Button Secondary</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-secondary</span>
+          <button class="demo-copy-btn" onclick="copyID('button-secondary')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--secondary">Button</button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-tertiary">
+        <h3>Button Tertiary</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-tertiary</span>
+          <button class="demo-copy-btn" onclick="copyID('button-tertiary')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--tertiary">Button</button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-small">
+        <h3>Button Small</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-small</span>
+          <button class="demo-copy-btn" onclick="copyID('button-small')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary btn--sm">Button</button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-secondary-small">
+        <h3>Button Secondary Small</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-secondary-small</span>
+          <button class="demo-copy-btn" onclick="copyID('button-secondary-small')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--secondary btn--sm">Button</button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-tertiary-small">
+        <h3>Button Tertiary Small</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-tertiary-small</span>
+          <button class="demo-copy-btn" onclick="copyID('button-tertiary-small')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--tertiary btn--sm">Button</button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-link">
+        <h3>Button Link</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-link</span>
+          <button class="demo-copy-btn" onclick="copyID('button-link')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <a href="#" class="btn btn--link">Button</a>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-row-left">
+        <h3>Button Row Align Left</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-row-left</span>
+          <button class="demo-copy-btn" onclick="copyID('button-row-left')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="btn-row btn-row--left">
+            <button class="btn btn--primary">Button</button>
+            <button class="btn btn--secondary">Button</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-row-center">
+        <h3>Button Row Align Center</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-row-center</span>
+          <button class="demo-copy-btn" onclick="copyID('button-row-center')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="btn-row btn-row--center">
+            <button class="btn btn--primary">Button</button>
+            <button class="btn btn--secondary">Button</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-with-icon">
+        <h3>Button With Icon</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-secondary-with-icon">
+        <h3>Button Secondary With Icon</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-secondary-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-secondary-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--secondary">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-tertiary-with-icon">
+        <h3>Button Tertiary With Icon</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-tertiary-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-tertiary-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--tertiary">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-link-with-icon">
+        <h3>Button Link With Icon</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-link-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-link-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <a href="#" class="btn btn--link">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </a>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-small-with-icon">
+        <h3>Button Small With Icon</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-small-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-small-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary btn--sm">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-secondary-small-with-icon">
+        <h3>Button Secondary Small With Icon</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-secondary-small-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-secondary-small-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--secondary btn--sm">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-tertiary-small-with-icon">
+        <h3>Button Tertiary Small With Icon</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-tertiary-small-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-tertiary-small-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--tertiary btn--sm">
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            Button
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="demo-section">
+      <h2>📰 Типографика (Typography)</h2>
+
+      <div class="demo-item" id="heading-1">
+        <h3>Heading 1</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-1</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-1')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h1 class="heading heading--h1">Heading goes here</h1>
+        </div>
+      </div>
+
+      <div class="demo-item" id="heading-2">
+        <h3>Heading 2</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-2</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-2')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h2 class="heading heading--h2">Heading goes here</h2>
+        </div>
+      </div>
+
+      <div class="demo-item" id="heading-3">
+        <h3>Heading 3</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-3</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-3')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h3 class="heading heading--h3">Heading goes here</h3>
+        </div>
+      </div>
+
+      <div class="demo-item" id="heading-4">
+        <h3>Heading 4</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-4</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-4')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h4 class="heading heading--h4">Heading goes here</h4>
+        </div>
+      </div>
+
+      <div class="demo-item" id="heading-5">
+        <h3>Heading 5</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-5</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-5')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h5 class="heading heading--h5">Heading goes here</h5>
+        </div>
+      </div>
+
+      <div class="demo-item" id="heading-6">
+        <h3>Heading 6</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-6</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-6')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h6 class="heading heading--h6">Heading goes here</h6>
+        </div>
+      </div>
+
+      <div class="demo-item" id="text">
+        <h3>Text</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">text</span>
+          <button class="demo-copy-btn" onclick="copyID('text')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+      </div>
+
+      <div class="demo-item" id="text-large">
+        <h3>Text Large</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">text-large</span>
+          <button class="demo-copy-btn" onclick="copyID('text-large')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="text text--lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+      </div>
+
+      <div class="demo-item" id="text-small">
+        <h3>Text Small</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">text-small</span>
+          <button class="demo-copy-btn" onclick="copyID('text-small')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="text text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+      </div>
+
+      <div class="demo-item" id="text-muted">
+        <h3>Text Muted</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">text-muted</span>
+          <button class="demo-copy-btn" onclick="copyID('text-muted')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+      </div>
+
+      <div class="demo-item" id="lead">
+        <h3>Lead Text</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">lead</span>
+          <button class="demo-copy-btn" onclick="copyID('lead')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+      </div>
+
+      <div class="demo-item" id="heading-alignment">
+        <h3>Heading Alignment</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">heading-alignment</span>
+          <button class="demo-copy-btn" onclick="copyID('heading-alignment')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <h2 class="heading heading--h2 text-left">Left Aligned</h2>
+          <h2 class="heading heading--h2 text-center">Center Aligned</h2>
+          <h2 class="heading heading--h2 text-right">Right Aligned</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section class="demo-section">
+      <h2>📝 Формы (Forms)</h2>
+
+      <div class="demo-item" id="input-text">
+        <h3>Text Input</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-text</span>
+          <button class="demo-copy-btn" onclick="copyID('input-text')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview demo-forms">
+          <div class="form-group">
+            <label for="demo-name" class="form-label">Ваше имя</label>
+            <input type="text" id="demo-name" class="form-input" placeholder="Иван Иванов">
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="textarea">
+        <h3>Textarea</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">textarea</span>
+          <button class="demo-copy-btn" onclick="copyID('textarea')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview demo-forms">
+          <div class="form-group">
+            <label for="demo-message" class="form-label">Сообщение</label>
+            <textarea id="demo-message" class="form-textarea" rows="4" placeholder="Опишите вашу задачу"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="select">
+        <h3>Select</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">select</span>
+          <button class="demo-copy-btn" onclick="copyID('select')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview demo-forms">
+          <div class="form-group">
+            <label for="demo-service" class="form-label">Тип услуги</label>
+            <select id="demo-service" class="form-select">
+              <option value="">Выберите услугу</option>
+              <option value="repair">Ремонт техники</option>
+              <option value="installation">Установка оборудования</option>
+              <option value="consultation">Консультация</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="checkbox">
+        <h3>Checkbox</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">checkbox</span>
+          <button class="demo-copy-btn" onclick="copyID('checkbox')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview demo-forms">
+          <div class="form-checkbox">
+            <input type="checkbox" id="demo-agree" class="form-checkbox__input">
+            <label for="demo-agree" class="form-checkbox__label">Я согласен с условиями обработки персональных данных</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="radio">
+        <h3>Radio Buttons</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">radio</span>
+          <button class="demo-copy-btn" onclick="copyID('radio')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview demo-forms">
+          <div class="form-group">
+            <label class="form-label">Выберите способ связи</label>
+            <div class="form-radio">
+              <input type="radio" id="demo-phone" name="demo-contact" class="form-radio__input" checked>
+              <label for="demo-phone" class="form-radio__label">Телефон</label>
+            </div>
+            <div class="form-radio">
+              <input type="radio" id="demo-email" name="demo-contact" class="form-radio__input">
+              <label for="demo-email" class="form-radio__label">Email</label>
+            </div>
+            <div class="form-radio">
+              <input type="radio" id="demo-telegram" name="demo-contact" class="form-radio__input">
+              <label for="demo-telegram" class="form-radio__label">Telegram</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="input-search">
+        <h3>Input Search</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-search</span>
+          <button class="demo-copy-btn" onclick="copyID('input-search')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 400px;">
+          <div class="input-group input-group--search">
+            <i class="ri-search-line input-group__icon"></i>
+            <input type="search" class="input-group__field" placeholder="Search" aria-label="Search">
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="input-with-icon">
+        <h3>Input with Icon</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-with-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('input-with-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 400px;">
+          <div class="input-with-icon input-with-icon--right">
+            <input type="text" class="input-with-icon__field" placeholder="Placeholder" aria-label="Input with clear button">
+            <button class="input-with-icon__btn" type="button" aria-label="Clear input">
+              <i class="ri-close-circle-line"></i>
+            </button>
+          </div>
+          <div class="input-with-icon input-with-icon--both">
+            <i class="ri-bank-card-line input-with-icon__icon-left"></i>
+            <input type="text" class="input-with-icon__field" placeholder="Placeholder" aria-label="Input with card icon">
+            <button class="input-with-icon__btn" type="button" aria-label="Clear input">
+              <i class="ri-close-circle-line"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="input-url">
+        <h3>Input URL</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-url</span>
+          <button class="demo-copy-btn" onclick="copyID('input-url')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 400px;">
+          <div class="input-url">
+            <span class="input-url__prefix">http://</span>
+            <input type="url" class="input-url__field" placeholder="www.relume.io" aria-label="Website URL">
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="input-currency">
+        <h3>Input Currency</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">input-currency</span>
+          <button class="demo-copy-btn" onclick="copyID('input-currency')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 400px;">
+          <div class="input-currency">
+            <select class="input-currency__select" aria-label="Currency selector">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="RUB">RUB</option>
+            </select>
+            <input type="number" class="input-currency__field" placeholder="Placeholder" aria-label="Amount">
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="checkbox-toggle">
+        <h3>Checkbox Toggle</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">checkbox-toggle</span>
+          <button class="demo-copy-btn" onclick="copyID('checkbox-toggle')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="checkbox-toggle">
+            <input type="radio" id="demo-toggle-option-1" name="demo-toggle-group" class="checkbox-toggle__input" checked>
+            <label for="demo-toggle-option-1" class="checkbox-toggle__label">Option one</label>
+
+            <input type="radio" id="demo-toggle-option-2" name="demo-toggle-group" class="checkbox-toggle__input">
+            <label for="demo-toggle-option-2" class="checkbox-toggle__label">Option two</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="checkbox-card">
+        <h3>Checkbox Card</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">checkbox-card</span>
+          <button class="demo-copy-btn" onclick="copyID('checkbox-card')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 500px;">
+          <div class="checkbox-card-group">
+            <input type="checkbox" id="demo-card-option-1" class="checkbox-card__input" checked>
+            <label for="demo-card-option-1" class="checkbox-card">
+              <div class="checkbox-card__header">
+                <i class="ri-box-3-line checkbox-card__icon"></i>
+                <div class="checkbox-card__check">
+                  <i class="ri-check-line"></i>
+                </div>
+              </div>
+              <div class="checkbox-card__body">
+                <h3 class="checkbox-card__title">Option one</h3>
+                <p class="checkbox-card__text">Lorem ipsum dolor sit amet</p>
+              </div>
+            </label>
+
+            <input type="checkbox" id="demo-card-option-2" class="checkbox-card__input">
+            <label for="demo-card-option-2" class="checkbox-card">
+              <div class="checkbox-card__header">
+                <i class="ri-box-3-line checkbox-card__icon"></i>
+                <div class="checkbox-card__check">
+                  <i class="ri-check-line"></i>
+                </div>
+              </div>
+              <div class="checkbox-card__body">
+                <h3 class="checkbox-card__title">Option two</h3>
+                <p class="checkbox-card__text">Lorem ipsum dolor sit amet</p>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="toggle">
+        <h3>Toggle</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">toggle</span>
+          <button class="demo-copy-btn" onclick="copyID('toggle')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 300px;">
+          <div class="toggle-group">
+            <div class="toggle-item">
+              <input type="checkbox" id="demo-toggle-1" class="toggle__input">
+              <label for="demo-toggle-1" class="toggle">
+                <span class="toggle__slider"></span>
+              </label>
+              <label for="demo-toggle-1" class="toggle__label">Option one</label>
+            </div>
+
+            <div class="toggle-item">
+              <input type="checkbox" id="demo-toggle-2" class="toggle__input" checked>
+              <label for="demo-toggle-2" class="toggle">
+                <span class="toggle__slider"></span>
+              </label>
+              <label for="demo-toggle-2" class="toggle__label">Option two</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="toggle-description">
+        <h3>Toggle Description</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">toggle-description</span>
+          <button class="demo-copy-btn" onclick="copyID('toggle-description')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview" style="max-width: 600px;">
+          <div class="toggle-description-group">
+            <div class="toggle-description">
+              <div class="toggle-description__content">
+                <h3 class="toggle-description__title">Option one</h3>
+                <p class="toggle-description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+              </div>
+              <input type="checkbox" id="demo-toggle-desc-1" class="toggle-description__input">
+              <label for="demo-toggle-desc-1" class="toggle-description__switch">
+                <span class="toggle-description__slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid -->
+    <section class="demo-section">
+      <h2>📐 Сетка (Grid)</h2>
+
+      <div class="demo-item" id="grid-2-cols">
+        <h3>Grid 2 Columns</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">grid-2-cols</span>
+          <button class="demo-copy-btn" onclick="copyID('grid-2-cols')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="grid grid--2-cols">
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 1</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="grid-3-cols">
+        <h3>Grid 3 Columns</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">grid-3-cols</span>
+          <button class="demo-copy-btn" onclick="copyID('grid-3-cols')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="grid grid--3-cols">
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 1</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 2</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="grid-4-cols">
+        <h3>Grid 4 Columns</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">grid-4-cols</span>
+          <button class="demo-copy-btn" onclick="copyID('grid-4-cols')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="grid grid--4-cols">
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 1</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 2</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 3</div>
+            <div style="padding: var(--space-4); background: var(--surface); border-radius: var(--radius-sm); border: 1px solid var(--border);">Колонка 4</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="demo-section">
+      <h2>🃏 Карточки (Cards)</h2>
+
+      <div class="demo-item" id="card-basic">
+        <h3>Basic Card</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-basic</span>
+          <button class="demo-copy-btn" onclick="copyID('card-basic')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="card" style="max-width: 400px;">
+            <h3 class="card__title">Быстрый ремонт</h3>
+            <p class="card__text">Профессиональная диагностика и ремонт любой сложности. Гарантия качества на все работы.</p>
+            <button class="btn btn--primary">Подробнее</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-with-image">
+        <h3>Card With Image</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-with-image</span>
+          <button class="demo-copy-btn" onclick="copyID('card-with-image')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card card--with-image" style="max-width: 400px;">
+            <div class="image-ratio image-ratio--16-9">
+              <img src="assets/images/placeholder.svg" alt="Команда профессионалов" class="image-ratio__img" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Работа в команде</h3>
+              <p class="card__description">
+                Объединяем лучших специалистов для решения ваших задач. Каждый проект получает персональную команду экспертов
+              </p>
+              <a href="#" class="btn btn--primary">Смотреть портфолио</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-pricing">
+        <h3>Pricing Card</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-pricing</span>
+          <button class="demo-copy-btn" onclick="copyID('card-pricing')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="card card--pricing" style="max-width: 400px;">
+            <h3 class="card__plan">Стандарт</h3>
+            <div class="card__price">
+              <span class="card__amount">2 500</span>
+              <span class="card__currency">₽/мес</span>
+            </div>
+            <ul class="card__features">
+              <li class="card__feature card__feature--included"><i class="ri-check-line"></i> Диагностика техники</li>
+              <li class="card__feature card__feature--included"><i class="ri-check-line"></i> Гарантия 6 месяцев</li>
+              <li class="card__feature card__feature--included"><i class="ri-check-line"></i> Выезд мастера</li>
+              <li class="card__feature card__feature--excluded"><i class="ri-close-line"></i> Замена запчастей</li>
+            </ul>
+            <button class="btn btn--primary btn--full-width">Выбрать план</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-horizontal-left">
+        <h3>Card Horizontal Left</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-horizontal-left</span>
+          <button class="demo-copy-btn" onclick="copyID('card-horizontal-left')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-horizontal-left">
+            <div class="card-horizontal-left__content">
+              <p class="tagline">Tagline</p>
+              <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+              <div class="card-horizontal-left__actions">
+                <button class="btn btn--secondary">Button</button>
+                <a href="#" class="btn btn--link">
+                  Button
+                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div class="image-ratio image-ratio--3-2">
+              <img src="assets/images/placeholder.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-horizontal-right">
+        <h3>Card Horizontal Right</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-horizontal-right</span>
+          <button class="demo-copy-btn" onclick="copyID('card-horizontal-right')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-horizontal-right">
+            <div class="image-ratio image-ratio--3-2">
+              <img src="assets/images/placeholder.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+            <div class="card-horizontal-right__content">
+              <p class="tagline">Tagline</p>
+              <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+              <div class="card-horizontal-right__actions">
+                <button class="btn btn--secondary">Button</button>
+                <a href="#" class="btn btn--link">
+                  Button
+                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-vertical-top">
+        <h3>Card Vertical Top</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-vertical-top</span>
+          <button class="demo-copy-btn" onclick="copyID('card-vertical-top')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-vertical-top" style="max-width: 500px;">
+            <div class="image-ratio image-ratio--3-2">
+              <img src="assets/images/placeholder.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+            <div class="card-vertical-top__content">
+              <p class="tagline">Tagline</p>
+              <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+              <div class="card-vertical-top__actions">
+                <button class="btn btn--secondary">Button</button>
+                <a href="#" class="btn btn--link">
+                  Button
+                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-vertical-bottom">
+        <h3>Card Vertical Bottom</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-vertical-bottom</span>
+          <button class="demo-copy-btn" onclick="copyID('card-vertical-bottom')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-vertical-bottom" style="max-width: 500px;">
+            <div class="card-vertical-bottom__content">
+              <p class="tagline">Tagline</p>
+              <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+              <div class="card-vertical-bottom__actions">
+                <button class="btn btn--secondary">Button</button>
+                <a href="#" class="btn btn--link">
+                  Button
+                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div class="image-ratio image-ratio--3-2">
+              <img src="assets/images/placeholder.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-compact-left">
+        <h3>Card Compact Left</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-compact-left</span>
+          <button class="demo-copy-btn" onclick="copyID('card-compact-left')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-compact-left" style="max-width: 600px;">
+            <div class="card-compact-left__content">
+              <p class="tagline">Tagline</p>
+              <h3 class="heading heading--h4">Medium length section heading goes here</h3>
+              <p class="text text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+              <a href="#" class="btn btn--link btn--align-left">
+                Button
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="image-ratio image-ratio--1-1">
+              <img src="assets/images/placeholder-square.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-compact-right">
+        <h3>Card Compact Right</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-compact-right</span>
+          <button class="demo-copy-btn" onclick="copyID('card-compact-right')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-compact-right" style="max-width: 600px;">
+            <div class="image-ratio image-ratio--1-1">
+              <img src="assets/images/placeholder-square.svg" alt="Card image" class="image-ratio__img" loading="lazy">
+            </div>
+            <div class="card-compact-right__content">
+              <p class="tagline">Tagline</p>
+              <h3 class="heading heading--h4">Medium length section heading goes here</h3>
+              <p class="text text--sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+              <a href="#" class="btn btn--link btn--align-left">
+                Button
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-item" id="card-icon">
+        <h3>Icon Card</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">card-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('card-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <article class="card-icon" style="max-width: 500px;">
+            <div class="card-icon__icon">
+              <i class="ri-shield-check-line"></i>
+            </div>
+            <h3 class="heading heading--h3">Medium length section heading goes here</h3>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+            <div class="card-icon__actions">
+              <button class="btn btn--secondary">Button</button>
+              <a href="#" class="btn btn--link">
+                Button
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pagination -->
+    <section class="demo-section">
+      <h2>📄 Пагинация (Pagination)</h2>
+
+      <div class="demo-item" id="pagination-numbers">
+        <h3>Pagination Numbers</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">pagination-numbers</span>
+          <button class="demo-copy-btn" onclick="copyID('pagination-numbers')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="pagination" aria-label="Page navigation">
+            <button class="btn btn--secondary" aria-label="Previous page">
+              <i class="ri-arrow-left-s-line"></i>
+              Prev
+            </button>
+
+            <ul class="pagination__list">
+              <li><button class="btn btn--primary" aria-label="Page 1" aria-current="page">1</button></li>
+              <li><button class="btn btn--tertiary" aria-label="Page 2">2</button></li>
+              <li><button class="btn btn--tertiary" aria-label="Page 3">3</button></li>
+              <li><button class="btn btn--tertiary" aria-label="Page 4">4</button></li>
+              <li><button class="btn btn--tertiary" aria-label="Page 5">5</button></li>
+            </ul>
+
+            <button class="btn btn--secondary" aria-label="Next page">
+              Next
+              <i class="ri-arrow-right-s-line"></i>
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      <div class="demo-item" id="pagination-compact">
+        <h3>Pagination Compact</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">pagination-compact</span>
+          <button class="demo-copy-btn" onclick="copyID('pagination-compact')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="pagination-compact" aria-label="Page navigation">
+            <span class="text text--sm text--muted">Page 1 / 5 of 100 results</span>
+
+            <div class="pagination-compact__controls">
+              <button class="btn btn--secondary" aria-label="Previous page">
+                <i class="ri-arrow-left-s-line"></i>
+              </button>
+
+              <ul class="pagination-compact__list">
+                <li><button class="btn btn--primary" aria-label="Page 1" aria-current="page">1</button></li>
+                <li><button class="btn btn--tertiary" aria-label="Page 2">2</button></li>
+                <li><button class="btn btn--tertiary" aria-label="Page 3">3</button></li>
+                <li><button class="btn btn--tertiary" aria-label="Page 4">4</button></li>
+                <li><button class="btn btn--tertiary" aria-label="Page 5">5</button></li>
+              </ul>
+
+              <button class="btn btn--secondary" aria-label="Next page">
+                <i class="ri-arrow-right-s-line"></i>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="demo-item" id="pagination-simple">
+        <h3>Pagination Simple</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">pagination-simple</span>
+          <button class="demo-copy-btn" onclick="copyID('pagination-simple')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="pagination-simple" aria-label="Page navigation">
+            <span class="text text--sm text--muted">Page 1 / 5 of 100 results</span>
+
+            <div class="pagination-simple__controls">
+              <button class="btn btn--secondary" aria-label="Previous page">Previous</button>
+              <button class="btn btn--secondary" aria-label="Next page">Next</button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <section class="demo-section">
+      <h2>🪟 Модальные окна (Modals)</h2>
+
+      <div class="demo-item" id="modal-center-demo">
+        <h3>Modal Center</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">modal-center</span>
+          <button class="demo-copy-btn" onclick="copyID('modal-center')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary" data-modal-open="demo-modal-center">
+            Открыть центральную модалку
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="modal-drawer-demo">
+        <h3>Modal Drawer</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">modal-drawer</span>
+          <button class="demo-copy-btn" onclick="copyID('modal-drawer')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary" data-modal-open="demo-modal-drawer">
+            Открыть drawer
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="modal-fullscreen-demo">
+        <h3>Modal Fullscreen</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">modal-fullscreen</span>
+          <button class="demo-copy-btn" onclick="copyID('modal-fullscreen')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--primary" data-modal-open="demo-modal-fullscreen">
+            Открыть fullscreen
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-item" id="button-icon">
+        <h3>Icon Button</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">button-icon</span>
+          <button class="demo-copy-btn" onclick="copyID('button-icon')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div style="display: flex; gap: var(--space-3); align-items: center;">
+            <button class="btn-icon" aria-label="Lightning">
+              <i class="ri-flashlight-line" aria-hidden="true"></i>
+            </button>
+            <button class="btn-icon btn-icon--sm" aria-label="Settings">
+              <i class="ri-settings-line" aria-hidden="true"></i>
+            </button>
+            <button class="btn-icon btn-icon--lg" aria-label="Star">
+              <i class="ri-star-line" aria-hidden="true"></i>
+            </button>
+            <button class="btn-icon btn-icon--secondary" aria-label="Heart">
+              <i class="ri-heart-line" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Actual Modals for Demo -->
+    <!-- Modal Center -->
+    <div class="modal" id="demo-modal-center" aria-hidden="true" role="dialog" aria-labelledby="demo-modal-center-title">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__container modal__container--center">
+        <button class="modal__close" data-modal-close aria-label="Close modal">
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
+        <div class="modal__content">
+          <h2 class="heading heading--h3" id="demo-modal-center-title">Heading goes here</h2>
+          <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Drawer -->
+    <div class="modal modal--drawer" id="demo-modal-drawer" aria-hidden="true" role="dialog" aria-labelledby="demo-modal-drawer-title">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__container modal__container--drawer">
+        <button class="modal__close" data-modal-close aria-label="Close modal">
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
+        <div class="modal__content">
+          <h2 class="heading heading--h3" id="demo-modal-drawer-title">Heading goes here</h2>
+          <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+          <p class="text text--muted">This is a drawer modal that slides in from the right side of the screen. It's perfect for sidebars, settings panels, and navigation menus.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Fullscreen -->
+    <div class="modal modal--fullscreen" id="demo-modal-fullscreen" aria-hidden="true" role="dialog" aria-labelledby="demo-modal-fullscreen-title">
+      <div class="modal__container modal__container--fullscreen">
+        <button class="modal__close" data-modal-close aria-label="Close modal">
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
+        <div class="modal__content">
+          <h2 class="heading heading--h3" id="demo-modal-fullscreen-title">Heading goes here</h2>
+          <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+          <p class="text text--muted">This fullscreen modal takes over the entire viewport. Perfect for important announcements, onboarding flows, or immersive content.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sliders -->
+    <section class="demo-section">
+      <h2>🎠 Слайдеры (Sliders)</h2>
+
+      <!-- Slider 1 -->
+      <div class="demo-item" id="slider-1">
+        <h3>Slider 1 — Single Slide (Arrows Top, Dots Bottom-Left)</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-1</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-1')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider" data-slider="demo-slider-1" style="max-width: 800px; margin: 0 auto;">
+            <div class="slider__container">
+              <div class="slider__arrows slider__arrows--top">
+                <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous slide">
+                  <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                </button>
+                <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next slide">
+                  <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="slider__track">
+                <div class="slider__slide slider__slide--active">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 1</h3>
+                    <p class="text text--muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </div>
+                <div class="slider__slide">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 2</h3>
+                    <p class="text text--muted">Suspendisse varius enim in eros elementum tristique.</p>
+                  </div>
+                </div>
+                <div class="slider__slide">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 3</h3>
+                    <p class="text text--muted">Duis cursus, mi quis viverra ornare.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__dots slider__dots--bottom-left"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 2 -->
+      <div class="demo-item" id="slider-2">
+        <h3>Slider 2 — Two Slides Visible</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-2</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-2')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--2-cols" data-slider="demo-slider-2">
+            <div class="slider__container">
+              <div class="slider__arrows slider__arrows--top">
+                <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                  <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                </button>
+                <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                  <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="slider__track slider__track--2-cols">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h4">Slide 1</h3><p class="text text--muted text--sm">Lorem ipsum dolor.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h4">Slide 2</h3><p class="text text--muted text--sm">Suspendisse varius.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h4">Slide 3</h3><p class="text text--muted text--sm">Duis cursus mi.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h4">Slide 4</h3><p class="text text--muted text--sm">Eros dolor.</p></div></div>
+              </div>
+              <div class="slider__dots slider__dots--bottom-left"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 3 -->
+      <div class="demo-item" id="slider-3">
+        <h3>Slider 3 — Three Slides Visible</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-3</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-3')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--3-cols" data-slider="demo-slider-3">
+            <div class="slider__container">
+              <div class="slider__arrows slider__arrows--top">
+                <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                  <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                </button>
+                <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                  <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="slider__track slider__track--3-cols">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 1</h3><p class="text text--muted text--sm">Lorem.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 2</h3><p class="text text--muted text--sm">Ipsum.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 3</h3><p class="text text--muted text--sm">Dolor.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 4</h3><p class="text text--muted text--sm">Sit.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 5</h3><p class="text text--muted text--sm">Amet.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Slide 6</h3><p class="text text--muted text--sm">Elit.</p></div></div>
+              </div>
+              <div class="slider__dots slider__dots--bottom-left"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 4 -->
+      <div class="demo-item" id="slider-4">
+        <h3>Slider 4 — Bottom Controls (Arrows + Dots)</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-4</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-4')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--controls-bottom" data-slider="demo-slider-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="slider__container">
+              <div class="slider__track">
+                <div class="slider__slide slider__slide--active">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 1</h3>
+                    <p class="text text--muted">Lorem ipsum dolor sit amet.</p>
+                  </div>
+                </div>
+                <div class="slider__slide">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 2</h3>
+                    <p class="text text--muted">Suspendisse varius enim.</p>
+                  </div>
+                </div>
+                <div class="slider__slide">
+                  <div class="slider__content">
+                    <h3 class="heading heading--h3">Slide 3</h3>
+                    <p class="text text--muted">Duis cursus mi quis.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__controls slider__controls--bottom-right">
+                <div class="slider__dots"></div>
+                <div class="slider__arrows">
+                  <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                    <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                  </button>
+                  <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                    <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 5 -->
+      <div class="demo-item" id="slider-5">
+        <h3>Slider 5 — Carousel Auto Width</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-carousel-auto</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-carousel-auto')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--carousel-auto slider--controls-bottom" data-slider="demo-slider-5">
+            <div class="slider__container">
+              <div class="slider__track slider__track--carousel">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 1</h3><p class="text text--muted text--sm">Lorem ipsum.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 2</h3><p class="text text--muted text--sm">Suspendisse.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 3</h3><p class="text text--muted text--sm">Duis cursus.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 4</h3><p class="text text--muted text--sm">Eros dolor.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 5</h3><p class="text text--muted text--sm">Viverra.</p></div></div>
+              </div>
+              <div class="slider__controls slider__controls--bottom-right">
+                <div class="slider__dots"></div>
+                <div class="slider__arrows">
+                  <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                    <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                  </button>
+                  <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                    <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 6 -->
+      <div class="demo-item" id="slider-6">
+        <h3>Slider 6 — Carousel 3 Columns</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-carousel-3</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-carousel-3')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--carousel-3 slider--controls-bottom" data-slider="demo-slider-6">
+            <div class="slider__container">
+              <div class="slider__track slider__track--carousel">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 1</h3><p class="text text--muted text--sm">Lorem ipsum.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 2</h3><p class="text text--muted text--sm">Suspendisse.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 3</h3><p class="text text--muted text--sm">Duis cursus.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 4</h3><p class="text text--muted text--sm">Eros dolor.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 5</h3><p class="text text--muted text--sm">Viverra.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Item 6</h3><p class="text text--muted text--sm">Interdum.</p></div></div>
+              </div>
+              <div class="slider__controls slider__controls--bottom-right">
+                <div class="slider__dots"></div>
+                <div class="slider__arrows">
+                  <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                    <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                  </button>
+                  <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                    <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider 7 -->
+      <div class="demo-item" id="slider-7">
+        <h3>Slider 7 — Carousel Auto Width (Alternative)</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">slider-carousel-auto</span>
+          <button class="demo-copy-btn" onclick="copyID('slider-carousel-auto')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="slider slider--carousel-auto slider--controls-bottom" data-slider="demo-slider-7">
+            <div class="slider__container">
+              <div class="slider__track slider__track--carousel">
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 1</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 2</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 3</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 4</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 5</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+                <div class="slider__slide"><div class="slider__content"><h3 class="heading heading--h5">Card 6</h3><p class="text text--muted text--sm">Example content.</p></div></div>
+              </div>
+              <div class="slider__controls slider__controls--bottom-right">
+                <div class="slider__dots"></div>
+                <div class="slider__arrows">
+                  <button class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Previous">
+                    <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                  </button>
+                  <button class="slider__arrow slider__arrow--next" data-slider-next aria-label="Next">
+                    <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accordions -->
+    <section class="demo-section">
+      <h2>📋 Аккордеоны (Accordions)</h2>
+
+      <div class="demo-item" id="accordion-chevron">
+        <h3>Accordion Chevron</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-chevron</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-chevron')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="accordion accordion--chevron">
+            <div class="accordion__item">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">What is your return policy?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  We offer a 30-day money-back guarantee. If you're not satisfied with your purchase,
+                  contact our support team within 30 days for a full refund.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">How long does shipping take?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Standard shipping takes 5-7 business days. Express shipping is available for 2-3 business days delivery.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Do you ship internationally?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Yes, we ship to over 100 countries worldwide. International shipping rates and delivery times vary by location.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Can I track my order?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Absolutely! Once your order ships, you'll receive a tracking number via email to monitor your delivery status.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="accordion-plus">
+        <h3>Accordion Plus</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-plus</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-plus')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="accordion accordion--plus">
+            <div class="accordion__item accordion__item--card">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">What payment methods do you accept?</span>
+                <i class="ri-add-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  We accept all major credit cards (Visa, MasterCard, American Express), PayPal,
+                  Apple Pay, and Google Pay for your convenience.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--card">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Is my payment information secure?</span>
+                <i class="ri-add-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Yes, we use industry-standard SSL encryption to protect your payment information.
+                  We never store your full credit card details on our servers.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--card">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Can I change my subscription plan?</span>
+                <i class="ri-add-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Absolutely! You can upgrade or downgrade your plan at any time from your account settings.
+                  Changes take effect immediately.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--card">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Do you offer customer support?</span>
+                <i class="ri-add-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Yes, our support team is available 24/7 via live chat, email, and phone.
+                  Premium members get priority support with faster response times.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="accordion-bordered">
+        <h3>Accordion Bordered</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-bordered</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-bordered')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="accordion accordion--bordered">
+            <div class="accordion__item accordion__item--bordered">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">How do I create an account?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Click the "Sign Up" button in the top right corner, enter your email and password, and verify your email address. You'll be ready to go in minutes!
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--bordered">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">What are the system requirements?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Our platform works on all modern browsers (Chrome, Firefox, Safari, Edge). For mobile apps, you need iOS 14+ or Android 10+.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--bordered">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Can I cancel my subscription?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Yes, you can cancel anytime from your account settings. Your subscription will remain active until the end of the billing period.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item accordion__item--bordered">
+              <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Do you offer a free trial?</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Absolutely! We offer a 14-day free trial with full access to all features. No credit card required to start.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="accordion-with-icons">
+        <h3>Accordion With Icons</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-with-icons</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-with-icons')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="accordion accordion--with-icons">
+            <div class="accordion__item">
+              <button class="accordion__trigger accordion__trigger--with-icon" data-accordion-trigger aria-expanded="false">
+                <div class="accordion__title-wrapper">
+                  <i class="ri-user-line accordion__title-icon"></i>
+                  <span class="accordion__title">Account Settings</span>
+                </div>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Manage your profile information, change your password, and update notification preferences from your account dashboard.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger accordion__trigger--with-icon" data-accordion-trigger aria-expanded="false">
+                <div class="accordion__title-wrapper">
+                  <i class="ri-shield-check-line accordion__title-icon"></i>
+                  <span class="accordion__title">Privacy & Security</span>
+                </div>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Control who can see your information, manage two-factor authentication, and review your privacy settings and data usage.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger accordion__trigger--with-icon" data-accordion-trigger aria-expanded="false">
+                <div class="accordion__title-wrapper">
+                  <i class="ri-notification-line accordion__title-icon"></i>
+                  <span class="accordion__title">Notifications</span>
+                </div>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  Choose what notifications you receive via email, push, and SMS. Customize alerts for updates, messages, and important events.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__trigger accordion__trigger--with-icon" data-accordion-trigger aria-expanded="false">
+                <div class="accordion__title-wrapper">
+                  <i class="ri-money-dollar-circle-line accordion__title-icon"></i>
+                  <span class="accordion__title">Billing & Payments</span>
+                </div>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <p class="accordion__text">
+                  View your billing history, update payment methods, manage subscriptions, and download invoices for your records.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="accordion-nested">
+        <h3>Accordion Nested</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">accordion-nested</span>
+          <button class="demo-copy-btn" onclick="copyID('accordion-nested')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="accordion accordion--nested">
+            <!-- Category 1 -->
+            <div class="accordion__item accordion__item--category">
+              <button class="accordion__trigger accordion__trigger--category" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Getting Started</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <div class="accordion accordion--nested-inner">
+                  <div class="accordion__item">
+                    <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                      <span class="accordion__title">How do I sign up?</span>
+                      <i class="ri-add-line accordion__icon"></i>
+                    </button>
+                    <div class="accordion__panel" data-accordion-panel>
+                      <p class="accordion__text">
+                        Click "Sign Up", enter your email and password, then verify your email. It takes less than 2 minutes!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="accordion__item">
+                    <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                      <span class="accordion__title">What's included in the free plan?</span>
+                      <i class="ri-add-line accordion__icon"></i>
+                    </button>
+                    <div class="accordion__panel" data-accordion-panel>
+                      <p class="accordion__text">
+                        The free plan includes 1 project, 100MB storage, and basic features. Upgrade anytime for unlimited access.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="accordion__item accordion__item--category">
+              <button class="accordion__trigger accordion__trigger--category" data-accordion-trigger aria-expanded="false">
+                <span class="accordion__title">Account & Billing</span>
+                <i class="ri-arrow-down-s-line accordion__icon"></i>
+              </button>
+              <div class="accordion__panel" data-accordion-panel>
+                <div class="accordion accordion--nested-inner">
+                  <div class="accordion__item">
+                    <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                      <span class="accordion__title">How do I upgrade my plan?</span>
+                      <i class="ri-add-line accordion__icon"></i>
+                    </button>
+                    <div class="accordion__panel" data-accordion-panel>
+                      <p class="accordion__text">
+                        Go to Settings → Billing, select your preferred plan, and complete the payment. Changes are instant!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="accordion__item">
+                    <button class="accordion__trigger" data-accordion-trigger aria-expanded="false">
+                      <span class="accordion__title">Can I get a refund?</span>
+                      <i class="ri-add-line accordion__icon"></i>
+                    </button>
+                    <div class="accordion__panel" data-accordion-panel>
+                      <p class="accordion__text">
+                        Yes! We offer a 30-day money-back guarantee on all plans. Contact support to request a refund.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <section class="demo-section">
+      <h2>🗂️ Табы (Tabs)</h2>
+
+      <div class="demo-item" id="tabs-left-align">
+        <h3>Tabs Left Align</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">tabs-left-align</span>
+          <button class="demo-copy-btn" onclick="copyID('tabs-left-align')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="tabs tabs--left-align" data-tabs>
+            <div class="tabs__header">
+              <div class="tabs__nav" role="tablist">
+                <button class="tabs__tab tabs__tab--active" data-tab-trigger="left-tab1" role="tab" aria-selected="true" aria-controls="left-panel1">
+                  Features
+                </button>
+                <button class="tabs__tab" data-tab-trigger="left-tab2" role="tab" aria-selected="false" aria-controls="left-panel2">
+                  Settings
+                </button>
+                <button class="tabs__tab" data-tab-trigger="left-tab3" role="tab" aria-selected="false" aria-controls="left-panel3">
+                  Profile
+                </button>
+              </div>
+            </div>
+
+            <div class="tabs__content">
+              <div class="tabs__panel tabs__panel--active" data-tab-panel="left-tab1" id="left-panel1" role="tabpanel">
+                <h3>Powerful Features</h3>
+                <p>Our platform provides everything you need to build and scale your business. From advanced analytics to seamless integrations, we've got you covered.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Advanced analytics dashboard</li>
+                  <li><i class="ri-check-line"></i> Real-time collaboration tools</li>
+                  <li><i class="ri-check-line"></i> Unlimited team members</li>
+                </ul>
+              </div>
+              <div class="tabs__panel" data-tab-panel="left-tab2" id="left-panel2" role="tabpanel">
+                <h3>Customizable Settings</h3>
+                <p>Tailor every aspect of your workspace to match your workflow. Configure notifications, integrations, and preferences with ease.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Custom notification rules</li>
+                  <li><i class="ri-check-line"></i> API access and webhooks</li>
+                  <li><i class="ri-check-line"></i> Advanced security options</li>
+                </ul>
+              </div>
+              <div class="tabs__panel" data-tab-panel="left-tab3" id="left-panel3" role="tabpanel">
+                <h3>Your Profile</h3>
+                <p>Manage your personal information, privacy settings, and account preferences. Keep your profile up to date and secure.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Profile customization</li>
+                  <li><i class="ri-check-line"></i> Privacy controls</li>
+                  <li><i class="ri-check-line"></i> Activity history</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="tabs-center-align">
+        <h3>Tabs Center Align</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">tabs-center-align</span>
+          <button class="demo-copy-btn" onclick="copyID('tabs-center-align')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="tabs tabs--center-align" data-tabs>
+            <div class="tabs__header">
+              <div class="tabs__nav" role="tablist">
+                <button class="tabs__tab tabs__tab--active" data-tab-trigger="center-tab1" role="tab" aria-selected="true" aria-controls="center-panel1">
+                  Features
+                </button>
+                <button class="tabs__tab" data-tab-trigger="center-tab2" role="tab" aria-selected="false" aria-controls="center-panel2">
+                  Settings
+                </button>
+                <button class="tabs__tab" data-tab-trigger="center-tab3" role="tab" aria-selected="false" aria-controls="center-panel3">
+                  Profile
+                </button>
+              </div>
+            </div>
+
+            <div class="tabs__content">
+              <div class="tabs__panel tabs__panel--active" data-tab-panel="center-tab1" id="center-panel1" role="tabpanel">
+                <h3>Powerful Features</h3>
+                <p>Our platform provides everything you need to build and scale your business. From advanced analytics to seamless integrations, we've got you covered.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Advanced analytics dashboard</li>
+                  <li><i class="ri-check-line"></i> Real-time collaboration tools</li>
+                  <li><i class="ri-check-line"></i> Unlimited team members</li>
+                </ul>
+              </div>
+              <div class="tabs__panel" data-tab-panel="center-tab2" id="center-panel2" role="tabpanel">
+                <h3>Customizable Settings</h3>
+                <p>Tailor every aspect of your workspace to match your workflow. Configure notifications, integrations, and preferences with ease.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Custom notification rules</li>
+                  <li><i class="ri-check-line"></i> API access and webhooks</li>
+                  <li><i class="ri-check-line"></i> Advanced security options</li>
+                </ul>
+              </div>
+              <div class="tabs__panel" data-tab-panel="center-tab3" id="center-panel3" role="tabpanel">
+                <h3>Your Profile</h3>
+                <p>Manage your personal information, privacy settings, and account preferences. Keep your profile up to date and secure.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Profile customization</li>
+                  <li><i class="ri-check-line"></i> Privacy controls</li>
+                  <li><i class="ri-check-line"></i> Activity history</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="tabs-center-bordered">
+        <h3>Tabs Center Bordered</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">tabs-center-bordered</span>
+          <button class="demo-copy-btn" onclick="copyID('tabs-center-bordered')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="tabs tabs--center-bordered" data-tabs>
+            <div class="tabs__header">
+              <div class="tabs__nav" role="tablist">
+                <button class="tabs__tab tabs__tab--active" data-tab-trigger="bordered-tab1" role="tab" aria-selected="true" aria-controls="bordered-panel1">
+                  Features
+                </button>
+                <button class="tabs__tab" data-tab-trigger="bordered-tab2" role="tab" aria-selected="false" aria-controls="bordered-panel2">
+                  Settings
+                </button>
+                <button class="tabs__tab" data-tab-trigger="bordered-tab3" role="tab" aria-selected="false" aria-controls="bordered-panel3">
+                  Profile
+                </button>
+              </div>
+            </div>
+
+            <div class="tabs__content">
+              <div class="tabs__panel tabs__panel--active" data-tab-panel="bordered-tab1" id="bordered-panel1" role="tabpanel">
+                <h3>Powerful Features</h3>
+                <p>Our platform provides everything you need to build and scale your business. From advanced analytics to seamless integrations, we've got you covered.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Advanced analytics dashboard</li>
+                  <li><i class="ri-check-line"></i> Real-time collaboration tools</li>
+                  <li><i class="ri-check-line"></i> Unlimited team members</li>
+                </ul>
+              </div>
+              <div class="tabs__panel" data-tab-panel="bordered-tab2" id="bordered-panel2" role="tabpanel">
+                <h3>Customizable Settings</h3>
+                <p>Tailor every aspect of your workspace to match your workflow. Configure notifications, integrations, and preferences with ease.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Custom notification rules</li>
+                  <li><i class="ri-check-line"></i> API access and webhooks</li>
+                  <li><i class="ri-check-line"></i> Advanced security options</li>
+                </ul>
+              </div>
+              <div class="tabs__panel" data-tab-panel="bordered-tab3" id="bordered-panel3" role="tabpanel">
+                <h3>Your Profile</h3>
+                <p>Manage your personal information, privacy settings, and account preferences. Keep your profile up to date and secure.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Profile customization</li>
+                  <li><i class="ri-check-line"></i> Privacy controls</li>
+                  <li><i class="ri-check-line"></i> Activity history</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="tabs-right-align">
+        <h3>Tabs Right Align</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">tabs-right-align</span>
+          <button class="demo-copy-btn" onclick="copyID('tabs-right-align')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="tabs tabs--right-align" data-tabs>
+            <div class="tabs__header">
+              <div class="tabs__nav" role="tablist">
+                <button class="tabs__tab tabs__tab--active" data-tab-trigger="right-tab1" role="tab" aria-selected="true" aria-controls="right-panel1">
+                  Features
+                </button>
+                <button class="tabs__tab" data-tab-trigger="right-tab2" role="tab" aria-selected="false" aria-controls="right-panel2">
+                  Settings
+                </button>
+                <button class="tabs__tab" data-tab-trigger="right-tab3" role="tab" aria-selected="false" aria-controls="right-panel3">
+                  Profile
+                </button>
+              </div>
+            </div>
+
+            <div class="tabs__content">
+              <div class="tabs__panel tabs__panel--active" data-tab-panel="right-tab1" id="right-panel1" role="tabpanel">
+                <h3>Powerful Features</h3>
+                <p>Our platform provides everything you need to build and scale your business. From advanced analytics to seamless integrations, we've got you covered.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Advanced analytics dashboard</li>
+                  <li><i class="ri-check-line"></i> Real-time collaboration tools</li>
+                  <li><i class="ri-check-line"></i> Unlimited team members</li>
+                </ul>
+              </div>
+              <div class="tabs__panel" data-tab-panel="right-tab2" id="right-panel2" role="tabpanel">
+                <h3>Customizable Settings</h3>
+                <p>Tailor every aspect of your workspace to match your workflow. Configure notifications, integrations, and preferences with ease.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Custom notification rules</li>
+                  <li><i class="ri-check-line"></i> API access and webhooks</li>
+                  <li><i class="ri-check-line"></i> Advanced security options</li>
+                </ul>
+              </div>
+              <div class="tabs__panel" data-tab-panel="right-tab3" id="right-panel3" role="tabpanel">
+                <h3>Your Profile</h3>
+                <p>Manage your personal information, privacy settings, and account preferences. Keep your profile up to date and secure.</p>
+                <ul class="tabs__list">
+                  <li><i class="ri-check-line"></i> Profile customization</li>
+                  <li><i class="ri-check-line"></i> Privacy controls</li>
+                  <li><i class="ri-check-line"></i> Activity history</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="tabs-bottom-cards">
+        <h3>Tabs Bottom Cards</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">tabs-bottom-cards</span>
+          <button class="demo-copy-btn" onclick="copyID('tabs-bottom-cards')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="tabs tabs--bottom-cards" data-tabs>
+            <div class="tabs__content">
+              <div class="tabs__panel tabs__panel--active" data-tab-panel="bottom-cards-tab1" id="bottom-cards-panel1" role="tabpanel">
+                <div class="tabs__cards">
+                  <div class="tabs__card">
+                    <h4>Short heading goes here</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                  </div>
+                  <div class="tabs__card">
+                    <h4>Short heading goes here</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                  </div>
+                  <div class="tabs__card">
+                    <h4>Short heading goes here</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tabs__panel" data-tab-panel="bottom-cards-tab2" id="bottom-cards-panel2" role="tabpanel">
+                <div class="tabs__cards">
+                  <div class="tabs__card">
+                    <h4>Advanced Settings</h4>
+                    <p>Configure your workspace with powerful customization options and integrations tailored to your needs.</p>
+                  </div>
+                  <div class="tabs__card">
+                    <h4>Team Collaboration</h4>
+                    <p>Work together seamlessly with real-time updates, shared workspaces, and integrated communication tools.</p>
+                  </div>
+                  <div class="tabs__card">
+                    <h4>Security Features</h4>
+                    <p>Enterprise-grade security with encryption, access controls, and compliance certifications included.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tabs__panel" data-tab-panel="bottom-cards-tab3" id="bottom-cards-panel3" role="tabpanel">
+                <div class="tabs__cards">
+                  <div class="tabs__card">
+                    <h4>Personal Dashboard</h4>
+                    <p>Track your activity, manage preferences, and view insights about your workspace usage patterns.</p>
+                  </div>
+                  <div class="tabs__card">
+                    <h4>Privacy Controls</h4>
+                    <p>Manage your data, control visibility settings, and choose what information you want to share.</p>
+                  </div>
+                  <div class="tabs__card">
+                    <h4>Notification Settings</h4>
+                    <p>Customize alerts and notifications to stay informed without being overwhelmed by updates.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tabs__header">
+              <div class="tabs__nav" role="tablist">
+                <button class="tabs__tab tabs__tab--active" data-tab-trigger="bottom-cards-tab1" role="tab" aria-selected="true" aria-controls="bottom-cards-panel1">
+                  Features
+                </button>
+                <button class="tabs__tab" data-tab-trigger="bottom-cards-tab2" role="tab" aria-selected="false" aria-controls="bottom-cards-panel2">
+                  Settings
+                </button>
+                <button class="tabs__tab" data-tab-trigger="bottom-cards-tab3" role="tab" aria-selected="false" aria-controls="bottom-cards-panel3">
+                  Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="tabs-bottom-features">
+        <h3>Tabs Bottom Features</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">tabs-bottom-features</span>
+          <button class="demo-copy-btn" onclick="copyID('tabs-bottom-features')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="tabs tabs--bottom-features" data-tabs>
+            <div class="tabs__content">
+              <div class="tabs__panel tabs__panel--active" data-tab-panel="bottom-features-tab1" id="bottom-features-panel1" role="tabpanel">
+                <div class="tabs__features">
+                  <div class="tabs__feature">
+                    <h4>Short heading goes here</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
+                  </div>
+                  <div class="tabs__feature">
+                    <h4>Short heading goes here</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
+                  </div>
+                  <div class="tabs__feature">
+                    <h4>Short heading goes here</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tabs__panel" data-tab-panel="bottom-features-tab2" id="bottom-features-panel2" role="tabpanel">
+                <div class="tabs__features">
+                  <div class="tabs__feature">
+                    <h4>Advanced Customization</h4>
+                    <p>Customize every aspect of your workspace with granular controls. From themes to keyboard shortcuts, make it truly yours with our extensive configuration options.</p>
+                  </div>
+                  <div class="tabs__feature">
+                    <h4>Powerful Integrations</h4>
+                    <p>Connect with your favorite tools seamlessly. Our platform integrates with over 100 popular services to streamline your workflow and boost productivity.</p>
+                  </div>
+                  <div class="tabs__feature">
+                    <h4>Advanced Security</h4>
+                    <p>Enterprise-grade security features including 2FA, SSO, and granular access controls. Keep your data safe with industry-leading encryption and compliance.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tabs__panel" data-tab-panel="bottom-features-tab3" id="bottom-features-panel3" role="tabpanel">
+                <div class="tabs__features">
+                  <div class="tabs__feature">
+                    <h4>Activity Timeline</h4>
+                    <p>Track your complete history with detailed activity logs. Review past actions, monitor changes, and gain insights into your workflow patterns over time.</p>
+                  </div>
+                  <div class="tabs__feature">
+                    <h4>Privacy Dashboard</h4>
+                    <p>Control your privacy settings in one centralized location. Manage data sharing, visibility preferences, and decide exactly what information you want to share.</p>
+                  </div>
+                  <div class="tabs__feature">
+                    <h4>Profile Customization</h4>
+                    <p>Make your profile uniquely yours with custom avatars, bio, and preferences. Showcase your work and connect with others in the community.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tabs__header">
+              <div class="tabs__nav" role="tablist">
+                <button class="tabs__tab tabs__tab--active" data-tab-trigger="bottom-features-tab1" role="tab" aria-selected="true" aria-controls="bottom-features-panel1">
+                  Features
+                </button>
+                <button class="tabs__tab" data-tab-trigger="bottom-features-tab2" role="tab" aria-selected="false" aria-controls="bottom-features-panel2">
+                  Settings
+                </button>
+                <button class="tabs__tab" data-tab-trigger="bottom-features-tab3" role="tab" aria-selected="false" aria-controls="bottom-features-panel3">
+                  Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Media -->
+    <section class="demo-section">
+      <h2>🖼️ Медиа (Media)</h2>
+
+      <!-- Image Ratios -->
+      <div class="demo-item" id="image-ratios">
+        <h3>Image Ratios</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">image-ratios</span>
+          <button class="demo-copy-btn" onclick="copyID('image-ratios')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="image-ratios-grid">
+            <!-- Image Aspect Ratio 1:1 (Square) -->
+            <div class="image-ratio image-ratio--1-1">
+              <img
+                src="https://placehold.co/600x600/e5e7eb/9ca3af?text=1:1"
+                alt="Square image example"
+                class="image-ratio__img"
+                loading="lazy"
+              />
+              <div class="image-ratio__label">Image Aspect Ratio 1:1</div>
+            </div>
+
+            <!-- Image Aspect Ratio 3:2 -->
+            <div class="image-ratio image-ratio--3-2">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=3:2"
+                alt="3:2 aspect ratio image example"
+                class="image-ratio__img"
+                loading="lazy"
+              />
+              <div class="image-ratio__label">Image Aspect Ratio 3:2</div>
+            </div>
+
+            <!-- Image Aspect Ratio 4:3 -->
+            <div class="image-ratio image-ratio--4-3">
+              <img
+                src="https://placehold.co/600x450/e5e7eb/9ca3af?text=4:3"
+                alt="4:3 aspect ratio image example"
+                class="image-ratio__img"
+                loading="lazy"
+              />
+              <div class="image-ratio__label">Image Aspect Ratio 4:3</div>
+            </div>
+
+            <!-- Image Aspect Ratio 16:9 (Widescreen) -->
+            <div class="image-ratio image-ratio--16-9">
+              <img
+                src="https://placehold.co/600x338/e5e7eb/9ca3af?text=16:9"
+                alt="16:9 widescreen image example"
+                class="image-ratio__img"
+                loading="lazy"
+              />
+              <div class="image-ratio__label">Image Aspect Ratio 16:9</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Shapes -->
+      <div class="demo-item" id="image-shapes">
+        <h3>Image Shapes</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">image-shapes</span>
+          <button class="demo-copy-btn" onclick="copyID('image-shapes')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="image-shapes-grid">
+            <!-- Image Circle -->
+            <div class="image-shape image-shape--circle">
+              <img
+                src="https://placehold.co/400x400/667eea/ffffff?text=Circle"
+                alt="Circle image example"
+                class="image-shape__img"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Image Rounded -->
+            <div class="image-shape image-shape--rounded">
+              <img
+                src="https://placehold.co/600x400/f093fb/ffffff?text=Rounded"
+                alt="Rounded corners image example"
+                class="image-shape__img"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Image Semi-circle -->
+            <div class="image-shape image-shape--semicircle">
+              <img
+                src="https://placehold.co/600x400/4facfe/ffffff?text=Semi-Circle"
+                alt="Semi-circle image example"
+                class="image-shape__img"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Image with Badge -->
+            <div class="image-shape image-shape--rounded image-shape--with-badge">
+              <img
+                src="https://placehold.co/600x400/43e97b/ffffff?text=With+Badge"
+                alt="Image with badge example"
+                class="image-shape__img"
+                loading="lazy"
+              />
+              <span class="image-shape__badge">New</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Overlay -->
+      <div class="demo-item" id="image-overlay">
+        <h3>Image Overlay</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">image-overlay</span>
+          <button class="demo-copy-btn" onclick="copyID('image-overlay')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="image-overlays-grid">
+            <!-- Image with Dark Overlay -->
+            <div class="image-overlay image-overlay--dark">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=Dark+Overlay"
+                alt="Image with dark overlay"
+                class="image-overlay__img"
+                loading="lazy"
+              />
+              <div class="image-overlay__content">
+                <h3 class="image-overlay__title">Dark Overlay</h3>
+                <p class="image-overlay__text">Perfect for hero sections</p>
+              </div>
+            </div>
+
+            <!-- Image with Gradient Overlay -->
+            <div class="image-overlay image-overlay--gradient">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=Gradient"
+                alt="Image with gradient overlay"
+                class="image-overlay__img"
+                loading="lazy"
+              />
+              <div class="image-overlay__content">
+                <h3 class="image-overlay__title">Gradient Overlay</h3>
+                <p class="image-overlay__text">Smooth transition effect</p>
+              </div>
+            </div>
+
+            <!-- Image with Color Overlay -->
+            <div class="image-overlay image-overlay--color">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=Color+Overlay"
+                alt="Image with color overlay"
+                class="image-overlay__img"
+                loading="lazy"
+              />
+              <div class="image-overlay__content">
+                <h3 class="image-overlay__title">Color Overlay</h3>
+                <p class="image-overlay__text">Brand color tint</p>
+              </div>
+            </div>
+
+            <!-- Image with Hover Overlay -->
+            <div class="image-overlay image-overlay--hover">
+              <img
+                src="https://placehold.co/600x400/e5e7eb/9ca3af?text=Hover+Me"
+                alt="Image with hover overlay"
+                class="image-overlay__img"
+                loading="lazy"
+              />
+              <div class="image-overlay__content">
+                <h3 class="image-overlay__title">Hover to Reveal</h3>
+                <p class="image-overlay__text">Interactive overlay effect</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Caption -->
+      <div class="demo-item" id="image-caption">
+        <h3>Image Caption</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">image-caption</span>
+          <button class="demo-copy-btn" onclick="copyID('image-caption')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="image-captions-grid">
+            <!-- Image with Caption Below -->
+            <figure class="image-caption image-caption--below">
+              <img
+                src="https://placehold.co/600x400/667eea/ffffff?text=Caption+Below"
+                alt="Image with caption below"
+                class="image-caption__img"
+                loading="lazy"
+              />
+              <figcaption class="image-caption__text">
+                Beautiful landscape captured at sunset
+              </figcaption>
+            </figure>
+
+            <!-- Image with Caption Overlay -->
+            <figure class="image-caption image-caption--overlay-bottom">
+              <img
+                src="https://placehold.co/600x400/f093fb/ffffff?text=Overlay+Bottom"
+                alt="Image with overlay caption"
+                class="image-caption__img"
+                loading="lazy"
+              />
+              <figcaption class="image-caption__text">
+                Caption over image with gradient
+              </figcaption>
+            </figure>
+
+            <!-- Image with Caption and Credits -->
+            <figure class="image-caption image-caption--with-credits">
+              <img
+                src="https://placehold.co/600x400/4facfe/ffffff?text=With+Credits"
+                alt="Image with credits"
+                class="image-caption__img"
+                loading="lazy"
+              />
+              <figcaption class="image-caption__text">
+                <div class="image-caption__title">Modern Architecture</div>
+                <div class="image-caption__credit">Photo by John Doe</div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="demo-section">
+      <h2>🧭 Навигация (Navigation)</h2>
+
+      <!-- Navbar -->
+      <div class="demo-item" id="navbar">
+        <h3>Navbar</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">navbar</span>
+          <button class="demo-copy-btn" onclick="copyID('navbar')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="navbar" aria-label="Основное меню">
+            <ul class="navbar__list">
+              <li class="navbar__item">
+                <a href="#services" class="navbar__link navbar__link--active">Услуги</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#about" class="navbar__link">О нас</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#pricing" class="navbar__link">Цены</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#portfolio" class="navbar__link">Портфолио</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#contacts" class="navbar__link">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Breadcrumb -->
+      <div class="demo-item" id="breadcrumb">
+        <h3>Breadcrumb</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">breadcrumb</span>
+          <button class="demo-copy-btn" onclick="copyID('breadcrumb')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a href="#" class="link">Link One</a>
+              </li>
+              <li class="breadcrumb__item">
+                <a href="#" class="link">Link Two</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="text">Link Three</span>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Dropdown -->
+      <div class="demo-item" id="dropdown">
+        <h3>Dropdown</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">dropdown</span>
+          <button class="demo-copy-btn" onclick="copyID('dropdown')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div style="display: flex; gap: var(--space-6); flex-wrap: wrap;">
+            <!-- Dropdown 1 - Simple -->
+            <div class="dropdown" data-dropdown>
+              <button class="dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown</span>
+                <i class="ri-arrow-down-s-line dropdown__icon"></i>
+              </button>
+              <div class="dropdown__menu" data-dropdown-menu role="menu">
+                <a href="#" class="dropdown__item" role="menuitem">Option One</a>
+                <a href="#" class="dropdown__item" role="menuitem">Option Two</a>
+                <a href="#" class="dropdown__item" role="menuitem">Option Three</a>
+              </div>
+            </div>
+
+            <!-- Dropdown 2 - With Border -->
+            <div class="dropdown dropdown--bordered" data-dropdown>
+              <button class="dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown</span>
+                <i class="ri-arrow-down-s-line dropdown__icon"></i>
+              </button>
+              <div class="dropdown__menu" data-dropdown-menu role="menu">
+                <a href="#" class="dropdown__item" role="menuitem">Option One</a>
+                <a href="#" class="dropdown__item" role="menuitem">Option Two</a>
+                <a href="#" class="dropdown__item" role="menuitem">Option Three</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navbar Dropdown -->
+      <div class="demo-item" id="navbar-dropdown">
+        <h3>Navbar Dropdown (9 variants)</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">navbar-dropdown</span>
+          <button class="demo-copy-btn" onclick="copyID('navbar-dropdown')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div style="display: flex; gap: var(--space-6); flex-wrap: wrap; align-items: flex-start;">
+
+            <!-- Navbar Dropdown 1 - Simple -->
+            <div class="navbar-dropdown navbar-dropdown--simple" data-dropdown>
+              <button class="navbar-dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown 1</span>
+                <i class="ri-arrow-down-s-line navbar-dropdown__icon"></i>
+              </button>
+              <div class="navbar-dropdown__menu" data-dropdown-menu role="menu">
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <span class="navbar-dropdown__link-text">Link One</span>
+                </a>
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <span class="navbar-dropdown__link-text">Link Two</span>
+                </a>
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <span class="navbar-dropdown__link-text">Link Three</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Navbar Dropdown 2 - With Descriptions -->
+            <div class="navbar-dropdown navbar-dropdown--with-desc" data-dropdown>
+              <button class="navbar-dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown 2</span>
+                <i class="ri-arrow-down-s-line navbar-dropdown__icon"></i>
+              </button>
+              <div class="navbar-dropdown__menu navbar-dropdown__menu--wide" data-dropdown-menu role="menu">
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <i class="ri-dashboard-line navbar-dropdown__link-icon"></i>
+                  <div class="navbar-dropdown__link-content">
+                    <span class="navbar-dropdown__link-title">Dashboard</span>
+                    <span class="navbar-dropdown__link-desc">View analytics and reports</span>
+                  </div>
+                </a>
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <i class="ri-settings-3-line navbar-dropdown__link-icon"></i>
+                  <div class="navbar-dropdown__link-content">
+                    <span class="navbar-dropdown__link-title">Settings</span>
+                    <span class="navbar-dropdown__link-desc">Manage preferences</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Navbar Dropdown 8 - Single Column -->
+            <div class="navbar-dropdown navbar-dropdown--single-col" data-dropdown>
+              <button class="navbar-dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                <span>Dropdown 8</span>
+                <i class="ri-arrow-down-s-line navbar-dropdown__icon"></i>
+              </button>
+              <div class="navbar-dropdown__menu navbar-dropdown__menu--single" data-dropdown-menu role="menu">
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <i class="ri-file-line navbar-dropdown__link-icon"></i>
+                  <div class="navbar-dropdown__link-content">
+                    <span class="navbar-dropdown__link-title">Page one</span>
+                    <span class="navbar-dropdown__link-desc">Lorem ipsum dolor sit</span>
+                  </div>
+                </a>
+                <a href="#" class="navbar-dropdown__link" role="menuitem">
+                  <i class="ri-folder-line navbar-dropdown__link-icon"></i>
+                  <div class="navbar-dropdown__link-content">
+                    <span class="navbar-dropdown__link-title">Page two</span>
+                    <span class="navbar-dropdown__link-desc">Lorem ipsum dolor sit</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--bg-section); border-radius: var(--radius-md);">
+            <p style="margin: 0; color: var(--text-muted); font-size: var(--font-size-2);">
+              <strong>💡 Note:</strong> This component includes 9 variants (simple, with-desc, grid, two-col, sidebar, compact-grid, categories, single-col, pages).
+              Check <code>library/elements/navigation/navbar-dropdown/navbar-dropdown.html</code> for all variants.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tooltips -->
+    <section class="demo-section">
+      <h2>💬 Подсказки (Tooltips)</h2>
+
+      <div class="demo-item" id="tooltip">
+        <h3>Tooltip</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">tooltip</span>
+          <button class="demo-copy-btn" onclick="copyID('tooltip')">
+            <i class="ri-file-copy-line"></i> Копировать ID
+          </button>
+        </div>
+
+        <!-- Tooltip 1 - Simple -->
+        <div class="demo-subsection">
+          <h4>Tooltip 1 (Simple) - 4 позиции</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); padding: var(--space-8);">
+
+            <!-- Top -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 200px;">
+              <div class="tooltip tooltip--simple" data-tooltip-position="top">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-simple-top">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-simple-top" role="tooltip">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 1 (Top)</p>
+            </div>
+
+            <!-- Right -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 200px;">
+              <div class="tooltip tooltip--simple" data-tooltip-position="right">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-simple-right">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-simple-right" role="tooltip">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 1 (Right)</p>
+            </div>
+
+            <!-- Bottom -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 200px;">
+              <div class="tooltip tooltip--simple" data-tooltip-position="bottom">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-simple-bottom">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-simple-bottom" role="tooltip">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 1 (Bottom)</p>
+            </div>
+
+            <!-- Left -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 200px;">
+              <div class="tooltip tooltip--simple" data-tooltip-position="left">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-simple-left">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-simple-left" role="tooltip">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 1 (Left)</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tooltip 2 - Rich -->
+        <div class="demo-subsection">
+          <h4>Tooltip 2 (Rich) - 4 позиции</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); padding: var(--space-8);">
+
+            <!-- Top -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 400px;">
+              <div class="tooltip tooltip--rich" data-tooltip-position="top">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-rich-top">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-rich-top" role="tooltip">
+                  <div class="tooltip__image">
+                    <img src="assets/images/placeholder.svg" alt="Tooltip visual">
+                  </div>
+                  <div class="tooltip__body">
+                    <h3 class="tooltip__title">Tooltip Title</h3>
+                    <p class="tooltip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <a href="#" class="tooltip__link">
+                      Find out more
+                      <i class="ri-arrow-right-line"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 2 (Top)</p>
+            </div>
+
+            <!-- Right -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 400px;">
+              <div class="tooltip tooltip--rich" data-tooltip-position="right">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-rich-right">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-rich-right" role="tooltip">
+                  <div class="tooltip__image">
+                    <img src="assets/images/placeholder.svg" alt="Tooltip visual">
+                  </div>
+                  <div class="tooltip__body">
+                    <h3 class="tooltip__title">Tooltip Title</h3>
+                    <p class="tooltip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <a href="#" class="tooltip__link">
+                      Find out more
+                      <i class="ri-arrow-right-line"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 2 (Right)</p>
+            </div>
+
+            <!-- Bottom -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 400px;">
+              <div class="tooltip tooltip--rich" data-tooltip-position="bottom">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-rich-bottom">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-rich-bottom" role="tooltip">
+                  <div class="tooltip__image">
+                    <img src="assets/images/placeholder.svg" alt="Tooltip visual">
+                  </div>
+                  <div class="tooltip__body">
+                    <h3 class="tooltip__title">Tooltip Title</h3>
+                    <p class="tooltip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <a href="#" class="tooltip__link">
+                      Find out more
+                      <i class="ri-arrow-right-line"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 2 (Bottom)</p>
+            </div>
+
+            <!-- Left -->
+            <div class="demo-preview" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding: var(--space-16) var(--space-4); min-height: 400px;">
+              <div class="tooltip tooltip--rich" data-tooltip-position="left">
+                <button class="tooltip__trigger" aria-describedby="tooltip-demo-rich-left">
+                  <i class="ri-information-line"></i>
+                </button>
+                <div class="tooltip__content" id="tooltip-demo-rich-left" role="tooltip">
+                  <div class="tooltip__image">
+                    <img src="assets/images/placeholder.svg" alt="Tooltip visual">
+                  </div>
+                  <div class="tooltip__body">
+                    <h3 class="tooltip__title">Tooltip Title</h3>
+                    <p class="tooltip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <a href="#" class="tooltip__link">
+                      Find out more
+                      <i class="ri-arrow-right-line"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <p style="margin: 0; font-size: var(--font-size-3); color: var(--text-muted);">Tooltip 2 (Left)</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lists -->
+    <section class="demo-section">
+      <h2>📝 Списки (Lists)</h2>
+
+      <div class="demo-item" id="list-with-icons">
+        <h3>List With Icons</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">list-with-icons</span>
+          <button class="demo-copy-btn" onclick="copyID('list-with-icons')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <ul class="list-with-icons" style="max-width: 600px;">
+            <li class="list-with-icons__item">
+              <i class="ri-checkbox-circle-line list-with-icons__icon"></i>
+              <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+            </li>
+            <li class="list-with-icons__item">
+              <i class="ri-checkbox-circle-line list-with-icons__icon"></i>
+              <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+            </li>
+            <li class="list-with-icons__item">
+              <i class="ri-checkbox-circle-line list-with-icons__icon"></i>
+              <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Icons -->
+    <section class="demo-section">
+      <h2>🌐 Социальные сети (Social Icons)</h2>
+
+      <div class="demo-item" id="social-icons-1">
+        <h3>Social Icons 1</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">social-icons-1</span>
+          <button class="demo-copy-btn" onclick="copyID('social-icons-1')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="social-icons">
+            <a href="#" class="social-icons__link" aria-label="Facebook">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Twitter/X">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="LinkedIn">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="YouTube">
+              <i class="ri-youtube-fill"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-item" id="social-icons-2">
+        <h3>Social Icons 2</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">social-icons-2</span>
+          <button class="demo-copy-btn" onclick="copyID('social-icons-2')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <div class="social-icons">
+            <a href="#" class="social-icons__link" aria-label="Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Twitter/X">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Behance">
+              <i class="ri-behance-fill"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="Dribbble">
+              <i class="ri-dribbble-line"></i>
+            </a>
+            <a href="#" class="social-icons__link" aria-label="GitHub">
+              <i class="ri-github-fill"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Elements -->
+    <section class="demo-section">
+      <h2>🔧 Другие элементы (Other)</h2>
+
+      <div class="demo-item" id="signup-form">
+        <h3>Signup Form</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">signup-form</span>
+          <button class="demo-copy-btn" onclick="copyID('signup-form')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <form class="signup-form">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="form-field__input signup-form__input"
+              required
+              aria-label="Email address"
+            >
+            <button type="submit" class="btn btn--primary">Sign Up</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="demo-item" id="back-to-top">
+        <h3>Back To Top Button</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">back-to-top</span>
+          <button class="demo-copy-btn" onclick="copyID('back-to-top')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+        <div class="demo-preview">
+          <button class="btn btn--secondary back-to-top" aria-label="Back to top">
+            <i class="ri-arrow-up-line"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loaders -->
+    <section class="demo-section">
+      <h2>⏳ Загрузка (Loaders)</h2>
+
+      <div class="demo-item" id="spinner">
+        <h3>Spinner</h3>
+        <div class="demo-id-wrapper">
+          <span class="demo-id">spinner</span>
+          <button class="demo-copy-btn" onclick="copyID('spinner')">
+            <i class="ri-file-copy-line"></i>
+            Copy
+          </button>
+        </div>
+
+        <div class="demo-subsection">
+          <h4>Spinner Sizes</h4>
+          <div class="demo-preview" style="display: flex; align-items: center; gap: var(--space-8); padding: var(--space-8);">
+            <div style="text-align: center;">
+              <div class="spinner spinner--sm" role="status" aria-label="Loading">
+                <div class="spinner__circle"></div>
+              </div>
+              <p style="margin-top: var(--space-2); font-size: var(--font-size-2); color: var(--text-muted);">Small</p>
+            </div>
+            <div style="text-align: center;">
+              <div class="spinner" role="status" aria-label="Loading">
+                <div class="spinner__circle"></div>
+              </div>
+              <p style="margin-top: var(--space-2); font-size: var(--font-size-2); color: var(--text-muted);">Medium</p>
+            </div>
+            <div style="text-align: center;">
+              <div class="spinner spinner--lg" role="status" aria-label="Loading">
+                <div class="spinner__circle"></div>
+              </div>
+              <p style="margin-top: var(--space-2); font-size: var(--font-size-2); color: var(--text-muted);">Large</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-subsection">
+          <h4>Button with Spinner</h4>
+          <div class="demo-preview" style="display: flex; gap: var(--space-4); padding: var(--space-8);">
+            <button class="btn btn--primary">
+              Normal Button
+            </button>
+            <button class="btn btn--primary btn--loading" disabled>
+              <span class="btn__spinner">
+                <div class="spinner spinner--sm">
+                  <div class="spinner__circle"></div>
+                </div>
+              </span>
+              <span class="btn__text">Saving...</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="demo-subsection">
+          <h4>Inline Loader</h4>
+          <div class="demo-preview">
+            <div class="loader-inline">
+              <div class="spinner" role="status" aria-label="Loading">
+                <div class="spinner__circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-subsection">
+          <h4>Page Overlay (hidden by default)</h4>
+          <p style="margin-bottom: var(--space-4); color: var(--text-muted);">
+            Use <code>.loader-overlay.is-active</code> to show overlay
+          </p>
+          <div class="demo-preview" style="position: relative; height: 300px; overflow: hidden;">
+            <div class="loader-overlay is-active" style="position: absolute;">
+              <div class="spinner spinner--lg">
+                <div class="spinner__circle"></div>
+              </div>
+              <p class="loader-overlay__text">Loading...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- Footer -->
+      <footer style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 2px solid var(--border); text-align: center; color: var(--text-muted);">
+        <p>Site Builder — элементный подход к созданию лендингов 🚀</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    // Get element path based on ID
+    function getElementPath(id) {
+      // Category mapping based on element structure
+      const categoryMap = {
+        // Buttons
+        'button': 'buttons/button',
+        'button-secondary': 'buttons/button-secondary',
+        'button-tertiary': 'buttons/button-tertiary',
+        'button-link': 'buttons/button-link',
+        'button-icon': 'buttons/button-icon',
+        'button-small': 'buttons/button-small',
+        'button-with-icon': 'buttons/button-with-icon',
+        'button-link-with-icon': 'buttons/button-link-with-icon',
+        'button-secondary-small': 'buttons/button-secondary-small',
+        'button-secondary-with-icon': 'buttons/button-secondary-with-icon',
+        'button-small-with-icon': 'buttons/button-small-with-icon',
+        'button-tertiary-small': 'buttons/button-tertiary-small',
+        'button-tertiary-with-icon': 'buttons/button-tertiary-with-icon',
+        'button-tertiary-small-with-icon': 'buttons/button-tertiary-small-with-icon',
+        'button-row-left': 'buttons/button-row-left',
+        'button-row-center': 'buttons/button-row-center',
+        'back-to-top': 'buttons/button-back-to-top',
+
+        // Forms
+        'input-text': 'forms/input-text',
+        'input-url': 'forms/input-url',
+        'input-search': 'forms/input-search',
+        'input-currency': 'forms/input-currency',
+        'input-with-icon': 'forms/input-with-icon',
+        'textarea': 'forms/textarea',
+        'select': 'forms/select',
+        'checkbox': 'forms/checkbox',
+        'checkbox-card': 'forms/checkbox-card',
+        'checkbox-toggle': 'forms/checkbox-toggle',
+        'radio': 'forms/radio',
+        'toggle': 'forms/toggle',
+        'toggle-description': 'forms/toggle-description',
+        'signup-form': 'forms/signup-form',
+
+        // Cards
+        'card-basic': 'cards/card-basic',
+        'card-with-image': 'cards/card-with-image',
+        'card-pricing': 'cards/card-pricing',
+        'card-horizontal-left': 'cards/card-horizontal-left',
+        'card-horizontal-right': 'cards/card-horizontal-right',
+        'card-vertical-top': 'cards/card-vertical-top',
+        'card-vertical-bottom': 'cards/card-vertical-bottom',
+        'card-compact-left': 'cards/card-compact-left',
+        'card-compact-right': 'cards/card-compact-right',
+        'card-icon': 'cards/card-icon',
+
+        // Navigation
+        'navbar': 'navigation/navbar',
+        'breadcrumb': 'navigation/breadcrumb',
+        'dropdown': 'navigation/dropdown',
+        'navbar-dropdown': 'navigation/navbar-dropdown',
+
+        // Pagination
+        'pagination-numbers': 'pagination/pagination-numbers',
+        'pagination-compact': 'pagination/pagination-compact',
+        'pagination-simple': 'pagination/pagination-simple',
+
+        // Accordions
+        'accordion-chevron': 'accordions/accordion-chevron',
+        'accordion-plus': 'accordions/accordion-plus',
+        'accordion-bordered': 'accordions/accordion-bordered',
+        'accordion-with-icons': 'accordions/accordion-with-icons',
+        'accordion-nested': 'accordions/accordion-nested',
+
+        // Tabs
+        'tabs-left-align': 'tabs/tabs-left-align',
+        'tabs-center-align': 'tabs/tabs-center-align',
+        'tabs-right-align': 'tabs/tabs-right-align',
+        'tabs-center-bordered': 'tabs/tabs-center-bordered',
+        'tabs-bottom-cards': 'tabs/tabs-bottom-cards',
+        'tabs-bottom-features': 'tabs/tabs-bottom-features',
+
+        // Modals
+        'modal-center': 'modals/modal-center',
+        'modal-drawer-demo': 'modals/modal-drawer',
+        'modal-fullscreen-demo': 'modals/modal-fullscreen',
+
+        // Tooltips
+        'tooltip': 'tooltips/tooltip',
+
+        // Media
+        'image-ratios': 'media/image-ratios',
+        'image-shapes': 'media/image-shapes',
+        'image-overlay': 'media/image-overlay',
+        'image-caption': 'media/image-caption',
+
+        // Lists
+        'list-with-icons': 'lists/list-with-icons',
+
+        // Social
+        'social-icons-1': 'social/social-icons-1',
+        'social-icons-2': 'social/social-icons-2',
+
+        // Loaders
+        'spinner': 'loaders/spinner',
+
+        // Grid
+        'grid-2-cols': 'grid/grid-2-cols',
+        'grid-3-cols': 'grid/grid-3-cols',
+        'grid-4-cols': 'grid/grid-4-cols',
+
+        // Typography
+        'heading-1': 'typography/heading-1',
+        'heading-2': 'typography/heading-2',
+        'heading-3': 'typography/heading-3',
+        'heading-4': 'typography/heading-4',
+        'heading-5': 'typography/heading-5',
+        'heading-6': 'typography/heading-6',
+        'heading-alignment': 'demo-elements.html#heading-alignment',
+        'text': 'typography/text',
+        'text-large': 'typography/text-large',
+        'text-small': 'typography/text-small',
+        'text-muted': 'typography/text-muted',
+        'lead': 'typography/lead',
+
+        // Sliders
+        'slider-1': 'sliders/slider-1',
+        'slider-2': 'sliders/slider-2',
+        'slider-3': 'sliders/slider-3',
+        'slider-4': 'sliders/slider-4',
+        'slider-carousel': 'sliders/slider-carousel',
+      };
+
+      const path = categoryMap[id];
+      if (path) {
+        // Special case for demo-only items
+        if (path.startsWith('demo-elements.html')) {
+          return path;
+        }
+        return `library/elements/${path}/`;
+      }
+
+      // Fallback
+      return `library/demo-elements.html#${id}`;
+    }
+
+    // Copy ID to clipboard with path
+    function copyID(id) {
+      // Create text with ID and path
+      const elementPath = getElementPath(id);
+      const textToCopy = `${id}\n${elementPath}`;
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        // Find button that was clicked
+        const btn = event.target.closest('.demo-copy-btn');
+        const originalHTML = btn.innerHTML;
+
+        // Show success state
+        btn.classList.add('demo-copy-btn--copied');
+        btn.innerHTML = '<i class="ri-check-line"></i> Copied!';
+
+        // Reset after 2 seconds
+        setTimeout(() => {
+          btn.classList.remove('demo-copy-btn--copied');
+          btn.innerHTML = originalHTML;
+        }, 2000);
+      });
+    }
+
+    // Toggle sidebar section
+    function toggleSection(titleElement) {
+      const section = titleElement.closest('.demo-nav__section');
+      section.classList.toggle('demo-nav__section--collapsed');
+    }
+  </script>
+</body>
+</html>

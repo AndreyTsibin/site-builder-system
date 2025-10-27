@@ -60,3 +60,9 @@ temp/
 Icon?
 ehthumbs.db
 Desktop.ini
+
+# Site Builder specific
+__pycache__/
+*.pyc
+
+# Note: output/ is now included as ready-to-use template

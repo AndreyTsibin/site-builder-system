@@ -1,0 +1,11 @@
+/**
+ * Button Tertiary Small — Small text-only button
+ * Uses .btn--sm modifier from main.css for size
+ * Uses .btn--tertiary for text-only style
+ */
+
+/* No additional styles needed - using base classes:
+   .btn (base button styles)
+   .btn--sm (small size from main.css)
+   .btn--tertiary (text-only style)
+*/

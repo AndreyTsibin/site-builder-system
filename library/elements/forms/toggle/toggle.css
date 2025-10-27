@@ -1,0 +1,88 @@
+/* Toggle Switch */
+.toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.toggle-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.toggle__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 1.75rem;
+  background-color: var(--bg-section);
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.toggle__slider {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--bg-card);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base);
+}
+
+.toggle__input:checked + .toggle {
+  background-color: var(--text-body);
+  border-color: var(--text-body);
+}
+
+.toggle__input:checked + .toggle .toggle__slider {
+  transform: translateX(1.25rem);
+}
+
+.toggle__input:focus + .toggle {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.toggle:hover {
+  border-color: var(--text-muted);
+}
+
+.toggle__label {
+  font-size: var(--font-size-3);
+  color: var(--text-body);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toggle {
+    width: 2.75rem;
+    height: 1.625rem;
+  }
+
+  .toggle__slider {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .toggle__input:checked + .toggle .toggle__slider {
+    transform: translateX(1.125rem);
+  }
+
+  .toggle__label {
+    font-size: var(--font-size-2);
+  }
+}

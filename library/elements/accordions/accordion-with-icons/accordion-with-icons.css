@@ -1,0 +1,48 @@
+/* Accordion with Icons */
+.accordion--with-icons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+}
+
+.accordion--with-icons .accordion__item {
+  border-bottom: 1px solid var(--border);
+}
+
+.accordion--with-icons .accordion__item:last-child {
+  border-bottom: none;
+}
+
+/* Title Wrapper for Icon + Text */
+.accordion__title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Icon before title */
+.accordion__title-icon {
+  font-size: var(--font-size-5);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* Adjust trigger layout */
+.accordion__trigger--with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .accordion__title-wrapper {
+    gap: var(--space-2);
+  }
+
+  .accordion__title-icon {
+    font-size: var(--font-size-4);
+  }
+}

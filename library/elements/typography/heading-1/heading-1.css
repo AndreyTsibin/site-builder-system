@@ -1,0 +1,16 @@
+/**
+ * Heading 1 — Largest heading
+ * Uses base .heading class from main.css
+ * Main page titles, hero headings
+ */
+
+/* Base styles inherited from main.css:
+   .heading (base heading styles)
+   .heading--h1 (H1 font size from --font-size-8)
+*/
+
+/* For alignment, use utility classes from main.css:
+   .text-left
+   .text-center
+   .text-right
+*/

@@ -1,0 +1,24 @@
+/* Signup Form — Layout Only */
+.signup-form {
+  display: flex;
+  gap: var(--space-2);
+  align-items: stretch;
+  width: 100%;
+  max-width: 500px;
+}
+
+.signup-form__input {
+  flex: 1;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .signup-form {
+    flex-direction: column;
+  }
+
+  .signup-form__input {
+    width: 100%;
+  }
+}

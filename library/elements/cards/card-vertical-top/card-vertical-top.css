@@ -1,0 +1,29 @@
+/* Card Vertical Top - Image Top, Content Bottom (Layout only) */
+
+.card-vertical-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.card-vertical-top__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.card-vertical-top__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* Image styling */
+.card-vertical-top .image-ratio {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}

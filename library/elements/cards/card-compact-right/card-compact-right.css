@@ -1,0 +1,32 @@
+/* Card Compact Right - Small Image Left, Content Right (Layout only) */
+
+.card-compact-right {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  align-items: center;
+}
+
+.card-compact-right__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card-compact-right .image-ratio {
+  width: 120px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .card-compact-right .image-ratio {
+    width: 140px;
+  }
+}

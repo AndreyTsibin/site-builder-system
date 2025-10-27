@@ -1,0 +1,10 @@
+/**
+ * Text Large — Large body text
+ * Uses base .text class from main.css with .text--lg modifier
+ * Emphasis paragraphs, important content
+ */
+
+/* Base styles inherited from main.css:
+   .text (base text styles)
+   .text--lg (large font size from --font-size-4)
+*/

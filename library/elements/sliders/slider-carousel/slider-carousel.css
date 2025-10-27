@@ -1,0 +1,76 @@
+/**
+ * Slider Carousel — Multiple items with flexible layouts
+ *
+ * Variants:
+ * - slider--carousel-auto: auto-width items (Slider 5, 7)
+ * - slider--carousel-3: 3 equal-width items (Slider 6)
+ */
+
+.slider__track--carousel {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider__track--carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Auto-width variant (Slider 5, 7) */
+.slider--carousel-auto .slider__slide {
+  flex: 0 0 auto;
+  width: 280px;
+  scroll-snap-align: start;
+  opacity: 1;
+  visibility: visible;
+  min-width: auto;
+}
+
+/* 3-column variant (Slider 6) */
+.slider--carousel-3 .slider__track--carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(33.333% - var(--space-3));
+}
+
+.slider--carousel-3 .slider__slide {
+  scroll-snap-align: start;
+  opacity: 1;
+  visibility: visible;
+  min-width: auto;
+  flex: none;
+}
+
+/* Carousel slide content */
+.slider--carousel-auto .slider__content,
+.slider--carousel-3 .slider__content {
+  min-height: 140px;
+  background-color: var(--bg-section);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .slider--carousel-auto .slider__slide {
+    width: 240px;
+  }
+
+  .slider--carousel-3 .slider__track--carousel {
+    grid-auto-columns: calc(50% - var(--space-2));
+  }
+}
+
+@media (max-width: 767px) {
+  .slider--carousel-auto .slider__slide {
+    width: 200px;
+  }
+
+  .slider--carousel-3 .slider__track--carousel {
+    grid-auto-columns: 100%;
+  }
+}

@@ -1,0 +1,189 @@
+/**
+ * Slider 1 — Single slide with top arrows and bottom-left dots
+ *
+ * Usage:
+ * 1. Add data-slider="unique-id" to slider container
+ * 2. JavaScript will auto-initialize sliders
+ * 3. Use data-slider-prev/next for navigation
+ */
+
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider__container {
+  position: relative;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+}
+
+/* Track (slides container) - default for all sliders */
+.slider__track {
+  position: relative;
+  display: flex;
+}
+
+/* Single-slide sliders only - override with grid */
+.slider:not(.slider--2-cols):not(.slider--3-cols):not(.slider--carousel-auto):not(.slider--carousel-3) .slider__track {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* Individual slide - default (for multi-slide sliders) */
+.slider__slide {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+/* Single-slide sliders only - override with grid positioning */
+.slider:not(.slider--2-cols):not(.slider--3-cols):not(.slider--carousel-auto):not(.slider--carousel-3) .slider__slide {
+  grid-column: 1;
+  grid-row: 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.slider:not(.slider--2-cols):not(.slider--3-cols):not(.slider--carousel-auto):not(.slider--carousel-3) .slider__slide--active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Slide content */
+.slider__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  min-height: 200px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Navigation Arrows */
+.slider__arrows {
+  display: flex;
+  gap: var(--space-2);
+  z-index: 10;
+}
+
+.slider__arrows--top {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+}
+
+.slider__arrows--bottom {
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-4);
+}
+
+.slider__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-popup);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-body);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--font-size-5);
+  line-height: 1;
+}
+
+.slider__arrow:hover {
+  background-color: var(--bg-btn-primary);
+  border-color: var(--bg-btn-primary);
+  color: var(--text-on-primary);
+  transform: scale(1.05);
+}
+
+.slider__arrow:active {
+  transform: scale(0.95);
+}
+
+.slider__arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.slider__arrow:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Dots indicator */
+.slider__dots {
+  display: flex;
+  gap: var(--space-2);
+  z-index: 10;
+}
+
+.slider__dots--bottom-left {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-4);
+}
+
+.slider__dots--bottom-right {
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-4);
+}
+
+.slider__dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--border);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.slider__dot:hover {
+  background-color: var(--text-muted);
+  transform: scale(1.2);
+}
+
+.slider__dot--active {
+  background-color: var(--text-body);
+  width: 24px;
+  border-radius: var(--radius-full);
+}
+
+.slider__dot:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .slider__container {
+    padding: var(--space-6);
+  }
+
+  .slider__content {
+    padding: var(--space-4);
+    min-height: 150px;
+  }
+
+  .slider__arrow {
+    width: 36px;
+    height: 36px;
+  }
+}
