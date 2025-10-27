@@ -122,7 +122,9 @@ def main():
     # Define files to minify
     files_to_minify = [
         project_root / "library/styles/reset.css",
+        project_root / "library/styles/variables.css",
         project_root / "output/styles/reset.css",
+        project_root / "output/styles/variables.css",
     ]
 
     # Check if specific file was provided as argument
