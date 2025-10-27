@@ -22,7 +22,7 @@ python3 modules/minification/minify.py path/to/file.css
 
 ## Features
 
-- Minifies CSS files from `library/styles/` and `output/styles/`
+- Minifies CSS files from `output/styles/` (production folder only)
 - Removes comments and whitespace
 - Removes unnecessary characters
 - Outputs minified files with `.min.css` extension
@@ -31,9 +31,11 @@ python3 modules/minification/minify.py path/to/file.css
 
 ## Default Files
 
-The script automatically minifies:
-- `library/styles/reset.css` → `reset.min.css`
+The script automatically minifies production files only:
 - `output/styles/reset.css` → `reset.min.css`
+- `output/styles/variables.css` → `variables.min.css`
+
+**Note:** Library files are not minified to maintain readability during development.
 
 ## Dependencies
 

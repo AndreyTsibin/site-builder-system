@@ -119,10 +119,8 @@ def main():
     # Get project root (2 levels up from this script)
     project_root = Path(__file__).parent.parent.parent
 
-    # Define files to minify
+    # Define files to minify (only production output folder)
     files_to_minify = [
-        project_root / "library/styles/reset.css",
-        project_root / "library/styles/variables.css",
         project_root / "output/styles/reset.css",
         project_root / "output/styles/variables.css",
     ]
