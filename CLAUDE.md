@@ -109,6 +109,9 @@ head -50 library/demo-elements.html
 # Test responsive design
 open library/demo-elements.html
 # DevTools: Cmd+Option+I, test 320px, 768px, 1024px, 1440px
+
+# Minify CSS for production
+python3 modules/minification/minify.py
 ```
 
 ---
@@ -254,6 +257,55 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ---
 
+## CSS MINIFICATION
+
+**Production optimization for client deployment.**
+
+### Quick Start
+
+```bash
+# From project root
+python3 modules/minification/minify.py
+```
+
+### What Gets Minified
+
+**Only production files** (`output/styles/`):
+- `reset.css` → `reset.min.css` (64.6% reduction)
+- `variables.css` → `variables.min.css` (65.0% reduction)
+- `main.css` → `main.min.css` (33.5% reduction)
+
+**Library files NOT minified** — kept readable for development.
+
+### Workflow
+
+1. **Development:** Edit files in `library/styles/` or `output/styles/`
+2. **Before deployment:** Run minification script
+3. **In HTML:** Use `.min.css` versions for production
+
+```html
+<!-- Production -->
+<link rel="stylesheet" href="styles/reset.min.css">
+<link rel="stylesheet" href="styles/variables.min.css">
+<link rel="stylesheet" href="styles/main.min.css">
+```
+
+### Features
+
+- Removes comments and whitespace
+- No external dependencies (Python stdlib only)
+- Can minify specific files: `python3 modules/minification/minify.py path/to/file.css`
+- Shows compression statistics
+
+### When to Minify
+
+- ✅ Before deploying to client
+- ✅ Before pushing to hosting/Tilda
+- ✅ After major CSS changes
+- ❌ NOT during active development (use readable versions)
+
+---
+
 ## CRITICAL: UTF-8 FOR CYRILLIC
 
 **Claude Code bug (#1716, #2154) — MANDATORY verification:**
@@ -284,6 +336,9 @@ Before completing work:
 7. ✅ Real text (no placeholders)
 8. ✅ Browser renders correctly (F12 → Console)
 9. ✅ Git commit with proper format
+
+**Before client deployment:**
+10. ✅ Run CSS minification: `python3 modules/minification/minify.py`
 
 ---
 
