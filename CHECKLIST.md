@@ -86,6 +86,25 @@
 
 ---
 
+### Hero5 — Hero with Badge, Benefits & CTA
+
+**Required elements:**
+
+- Badge at top (yellow background, rounded) — experience/years
+- Link next to badge — "Узнать больше >"
+- Main heading (h1) — service description
+- Subtitle (gray text) — specialist name or additional info
+- Benefits list (3 items) with green checkmark icons
+- CTA button (blue) — consultation/contact
+- White background
+- Image on right side (hidden on mobile)
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/heroes/Hero5.astro`
+
+---
+
 ## 2. CONTACT FORMS
 
 ### ContactForm — Full Contact Form
@@ -300,6 +319,6 @@
 
 ## TOTAL: 18 Components Across 10 Categories
 
-**Progress:** 4 / 18 completed (22.2%)
+**Progress:** 5 / 18 completed (27.8%)
 
 **Last Updated:** 2025-10-29

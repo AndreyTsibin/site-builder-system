@@ -4,6 +4,7 @@ import Hero1 from '@/components/sections/heroes/Hero1.astro';
 import Hero2 from '@/components/sections/heroes/Hero2.astro';
 import Hero3 from '@/components/sections/heroes/Hero3.astro';
 import Hero4 from '@/components/sections/heroes/Hero4.astro';
+import Hero5 from '@/components/sections/heroes/Hero5.astro';
 ---
 
 <BaseLayout title="Site Builder 2.0 | Component Library Demo">
@@ -67,6 +68,24 @@ import Hero4 from '@/components/sections/heroes/Hero4.astro';
     ]}
     imageUrl="/images/placeholder-img.jpg"
     imageAlt="Установка видеодомофонов"
+  />
+
+  <!-- Hero Section 5 - With Badge & Benefits -->
+  <Hero5
+    badge="Опыт 12 лет"
+    badgeLink="#about"
+    badgeLinkText="Узнать больше >"
+    title="Ремонт стиральных машин любой сложности"
+    subtitle="Мастер-специалист Сергей Иванов"
+    benefits={[
+      "Гарантия до 2 лет на все виды работ",
+      "Выезд и диагностика бесплатно",
+      "Оригинальные запчасти в наличии"
+    ]}
+    ctaText="Бесплатная консультация"
+    ctaUrl="#contact"
+    imageUrl="/images/placeholder-img.jpg"
+    imageAlt="Ремонт стиральных машин"
   />
 
   <!-- More sections will be added here as they are completed -->
