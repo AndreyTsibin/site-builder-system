@@ -4,30 +4,30 @@
 
 ---
 
-## 🎯 ТЕКУЩАЯ ФАЗА: Начало разработки
+## 🎯 ТЕКУЩАЯ ФАЗА: Создание библиотеки секций
 
-**Статус:** 🏗️ Фаза 1 — Создание библиотеки секций
+**Статус:** 🏗️ Фаза 1 — Создание компонентов из Flowbite
 
 **Выполнено:**
 - ✅ **Миграция на Astro + Tailwind 4**
-  - Установлен Astro 5
-  - Установлен Tailwind 4 с Vite плагином
+  - Установлен Astro 5.15.2
+  - Установлен Tailwind 4.1.16 с Vite плагином
   - Создана базовая структура проекта
   - Настроены конфиги (astro.config.mjs, tsconfig.json)
   - Создан BaseLayout с Remix Icons
   - Создана демо-страница
 
-**Текущая фаза — Создание секций:**
-- 🔄 Создать библиотеку готовых секций из Flowbite/HyperUI
-- 🔄 Heroes (5 вариантов)
-- 🔄 Features (3 варианта)
-- 🔄 Pricing (2 варианта)
-- 🔄 Forms (Contact, Quiz)
-- 🔄 Footers (3 варианта)
+**Текущая задача — Создание секций из Flowbite:**
+- 🔄 Heroes (5 вариантов) — https://flowbite.com/blocks/marketing/hero/
+- 🔄 Features (3-5 вариантов) — https://flowbite.com/blocks/marketing/feature/
+- 🔄 Pricing (2-3 варианта) — https://flowbite.com/blocks/marketing/pricing/
+- 🔄 CTA (2 варианта) — https://flowbite.com/blocks/marketing/cta/
+- 🔄 Forms (Contact + Newsletter) — https://flowbite.com/blocks/marketing/contact/
+- 🔄 Footers (3 варианта) — https://flowbite.com/blocks/marketing/footer/
 
 **Следующие фазы:**
 - 📝 Фаза 2: Готовые шаблоны лендингов (SaaS, E-commerce, Portfolio)
-- 🚀 Фаза 3: CLI для быстрой генерации
+- 🚀 Фаза 3: Автоматизация (промпт-шаблоны для сборки лендингов)
 
 ---
 
@@ -165,6 +165,243 @@ import Hero1 from '../components/sections/heroes/Hero1.astro';
     buttonText="Кнопка"
   />
 </BaseLayout>
+```
+
+---
+
+## 📋 ПЛАН СОЗДАНИЯ БИБЛИОТЕКИ СЕКЦИЙ ИЗ FLOWBITE
+
+### Источник компонентов: Flowbite Blocks
+
+**Ссылка:** https://flowbite.com/blocks/
+
+**Почему Flowbite:**
+- Бесплатно (450+ компонентов)
+- Tailwind-native (копипаст HTML)
+- Адаптивный дизайн из коробки
+- Accessibility compliance
+
+### Процесс создания секции (5-10 минут):
+
+**Шаг 1:** Открыть Flowbite Blocks → выбрать категорию (Hero/Features/etc.)
+
+**Шаг 2:** Скопировать HTML код секции
+
+**Шаг 3:** Создать `.astro` файл:
+```bash
+# Пример для Hero1
+touch src/components/sections/heroes/Hero1.astro
+```
+
+**Шаг 4:** Конвертировать HTML → Astro:
+1. Вставить HTML в шаблон `.astro`
+2. Добавить frontmatter с `interface Props`
+3. Заменить хардкод на `{props.название}`
+4. Заменить SVG иконки на Remix Icons: `<i class="ri-название-line"></i>`
+5. Проверить responsive классы (должны быть `md:`, `lg:`)
+
+**Шаг 5:** Тест:
+```astro
+// src/pages/index.astro
+import Hero1 from '../components/sections/heroes/Hero1.astro';
+
+<Hero1 title="Тест" subtitle="Подзаголовок" />
+```
+
+**Шаг 6:** Запустить `npm run dev` → проверить результат
+
+---
+
+### Приоритет создания секций (по порядку):
+
+#### **1. Heroes (5 вариантов) — 30-40 минут**
+
+Ссылка: https://flowbite.com/blocks/marketing/hero/
+
+**Hero1:** Centered with gradient background + CTA button
+- Props: `title`, `subtitle`, `ctaText`, `ctaLink`
+
+**Hero2:** Split layout (text left, image right)
+- Props: `title`, `subtitle`, `ctaText`, `ctaLink`, `imageUrl`, `imageAlt`
+
+**Hero3:** With badges/features below title
+- Props: `title`, `subtitle`, `ctaText`, `features[]`
+
+**Hero4:** Minimal with large typography
+- Props: `title`, `subtitle`
+
+**Hero5:** With background image
+- Props: `title`, `subtitle`, `ctaText`, `ctaLink`, `backgroundImage`
+
+**Пример Hero1.astro:**
+```astro
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaText: string;
+  ctaLink?: string;
+  bgColor?: string;
+}
+
+const {
+  title,
+  subtitle,
+  ctaText,
+  ctaLink = '#',
+  bgColor = 'bg-gradient-to-r from-blue-600 to-purple-600'
+} = Astro.props;
+---
+
+<section class={`py-20 ${bgColor}`}>
+  <div class="container mx-auto px-4 text-center text-white">
+    <h1 class="text-5xl md:text-6xl font-bold mb-6">{title}</h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">{subtitle}</p>
+    <a href={ctaLink} class="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-gray-100 transition">
+      {ctaText}
+    </a>
+  </div>
+</section>
+```
+
+---
+
+#### **2. Features (3-5 вариантов) — 20-30 минут**
+
+Ссылка: https://flowbite.com/blocks/marketing/feature/
+
+**Features1:** 3 columns grid with icons
+- Props: `title`, `subtitle`, `features[]` (каждый: `icon`, `title`, `description`)
+
+**Features2:** Zigzag layout (image ↔ text alternating)
+- Props: `features[]` (каждый: `title`, `description`, `imageUrl`, `reversed`)
+
+**Features3:** Icon list with checkmarks
+- Props: `title`, `features[]` (каждый: `text`)
+
+**Пример Features1.astro:**
+```astro
+---
+interface Feature {
+  icon: string;          // "ri-rocket-line"
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  features: Feature[];
+}
+
+const { title, subtitle, features } = Astro.props;
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">{title}</h2>
+      {subtitle && <p class="text-xl text-gray-600">{subtitle}</p>}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {features.map(feature => (
+        <div class="text-center p-6">
+          <i class={`${feature.icon} text-5xl text-blue-600 mb-4`}></i>
+          <h3 class="text-2xl font-bold mb-3">{feature.title}</h3>
+          <p class="text-gray-600">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+```
+
+---
+
+#### **3. Pricing (2-3 варианта) — 15-20 минут**
+
+Ссылка: https://flowbite.com/blocks/marketing/pricing/
+
+**Pricing1:** 3 cards (Basic, Pro, Enterprise)
+- Props: `title`, `tiers[]` (каждый: `name`, `price`, `period`, `features[]`, `highlighted`, `ctaText`, `ctaLink`)
+
+**Pricing2:** Comparison table
+- Props: `title`, `features[]`, `tiers[]`
+
+---
+
+#### **4. CTA (2 варианта) — 10 минут**
+
+Ссылка: https://flowbite.com/blocks/marketing/cta/
+
+**CTA1:** Simple centered with button
+- Props: `title`, `subtitle`, `ctaText`, `ctaLink`
+
+**CTA2:** With background color + secondary button
+- Props: `title`, `subtitle`, `primaryCta`, `secondaryCta`
+
+---
+
+#### **5. Contact Forms (2 варианта) — 15 минут**
+
+Ссылка: https://flowbite.com/blocks/marketing/contact/
+
+**ContactForm:** Name, Email, Phone, Message + Submit
+- Props: `title`, `subtitle`, `submitText`
+
+**NewsletterForm:** Email + Subscribe button
+- Props: `title`, `subtitle`, `placeholder`, `buttonText`
+
+---
+
+#### **6. Footers (3 варианта) — 20 минут**
+
+Ссылка: https://flowbite.com/blocks/marketing/footer/
+
+**Footer1:** Minimal (logo + copyright)
+- Props: `logo`, `copyright`
+
+**Footer2:** Full (4 columns with links)
+- Props: `logo`, `columns[]`, `copyright`, `socialLinks[]`
+
+**Footer3:** With newsletter signup
+- Props: `logo`, `newsletterTitle`, `columns[]`, `copyright`
+
+---
+
+### Итоговая библиотека (MVP):
+
+✅ **15-18 секций за 2-3 часа работы:**
+- 5 Heroes
+- 3-5 Features
+- 2-3 Pricing
+- 2 CTA
+- 2 Forms
+- 3 Footers
+
+---
+
+### Промпт для Claude Code (используй в новой сессии):
+
+```
+Создай библиотеку секций из Flowbite для Site Builder 2.0.
+
+Начни с Heroes:
+
+1. Открой https://flowbite.com/blocks/marketing/hero/
+2. Выбери 5 лучших Hero секций (разные layouts)
+3. Для каждой:
+   - Создай src/components/sections/heroes/Hero[N].astro
+   - Скопируй HTML из Flowbite
+   - Добавь Props interface
+   - Замени хардкод на {props.название}
+   - Замени SVG иконки на Remix Icons
+   - Тест на index.astro
+
+4. После Heroes — переходи к Features, затем Pricing, CTA, Forms, Footers
+
+Работай последовательно, тестируй каждую секцию перед следующей.
 ```
 
 ---
@@ -394,6 +631,6 @@ npm run build
 
 ---
 
-**Версия:** 2.0.0
+**Версия:** 2.0.1
 **Последнее обновление:** 2025-10-29
-**Текущая фаза:** Создание библиотеки секций
+**Текущая фаза:** Создание библиотеки секций из Flowbite (15-18 компонентов)
