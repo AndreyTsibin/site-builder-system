@@ -1,8 +1,8 @@
 ---
 /**
- * Hero3 — Hero with Benefits List & Contact Form
+ * Hero3 — Hero with Benefits List, Contact Form & Image
  *
- * Two-column hero section with benefits list on left, contact form on right
+ * Two-column hero section: left has content + benefits + form, right has image
  * Perfect for LG appliance repair services with immediate conversion focus
  *
  * Usage:
@@ -16,7 +16,6 @@
  *     { icon: "ri-checkbox-circle-line", text: "Выезд в течение часа" },
  *     { icon: "ri-checkbox-circle-line", text: "Гарантия на услуги до 2 лет" }
  *   ]}
- *   formTitle="Вызвать мастера"
  *   phonePlaceholder="+7 (000) 000-00-00"
  *   submitText="Вызвать мастера"
  *   privacyText="Отправляя форму, вы соглашаетесь с <a href='/privacy' class='text-blue-600 hover:underline'>Политикой конфиденциальности</a>"
@@ -36,7 +35,6 @@ interface Props {
   subtitle: string;
   description: string;
   benefits: Benefit[];
-  formTitle: string;
   phonePlaceholder?: string;
   submitText: string;
   privacyText: string;
@@ -50,7 +48,6 @@ const {
   subtitle,
   description,
   benefits,
-  formTitle,
   phonePlaceholder = "+7 (000) 000-00-00",
   submitText,
   privacyText,
@@ -66,7 +63,7 @@ const titleParts = title.split(titleHighlight);
   <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-      <!-- Left Column: Content -->
+      <!-- Left Column: Content + Benefits + Form -->
       <div class="space-y-6">
         <!-- Heading with highlight -->
         <h1 class="max-w-2xl text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight">
@@ -87,51 +84,49 @@ const titleParts = title.split(titleHighlight);
             </li>
           ))}
         </ul>
-      </div>
 
-      <!-- Right Column: Contact Form -->
-      <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 md:p-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{formTitle}</h2>
+        <!-- Contact Form -->
+        <div class="pt-4">
+          <form class="space-y-4 max-w-md">
+            <!-- Phone Input with Country Flag Dropdown -->
+            <div class="flex gap-2">
+              <!-- Country Selector -->
+              <div class="relative flex-shrink-0">
+                <button
+                  type="button"
+                  class="flex items-center gap-2 px-3 py-3 border border-gray-300 rounded-lg bg-white hover:bg-gray-50 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                  aria-label="Select country code"
+                >
+                  <span class="text-2xl">🇷🇺</span>
+                  <i class="ri-arrow-down-s-line text-gray-600"></i>
+                </button>
+              </div>
 
-        <form class="space-y-4">
-          <!-- Phone Input with Country Flag Dropdown -->
-          <div class="flex gap-2">
-            <!-- Country Selector -->
-            <div class="relative flex-shrink-0">
-              <button
-                type="button"
-                class="flex items-center gap-2 px-3 py-3 border border-gray-300 rounded-lg bg-white hover:bg-gray-50 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                aria-label="Select country code"
-              >
-                <span class="text-2xl">🇷🇺</span>
-                <i class="ri-arrow-down-s-line text-gray-600"></i>
-              </button>
+              <!-- Phone Input -->
+              <input
+                type="tel"
+                placeholder={phonePlaceholder}
+                class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                required
+              />
             </div>
 
-            <!-- Phone Input -->
-            <input
-              type="tel"
-              placeholder={phonePlaceholder}
-              class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-              required
-            />
-          </div>
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="w-full px-6 py-3 text-base font-medium text-white bg-red-700 hover:bg-red-800 rounded-lg focus:ring-4 focus:ring-red-300 transition-colors"
+            >
+              {submitText}
+            </button>
 
-          <!-- Submit Button -->
-          <button
-            type="submit"
-            class="w-full px-6 py-3 text-base font-medium text-white bg-red-700 hover:bg-red-800 rounded-lg focus:ring-4 focus:ring-red-300 transition-colors"
-          >
-            {submitText}
-          </button>
-
-          <!-- Privacy Policy Text -->
-          <p class="text-xs text-gray-500 leading-relaxed" set:html={privacyText} />
-        </form>
+            <!-- Privacy Policy Text -->
+            <p class="text-xs text-gray-500 leading-relaxed" set:html={privacyText} />
+          </form>
+        </div>
       </div>
 
-      <!-- Bottom: Image (Mobile only, below form) -->
-      <div class="lg:hidden mt-8">
+      <!-- Right Column: Image -->
+      <div class="hidden lg:flex justify-center">
         <img
           src={imageUrl}
           alt={imageAlt}
