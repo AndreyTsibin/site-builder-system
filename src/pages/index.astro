@@ -3,6 +3,70 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ServicesGrid from '../components/sections/pricing/ServicesGrid.astro';
 import PricingTable from '../components/sections/pricing/PricingTable.astro';
 import ServicesCards from '../components/sections/pricing/ServicesCards.astro';
+import Services4 from '../components/sections/pricing/Services4.astro';
+
+const pricingCategories = [
+  {
+    title: 'Варочные панели',
+    icon: 'ri-tools-line',
+    services: [
+      { name: 'Разбитые поверхности', price: 'от 4000 ₽' },
+      { name: 'Техническое обслуживание поверхностей', price: 'от 1000 ₽' },
+      { name: 'Устранение ошибок электроники', price: 'от 1000 ₽' },
+      { name: 'Замена модулей и индикаторов', price: 'от 750 ₽' },
+    ],
+  },
+  {
+    title: 'Духовые шкафы',
+    icon: 'ri-grid-line',
+    services: [
+      { name: 'Замена нагревательных элементов', price: 'от 2500 ₽' },
+      { name: 'Ремонт системы управления', price: 'от 3000 ₽' },
+      { name: 'Замена дверцы и петель', price: 'от 1500 ₽' },
+      { name: 'Калибровка температуры', price: 'от 800 ₽' },
+    ],
+  },
+  {
+    title: 'Кофемашины',
+    icon: 'ri-cup-line',
+    services: [
+      { name: 'Чистка и декальцинация', price: 'от 1200 ₽' },
+      { name: 'Ремонт помпы', price: 'от 2000 ₽' },
+      { name: 'Замена уплотнителей', price: 'от 900 ₽' },
+      { name: 'Ремонт капучинатора', price: 'от 1500 ₽' },
+    ],
+  },
+  {
+    title: 'Посудомоечные машины',
+    icon: 'ri-water-flash-line',
+    services: [
+      { name: 'Замена помпы слива', price: 'от 2500 ₽' },
+      { name: 'Ремонт датчика уровня воды', price: 'от 1800 ₽' },
+      { name: 'Замена нагревательного элемента', price: 'от 3000 ₽' },
+      { name: 'Чистка фильтров и форсунок', price: 'от 800 ₽' },
+    ],
+  },
+  {
+    title: 'Стиральные машины',
+    icon: 'ri-contrast-drop-line',
+    services: [
+      { name: 'Замена подшипников и сальника', price: 'от 4500 ₽' },
+      { name: 'Ремонт модуля управления', price: 'от 3500 ₽' },
+      { name: 'Замена амортизаторов', price: 'от 2000 ₽' },
+      { name: 'Чистка насоса и фильтра', price: 'от 1200 ₽' },
+    ],
+  },
+  {
+    title: 'Холодильники',
+    icon: 'ri-fridge-line',
+    services: [
+      { name: 'Заправка хладагента', price: 'от 3500 ₽' },
+      { name: 'Замена компрессора', price: 'от 5000 ₽' },
+      { name: 'Ремонт системы No Frost', price: 'от 2500 ₽' },
+      { name: 'Замена термостата', price: 'от 1500 ₽' },
+    ],
+  },
+];
 ---
 
 <BaseLayout title="Site Builder 2.0 | Component Library Demo">
@@ -10,4 +74,9 @@ import ServicesCards from '../components/sections/pricing/ServicesCards.astro';
   <ServicesGrid />
   <PricingTable />
   <ServicesCards />
+  <Services4
+    title="Цены на ремонт техники LG"
+    subtitle="Прозрачная стоимость без скрытых платежей — оплачивайте за реально выполненные работы."
+    categories={pricingCategories}
+  />
 </BaseLayout>

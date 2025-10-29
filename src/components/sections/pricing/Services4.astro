@@ -1,0 +1,97 @@
+---
+interface Service {
+  name: string;
+  price: string;
+}
+
+interface Category {
+  title: string;
+  icon: string;
+  services: Service[];
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  categories: Category[];
+}
+
+const { title, subtitle, categories } = Astro.props;
+---
+
+<section class="py-16 md:py-20 lg:py-24 bg-gray-50">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Categories Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {categories.map((category) => (
+        <details class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <summary class="flex items-center justify-between cursor-pointer list-none group">
+            <div class="flex items-center gap-3">
+              <i class={`${category.icon} text-2xl text-red-600`}></i>
+              <h3 class="text-xl md:text-2xl font-semibold text-gray-900">
+                {category.title}
+              </h3>
+            </div>
+            <button type="button" class="flex items-center gap-2 text-gray-600 group-hover:text-red-600 transition-colors">
+              <span class="text-sm font-medium details-closed:block details-open:hidden">Показать цены</span>
+              <span class="text-sm font-medium details-closed:hidden details-open:block">Скрыть цены</span>
+              <i class="ri-add-line text-xl details-closed:block details-open:hidden"></i>
+              <i class="ri-subtract-line text-xl details-closed:hidden details-open:block"></i>
+            </button>
+          </summary>
+
+          <!-- Services List -->
+          <div class="mt-6 space-y-4">
+            {category.services.map((service) => (
+              <div class="flex items-start justify-between gap-4 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
+                <span class="text-sm md:text-base text-gray-700 flex-1">
+                  {service.name}
+                </span>
+                <span class="text-sm md:text-base font-semibold text-red-600 whitespace-nowrap">
+                  {service.price}
+                </span>
+              </div>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom styling for details/summary */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] summary {
+    margin-bottom: 0;
+  }
+
+  /* Smooth animation for accordion */
+  details[open] > div {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
