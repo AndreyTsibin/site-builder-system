@@ -1,129 +1,92 @@
 # CLAUDE.md
 
-Инструкции для Claude Code при работе с проектом Site Builder 2.0
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ---
 
-## 🎯 ТЕКУЩАЯ ФАЗА: Создание библиотеки секций
+## PROJECT OVERVIEW
 
-**Статус:** 🏗️ Фаза 1 — Создание компонентов из Flowbite
+**Site Builder 2.0** — Landing page constructor for repair services niche
 
-**Выполнено:**
-- ✅ **Миграция на Astro + Tailwind 4**
-  - Установлен Astro 5.15.2
-  - Установлен Tailwind 4.1.16 с Vite плагином
-  - Создана базовая структура проекта
-  - Настроены конфиги (astro.config.mjs, tsconfig.json)
-  - Создан BaseLayout с Remix Icons
-  - Создана демо-страница
+**Specialization:** Appliance repair, digital device repair, home renovation services
 
-**Текущая задача — Создание секций из Flowbite:**
-- 🔄 Heroes (5 вариантов) — https://flowbite.com/blocks/marketing/hero/
-- 🔄 Features (3-5 вариантов) — https://flowbite.com/blocks/marketing/feature/
-- 🔄 Pricing (2-3 варианта) — https://flowbite.com/blocks/marketing/pricing/
-- 🔄 CTA (2 варианта) — https://flowbite.com/blocks/marketing/cta/
-- 🔄 Forms (Contact + Newsletter) — https://flowbite.com/blocks/marketing/contact/
-- 🔄 Footers (3 варианта) — https://flowbite.com/blocks/marketing/footer/
+**Tech Stack:**
 
-**Следующие фазы:**
-- 📝 Фаза 2: Готовые шаблоны лендингов (SaaS, E-commerce, Portfolio)
-- 🚀 Фаза 3: Автоматизация (промпт-шаблоны для сборки лендингов)
+- **Astro 5.15.2** — Static site generator, zero JS by default
+- **Tailwind 4.1.16** — Utility-first CSS with Vite plugin
+- **Remix Icon 4.7.0** — Icon library (2800+ icons via CDN)
+- **TypeScript** — Optional, paths configured via `@/*` aliases
+
+**Philosophy:** Build professional landing pages in minutes using pre-built sections
 
 ---
 
-## АРХИТЕКТУРА ПРОЕКТА
+## CURRENT STATUS
 
-**Site Builder 2.0** — конструктор лендингов на Astro + Tailwind 4
+**Phase:** Component Library Creation (see [ROADMAP.md](ROADMAP.md))
 
-**Философия:** Собирай лендинг за минуты из готовых секций
+**Completed:**
 
-**Стек:**
-```
-Astro 5        → Генерирует чистый HTML
-Tailwind 4     → Утилитарные классы
-Remix Icons    → 2800+ иконок
-```
+- ✅ Astro + Tailwind 4 migration
+- ✅ BaseLayout with Remix Icons
+- ✅ Demo page with hero, features, CTA sections
+- ✅ Section directories structure
 
-**Workflow:**
-1. **Библиотека секций** → Готовые `.astro` компоненты
-2. **Быстрая сборка** → Claude Code собирает лендинг
-3. **Production** → `npm run build` → Деплой
+**Next:**
 
----
-
-## TECH STACK
-
-- **Frontend:** Astro 5 (Static Site Generator)
-- **Styling:** Tailwind 4 с Vite плагином
-- **Icons:** Remix Icon 4.7.0 (CDN)
-- **TypeScript:** Опционально
-- **Deployment:** Netlify/Vercel/обычный хостинг
+- Create Priority 1 components from Flowbite (Hero, Forms, Services, Benefits, Contacts, CTA)
+- See [ROADMAP.md](ROADMAP.md) for detailed phase plan
 
 ---
 
 ## ESSENTIAL COMMANDS
 
 ```bash
-# Dev-сервер
+# Development server
 npm run dev
 # → http://localhost:4321
 
-# Production сборка
+# Production build
 npm run build
-# → dist/
+# → outputs to dist/
 
-# Предпросмотр production
+# Preview production build
 npm run preview
 
-# Тест проекта
-npm run astro check
+# Astro CLI
+npm run astro
 ```
+
+**Note:** No test/lint scripts configured yet
 
 ---
 
-## СТРУКТУРА ПРОЕКТА
+## ARCHITECTURE
+
+### Project Structure
 
 ```
-site-builder/
-├── src/
-│   ├── components/
-│   │   └── sections/          # Готовые секции
-│   │       ├── heroes/
-│   │       ├── features/
-│   │       ├── pricing/
-│   │       ├── forms/
-│   │       └── footers/
-│   ├── layouts/
-│   │   └── BaseLayout.astro   # Базовый layout
-│   ├── pages/
-│   │   └── index.astro        # Страницы
-│   └── styles/
-│       └── global.css         # Tailwind + theme
-├── public/
-│   └── images/                # Статика
-├── modules/
-│   └── figma-integration/     # Figma MCP
-├── astro.config.mjs
-├── tsconfig.json
-├── package.json
-├── README.md
-└── CLAUDE.md                  # Этот файл
+src/
+├── components/
+│   └── sections/          # Reusable landing page sections
+│       ├── heroes/        # Hero sections (empty)
+│       ├── features/      # Feature sections (empty)
+│       ├── pricing/       # Pricing tables (empty)
+│       ├── forms/         # Contact/newsletter forms (empty)
+│       └── footers/       # Footer variants (empty)
+├── layouts/
+│   └── BaseLayout.astro   # Base HTML layout with Remix Icons CDN
+├── pages/
+│   └── index.astro        # Demo page (hardcoded sections)
+└── styles/
+    └── global.css         # Tailwind import + @theme customization
 ```
 
----
+### Component Architecture
 
-## СОЗДАНИЕ КОМПОНЕНТОВ
+**Pattern:** Props-based Astro components for maximum reusability
 
-### Новая секция
-
-**Шаг 1:** Создать `.astro` файл
-
-```bash
-# Пример: Hero секция
-touch src/components/sections/heroes/Hero1.astro
-```
-
-**Шаг 2:** Написать компонент
+**Example:**
 
 ```astro
 ---
@@ -131,506 +94,207 @@ touch src/components/sections/heroes/Hero1.astro
 interface Props {
   title: string;
   subtitle: string;
-  buttonText: string;
-}
-
-const { title, subtitle, buttonText } = Astro.props;
----
-
-<section class="min-h-screen flex items-center bg-gradient-to-br from-blue-600 to-purple-700">
-  <div class="container mx-auto px-4 text-white">
-    <h1 class="text-6xl font-bold mb-6">{title}</h1>
-    <p class="text-2xl mb-8">{subtitle}</p>
-    <button class="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50 transition">
-      <i class="ri-rocket-line mr-2"></i>
-      {buttonText}
-    </button>
-  </div>
-</section>
-```
-
-**Шаг 3:** Использовать на странице
-
-```astro
----
-// src/pages/landing.astro
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero1 from '../components/sections/heroes/Hero1.astro';
----
-
-<BaseLayout title="Мой лендинг">
-  <Hero1
-    title="Заголовок"
-    subtitle="Подзаголовок"
-    buttonText="Кнопка"
-  />
-</BaseLayout>
-```
-
----
-
-## 📋 ПЛАН СОЗДАНИЯ БИБЛИОТЕКИ СЕКЦИЙ ИЗ FLOWBITE
-
-### Источник компонентов: Flowbite Blocks
-
-**Ссылка:** https://flowbite.com/blocks/
-
-**Почему Flowbite:**
-- Бесплатно (450+ компонентов)
-- Tailwind-native (копипаст HTML)
-- Адаптивный дизайн из коробки
-- Accessibility compliance
-
-### Процесс создания секции (5-10 минут):
-
-**Шаг 1:** Открыть Flowbite Blocks → выбрать категорию (Hero/Features/etc.)
-
-**Шаг 2:** Скопировать HTML код секции
-
-**Шаг 3:** Создать `.astro` файл:
-```bash
-# Пример для Hero1
-touch src/components/sections/heroes/Hero1.astro
-```
-
-**Шаг 4:** Конвертировать HTML → Astro:
-1. Вставить HTML в шаблон `.astro`
-2. Добавить frontmatter с `interface Props`
-3. Заменить хардкод на `{props.название}`
-4. Заменить SVG иконки на Remix Icons: `<i class="ri-название-line"></i>`
-5. Проверить responsive классы (должны быть `md:`, `lg:`)
-
-**Шаг 5:** Тест:
-```astro
-// src/pages/index.astro
-import Hero1 from '../components/sections/heroes/Hero1.astro';
-
-<Hero1 title="Тест" subtitle="Подзаголовок" />
-```
-
-**Шаг 6:** Запустить `npm run dev` → проверить результат
-
----
-
-### Приоритет создания секций (по порядку):
-
-#### **1. Heroes (5 вариантов) — 30-40 минут**
-
-Ссылка: https://flowbite.com/blocks/marketing/hero/
-
-**Hero1:** Centered with gradient background + CTA button
-- Props: `title`, `subtitle`, `ctaText`, `ctaLink`
-
-**Hero2:** Split layout (text left, image right)
-- Props: `title`, `subtitle`, `ctaText`, `ctaLink`, `imageUrl`, `imageAlt`
-
-**Hero3:** With badges/features below title
-- Props: `title`, `subtitle`, `ctaText`, `features[]`
-
-**Hero4:** Minimal with large typography
-- Props: `title`, `subtitle`
-
-**Hero5:** With background image
-- Props: `title`, `subtitle`, `ctaText`, `ctaLink`, `backgroundImage`
-
-**Пример Hero1.astro:**
-```astro
----
-interface Props {
-  title: string;
-  subtitle: string;
   ctaText: string;
-  ctaLink?: string;
-  bgColor?: string;
+  phone?: string;
 }
 
-const {
-  title,
-  subtitle,
-  ctaText,
-  ctaLink = '#',
-  bgColor = 'bg-gradient-to-r from-blue-600 to-purple-600'
-} = Astro.props;
+const { title, subtitle, ctaText, phone } = Astro.props;
 ---
 
-<section class={`py-20 ${bgColor}`}>
-  <div class="container mx-auto px-4 text-center text-white">
-    <h1 class="text-5xl md:text-6xl font-bold mb-6">{title}</h1>
-    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">{subtitle}</p>
-    <a href={ctaLink} class="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-gray-100 transition">
-      {ctaText}
-    </a>
-  </div>
+<section class="min-h-screen bg-gradient-to-br from-blue-600 to-purple-700">
+  <!-- Tailwind classes only, no custom CSS -->
 </section>
 ```
 
----
+**Key Principles:**
 
-#### **2. Features (3-5 вариантов) — 20-30 минут**
+1. **TypeScript Props interface** — always define for clarity
+2. **Tailwind-only styling** — no component-scoped CSS
+3. **Mobile-first responsive** — use `md:`, `lg:` breakpoints
+4. **Remix Icons** — use `<i class="ri-icon-name-line"></i>` instead of SVG
+5. **Semantic HTML5** — `<section>`, `<article>`, `<nav>`, not `<div>` soup
 
-Ссылка: https://flowbite.com/blocks/marketing/feature/
+### Path Aliases
 
-**Features1:** 3 columns grid with icons
-- Props: `title`, `subtitle`, `features[]` (каждый: `icon`, `title`, `description`)
+```typescript
+// tsconfig.json configured with:
+"@/*": ["src/*"]
 
-**Features2:** Zigzag layout (image ↔ text alternating)
-- Props: `features[]` (каждый: `title`, `description`, `imageUrl`, `reversed`)
-
-**Features3:** Icon list with checkmarks
-- Props: `title`, `features[]` (каждый: `text`)
-
-**Пример Features1.astro:**
-```astro
----
-interface Feature {
-  icon: string;          // "ri-rocket-line"
-  title: string;
-  description: string;
-}
-
-interface Props {
-  title: string;
-  subtitle?: string;
-  features: Feature[];
-}
-
-const { title, subtitle, features } = Astro.props;
----
-
-<section class="py-20 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">{title}</h2>
-      {subtitle && <p class="text-xl text-gray-600">{subtitle}</p>}
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {features.map(feature => (
-        <div class="text-center p-6">
-          <i class={`${feature.icon} text-5xl text-blue-600 mb-4`}></i>
-          <h3 class="text-2xl font-bold mb-3">{feature.title}</h3>
-          <p class="text-gray-600">{feature.description}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+// Usage in imports:
+import Hero from '@/components/sections/heroes/Hero1.astro';
 ```
 
----
+### Tailwind Theme Customization
 
-#### **3. Pricing (2-3 варианта) — 15-20 минут**
-
-Ссылка: https://flowbite.com/blocks/marketing/pricing/
-
-**Pricing1:** 3 cards (Basic, Pro, Enterprise)
-- Props: `title`, `tiers[]` (каждый: `name`, `price`, `period`, `features[]`, `highlighted`, `ctaText`, `ctaLink`)
-
-**Pricing2:** Comparison table
-- Props: `title`, `features[]`, `tiers[]`
-
----
-
-#### **4. CTA (2 варианта) — 10 минут**
-
-Ссылка: https://flowbite.com/blocks/marketing/cta/
-
-**CTA1:** Simple centered with button
-- Props: `title`, `subtitle`, `ctaText`, `ctaLink`
-
-**CTA2:** With background color + secondary button
-- Props: `title`, `subtitle`, `primaryCta`, `secondaryCta`
-
----
-
-#### **5. Contact Forms (2 варианта) — 15 минут**
-
-Ссылка: https://flowbite.com/blocks/marketing/contact/
-
-**ContactForm:** Name, Email, Phone, Message + Submit
-- Props: `title`, `subtitle`, `submitText`
-
-**NewsletterForm:** Email + Subscribe button
-- Props: `title`, `subtitle`, `placeholder`, `buttonText`
-
----
-
-#### **6. Footers (3 варианта) — 20 минут**
-
-Ссылка: https://flowbite.com/blocks/marketing/footer/
-
-**Footer1:** Minimal (logo + copyright)
-- Props: `logo`, `copyright`
-
-**Footer2:** Full (4 columns with links)
-- Props: `logo`, `columns[]`, `copyright`, `socialLinks[]`
-
-**Footer3:** With newsletter signup
-- Props: `logo`, `newsletterTitle`, `columns[]`, `copyright`
-
----
-
-### Итоговая библиотека (MVP):
-
-✅ **15-18 секций за 2-3 часа работы:**
-- 5 Heroes
-- 3-5 Features
-- 2-3 Pricing
-- 2 CTA
-- 2 Forms
-- 3 Footers
-
----
-
-### Промпт для Claude Code (используй в новой сессии):
-
-```
-Создай библиотеку секций из Flowbite для Site Builder 2.0.
-
-Начни с Heroes:
-
-1. Открой https://flowbite.com/blocks/marketing/hero/
-2. Выбери 5 лучших Hero секций (разные layouts)
-3. Для каждой:
-   - Создай src/components/sections/heroes/Hero[N].astro
-   - Скопируй HTML из Flowbite
-   - Добавь Props interface
-   - Замени хардкод на {props.название}
-   - Замени SVG иконки на Remix Icons
-   - Тест на index.astro
-
-4. После Heroes — переходи к Features, затем Pricing, CTA, Forms, Footers
-
-Работай последовательно, тестируй каждую секцию перед следующей.
-```
-
----
-
-## TAILWIND 4 КАСТОМИЗАЦИЯ
-
-Редактируй `src/styles/global.css`:
+Edit `src/styles/global.css` for custom design tokens:
 
 ```css
-@import "tailwindcss";
-
 @theme {
-  /* Кастомные цвета */
-  --color-brand-blue: #1E40AF;
-  --color-brand-green: #10B981;
-
-  /* Кастомные размеры */
+  --color-brand-blue: #1e40af;
+  --color-brand-green: #10b981;
   --spacing-section: 80px;
-
-  /* Новые breakpoints */
   --breakpoint-3xl: 1920px;
 }
 ```
 
-Используй в компонентах:
-
-```html
-<div class="bg-brand-blue p-section">
-  <!-- ... -->
-</div>
-```
+Use in components: `class="bg-brand-blue p-section"`
 
 ---
 
-## БИБЛИОТЕКИ КОМПОНЕНТОВ
+## COMPONENT CREATION WORKFLOW
 
-Копируй готовые компоненты из:
+**Source:** Flowbite Blocks (https://flowbite.com/blocks/)
 
-1. **Flowbite** (бесплатно)
-   - https://flowbite.com
-   - 450+ компонентов
+**Steps:**
 
-2. **HyperUI** (бесплатно)
-   - https://www.hyperui.dev
-   - 100+ секций для лендингов
+1. **Find component** — Browse Flowbite, copy HTML
+2. **Create file** — `src/components/sections/{category}/{Name}.astro`
+3. **Convert to Astro:**
+   - Add frontmatter with `interface Props`
+   - Replace hardcoded text with `{props.field}`
+   - Replace SVG icons with Remix Icons
+   - Ensure responsive classes (`md:`, `lg:`)
+4. **Test** — Import in `src/pages/index.astro`, check all viewports
+5. **Verify UTF-8** — For Cyrillic text, ALWAYS run `head -5 filename` after Write
 
-3. **Tailwind UI** (платно $299)
-   - https://tailwindui.com
-   - 500+ премиум компонентов
-
-**Workflow:**
-1. Найти секцию на сайте
-2. Скопировать HTML
-3. Вставить в `.astro` файл
-4. Заменить хардкод на `Props`
-5. Готово!
-
----
-
-## РАБОТА С CLAUDE CODE
-
-### Промпт для создания лендинга
-
-```
-Создай лендинг для [тема клиента].
-
-Используй секции:
-- Hero2 (заголовок: "[УТП]")
-- Features1 (3 преимущества: [перечисли])
-- Pricing1 (3 тарифа)
-- ContactForm
-
-Все тексты адаптируй под тематику: [описание бизнеса]
-
-Создай файл src/pages/[название].astro
-```
-
-### Промпт для новой секции
-
-```
-Создай секцию Features из Flowbite.
-
-1. Найди на flowbite.com секцию Features (3 колонки с иконками)
-2. Скопируй HTML
-3. Создай src/components/sections/features/Features1.astro
-4. Сделай динамическими: title, subtitle, features[]
-5. Используй Remix Icons вместо SVG
-```
-
----
-
-## CODE STANDARDS
-
-**Senior-level code (10+ years):**
-
-- **Принципы:** DRY, KISS, SOLID
-- **HTML:** Semantic HTML5 (nav, article, section)
-- **CSS:** Только Tailwind классы
-- **JavaScript:** ES6+ (const/let, async/await, arrow functions)
-- **Accessibility:** ARIA labels, alt texts, keyboard navigation
-- **Mobile-first:** Responsive из коробки через Tailwind
+**Priority:** Follow [ROADMAP.md](ROADMAP.md) Priority 1 → Priority 2 order
 
 ---
 
 ## DESIGN SYSTEM
 
-### Tailwind Theme
+**Colors:**
 
-Используй стандартные Tailwind классы + кастомные:
-
-**Цвета:**
-```
-bg-brand-blue     → --color-brand-blue
-text-brand-green  → --color-brand-green
-```
+- Brand Blue: `#1E40AF`
+- Brand Green: `#10B981`
+- Brand Purple: `#7C3AED`
 
 **Spacing:**
-```
-p-section         → --spacing-section
-```
+
+- Section padding: `80px` (mobile) → `120px` (desktop)
+- Use Tailwind spacing scale: `p-4`, `mb-8`, `gap-6`
+
+**Typography:**
+
+- System fonts: `system-ui, -apple-system, sans-serif`
+- Headings: `text-4xl md:text-5xl font-bold`
+- Body: `text-base md:text-lg`
 
 **Breakpoints:**
+
+- `md:` — 768px
+- `lg:` — 1024px
+- `3xl:` — 1920px (custom)
+
+---
+
+## FIGMA INTEGRATION
+
+Module: `modules/figma-integration/`
+
+**Files:**
+
+- `figma-client.js` — MCP client for Figma API
+- `start-server.sh` — Launch Figma MCP server
+- `server/` — MCP server implementation
+
+**Usage:** (details TBD — not yet documented in README)
+
+---
+
+## DEPLOYMENT
+
+### Netlify / Vercel
+
+```bash
+npm run build
+# Upload dist/ folder or connect GitHub repo
 ```
-3xl:             → --breakpoint-3xl
+
+### Static Hosting (shared hosting, S3, etc.)
+
+```bash
+npm run build
+# Upload contents of dist/ via FTP/rsync
 ```
+
+**Performance targets:**
+
+- PageSpeed: 95-100
+- Lighthouse Accessibility: 100
+- First Contentful Paint: <0.8s
+- Time to Interactive: <1s
 
 ---
 
 ## GIT WORKFLOW
 
-- **Branch:** `design`
-- **Format:** `feat:`, `fix:`, `refactor:`, `chore:`
+**Branch:** `design` (no main branch configured yet)
 
-**Template:**
+**Commit format:**
+
 ```
-feat: add hero sections
+feat: add hero sections for repair services
 
-- Create 5 hero variants from HyperUI
-- All sections responsive and accessible
-- Add Remix Icons integration
+- Create 3 hero variants from Flowbite
+- Mobile-responsive with Tailwind breakpoints
+- Remix Icons integration
 
 🤖 Generated with Claude Code
 
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
----
-
-## DEPLOYMENT
-
-### Netlify/Vercel
-
-```bash
-npm run build
-# → dist/
-
-# Подключить GitHub repo или загрузить dist/
-```
-
-### Обычный хостинг
-
-```bash
-npm run build
-
-# Загрузить содержимое dist/ через FTP
-```
+**Types:** `feat:`, `fix:`, `refactor:`, `chore:`
 
 ---
 
-## PERFORMANCE TARGETS
+## PRE-COMMIT CHECKLIST
 
-- **PageSpeed Insights:** 95-100
-- **Lighthouse Accessibility:** 100
-- **Time to Interactive:** <1s
-- **First Contentful Paint:** <0.8s
+Before committing components:
 
-**Astro уже оптимизирован:**
-- Генерирует чистый HTML
-- Zero JS by default
-- Auto image optimization
-- Automatic code splitting
+1. ✅ `npm run build` — no errors
+2. ✅ `npm run preview` — visual check
+3. ✅ **Responsive test:** 320px, 768px, 1024px, 1440px
+4. ✅ **Accessibility:** keyboard nav, ARIA labels, img alt texts
+5. ✅ **Semantic HTML:** proper heading hierarchy (h1→h6)
+6. ✅ **Cyrillic UTF-8:** If Russian text, verify with `head -5 filename`
 
 ---
 
-## FIGMA INTEGRATION
+## NICHE-SPECIFIC GUIDANCE
 
-Модуль `modules/figma-integration/` — интеграция с Figma через MCP.
+**Target:** Repair service businesses (appliance, digital device, home renovation)
 
-Позволяет получать данные из Figma макетов.
+**Must-have sections:**
 
----
+- Hero with phone number prominently displayed
+- Contact forms (repeat 2-3 times on page)
+- Services & Pricing (transparent pricing builds trust)
+- Benefits (speed, warranty, expertise, genuine parts)
+- How It Works (4-5 step process)
 
-## TESTING CHECKLIST
+**Tone:** Professional but approachable, urgency-driven ("24/7", "Express service", "Same-day repair")
 
-Перед коммитом:
+**CTA Text Examples:**
 
-1. ✅ `npm run build` — без ошибок
-2. ✅ `npm run preview` — проверить визуально
-3. ✅ Responsive: 320px, 768px, 1024px, 1440px
-4. ✅ Accessibility: keyboard navigation, ARIA
-5. ✅ Semantic HTML (h1→h6 правильно, alt у img)
-6. ✅ Все тексты на русском (если лендинг для РФ)
-
----
-
-## ROADMAP
-
-**Фаза 1 (текущая):**
-- Создать 20+ готовых секций
-
-**Фаза 2:**
-- Собрать 5 шаблонов лендингов (SaaS, E-commerce, Portfolio, Corporate, Agency)
-
-**Фаза 3:**
-- CLI для генерации секций/лендингов
-- Интеграция с CMS (Strapi, Sanity)
+- "Вызвать мастера"
+- "Заказать диагностику"
+- "Узнать стоимость"
 
 ---
 
-## ПОЛЕЗНЫЕ ССЫЛКИ
+## REFERENCE DOCS
 
 - [Astro Docs](https://docs.astro.build)
-- [Tailwind 4 Docs](https://tailwindcss.com/docs)
+- [Tailwind CSS 4](https://tailwindcss.com/docs)
 - [Remix Icon](https://remixicon.com)
-- [Flowbite Components](https://flowbite.com)
-- [HyperUI](https://www.hyperui.dev)
+- [Flowbite Blocks](https://flowbite.com/blocks/)
+- [Project README](README.md) — User-facing docs
+- [Project Roadmap](ROADMAP.md) — Development phases
 
 ---
 
-**Версия:** 2.0.1
-**Последнее обновление:** 2025-10-29
-**Текущая фаза:** Создание библиотеки секций из Flowbite (15-18 компонентов)
+**Version:** 2.0.0
+**Last Updated:** 2025-10-29
+**Niche:** Repair Services Landing Pages
