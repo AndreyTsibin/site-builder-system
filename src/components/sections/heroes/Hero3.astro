@@ -88,28 +88,14 @@ const titleParts = title.split(titleHighlight);
         <!-- Contact Form -->
         <div class="pt-4">
           <form class="space-y-4 max-w-md">
-            <!-- Phone Input with Country Flag Dropdown -->
-            <div class="flex gap-2">
-              <!-- Country Selector -->
-              <div class="relative flex-shrink-0">
-                <button
-                  type="button"
-                  class="flex items-center gap-2 px-3 py-3 border border-gray-300 rounded-lg bg-white hover:bg-gray-50 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                  aria-label="Select country code"
-                >
-                  <span class="text-2xl">🇷🇺</span>
-                  <i class="ri-arrow-down-s-line text-gray-600"></i>
-                </button>
-              </div>
-
-              <!-- Phone Input -->
-              <input
-                type="tel"
-                placeholder={phonePlaceholder}
-                class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                required
-              />
-            </div>
+            <!-- Phone Input -->
+            <input
+              type="tel"
+              placeholder={phonePlaceholder}
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+              pattern="[+]?[0-9\s\-\(\)]+"
+              required
+            />
 
             <!-- Submit Button -->
             <button
