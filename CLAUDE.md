@@ -23,7 +23,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## CURRENT STATUS
 
-**Phase:** Component Library Creation (see [ROADMAP.md](ROADMAP.md))
+**Phase:** Component Library Creation (Phase 1)
 
 **Completed:**
 
@@ -31,11 +31,65 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - ✅ BaseLayout with Remix Icons
 - ✅ Demo page with hero, features, CTA sections
 - ✅ Section directories structure
+- ✅ CHECKLIST.md with atomic task breakdown
 
 **Next:**
 
-- Create Priority 1 components from Flowbite (Hero, Forms, Services, Benefits, Contacts, CTA)
-- See [ROADMAP.md](ROADMAP.md) for detailed phase plan
+- Create Priority 1 components (18 components across 10 categories)
+- See [CHECKLIST.md](CHECKLIST.md) for detailed task list
+
+---
+
+## TASK TRACKING WORKFLOW
+
+**IMPORTANT:** This project uses `CHECKLIST.md` for task management instead of TodoWrite tool.
+
+**When starting a new session:**
+
+1. **ALWAYS read [CHECKLIST.md](CHECKLIST.md) first** — check which tasks are completed/pending
+2. **Identify next uncompleted task** — look for `[ ]` (unchecked) items
+3. **Update checkboxes** — mark completed tasks as `[x]` immediately after finishing
+4. **Continue from where you left off** — don't ask what to do, just start the next task
+5. **Commit periodically** — after completing 2-3 related components, make a commit
+
+**Task completion flow:**
+
+```bash
+# 1. Read checklist
+cat CHECKLIST.md
+
+# 2. Find first unchecked task (example: Hero1)
+# 3. Complete the task (create component, test, verify UTF-8)
+# 4. Update CHECKLIST.md: [ ] → [x]
+# 5. Continue to next task
+
+# 6. After 2-3 components → commit:
+git add .
+git commit -m "feat: add Hero sections (Hero1, Hero2, Hero3)"
+```
+
+**Do NOT:**
+
+- Ask user "what should I do next?" if CHECKLIST.md has uncompleted tasks
+- Use TodoWrite tool (CHECKLIST.md is the single source of truth)
+- Skip checklist verification at session start
+
+**Checklist structure:**
+
+- `[ ]` — Not completed (next task to work on)
+- `[x]` — Completed (skip this task)
+
+**Example:**
+
+```markdown
+## 1. HERO SECTIONS
+
+### Hero1 — С формой
+- [x] Найти Hero с формой на Flowbite
+- [x] Создать файл
+- [ ] Конвертировать HTML → Astro  ← START HERE
+- [ ] Добавить Props
+```
 
 ---
 
@@ -157,7 +211,7 @@ Use in components: `class="bg-brand-blue p-section"`
 4. **Test** — Import in `src/pages/index.astro`, check all viewports
 5. **Verify UTF-8** — For Cyrillic text, ALWAYS run `head -5 filename` after Write
 
-**Priority:** Follow [ROADMAP.md](ROADMAP.md) Priority 1 → Priority 2 order
+**Priority:** Follow [CHECKLIST.md](CHECKLIST.md) task order (top to bottom)
 
 ---
 
@@ -291,7 +345,7 @@ Before committing components:
 - [Remix Icon](https://remixicon.com)
 - [Flowbite Blocks](https://flowbite.com/blocks/)
 - [Project README](README.md) — User-facing docs
-- [Project Roadmap](ROADMAP.md) — Development phases
+- [CHECKLIST.md](CHECKLIST.md) — Phase 1 task tracking (18 components)
 
 ---
 
