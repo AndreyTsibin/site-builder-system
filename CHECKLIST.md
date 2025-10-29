@@ -194,10 +194,53 @@
 
 ---
 
-### Services4
+### Services4 — Interactive Pricing Accordion
 
 **Required elements:**
 
+- Section heading (h2) centered — service/brand name
+- Subheading centered — pricing transparency message
+- Grid of category cards (3 columns → 2 → 1 responsive)
+- Each card:
+  - Icon (Remix Icons) + category title at top
+  - Full-width toggle button with border outline
+  - Button text: "Показать цены +" / "Скрыть цены −"
+  - Collapsible price list (native HTML `<details>` accordion)
+  - Service name + price in two-column layout
+- Gray background for contrast with white cards
+- Hover effects: border color + background tint
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/pricing/Services4.astro`
+
+---
+
+### Services5 — Pricing Variant 5
+
+**Required elements:**
+
+- TBD (awaiting user input)
+
+**Status:** [ ] Not started
+
+---
+
+### Services6 — Pricing Variant 6
+
+**Required elements:**
+
+- TBD (awaiting user input)
+
+**Status:** [ ] Not started
+
+---
+
+### Services7 — Pricing Variant 7
+
+**Required elements:**
+
+- TBD (awaiting user input)
 
 **Status:** [ ] Not started
 
@@ -342,8 +385,10 @@
 
 ---
 
-## TOTAL: 15 Components Across 9 Categories
+## TOTAL: 18 Components Across 9 Categories
 
-**Progress:** 9 / 15 completed (60.0%)
+**Progress:** 10 / 18 completed (55.6%)
+
+**Services & Pricing:** 4 completed, 3 slots reserved for new variants
 
 **Last Updated:** 2025-10-29
