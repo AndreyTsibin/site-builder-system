@@ -351,41 +351,128 @@
 
 ## 4. CTA SECTIONS
 
-### CTA1 — Bold CTA Banner
+### CTA1 — Bold CTA Banner with Stats
+
+**Concept:** High-impact banner with urgency message and social proof for maximum conversions.
 
 **Required elements:**
 
-- Large heading
-- Subheading / urgency message
-- Phone number (large, clickable)
-- CTA button
-- Bright gradient background (blue, purple, yellow)
+- Large heading with urgency message ("Не откладывайте ремонт!")
+- Subheading with value proposition
+- Two-column layout on desktop (content left, CTA block right)
+- Phone number (large, clickable with icon)
+- Primary CTA button (green/red for urgency)
+- Optional: 2-3 mini stat cards below (e.g., "2000+ клиентов", "24/7")
+- Bright gradient background (blue-to-purple or orange-to-red)
+- Single-column stack on mobile
+
+**Design notes:**
+- Use color psychology: red/orange for urgency, green for action
+- Phone button must be prominent with `tel:` link
+- Stats add social proof and trust
 
 **Status:** [ ] Not started
 
 ---
 
-### CTA2 — CTA with Background Image
+### CTA2 — CTA with Background Image & Overlay
+
+**Concept:** Visual storytelling CTA with background image to create emotional connection.
 
 **Required elements:**
 
-- Heading
-- Short description
-- CTA button
-- Background image with overlay
-- Centered content
+- Background image with dark overlay (opacity 50-70%)
+- Centered content layout
+- Heading (white text, large and bold)
+- Short description (1-2 sentences)
+- CTA button (contrasting color, stands out from background)
+- Optional: secondary CTA or phone link below button
+- Responsive image sizing (object-cover)
+
+**Design notes:**
+- Image should be relevant (technician at work, happy customer, etc.)
+- Overlay ensures text readability
+- Button color must contrast strongly with overlay
 
 **Status:** [ ] Not started
 
 ---
 
-### CTA3 — Minimal CTA
+### CTA3 — Split CTA with Contact Form
+
+**Concept:** Conversion-focused layout with embedded form for lead capture (ideal for mid-page placement).
 
 **Required elements:**
 
-- Heading
-- Single CTA button
-- Simple background (solid color or subtle gradient)
+- Two-column layout (content left, form right)
+- Left column:
+  - Heading with clear value proposition
+  - 3-4 benefit points with checkmark icons
+  - Optional: trust badges or guarantee message
+- Right column:
+  - Contact form card (white background with shadow)
+  - Form fields: Name, Phone, optional Message
+  - Submit button (prominent, colored)
+  - Privacy policy note below button
+- White or light gray background
+- Single-column stack on mobile (form below content)
+
+**Design notes:**
+- Form should look trustworthy (clean, simple)
+- Minimal required fields = higher conversion
+- Use HTML5 validation for phone input
+
+**Status:** [ ] Not started
+
+---
+
+### CTA4 — Sticky Bottom CTA Bar (Mobile-First)
+
+**Concept:** Always-visible sticky bar for instant contact on mobile (appears after scrolling).
+
+**Required elements:**
+
+- Fixed position bottom bar (`fixed bottom-0`)
+- Two prominent buttons side-by-side:
+  - Phone call button (green, with `tel:` link)
+  - WhatsApp button (green, opens WhatsApp chat)
+- Icons for each button (ri-phone-line, ri-whatsapp-line)
+- White or semi-transparent background with shadow
+- Full-width on mobile, max-width container on desktop
+- Optional: show/hide based on scroll position (appears after 300px scroll)
+
+**Design notes:**
+- Must not block content (use padding-bottom on body)
+- Touch-friendly button sizes (min-height 48px)
+- High contrast for visibility
+- Consider hiding on desktop (mobile-only component)
+
+**Status:** [ ] Not started
+
+---
+
+### CTA5 — CTA with Social Proof Cards
+
+**Concept:** Trust-building CTA combining statistics, testimonials, and action button.
+
+**Required elements:**
+
+- Section heading centered
+- Grid of 3-4 stat cards above CTA:
+  - Large number (e.g., "10+ лет", "2000+ клиентов")
+  - Icon (optional)
+  - Short label
+- Central CTA block below stats:
+  - Prominent heading ("Готовы заказать ремонт?")
+  - Large CTA button with phone icon
+  - Secondary text ("Или позвоните нам: +7...")
+- White background with subtle shadows on cards
+- 4-column grid for stats → 2-column → 1-column responsive
+
+**Design notes:**
+- Stats provide credibility before asking for action
+- Works great after pricing/services section
+- Button should be large and impossible to miss
 
 **Status:** [ ] Not started
 
@@ -455,12 +542,13 @@
 
 ---
 
-## TOTAL: 19 Components Across 8 Categories
+## TOTAL: 21 Components Across 8 Categories
 
-**Progress:** 15 / 19 completed (79.0%)
+**Progress:** 15 / 21 completed (71.4%)
 
-**Services & Pricing:** 6 completed, 1 slot reserved for future variants
-**Benefits:** 3 / 3 completed — All benefit variants completed ✅
+**Services & Pricing:** 6 / 6 completed ✅
+**Benefits:** 3 / 3 completed ✅
+**CTA Sections:** 0 / 5 — Modern conversion-focused variants (2025 trends)
 
 **Note:** Contacts section removed (duplicate of Footer functionality)
 
