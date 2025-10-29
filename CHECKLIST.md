@@ -261,26 +261,83 @@
 
 ---
 
-### Services7 — Pricing Variant 7
+## 3. BENEFITS
+
+### Benefits1 — Classic Icon Grid
+
+**Concept:** Traditional grid layout with icons, perfect for quick scanning of key advantages.
 
 **Required elements:**
 
-- TBD (awaiting user input)
+- Section heading (h2) + subtitle centered
+- Grid of 4-6 benefit cards (3 columns → 2 → 1 responsive)
+- Each card:
+  - Large icon at top (Remix Icons with colored background circle or just icon)
+  - Benefit title (bold, medium size)
+  - Short description (2-3 lines max)
+- Clean white or light gray background
+- Hover effects on cards (subtle shadow or scale)
+- Typical benefits for repair niche:
+  - Быстрый выезд / Express service (ri-time-line)
+  - Гарантия / Warranty (ri-shield-check-line)
+  - Опытные мастера / Expertise (ri-star-line)
+  - Оригинальные запчасти / Genuine parts (ri-tools-line)
+  - Доступные цены / Fair pricing (ri-price-tag-3-line)
+  - 24/7 поддержка / Round-the-clock support (ri-customer-service-line)
 
 **Status:** [ ] Not started
 
 ---
 
-## 3. BENEFITS
+### Benefits2 — Stats & Social Proof Cards
 
-### Benefits — Why Choose Us
+**Concept:** Trust-building section with numbers and statistics to prove credibility and experience.
 
 **Required elements:**
 
-- Section heading + description
-- Grid of benefits (3 columns → 2 → 1 responsive)
-- Each benefit: icon, title, short description
-- Icons: speed (ri-time-line), warranty (ri-shield-check-line), expertise (ri-star-line), parts (ri-tools-line)
+- Section heading (h2) + subtitle centered
+- Grid of 3-4 stat cards (2-3 columns → 1 responsive)
+- Each card (white background with border or shadow):
+  - Large number/stat at top (huge bold text, colored)
+  - Metric label below number
+  - Icon related to metric (optional)
+  - Brief explanation text
+- Example stats for repair services:
+  - "10+ лет" — Years in business
+  - "2000+ клиентов" — Happy customers
+  - "Гарантия 12 месяцев" — Warranty period
+  - "Выезд за 30 минут" — Response time
+  - "98% успешных ремонтов" — Success rate
+- Strong visual hierarchy: number → label → description
+- Optional: subtle animations on scroll (count-up effect)
+
+**Status:** [ ] Not started
+
+---
+
+### Benefits3 — Feature Highlights with Images
+
+**Concept:** Horizontal alternating layout with images for detailed storytelling about advantages.
+
+**Required elements:**
+
+- Section heading (h2) + subtitle
+- 3-4 feature blocks, alternating left-right layout:
+  - Block 1: Image left, content right
+  - Block 2: Content left, image right
+  - Block 3: Image left, content right
+- Each block contains:
+  - Image (photo or illustration showing the benefit)
+  - Icon + benefit title
+  - Detailed description (3-5 lines)
+  - Optional: checklist of sub-benefits
+  - Optional: CTA link or button
+- Two-column grid on desktop → single column stack on mobile
+- Example features:
+  - Профессиональная диагностика (image: technician with tools)
+  - Гарантия качества (image: warranty certificate/badge)
+  - Быстрое обслуживание (image: clock/timer)
+- White background with subtle gray dividers between blocks
 
 **Status:** [ ] Not started
 
@@ -410,10 +467,11 @@
 
 ---
 
-## TOTAL: 18 Components Across 9 Categories
+## TOTAL: 20 Components Across 9 Categories
 
-**Progress:** 12 / 18 completed (66.7%)
+**Progress:** 12 / 20 completed (60.0%)
 
 **Services & Pricing:** 6 completed, 1 slot reserved for future variants
+**Benefits:** 0 / 3 completed — 3 modern variants planned
 
 **Last Updated:** 2025-10-29
