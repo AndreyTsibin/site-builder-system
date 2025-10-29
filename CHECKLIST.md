@@ -313,7 +313,9 @@
 - Strong visual hierarchy: number → label → description
 - Optional: subtle animations on scroll (count-up effect)
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/benefits/Benefits2.astro`
 
 ---
 
@@ -341,7 +343,9 @@
   - Быстрое обслуживание (image: clock/timer)
 - White background with subtle gray dividers between blocks
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/benefits/Benefits3.astro`
 
 ---
 
@@ -471,9 +475,9 @@
 
 ## TOTAL: 20 Components Across 9 Categories
 
-**Progress:** 13 / 20 completed (65.0%)
+**Progress:** 15 / 20 completed (75.0%)
 
 **Services & Pricing:** 6 completed, 1 slot reserved for future variants
-**Benefits:** 1 / 3 completed — Benefits1 (Classic Icon Grid) completed
+**Benefits:** 3 / 3 completed — All benefit variants completed ✅
 
 **Last Updated:** 2025-10-29
