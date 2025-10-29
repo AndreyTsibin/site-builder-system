@@ -90,7 +90,7 @@
 
 **Required elements:**
 
-- Badge at top (yellow background, rounded) — experience/years
+- Badge at top (blue background, rounded) — experience/years
 - Link next to badge — "Узнать больше >"
 - Main heading (h1) — service description
 - Subtitle (gray text) — specialist name or additional info
@@ -102,6 +102,27 @@
 **Status:** [x] Completed
 
 **File:** `src/components/sections/heroes/Hero5.astro`
+
+---
+
+### Hero6 — Centered Hero with Feature Cards
+
+**Required elements:**
+
+- Single-column centered layout (NO two-column grid)
+- Main heading (h1) centered — service name + timing
+- Subtitle centered — value proposition
+- CTA button (red) centered
+- Three feature cards below (grid):
+  - Icon with blue background circle/square
+  - Feature text
+  - White background with border
+- White background
+- NO image (pure centered content)
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/heroes/Hero6.astro`
 
 ---
 
@@ -319,6 +340,6 @@
 
 ## TOTAL: 18 Components Across 10 Categories
 
-**Progress:** 5 / 18 completed (27.8%)
+**Progress:** 6 / 18 completed (33.3%)
 
 **Last Updated:** 2025-10-29

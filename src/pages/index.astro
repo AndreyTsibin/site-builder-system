@@ -5,6 +5,7 @@ import Hero2 from '@/components/sections/heroes/Hero2.astro';
 import Hero3 from '@/components/sections/heroes/Hero3.astro';
 import Hero4 from '@/components/sections/heroes/Hero4.astro';
 import Hero5 from '@/components/sections/heroes/Hero5.astro';
+import Hero6 from '@/components/sections/heroes/Hero6.astro';
 ---
 
 <BaseLayout title="Site Builder 2.0 | Component Library Demo">
@@ -86,6 +87,19 @@ import Hero5 from '@/components/sections/heroes/Hero5.astro';
     ctaUrl="#contact"
     imageUrl="/images/placeholder-img.jpg"
     imageAlt="Ремонт стиральных машин"
+  />
+
+  <!-- Hero Section 6 - Centered with Feature Cards -->
+  <Hero6
+    title="Срочный ремонт ноутбуков за 1 час"
+    subtitle="Оперативный ремонт в любом районе Москвы — быстро, качественно, с гарантией!"
+    ctaText="Начать ремонт сейчас"
+    ctaUrl="#contact"
+    features={[
+      { icon: "ri-calendar-line", text: "Ремонт в день обращения" },
+      { icon: "ri-car-line", text: "Выезд на дом или в офис" },
+      { icon: "ri-settings-3-line", text: "Оригинальные запчасти" }
+    ]}
   />
 
   <!-- More sections will be added here as they are completed -->

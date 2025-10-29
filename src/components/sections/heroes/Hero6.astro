@@ -1,0 +1,83 @@
+---
+/**
+ * Hero6 — Centered Hero with Feature Cards
+ *
+ * Single-column centered hero section with heading, CTA, and feature cards below
+ * Perfect for laptop repair services with quick conversion focus
+ *
+ * Usage:
+ * <Hero6
+ *   title="Срочный ремонт ноутбуков за 1 час"
+ *   subtitle="Оперативный ремонт в любом районе Москвы — быстро, качественно, с гарантией!"
+ *   ctaText="Начать ремонт сейчас"
+ *   ctaUrl="#contact"
+ *   features={[
+ *     { icon: "ri-calendar-line", text: "Ремонт в день обращения" },
+ *     { icon: "ri-car-line", text: "Выезд на дом или в офис" },
+ *     { icon: "ri-settings-3-line", text: "Оригинальные запчасти" }
+ *   ]}
+ * />
+ */
+
+interface Feature {
+  icon: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaText: string;
+  ctaUrl: string;
+  features: Feature[];
+}
+
+const {
+  title,
+  subtitle,
+  ctaText,
+  ctaUrl,
+  features
+} = Astro.props;
+---
+
+<section class="bg-white py-16 md:py-20 lg:py-24">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Centered Content -->
+    <div class="text-center space-y-6 mb-12 lg:mb-16">
+      <!-- Heading -->
+      <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight text-gray-900">
+        {title}
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="max-w-3xl mx-auto text-base md:text-lg text-gray-500">
+        {subtitle}
+      </p>
+
+      <!-- CTA Button -->
+      <div class="pt-2">
+        <a
+          href={ctaUrl}
+          class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-red-700 hover:bg-red-800 rounded-lg focus:ring-4 focus:ring-red-300 transition-colors"
+        >
+          {ctaText}
+        </a>
+      </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {features.map((feature) => (
+        <div class="flex items-center gap-4 p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+          <div class="flex-shrink-0 w-14 h-14 flex items-center justify-center bg-blue-600 rounded-lg">
+            <i class={`${feature.icon} text-2xl text-white`}></i>
+          </div>
+          <p class="text-base font-medium text-gray-900">{feature.text}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
