@@ -1,0 +1,109 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  features?: Array<{
+    image: string;
+    icon: string;
+    title: string;
+    description: string;
+    checklist?: string[];
+    imagePosition: 'left' | 'right';
+  }>;
+}
+
+const {
+  title = "Преимущества работы с нами",
+  subtitle = "Узнайте, почему клиенты выбирают наш сервис",
+  features = [
+    {
+      image: "/images/placeholder-img.jpg",
+      icon: "ri-search-line",
+      title: "Профессиональная диагностика",
+      description: "Используем современное оборудование для точного определения неисправностей. Бесплатная диагностика при ремонте.",
+      checklist: [
+        "Точное выявление проблемы за 15 минут",
+        "Профессиональное оборудование",
+        "Прозрачный отчет о состоянии техники"
+      ],
+      imagePosition: 'left'
+    },
+    {
+      image: "/images/placeholder-img.jpg",
+      icon: "ri-shield-check-line",
+      title: "Гарантия качества",
+      description: "Предоставляем официальную гарантию на все виды работ и запчасти сроком до 12 месяцев.",
+      checklist: [
+        "Гарантийное обслуживание 12 месяцев",
+        "Бесплатное устранение дефектов",
+        "Официальный гарантийный талон"
+      ],
+      imagePosition: 'right'
+    },
+    {
+      image: "/images/placeholder-img.jpg",
+      icon: "ri-time-line",
+      title: "Быстрое обслуживание",
+      description: "Мастер выезжает к вам в течение 30 минут. Большинство ремонтов выполняем за один визит.",
+      checklist: [
+        "Выезд мастера за 30 минут",
+        "Ремонт на дому в удобное время",
+        "Срочный ремонт за 2-3 часа"
+      ],
+      imagePosition: 'left'
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 lg:py-24 bg-white">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">{title}</h2>
+      <p class="text-lg md:text-xl text-gray-600">{subtitle}</p>
+    </div>
+
+    <!-- Feature Blocks -->
+    <div class="space-y-16 lg:space-y-24">
+      {features.map((feature, index) => (
+        <div class={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-start ${index > 0 ? 'pt-16 lg:pt-0 border-t lg:border-t-0 border-gray-200' : ''}`}>
+          <!-- Image -->
+          <div class={feature.imagePosition === 'right' ? 'lg:order-2' : ''}>
+            <img
+              src={feature.image}
+              alt={feature.title}
+              class="w-full h-64 md:h-72 lg:h-80 object-cover rounded-2xl shadow-lg"
+            />
+          </div>
+
+          <!-- Content -->
+          <div class={feature.imagePosition === 'right' ? 'lg:order-1' : ''}>
+            <!-- Icon + Title -->
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class={`${feature.icon} text-2xl text-blue-700`}></i>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold text-gray-900">{feature.title}</h3>
+            </div>
+
+            <!-- Description -->
+            <p class="text-base md:text-lg text-gray-600 mb-6">{feature.description}</p>
+
+            <!-- Checklist (optional) -->
+            {feature.checklist && feature.checklist.length > 0 && (
+              <ul class="space-y-3">
+                {feature.checklist.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <i class="ri-checkbox-circle-fill text-xl text-green-600 flex-shrink-0 mt-0.5"></i>
+                    <span class="text-base md:text-lg text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
