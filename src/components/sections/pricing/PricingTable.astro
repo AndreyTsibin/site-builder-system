@@ -1,0 +1,142 @@
+---
+interface Service {
+  name: string;
+  time: string;
+  price: string;
+  hidden?: boolean;
+}
+
+interface Props {
+  heading?: string;
+  subheading?: string;
+  services?: Service[];
+  showMoreText?: string;
+  showLessText?: string;
+  visibleCount?: number;
+}
+
+const {
+  heading = "Стоимость услуг",
+  subheading = "Фиксированные цены без скрытых доплат",
+  showMoreText = "Показать ещё",
+  showLessText = "Скрыть",
+  visibleCount = 5,
+  services = [
+    { name: "Замена ребер барабана", time: "40-60 мин", price: "от 700₽" },
+    { name: "Монтаж кнопки включения", time: "20-30 мин", price: "от 360₽" },
+    { name: "Замена люка в сборе", time: "60-90 мин", price: "от 1300₽" },
+    { name: "Замена манжеты", time: "30-45 мин", price: "от 560₽" },
+    { name: "Замена температурного датчика", time: "25-35 мин", price: "от 440₽" },
+    { name: "Извлечение посторонних предметов", time: "40-60 мин", price: "от 600₽", hidden: true },
+    { name: "Замена ремня", time: "30-40 мин", price: "от 540₽", hidden: true },
+    { name: "Замена помпы", time: "40-50 мин", price: "от 720₽", hidden: true },
+    { name: "Замена ТЭНа", time: "50-70 мин", price: "от 890₽", hidden: true },
+    { name: "Замена амортизаторов", time: "45-60 мин", price: "от 980₽", hidden: true },
+  ],
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 lg:py-24 bg-white">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {heading}
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600">
+        {subheading}
+      </p>
+    </div>
+
+    <!-- Pricing Table -->
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse">
+        <!-- Table Header -->
+        <thead>
+          <tr class="bg-brand-green text-white">
+            <th class="text-left py-4 px-4 md:px-6 text-base md:text-lg font-semibold rounded-tl-lg">
+              Услуга
+            </th>
+            <th class="text-left py-4 px-4 md:px-6 text-base md:text-lg font-semibold">
+              Время
+            </th>
+            <th class="text-right py-4 px-4 md:px-6 text-base md:text-lg font-semibold rounded-tr-lg">
+              Цена
+            </th>
+          </tr>
+        </thead>
+
+        <!-- Table Body -->
+        <tbody id="pricing-table-body">
+          {
+            services.map((service, index) => (
+              <tr
+                class={`border-b border-gray-200 hover:bg-gray-50 transition-colors ${service.hidden ? 'hidden-row hidden' : ''}`}
+                data-hidden={service.hidden ? 'true' : 'false'}
+              >
+                <td class="py-4 px-4 md:px-6 text-base md:text-lg text-gray-900">
+                  {service.name}
+                </td>
+                <td class="py-4 px-4 md:px-6 text-base md:text-lg text-gray-600">
+                  {service.time}
+                </td>
+                <td class="py-4 px-4 md:px-6 text-base md:text-lg font-semibold text-brand-green text-right">
+                  {service.price}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Show More Button -->
+    {
+      services.some((s) => s.hidden) && (
+        <div class="flex justify-center mt-8">
+          <button
+            id="show-more-btn"
+            type="button"
+            class="inline-flex items-center gap-2 px-8 py-3 border-2 border-brand-green text-brand-green rounded-full text-base md:text-lg font-semibold hover:bg-brand-green hover:text-white transition-all duration-300"
+          >
+            <i class="ri-add-line text-xl" />
+            <span id="btn-text">{showMoreText}</span>
+          </button>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  const btn = document.getElementById('show-more-btn');
+  const btnText = document.getElementById('btn-text');
+  const hiddenRows = document.querySelectorAll('.hidden-row');
+  let isExpanded = false;
+
+  if (btn && btnText) {
+    btn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+
+      hiddenRows.forEach((row) => {
+        if (isExpanded) {
+          row.classList.remove('hidden');
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+
+      // Change button text and icon
+      const icon = btn.querySelector('i');
+      if (isExpanded) {
+        btnText.textContent = 'Скрыть';
+        icon?.classList.remove('ri-add-line');
+        icon?.classList.add('ri-subtract-line');
+      } else {
+        btnText.textContent = 'Показать ещё';
+        icon?.classList.remove('ri-subtract-line');
+        icon?.classList.add('ri-add-line');
+      }
+    });
+  }
+</script>

@@ -128,28 +128,59 @@
 
 ## 2. SERVICES & PRICING
 
-### ServicesGrid — Service Cards Grid
+### Services1 — Problem Selector Grid
 
 **Required elements:**
 
-- Section heading + description
-- Grid of service cards (3-4 columns → responsive)
-- Each card: icon, service name, description, price from, CTA button
-- Icons from Remix Icons
+- Section heading (h2) — "Какая у вас неисправность?"
+- Subheading — value proposition
+- Grid of service cards (3 columns → 2 → 1 responsive)
+- Each card: Remix Icon (green), problem title, price "от XXX₽"
+- Card hover effects — shadow, border color change, icon scale
+- Cards are interactive buttons for future functionality
+- Default content: 9 washing machine problems with icons and prices
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/pricing/ServicesGrid.astro`
+
+---
+
+### Services2 — Pricing Table with Time Column
+
+**Required elements:**
+
+- Section heading (h2) — "Стоимость услуг"
+- Subheading — "Фиксированные цены без скрытых доплат"
+- Table with green header (3 columns):
+  - Column 1: "Услуга" (Service name)
+  - Column 2: "Время" (Estimated repair time)
+  - Column 3: "Цена" (Price)
+- Rows with hover effect (gray background)
+- "Показать ещё" / "Скрыть" button to toggle hidden rows
+- Interactive JavaScript toggle functionality
+- Default: first 5 rows visible, rest hidden
+- Button with green border and icon (+ / −)
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/pricing/PricingTable.astro`
+
+---
+
+### Services3
+
+**Required elements:**
+
 
 **Status:** [ ] Not started
 
 ---
 
-### ServicesPricing — Pricing Table
+### Services4
 
 **Required elements:**
 
-- Section heading
-- Table with columns: Service, Price, Duration
-- Responsive: table → stacked cards on mobile
-- Highlight popular services
-- CTA button at bottom
 
 **Status:** [ ] Not started
 
@@ -296,6 +327,6 @@
 
 ## TOTAL: 15 Components Across 9 Categories
 
-**Progress:** 6 / 15 completed (40.0%)
+**Progress:** 8 / 15 completed (53.3%)
 
 **Last Updated:** 2025-10-29
