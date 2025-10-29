@@ -15,7 +15,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Astro 5.15.2** — Static site generator, zero JS by default
 - **Tailwind 4.1.16** — Utility-first CSS with Vite plugin
 - **Remix Icon 4.7.0** — Icon library (2800+ icons via CDN)
-- **TypeScript** — Optional, paths configured via `@/*` aliases
 
 **Philosophy:** Build professional landing pages in minutes using pre-built sections
 
@@ -40,65 +39,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ---
 
-## CURRENT STATUS
-
-**Phase:** Component Library Creation (Phase 1)
-
-**Completed:**
-
-- ✅ Astro + Tailwind 4 migration
-- ✅ BaseLayout with Remix Icons
-- ✅ Demo page with hero, features, CTA sections
-- ✅ Section directories structure
-- ✅ Layout & spacing standards documented
-- ✅ **6 Hero Sections completed** (Hero1-Hero6):
-  - Hero1: Image & two CTAs
-  - Hero2: Benefits list & single CTA
-  - Hero3: Benefits list & contact form
-  - Hero4: Form card & trust badges
-  - Hero5: Badge, benefits & CTA
-  - Hero6: Centered with feature cards
-
-**Current Focus:**
-
-- **Services & Pricing sections** — Multiple variants for pricing display
-- Priority: Show pricing transparently to build trust and drive conversions
-
-**Next:**
-
-- Build Services & Pricing components (user-driven)
-- See [CHECKLIST.md](CHECKLIST.md) for section reference list
-
----
-
 ## TASK TRACKING WORKFLOW
 
 **IMPORTANT:** This project uses `CHECKLIST.md` as a reference list, NOT a step-by-step task tracker.
 
-**New Workflow:**
+**Workflow:**
 
 1. **User-driven:** User provides code/screenshots for specific sections
 2. **Quality over quantity:** Work one section at a time, thoroughly
 3. **CHECKLIST.md purpose:** Reference list of needed sections with descriptions
 4. **No mass production:** Don't create multiple sections at once
 5. **Commit per section:** After each section is tested and approved
-
-**CHECKLIST.md structure:**
-
-```markdown
-## 1. HERO SECTIONS
-
-### Hero1 — Hero with Form
-**Required elements:**
-- Main heading (h1)
-- Subheading / value proposition
-- Contact form (name, phone, service, comment)
-- Phone number prominently displayed
-- Benefits list (3-4 items with icons)
-- Image or background gradient
-
-Status: [ ] Not started | [x] Completed
-```
 
 **Process:**
 
@@ -114,7 +65,7 @@ Status: [ ] Not started | [x] Completed
 ## ESSENTIAL COMMANDS
 
 ```bash
-# Development server
+# Development server (use this for work)
 npm run dev
 # → http://localhost:4321
 
@@ -124,12 +75,7 @@ npm run build
 
 # Preview production build
 npm run preview
-
-# Astro CLI
-npm run astro
 ```
-
-**Note:** No test/lint scripts configured yet
 
 ---
 
@@ -141,15 +87,13 @@ npm run astro
 src/
 ├── components/
 │   └── sections/          # Reusable landing page sections
-│       ├── heroes/        # Hero sections (empty)
-│       ├── features/      # Feature sections (empty)
-│       ├── pricing/       # Pricing tables (empty)
-│       ├── forms/         # Contact/newsletter forms (empty)
-│       └── footers/       # Footer variants (empty)
+│       ├── heroes/        # Hero sections (6 variants)
+│       ├── pricing/       # Services & Pricing (3 variants)
+│       └── ...            # Other categories (see CHECKLIST.md)
 ├── layouts/
 │   └── BaseLayout.astro   # Base HTML layout with Remix Icons CDN
 ├── pages/
-│   └── index.astro        # Demo page (hardcoded sections)
+│   └── index.astro        # Demo page
 └── styles/
     └── global.css         # Tailwind import + @theme customization
 ```
@@ -162,7 +106,6 @@ src/
 
 ```astro
 ---
-// src/components/sections/heroes/Hero1.astro
 interface Props {
   title: string;
   subtitle: string;
@@ -173,28 +116,20 @@ interface Props {
 const { title, subtitle, ctaText, phone } = Astro.props;
 ---
 
-<section class="min-h-screen bg-gradient-to-br from-blue-600 to-purple-700">
-  <!-- Tailwind classes only, no custom CSS -->
+<section class="py-16 md:py-20 lg:py-24 bg-white">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Tailwind classes only, no custom CSS -->
+  </div>
 </section>
 ```
 
 **Key Principles:**
 
-1. **TypeScript Props interface** — always define for clarity
+1. **Props interface** — always define for clarity
 2. **Tailwind-only styling** — no component-scoped CSS
 3. **Mobile-first responsive** — use `md:`, `lg:` breakpoints
 4. **Remix Icons** — use `<i class="ri-icon-name-line"></i>` instead of SVG
 5. **Semantic HTML5** — `<section>`, `<article>`, `<nav>`, not `<div>` soup
-
-### Path Aliases
-
-```typescript
-// tsconfig.json configured with:
-"@/*": ["src/*"]
-
-// Usage in imports:
-import Hero from '@/components/sections/heroes/Hero1.astro';
-```
 
 ### Tailwind Theme Customization
 
@@ -209,7 +144,7 @@ Edit `src/styles/global.css` for custom design tokens:
 }
 ```
 
-Use in components: `class="bg-brand-blue p-section"`
+Use in components: `class="bg-brand-green text-white"`
 
 ### Nested Border Radius Formula
 
@@ -329,11 +264,11 @@ Small:    text-sm md:text-base
 ### Breakpoints Reference
 
 ```
-sm:  640px  (min-width: 40rem)
-md:  768px  (min-width: 48rem)
-lg:  1024px (min-width: 64rem)
-xl:  1280px (min-width: 80rem)
-2xl: 1536px (min-width: 96rem)
+sm:  640px
+md:  768px
+lg:  1024px
+xl:  1280px
+2xl: 1536px
 ```
 
 **Mobile-first approach:** Start with base styles, add breakpoint prefixes for larger screens.
@@ -404,100 +339,47 @@ xl:  1280px (min-width: 80rem)
 
 **Colors:**
 
-- Brand Blue: `#1E40AF`
-- Brand Green: `#10B981`
-- Brand Purple: `#7C3AED`
-
-**Spacing:**
-
-- Section padding: `80px` (mobile) → `120px` (desktop)
-- Use Tailwind spacing scale: `p-4`, `mb-8`, `gap-6`
+- Brand Blue: `#1E40AF` → `bg-brand-blue` or `text-blue-700`
+- Brand Green: `#10B981` → `bg-brand-green` or `text-green-600`
+- Brand Red: `#DC2626` → `bg-red-600` (for CTAs, prices)
 
 **Typography:**
 
 - System fonts: `system-ui, -apple-system, sans-serif`
-- Headings: `text-4xl md:text-5xl font-bold`
+- Headings: Bold, large responsive sizes
 - Body: `text-base md:text-lg`
 
-**Breakpoints:**
+**Spacing:**
 
-- `md:` — 768px
-- `lg:` — 1024px
-- `3xl:` — 1920px (custom)
-
----
-
-## FIGMA INTEGRATION
-
-Module: `modules/figma-integration/`
-
-**Files:**
-
-- `figma-client.js` — MCP client for Figma API
-- `start-server.sh` — Launch Figma MCP server
-- `server/` — MCP server implementation
-
-**Usage:** (details TBD — not yet documented in README)
-
----
-
-## DEPLOYMENT
-
-### Netlify / Vercel
-
-```bash
-npm run build
-# Upload dist/ folder or connect GitHub repo
-```
-
-### Static Hosting (shared hosting, S3, etc.)
-
-```bash
-npm run build
-# Upload contents of dist/ via FTP/rsync
-```
-
-**Performance targets:**
-
-- PageSpeed: 95-100
-- Lighthouse Accessibility: 100
-- First Contentful Paint: <0.8s
-- Time to Interactive: <1s
+- Use Tailwind spacing scale: `p-4`, `mb-8`, `gap-6`
+- Section padding: see LAYOUT & SPACING STANDARDS
 
 ---
 
 ## GIT WORKFLOW
 
-**Branch:** `design` (no main branch configured yet)
+**Branch:** `design`
 
 **Commit format:**
 
 ```
-feat: add hero sections for repair services
+feat: add ServicesGrid component
 
-- Create 3 hero variants from Flowbite
-- Mobile-responsive with Tailwind breakpoints
+- Interactive service selector with pricing
+- 3-column responsive grid
 - Remix Icons integration
 
-🤖 Generated with Claude Code
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
-**Types:** `feat:`, `fix:`, `refactor:`, `chore:`
+**Types:** `feat:`, `fix:`, `refactor:`, `chore:`, `docs:`
 
----
-
-## PRE-COMMIT CHECKLIST
-
-Before committing components:
-
-1. ✅ `npm run build` — no errors
-2. ✅ `npm run preview` — visual check
-3. ✅ **Responsive test:** 320px, 768px, 1024px, 1440px
-4. ✅ **Accessibility:** keyboard nav, ARIA labels, img alt texts
-5. ✅ **Semantic HTML:** proper heading hierarchy (h1→h6)
-6. ✅ **Cyrillic UTF-8:** If Russian text, verify with `head -5 filename`
+**Important:**
+- Commit after each completed section
+- Push to remote regularly
+- Keep commits focused and atomic
 
 ---
 
@@ -528,12 +410,11 @@ Before committing components:
 - [Astro Docs](https://docs.astro.build)
 - [Tailwind CSS 4](https://tailwindcss.com/docs)
 - [Remix Icon](https://remixicon.com)
-- [Flowbite Blocks](https://flowbite.com/blocks/)
 - [Project README](README.md) — User-facing docs
-- [CHECKLIST.md](CHECKLIST.md) — Phase 1 task tracking (18 components)
+- [CHECKLIST.md](CHECKLIST.md) — Component reference list
 
 ---
 
-**Version:** 2.0.0
+**Version:** 2.1.0
 **Last Updated:** 2025-10-29
 **Niche:** Repair Services Landing Pages
