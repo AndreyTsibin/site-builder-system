@@ -1,237 +1,295 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code when working with this repository.
+Инструкции для Claude Code при работе с проектом Site Builder 2.0
 
 ---
 
-## 🎯 CURRENT PHASE: Section Development
+## 🎯 ТЕКУЩАЯ ФАЗА: Начало разработки
 
-**Status:** 🏗️ Phase 3 — Building Sections (Active Development)
+**Статус:** 🏗️ Фаза 1 — Создание библиотеки секций
 
-**Completed:**
-- ✅ **Phase 1:** 50+ UI elements created
-- ✅ **Phase 2:** Element library quality audit & main.css consolidation
-  - Moved common elements to main.css (buttons, navbar, forms, cards, badges, breadcrumb, spinner, list-with-icons, section)
-  - Added grid utilities (.grid, .grid-cols-2/3/4, .gap-4/6/8)
-  - Created COMPONENTS.md reference (100+ classes)
-  - Component reuse philosophy established
+**Выполнено:**
+- ✅ **Миграция на Astro + Tailwind 4**
+  - Установлен Astro 5
+  - Установлен Tailwind 4 с Vite плагином
+  - Создана базовая структура проекта
+  - Настроены конфиги (astro.config.mjs, tsconfig.json)
+  - Создан BaseLayout с Remix Icons
+  - Создана демо-страница
 
-**Current Phase — Building Sections:**
-- 🔄 Creating ready-to-use sections from library elements
-- 🔄 Header variants (sticky, transparent, with mega-menu)
-- 🔄 Hero variants (with image, video, form)
-- 🔄 Features (grid, carousel, tabs)
-- 🔄 Pricing (tables, cards, comparison)
-- 🔄 Testimonials, FAQ, Gallery, Contact, CTA, Footer
+**Текущая фаза — Создание секций:**
+- 🔄 Создать библиотеку готовых секций из Flowbite/HyperUI
+- 🔄 Heroes (5 вариантов)
+- 🔄 Features (3 варианта)
+- 🔄 Pricing (2 варианта)
+- 🔄 Forms (Contact, Quiz)
+- 🔄 Footers (3 варианта)
 
-**Flexible Approach:**
-- 💡 Elements can be added if new patterns emerge
-- 💡 Main.css can be extended with new utilities as needed
-- 💡 Project evolves based on real-world usage
-
-**Next Phases:**
-- 📝 Phase 4: Complete landing templates (SaaS, E-commerce, Portfolio, Corporate)
-- 🚀 Phase 5: Production-ready template library
+**Следующие фазы:**
+- 📝 Фаза 2: Готовые шаблоны лендингов (SaaS, E-commerce, Portfolio)
+- 🚀 Фаза 3: CLI для быстрой генерации
 
 ---
 
-## PROJECT VISION
+## АРХИТЕКТУРА ПРОЕКТА
 
-**Site Builder** — Website Constructor from Ready Components
+**Site Builder 2.0** — конструктор лендингов на Astro + Tailwind 4
 
-**Philosophy:** Build any landing page in minutes
+**Философия:** Собирай лендинг за минуты из готовых секций
 
-**The System:**
+**Стек:**
 ```
-Elements (Atoms)
-    ↓
-Sections (Molecules) ← WE ARE HERE
-    ↓
-Templates (Organisms)
-    ↓
-Client Sites (Fast Assembly)
+Astro 5        → Генерирует чистый HTML
+Tailwind 4     → Утилитарные классы
+Remix Icons    → 2800+ иконок
 ```
 
-**How it works:**
-1. **Library of Elements** → 50+ UI components (buttons, cards, forms, etc.)
-2. **Library of Sections** → Ready layouts (headers, heroes, features, pricing, etc.)
-3. **Fast Assembly** → Client wants a site → Pick sections → Assemble in minutes
-
-**Real-world scenario:**
-```
-Client: "I need a landing page for my SaaS product"
-You: "No problem! Here's what we'll use:"
-     - Header-1 (sticky navbar with logo + CTA)
-     - Hero-2 (with product screenshot)
-     - Features-3-cards (3 main benefits)
-     - Pricing-2 (2 pricing tiers)
-     - Testimonials-carousel (social proof)
-     - FAQ-accordion (common questions)
-     - Footer-4-columns (links + newsletter)
-
-Result: Complete site in 10 minutes, fully responsive, production-ready
-```
-
-**Key Principles:**
-- **Component Reuse:** Everything uses main.css classes
-- **No Frameworks:** Pure HTML/CSS/JS (full control)
-- **Semantic HTML5:** Proper heading hierarchy, ARIA labels
-- **Mobile-First:** 320px → 768px → 1024px → 1440px
-- **WCAG AA:** Accessible by default
+**Workflow:**
+1. **Библиотека секций** → Готовые `.astro` компоненты
+2. **Быстрая сборка** → Claude Code собирает лендинг
+3. **Production** → `npm run build` → Деплой
 
 ---
 
 ## TECH STACK
 
-- **Frontend:** HTML5, CSS3 (Grid/Flexbox), ES6+ JavaScript
-- **Icons:** Remix Icon (2800+ open-source)
-- **Base Classes:** `library/styles/main.css`
-- **Design System:** `library/styles/variables.css`
-- **Elements:** 50+ in `library/elements/`
-
-**Element Categories:**
-- Buttons (17), Forms (15), Cards (10)
-- Navigation (3), Pagination (3), Accordions (5)
-- Tabs (6), Modals (3), Sliders (5)
-- Media (4), Lists (1), Social (2), Loaders (1), Grid (3), Typography (9)
+- **Frontend:** Astro 5 (Static Site Generator)
+- **Styling:** Tailwind 4 с Vite плагином
+- **Icons:** Remix Icon 4.7.0 (CDN)
+- **TypeScript:** Опционально
+- **Deployment:** Netlify/Vercel/обычный хостинг
 
 ---
 
 ## ESSENTIAL COMMANDS
 
 ```bash
-# View all elements
-open library/demo-elements.html
+# Dev-сервер
+npm run dev
+# → http://localhost:4321
 
-# Check UTF-8 encoding (CRITICAL for Cyrillic)
-head -50 library/demo-elements.html
+# Production сборка
+npm run build
+# → dist/
 
-# Test responsive design
-open library/demo-elements.html
-# DevTools: Cmd+Option+I, test 320px, 768px, 1024px, 1440px
+# Предпросмотр production
+npm run preview
+
+# Тест проекта
+npm run astro check
 ```
 
 ---
 
-## COMPONENT REUSE PHILOSOPHY
+## СТРУКТУРА ПРОЕКТА
 
-**🚨 CRITICAL: Use existing classes, DON'T create new ones for base elements!**
-
-**📚 Full reference:** See [`library/COMPONENTS.md`](library/COMPONENTS.md) for complete list of 100+ classes with examples.
-
-**Main categories in `main.css`:**
-- **Buttons:** `.btn .btn--primary/secondary/tertiary/link` + sizes/states
-- **Navbar:** `.navbar .navbar__list .navbar__link` (animated underline)
-- **Forms:** `.form-field .form-field__input/textarea/select` + states
-- **Cards:** `.card .card__header .card__title` (use `<h3>` for titles)
-- **Typography:** `.heading .heading--h1/h2/h3` + `.text .lead .tagline`
-- **Badges:** `.badge .badge--success/warning/error/info`
-- **Breadcrumb:** `.breadcrumb__list .breadcrumb__item`
-- **Spinner/Loader:** `.spinner .loader-overlay .btn--loading`
-- **Section/Container:** `.section .container--xs/sm/md/lg/xl/2xl`
-- **Grid:** `.grid .grid-cols-2/3/4 .gap-4/6/8` (auto-responsive)
-- **Utilities:** `.flex .text-center .justify-center .items-center .hidden .w-full`
-
-**Creating sections/elements:**
-1. **FIRST:** Check [`library/COMPONENTS.md`](library/COMPONENTS.md) for available classes
-2. Use ready-made classes from `main.css` (buttons, typography, grid, flex)
-3. Write ONLY custom CSS for specific spacing/layout
-4. Always use semantic HTML (`<h2>` for section titles, `<h3>` for card titles)
-5. Test in browser
-
-**Example:**
-```html
-<!-- ✅ CORRECT: Use ready-made classes -->
-<article class="my-card">
-  <h3 class="heading heading--h3">Title</h3>
-  <p class="text">Description</p>
-  <button class="btn btn--primary">Action</button>
-</article>
+```
+site-builder/
+├── src/
+│   ├── components/
+│   │   └── sections/          # Готовые секции
+│   │       ├── heroes/
+│   │       ├── features/
+│   │       ├── pricing/
+│   │       ├── forms/
+│   │       └── footers/
+│   ├── layouts/
+│   │   └── BaseLayout.astro   # Базовый layout
+│   ├── pages/
+│   │   └── index.astro        # Страницы
+│   └── styles/
+│       └── global.css         # Tailwind + theme
+├── public/
+│   └── images/                # Статика
+├── modules/
+│   └── figma-integration/     # Figma MCP
+├── astro.config.mjs
+├── tsconfig.json
+├── package.json
+├── README.md
+└── CLAUDE.md                  # Этот файл
 ```
 
-```css
-/* ✅ CORRECT: Only layout */
-.my-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  padding: var(--space-6);
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
+---
+
+## СОЗДАНИЕ КОМПОНЕНТОВ
+
+### Новая секция
+
+**Шаг 1:** Создать `.astro` файл
+
+```bash
+# Пример: Hero секция
+touch src/components/sections/heroes/Hero1.astro
+```
+
+**Шаг 2:** Написать компонент
+
+```astro
+---
+// src/components/sections/heroes/Hero1.astro
+interface Props {
+  title: string;
+  subtitle: string;
+  buttonText: string;
 }
+
+const { title, subtitle, buttonText } = Astro.props;
+---
+
+<section class="min-h-screen flex items-center bg-gradient-to-br from-blue-600 to-purple-700">
+  <div class="container mx-auto px-4 text-white">
+    <h1 class="text-6xl font-bold mb-6">{title}</h1>
+    <p class="text-2xl mb-8">{subtitle}</p>
+    <button class="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50 transition">
+      <i class="ri-rocket-line mr-2"></i>
+      {buttonText}
+    </button>
+  </div>
+</section>
+```
+
+**Шаг 3:** Использовать на странице
+
+```astro
+---
+// src/pages/landing.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero1 from '../components/sections/heroes/Hero1.astro';
+---
+
+<BaseLayout title="Мой лендинг">
+  <Hero1
+    title="Заголовок"
+    subtitle="Подзаголовок"
+    buttonText="Кнопка"
+  />
+</BaseLayout>
+```
+
+---
+
+## TAILWIND 4 КАСТОМИЗАЦИЯ
+
+Редактируй `src/styles/global.css`:
+
+```css
+@import "tailwindcss";
+
+@theme {
+  /* Кастомные цвета */
+  --color-brand-blue: #1E40AF;
+  --color-brand-green: #10B981;
+
+  /* Кастомные размеры */
+  --spacing-section: 80px;
+
+  /* Новые breakpoints */
+  --breakpoint-3xl: 1920px;
+}
+```
+
+Используй в компонентах:
+
+```html
+<div class="bg-brand-blue p-section">
+  <!-- ... -->
+</div>
+```
+
+---
+
+## БИБЛИОТЕКИ КОМПОНЕНТОВ
+
+Копируй готовые компоненты из:
+
+1. **Flowbite** (бесплатно)
+   - https://flowbite.com
+   - 450+ компонентов
+
+2. **HyperUI** (бесплатно)
+   - https://www.hyperui.dev
+   - 100+ секций для лендингов
+
+3. **Tailwind UI** (платно $299)
+   - https://tailwindui.com
+   - 500+ премиум компонентов
+
+**Workflow:**
+1. Найти секцию на сайте
+2. Скопировать HTML
+3. Вставить в `.astro` файл
+4. Заменить хардкод на `Props`
+5. Готово!
+
+---
+
+## РАБОТА С CLAUDE CODE
+
+### Промпт для создания лендинга
+
+```
+Создай лендинг для [тема клиента].
+
+Используй секции:
+- Hero2 (заголовок: "[УТП]")
+- Features1 (3 преимущества: [перечисли])
+- Pricing1 (3 тарифа)
+- ContactForm
+
+Все тексты адаптируй под тематику: [описание бизнеса]
+
+Создай файл src/pages/[название].astro
+```
+
+### Промпт для новой секции
+
+```
+Создай секцию Features из Flowbite.
+
+1. Найди на flowbite.com секцию Features (3 колонки с иконками)
+2. Скопируй HTML
+3. Создай src/components/sections/features/Features1.astro
+4. Сделай динамическими: title, subtitle, features[]
+5. Используй Remix Icons вместо SVG
 ```
 
 ---
 
 ## CODE STANDARDS
 
-**Senior-level code (10+ years best practices):**
+**Senior-level code (10+ years):**
 
-- **Principles:** DRY, KISS, SOLID
+- **Принципы:** DRY, KISS, SOLID
 - **HTML:** Semantic HTML5 (nav, article, section)
-- **CSS:** BEM, Grid/Flexbox, HSL colors
+- **CSS:** Только Tailwind классы
 - **JavaScript:** ES6+ (const/let, async/await, arrow functions)
-- **Mobile-first:** 320px, 768px, 1024px, 1440px breakpoints
+- **Accessibility:** ARIA labels, alt texts, keyboard navigation
+- **Mobile-first:** Responsive из коробки через Tailwind
 
 ---
 
 ## DESIGN SYSTEM
 
-### Container System
+### Tailwind Theme
 
-6 progressive sizes for different content types:
+Используй стандартные Tailwind классы + кастомные:
 
-| Variable | Size | Use Case |
-|----------|------|----------|
-| `--container-xs` | 480px | Modals, compact forms |
-| `--container-sm` | 640px | Login forms, narrow content |
-| `--container-md` | 768px | Blog articles (optimal readability) |
-| `--container-lg` | 1024px | Standard sections, 2-3 columns |
-| `--container-xl` | 1140px | **Main content (MOST COMMON)** |
-| `--container-2xl` | 1280px | Wide sections, dashboards |
-
-**Default:** Use `--container-xl` (1140px) unless specific need.
-
-### Nested Border Radius
-
-**Formula:** `innerRadius = outerRadius - padding`
-
-**Pre-defined variables:**
-```css
---radius-nested-2  /* 2px */
---radius-nested-4  /* 4px */
---radius-nested-6  /* 6px */
---radius-nested-8  /* 8px */
---radius-nested-10 /* 10px */
---radius-nested-12 /* 12px */
+**Цвета:**
+```
+bg-brand-blue     → --color-brand-blue
+text-brand-green  → --color-brand-green
 ```
 
-**Use when:** Images/elements touch parent's rounded corners.
-
-**Don't use for:** Buttons, text inside cards (they don't touch edges).
-
-**Example:**
-```css
-.card--image {
-  border-radius: var(--radius-md);  /* 8px */
-  padding: 0;
-}
-
-.card--image .image-ratio {
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
-}
+**Spacing:**
+```
+p-section         → --spacing-section
 ```
 
-### Utility Classes
-
-**Always use utilities instead of custom styles:**
-
-- **Tagline:** `.tagline` — uppercase accent with brand color
-- **Text align:** `.text-left/center/right`
-- **Button align:** `.btn--align-left/center/right`
-- **Flexbox:** `.flex`, `.flex-col`, `.justify-center`, `.items-center`, `.gap-4`
-- **Display:** `.block`, `.inline-block`, `.hidden`
-- **Width:** `.w-full`, `.w-auto`
+**Breakpoints:**
+```
+3xl:             → --breakpoint-3xl
+```
 
 ---
 
@@ -242,10 +300,11 @@ open library/demo-elements.html
 
 **Template:**
 ```
-feat: add feature name
+feat: add hero sections
 
-- Bullet point 1
-- Bullet point 2
+- Create 5 hero variants from HyperUI
+- All sections responsive and accessible
+- Add Remix Icons integration
 
 🤖 Generated with Claude Code
 
@@ -254,74 +313,87 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ---
 
-## CRITICAL: UTF-8 FOR CYRILLIC
+## DEPLOYMENT
 
-**Claude Code bug (#1716, #2154) — MANDATORY verification:**
+### Netlify/Vercel
 
-1. Write file with Cyrillic
-2. **IMMEDIATELY run:** `head -5 filename`
-3. **Verify:** Clean text ("Данные") vs corrupted ("����")
-4. If corrupted → rewrite
-5. Only then proceed
+```bash
+npm run build
+# → dist/
 
-**HTML must have:**
-```html
-<meta charset="UTF-8" />
+# Подключить GitHub repo или загрузить dist/
 ```
 
----
+### Обычный хостинг
 
-## TESTING CHECKLIST
+```bash
+npm run build
 
-Before completing work:
-
-1. ✅ BEM, semantic HTML, ES6+
-2. ✅ UTF-8 verified: `head -50 filename`
-3. ✅ Design system variables used
-4. ✅ Responsive tested (320px, 768px, 1024px, 1440px)
-5. ✅ Accessibility checked (ARIA, alt, keyboard)
-6. ✅ Ready-made classes used from `main.css`
-7. ✅ Real text (no placeholders)
-8. ✅ Browser renders correctly (F12 → Console)
-9. ✅ Git commit with proper format
-
----
-
-## ELEMENT WORKFLOW
-
-**After adding new element:**
-
-1. Create folder: `library/elements/[type]/[name]/`
-2. Write HTML with ready-made classes
-3. Write CSS (only layout)
-4. Add CSS link to `demo-elements.html` `<head>`
-5. Add navigation item to sidebar
-6. Add demo to main content
-7. **Update `getElementPath()` mapping** (IMPORTANT!)
-8. Test in browser
-
-**Update element mapping:**
-```javascript
-// In demo-elements.html, find getElementPath(id)
-const categoryMap = {
-  'my-new-element': 'category/my-new-element',  // Add this
-};
+# Загрузить содержимое dist/ через FTP
 ```
-
-This enables "Copy ID" button to copy full path: `element-id\nlibrary/elements/category/element-name/`
 
 ---
 
 ## PERFORMANCE TARGETS
 
-- PageSpeed Insights: >90 (mobile + desktop)
-- Lighthouse Accessibility: >90 (WCAG AA)
-- Time to Interactive: <3s
-- First Contentful Paint: <1.8s
+- **PageSpeed Insights:** 95-100
+- **Lighthouse Accessibility:** 100
+- **Time to Interactive:** <1s
+- **First Contentful Paint:** <0.8s
+
+**Astro уже оптимизирован:**
+- Генерирует чистый HTML
+- Zero JS by default
+- Auto image optimization
+- Automatic code splitting
 
 ---
 
-**Version:** 5.0 (Optimized for Claude Code Best Practices 2025)
-**Last Update:** 2025-01-26
-**Current Phase:** Element Library Revision
-**Next:** Documentation Phase
+## FIGMA INTEGRATION
+
+Модуль `modules/figma-integration/` — интеграция с Figma через MCP.
+
+Позволяет получать данные из Figma макетов.
+
+---
+
+## TESTING CHECKLIST
+
+Перед коммитом:
+
+1. ✅ `npm run build` — без ошибок
+2. ✅ `npm run preview` — проверить визуально
+3. ✅ Responsive: 320px, 768px, 1024px, 1440px
+4. ✅ Accessibility: keyboard navigation, ARIA
+5. ✅ Semantic HTML (h1→h6 правильно, alt у img)
+6. ✅ Все тексты на русском (если лендинг для РФ)
+
+---
+
+## ROADMAP
+
+**Фаза 1 (текущая):**
+- Создать 20+ готовых секций
+
+**Фаза 2:**
+- Собрать 5 шаблонов лендингов (SaaS, E-commerce, Portfolio, Corporate, Agency)
+
+**Фаза 3:**
+- CLI для генерации секций/лендингов
+- Интеграция с CMS (Strapi, Sanity)
+
+---
+
+## ПОЛЕЗНЫЕ ССЫЛКИ
+
+- [Astro Docs](https://docs.astro.build)
+- [Tailwind 4 Docs](https://tailwindcss.com/docs)
+- [Remix Icon](https://remixicon.com)
+- [Flowbite Components](https://flowbite.com)
+- [HyperUI](https://www.hyperui.dev)
+
+---
+
+**Версия:** 2.0.0
+**Последнее обновление:** 2025-10-29
+**Текущая фаза:** Создание библиотеки секций

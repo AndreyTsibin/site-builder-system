@@ -61,8 +61,10 @@ Icon?
 ehthumbs.db
 Desktop.ini
 
+# Astro
+.astro/
+dist/
+
 # Site Builder specific
 __pycache__/
 *.pyc
-
-# Note: output/ is now included as ready-to-use template
