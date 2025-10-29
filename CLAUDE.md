@@ -51,10 +51,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - ✅ Demo page with hero, features, CTA sections
 - ✅ Section directories structure
 - ✅ Layout & spacing standards documented
+- ✅ **6 Hero Sections completed** (Hero1-Hero6):
+  - Hero1: Image & two CTAs
+  - Hero2: Benefits list & single CTA
+  - Hero3: Benefits list & contact form
+  - Hero4: Form card & trust badges
+  - Hero5: Badge, benefits & CTA
+  - Hero6: Centered with feature cards
+
+**Current Focus:**
+
+- **Services & Pricing sections** — Multiple variants for pricing display
+- Priority: Show pricing transparently to build trust and drive conversions
 
 **Next:**
 
-- Build component library section-by-section (user-driven)
+- Build Services & Pricing components (user-driven)
 - See [CHECKLIST.md](CHECKLIST.md) for section reference list
 
 ---
