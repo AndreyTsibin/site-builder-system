@@ -1,273 +1,238 @@
-# Site Builder 2.0 — Phase 1 Checklist
+# Site Builder 2.0 — Component Reference List
 
-**Goal:** Create Priority 1 components for repair service landing pages
+**Purpose:** Reference list of required sections for repair service landing pages
 
-**Source:** Flowbite Blocks (https://flowbite.com/blocks/)
-
----
-
-## 1. HERO SECTIONS (3 варианта)
-
-### Hero1 — С формой
-- [ ] Найти Hero с формой на Flowbite (Marketing > Hero)
-- [ ] Создать `src/components/sections/heroes/Hero1.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `subtitle`, `phone`, `ctaText`, `benefits[]`
-- [ ] Заменить SVG иконки → Remix Icons
-- [ ] Проверить responsive (320px, 768px, 1024px)
-- [ ] Добавить в `src/pages/index.astro` для теста
-- [ ] Проверить UTF-8 (если Cyrillic)
-
-### Hero2 — С телефоном (без формы)
-- [ ] Найти Hero с CTA на Flowbite
-- [ ] Создать `src/components/sections/heroes/Hero2.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `subtitle`, `phone`, `ctaText`
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
-
-### Hero3 — Минимальный
-- [ ] Найти минимальный Hero на Flowbite
-- [ ] Создать `src/components/sections/heroes/Hero3.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `subtitle`, `ctaText`
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+**Workflow:** User selects section → provides code/screenshot → Claude converts to Astro
 
 ---
 
-## 2. CONTACT FORMS (3 варианта)
+## 1. HERO SECTIONS
 
-### ContactForm — Полная форма
-- [ ] Найти Contact Form на Flowbite (Application UI > Forms > Contact)
-- [ ] Создать `src/components/sections/forms/ContactForm.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `submitText`, `phone`
-- [ ] Поля: Имя, Телефон, Услуга (select), Комментарий
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+### Hero1 — Hero with Image & CTAs
+**Required elements:**
+- Main heading (h1) — service name + location
+- Subheading — value proposition, timing, guarantee
+- Two CTA buttons — primary + secondary
+- Image on right side (hidden on mobile)
+- White background
 
-### ContactFormCompact — Компактная форма
-- [ ] Найти компактную форму на Flowbite
-- [ ] Создать `src/components/sections/forms/ContactFormCompact.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `submitText`
-- [ ] Поля: Имя, Телефон
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+**Status:** [x] Completed
 
-### ContactFormModal — Popup форма
-- [ ] Найти Modal с формой на Flowbite (Application UI > Modal)
-- [ ] Создать `src/components/sections/forms/ContactFormModal.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `submitText`, `triggerButtonText`
-- [ ] Поля: Имя, Телефон
-- [ ] Добавить Astro islands для интерактивности
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+**File:** `src/components/sections/heroes/Hero1.astro`
 
 ---
 
-## 3. SERVICES & PRICING (2 варианта)
+### Hero2 — Hero with Phone CTA (no form)
+**Required elements:**
+- Main heading (h1) — service name
+- Subheading — value proposition
+- Large phone number (clickable)
+- 2 CTA buttons — primary + secondary
+- Trust badges (24/7, warranty, rating)
+- Background pattern or gradient
 
-### ServicesGrid — Grid карточки
-- [ ] Найти Pricing Cards на Flowbite (Marketing > Pricing)
-- [ ] Создать `src/components/sections/services/ServicesGrid.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `services[]` (name, description, priceFrom, icon)
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive (grid → stack mobile)
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+**Status:** [ ] Not started
 
-### ServicesPricing — Таблица цен
-- [ ] Найти Pricing Table на Flowbite
-- [ ] Создать `src/components/sections/services/ServicesPricing.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `services[]` (name, price, duration)
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive (table → cards mobile)
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+---
+
+### Hero3 — Minimal Hero
+**Required elements:**
+- Main heading (h1) — centered
+- Subheading — centered
+- Single CTA button
+- Scroll hint arrow (optional)
+- Simple background (gradient or solid color)
+
+**Status:** [ ] Not started
+
+---
+
+## 2. CONTACT FORMS
+
+### ContactForm — Full Contact Form
+**Required elements:**
+- Section heading
+- Form fields: name, phone, service type (select), comment (textarea)
+- Submit button with icon
+- Privacy policy link
+- Icon decorations (phone, mail)
+
+**Status:** [ ] Not started
+
+---
+
+### ContactFormCompact — Compact Form
+**Required elements:**
+- Simple heading
+- Form fields: name, phone only
+- Submit button
+- Minimal styling, can be inline
+
+**Status:** [ ] Not started
+
+---
+
+### ContactFormModal — Popup Form
+**Required elements:**
+- Trigger button
+- Modal overlay
+- Form inside modal: name, phone
+- Close button (X)
+- Submit button
+- **Note:** Requires JavaScript for interactivity
+
+**Status:** [ ] Not started
+
+---
+
+## 3. SERVICES & PRICING
+
+### ServicesGrid — Service Cards Grid
+**Required elements:**
+- Section heading + description
+- Grid of service cards (3-4 columns → responsive)
+- Each card: icon, service name, description, price from, CTA button
+- Icons from Remix Icons
+
+**Status:** [ ] Not started
+
+---
+
+### ServicesPricing — Pricing Table
+**Required elements:**
+- Section heading
+- Table with columns: Service, Price, Duration
+- Responsive: table → stacked cards on mobile
+- Highlight popular services
+- CTA button at bottom
+
+**Status:** [ ] Not started
 
 ---
 
 ## 4. BENEFITS
 
-### Benefits — Преимущества
-- [ ] Найти Features Grid на Flowbite (Marketing > Feature Sections)
-- [ ] Создать `src/components/sections/benefits/Benefits.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `benefits[]` (icon, title, description)
-- [ ] Заменить SVG → Remix Icons (ri-time-line, ri-shield-check-line, etc.)
-- [ ] Проверить responsive (3 cols → 2 cols → 1 col)
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+### Benefits — Why Choose Us
+**Required elements:**
+- Section heading + description
+- Grid of benefits (3 columns → 2 → 1 responsive)
+- Each benefit: icon, title, short description
+- Icons: speed (ri-time-line), warranty (ri-shield-check-line), expertise (ri-star-line), parts (ri-tools-line)
+
+**Status:** [ ] Not started
 
 ---
 
 ## 5. CONTACTS
 
-### Contacts — Контакты и реквизиты
-- [ ] Найти Contact Section на Flowbite (Marketing > Contact)
-- [ ] Создать `src/components/sections/contacts/Contacts.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `phone`, `email`, `address`, `inn`, `ogrn`, `mapUrl`
-- [ ] Заменить SVG → Remix Icons (ri-phone-line, ri-mail-line, ri-map-pin-line)
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+### Contacts — Company Contacts & Details
+**Required elements:**
+- Section heading
+- Two columns: contact info + map embed (optional)
+- Phone (clickable)
+- Email (clickable)
+- Physical address
+- Company details: INN, OGRN (for Russian market)
+- Social media links (VK, Telegram, WhatsApp)
+
+**Status:** [ ] Not started
 
 ---
 
-## 6. CTA (3 варианта)
+## 6. CTA SECTIONS
 
-### CTA1 — Яркий баннер
-- [ ] Найти CTA Banner на Flowbite (Marketing > CTA Sections)
-- [ ] Создать `src/components/sections/cta/CTA1.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `subtitle`, `ctaText`, `phone`, `bgColor`
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+### CTA1 — Bold CTA Banner
+**Required elements:**
+- Large heading
+- Subheading / urgency message
+- Phone number (large, clickable)
+- CTA button
+- Bright gradient background (blue, purple, yellow)
 
-### CTA2 — Блок с фоном
-- [ ] Найти CTA с фоном на Flowbite
-- [ ] Создать `src/components/sections/cta/CTA2.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `ctaText`, `phone`
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
-
-### CTA3 — Минимальный
-- [ ] Найти простой CTA на Flowbite
-- [ ] Создать `src/components/sections/cta/CTA3.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `ctaText`
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+**Status:** [ ] Not started
 
 ---
 
-## 7. TESTIMONIALS (Отзывы)
+### CTA2 — CTA with Background Image
+**Required elements:**
+- Heading
+- Short description
+- CTA button
+- Background image with overlay
+- Centered content
 
-### Testimonials — Отзывы клиентов
-- [ ] Найти Testimonials на Flowbite (Marketing > Testimonials)
-- [ ] Создать `src/components/sections/testimonials/Testimonials.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `testimonials[]` (name, text, rating, photo, date)
-- [ ] Добавить звёзды рейтинга (Remix Icons: ri-star-fill)
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive (3 cols → 2 cols → 1 col)
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+**Status:** [ ] Not started
 
 ---
 
-## 8. HOW IT WORKS (Как мы работаем)
+### CTA3 — Minimal CTA
+**Required elements:**
+- Heading
+- Single CTA button
+- Simple background (solid color or subtle gradient)
 
-### HowItWorks — Процесс работы
-- [ ] Найти Timeline или Steps на Flowbite (Marketing > Feature Sections)
-- [ ] Создать `src/components/sections/process/HowItWorks.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `steps[]` (number, title, description, icon)
-- [ ] Иконки для шагов (ri-phone-line, ri-car-line, ri-tools-line, ri-checkbox-circle-line)
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive (timeline → vertical stack mobile)
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+**Status:** [ ] Not started
+
+---
+
+## 7. TESTIMONIALS
+
+### Testimonials — Customer Reviews
+**Required elements:**
+- Section heading
+- Grid of testimonial cards (3 columns → responsive)
+- Each card: customer name, review text, star rating (5 stars), photo (optional), date
+- Star icons: ri-star-fill (filled), ri-star-line (empty)
+
+**Status:** [ ] Not started
+
+---
+
+## 8. HOW IT WORKS
+
+### HowItWorks — Service Process
+**Required elements:**
+- Section heading
+- Timeline or numbered steps (4-5 steps)
+- Each step: number badge, icon, title, description
+- Icons: ri-phone-line (call), ri-car-line (arrival), ri-tools-line (repair), ri-checkbox-circle-line (done)
+- Responsive: horizontal timeline → vertical stack on mobile
+
+**Status:** [ ] Not started
 
 ---
 
 ## 9. FAQ
 
-### FAQ — Частые вопросы
-- [ ] Найти FAQ Accordion на Flowbite (Marketing > FAQ)
-- [ ] Создать `src/components/sections/faq/FAQ.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `title`, `questions[]` (question, answer)
-- [ ] Добавить Astro islands для интерактивности (accordion)
-- [ ] Заменить SVG → Remix Icons (ri-arrow-down-s-line)
-- [ ] Проверить responsive
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+### FAQ — Frequently Asked Questions
+**Required elements:**
+- Section heading
+- Accordion list (collapsible items)
+- Each item: question, answer
+- Expand/collapse icons: ri-arrow-down-s-line
+- **Note:** Requires JavaScript for interactivity
+
+**Status:** [ ] Not started
 
 ---
 
 ## 10. FOOTER
 
-### Footer — Подвал сайта
-- [ ] Найти Footer на Flowbite (Marketing > Footer)
-- [ ] Создать `src/components/sections/footers/Footer.astro`
-- [ ] Конвертировать HTML → Astro
-- [ ] Добавить Props: `logo`, `phone`, `email`, `address`, `socialLinks[]`, `copyright`
-- [ ] Иконки соцсетей (ri-vk-line, ri-telegram-line, ri-whatsapp-line)
-- [ ] Заменить SVG → Remix Icons
-- [ ] Проверить responsive (multi-col → single-col mobile)
-- [ ] Тест на странице
-- [ ] Проверить UTF-8
+### Footer — Site Footer
+**Required elements:**
+- Logo or company name
+- Contact info: phone, email, address
+- Social media links (VK, Telegram, WhatsApp) with icons
+- Quick links (optional)
+- Copyright text
+- Multi-column layout → single column on mobile
+
+**Status:** [ ] Not started
 
 ---
 
-## ФИНАЛЬНАЯ ПРОВЕРКА
+## TOTAL: 18 Components Across 10 Categories
 
-- [ ] `npm run build` — без ошибок
-- [ ] `npm run preview` — визуальная проверка всех компонентов
-- [ ] Accessibility: keyboard nav, ARIA labels, alt texts
-- [ ] Semantic HTML: правильная иерархия заголовков
-- [ ] Все компоненты responsive (320px → 1920px)
-- [ ] Cyrillic UTF-8 проверен для всех русских текстов
+**Progress:** 1 / 18 completed (5.6%)
 
----
-
-## COMMIT
-
-- [ ] Сделать коммит:
-```
-feat: add Priority 1 components (complete landing page library)
-
-- Create 3 Hero variants with form/phone/minimal layouts
-- Add 3 Contact Form variants (full, compact, modal)
-- Implement 2 Services variants (grid, pricing table)
-- Add Benefits section with icon grid
-- Create Contacts section with company details
-- Add 3 CTA variants (banner, background, minimal)
-- Add Testimonials with ratings and reviews
-- Implement How It Works process timeline
-- Create FAQ accordion section
-- Add Footer with contacts and social links
-
-Total: 18 components across 10 categories
-
-All components:
-- Astro + TypeScript Props
-- Tailwind 4 styling only
-- Remix Icons integration
-- Mobile-first responsive design
-- Semantic HTML5
-
-🤖 Generated with Claude Code
-
-Co-Authored-By: Claude <noreply@anthropic.com>
-```
-
----
-
-**Estimated time:** 3-4 hours
-**Status:** Not started
-**Created:** 2025-10-29
+**Last Updated:** 2025-10-29

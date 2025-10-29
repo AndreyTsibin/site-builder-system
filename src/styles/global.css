@@ -16,9 +16,9 @@
 }
 
 /* Base Styles */
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -27,6 +27,8 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   color: hsl(0, 0%, 20%);
