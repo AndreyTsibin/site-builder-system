@@ -349,25 +349,7 @@
 
 ---
 
-## 4. CONTACTS
-
-### Contacts — Company Contacts & Details
-
-**Required elements:**
-
-- Section heading
-- Two columns: contact info + map embed (optional)
-- Phone (clickable)
-- Email (clickable)
-- Physical address
-- Company details: INN, OGRN (for Russian market)
-- Social media links (VK, Telegram, WhatsApp)
-
-**Status:** [ ] Not started
-
----
-
-## 5. CTA SECTIONS
+## 4. CTA SECTIONS
 
 ### CTA1 — Bold CTA Banner
 
@@ -409,7 +391,7 @@
 
 ---
 
-## 6. TESTIMONIALS
+## 5. TESTIMONIALS
 
 ### Testimonials — Customer Reviews
 
@@ -424,7 +406,7 @@
 
 ---
 
-## 7. HOW IT WORKS
+## 6. HOW IT WORKS
 
 ### HowItWorks — Service Process
 
@@ -440,7 +422,7 @@
 
 ---
 
-## 8. FAQ
+## 7. FAQ
 
 ### FAQ — Frequently Asked Questions
 
@@ -456,7 +438,7 @@
 
 ---
 
-## 9. FOOTER
+## 8. FOOTER
 
 ### Footer — Site Footer
 
@@ -473,11 +455,13 @@
 
 ---
 
-## TOTAL: 20 Components Across 9 Categories
+## TOTAL: 19 Components Across 8 Categories
 
-**Progress:** 15 / 20 completed (75.0%)
+**Progress:** 15 / 19 completed (79.0%)
 
 **Services & Pricing:** 6 completed, 1 slot reserved for future variants
 **Benefits:** 3 / 3 completed — All benefit variants completed ✅
+
+**Note:** Contacts section removed (duplicate of Footer functionality)
 
 **Last Updated:** 2025-10-29
