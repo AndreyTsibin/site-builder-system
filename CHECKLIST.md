@@ -239,13 +239,25 @@
 
 ---
 
-### Services6 — Pricing Variant 6
+### Services6 — Service Problem Cards
 
 **Required elements:**
 
-- TBD (awaiting user input)
+- Section heading (h2) + subtitle
+- Grid of service cards (3 columns → 2 → 1 responsive)
+- Each card:
+  - Full-width image header (h-64)
+  - Service title (blue bold text)
+  - Service description
+  - Price button (full-width, blue background)
+- Gray card background (bg-gray-50)
+- Flexbox layout with button auto-pushed to bottom
+- Hover effects on cards
+- Default: 6 common computer problems with pricing
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/pricing/Services6.astro`
 
 ---
 
@@ -400,8 +412,8 @@
 
 ## TOTAL: 18 Components Across 9 Categories
 
-**Progress:** 11 / 18 completed (61.1%)
+**Progress:** 12 / 18 completed (66.7%)
 
-**Services & Pricing:** 5 completed, 2 slots reserved for new variants
+**Services & Pricing:** 6 completed, 1 slot reserved for future variants
 
 **Last Updated:** 2025-10-29

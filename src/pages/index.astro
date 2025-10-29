@@ -5,6 +5,7 @@ import PricingTable from '../components/sections/pricing/PricingTable.astro';
 import ServicesCards from '../components/sections/pricing/ServicesCards.astro';
 import Services4 from '../components/sections/pricing/Services4.astro';
 import Services5 from '../components/sections/pricing/Services5.astro';
+import Services6 from '../components/sections/pricing/Services6.astro';
 
 const pricingCategories = [
   {
@@ -132,6 +133,45 @@ const videoPackages = [
     ctaText: 'Заказать установку',
   },
 ];
+
+const computerServices = [
+  {
+    image: '/images/placeholder-img.jpg',
+    title: 'Не включается',
+    description: 'Диагностика и устранение причин, по которым компьютер не загружается. Проверка блока питания и аппаратных компонентов.',
+    price: 'от 350 ₽',
+  },
+  {
+    image: '/images/placeholder-img.jpg',
+    title: 'Зависает',
+    description: 'Устранение причин зависания системы. Проверка ошибок ОС и аппаратных конфликтов.',
+    price: 'от 200 ₽',
+  },
+  {
+    image: '/images/placeholder-img.jpg',
+    title: 'Тормозит',
+    description: 'Оптимизация системы для повышения производительности. Удаление ненужных программ и чистка от мусора.',
+    price: 'от 200 ₽',
+  },
+  {
+    image: '/images/placeholder-img.jpg',
+    title: 'Нет изображения',
+    description: 'Диагностика и устранение проблем с видеокартой, монитором или кабелями. Настройка драйверов дисплея.',
+    price: 'от 350 ₽',
+  },
+  {
+    image: '/images/placeholder-img.jpg',
+    title: 'Нет звука',
+    description: 'Восстановление работы аудиосистемы. Настройка драйверов и аудиоустройств.',
+    price: 'от 190 ₽',
+  },
+  {
+    image: '/images/placeholder-img.jpg',
+    title: 'Проблемы с интернетом',
+    description: 'Настройка соединения и диагностика сетевых проблем. Восстановление работы Wi-Fi и проводного подключения.',
+    price: 'от 450 ₽',
+  },
+];
 ---
 
 <BaseLayout title="Site Builder 2.0 | Component Library Demo">
@@ -148,5 +188,10 @@ const videoPackages = [
     title="Готовые комплекты видеодомофонов"
     subtitle="От базовой защиты до продвинутых систем безопасности — выбирайте проверенное решение с гарантией от 1 года"
     packages={videoPackages}
+  />
+  <Services6
+    title="Устраню любые неисправности"
+    subtitle="Решу любые проблемы с компьютером или ноутбуком быстро и с гарантией качества"
+    services={computerServices}
   />
 </BaseLayout>
