@@ -4,6 +4,7 @@ import ServicesGrid from '../components/sections/pricing/ServicesGrid.astro';
 import PricingTable from '../components/sections/pricing/PricingTable.astro';
 import ServicesCards from '../components/sections/pricing/ServicesCards.astro';
 import Services4 from '../components/sections/pricing/Services4.astro';
+import Services5 from '../components/sections/pricing/Services5.astro';
 
 const pricingCategories = [
   {
@@ -67,6 +68,70 @@ const pricingCategories = [
     ],
   },
 ];
+
+const videoPackages = [
+  {
+    badge: 'Базовый',
+    badgeColor: 'bg-blue-600',
+    image: '/images/placeholder-img.jpg',
+    title: 'Комплект "Наблюдатель"',
+    subtitle: 'Базовая защита',
+    description: 'Для квартир и небольших офисов',
+    includes: [
+      'Монитор "Танtos" 7-дюймов',
+      'Вызывная панель "Танtos 700 ТВЛ"',
+    ],
+    features: [
+      'HD разрешение камеры 1280 х 720',
+      'Угол обзора: 90°',
+      'Базовый режим записи фото',
+      'Возможность подключения электрозамка',
+      'Управление с телефона или монитора',
+    ],
+    price: '18 000 руб',
+    ctaText: 'Заказать установку',
+  },
+  {
+    badge: 'Популярный',
+    badgeColor: 'bg-blue-500',
+    image: '/images/placeholder-img.jpg',
+    title: 'Комплект "Охранник"',
+    subtitle: 'Расширенная',
+    description: 'Для частных домов и таунхаусов',
+    includes: [
+      'Монитор "Танtos HD"',
+      'Вызывная панель iPanel 2 (Metal) HD',
+    ],
+    features: [
+      'Full HD разрешение камеры (1920×1080)',
+      'Широкий угол обзора: 110°',
+      'Запись фото и видео',
+      'Поддержка 2-х вызывных панелей',
+    ],
+    price: '26 000 руб',
+    ctaText: 'Заказать установку',
+  },
+  {
+    badge: 'Премиум',
+    badgeColor: 'bg-blue-700',
+    image: '/images/placeholder-img.jpg',
+    title: 'Комплект "Всевидящий"',
+    subtitle: 'Профессиональная',
+    description: 'Для больших домов и бизнес-центров',
+    includes: [
+      'Монитор "Танtos HD"',
+      'Вызывная панель Tantos Triniti HD',
+    ],
+    features: [
+      'Full HD разрешение камеры (1920×1080)',
+      'Сверхширокий угол обзора: 130°',
+      'Непрерывная запись видео 24/7',
+      'Поддержка до 4-х вызывных панелей',
+    ],
+    price: '44 000 руб',
+    ctaText: 'Заказать установку',
+  },
+];
 ---
 
 <BaseLayout title="Site Builder 2.0 | Component Library Demo">
@@ -78,5 +143,10 @@ const pricingCategories = [
     title="Цены на ремонт техники LG"
     subtitle="Прозрачная стоимость без скрытых платежей — оплачивайте за реально выполненные работы."
     categories={pricingCategories}
+  />
+  <Services5
+    title="Готовые комплекты видеодомофонов"
+    subtitle="От базовой защиты до продвинутых систем безопасности — выбирайте проверенное решение с гарантией от 1 года"
+    packages={videoPackages}
   />
 </BaseLayout>

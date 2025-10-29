@@ -216,13 +216,26 @@
 
 ---
 
-### Services5 — Pricing Variant 5
+### Services5 — Pricing Package Cards
 
 **Required elements:**
 
-- TBD (awaiting user input)
+- Section heading (h2) + subtitle
+- Grid of package cards (3 columns → 2 → 1 responsive)
+- Each card:
+  - Full-width image header with badge overlay (Базовый/Популярный/Премиум)
+  - Badge positioned top-left on image
+  - Title + subtitle + description block (gray background)
+  - "Что входит" list (white background - visually highlighted)
+  - "Технические характеристики" list with checkmark icons (gray background)
+  - Price + CTA button block at bottom (gray background, auto-pushed to bottom)
+- Gray card background with white accent for "includes" section
+- Responsive image height (h-64)
+- Hover effects on cards
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/pricing/Services5.astro`
 
 ---
 
@@ -387,8 +400,8 @@
 
 ## TOTAL: 18 Components Across 9 Categories
 
-**Progress:** 10 / 18 completed (55.6%)
+**Progress:** 11 / 18 completed (61.1%)
 
-**Services & Pricing:** 4 completed, 3 slots reserved for new variants
+**Services & Pricing:** 5 completed, 2 slots reserved for new variants
 
 **Last Updated:** 2025-10-29
