@@ -168,12 +168,29 @@
 
 ---
 
-### Services3
+### Services3 — Service Cards with Images & CTA
 
 **Required elements:**
 
+- Section heading (h2) centered — "Ремонт техники LG на дому"
+- Subheading centered — service description
+- Grid of service cards (3 columns → 2 → 1 responsive)
+- Each card:
+  - Service image (placeholder or icon)
+  - Service title (large, bold)
+  - Price label (small, gray)
+  - Price (large, red/brand color)
+  - Gray background with hover shadow
+- CTA block below cards:
+  - Light gradient background (blue-green)
+  - Message text (left)
+  - CTA button (red, prominent)
+  - Optional: support specialist photo (right, rounded)
+- Default: 9 appliance services
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/pricing/ServicesCards.astro`
 
 ---
 
@@ -327,6 +344,6 @@
 
 ## TOTAL: 15 Components Across 9 Categories
 
-**Progress:** 8 / 15 completed (53.3%)
+**Progress:** 9 / 15 completed (60.0%)
 
 **Last Updated:** 2025-10-29
