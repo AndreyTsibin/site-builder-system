@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+/* Custom Theme Configuration */
+@theme {
+  /* Brand Colors */
+  --color-brand-blue: #1E40AF;
+  --color-brand-green: #10B981;
+  --color-brand-purple: #7C3AED;
+
+  /* Custom Spacing */
+  --spacing-section: 80px;
+  --spacing-section-lg: 120px;
+
+  /* Custom Breakpoints */
+  --breakpoint-3xl: 1920px;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: hsl(0, 0%, 20%);
+  background: hsl(0, 0%, 100%);
+}
