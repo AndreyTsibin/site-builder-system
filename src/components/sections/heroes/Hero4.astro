@@ -1,0 +1,121 @@
+---
+/**
+ * Hero4 — Hero with Form Card & Trust Badges
+ *
+ * Two-column hero section: left has heading, form card, trust badges; right has image
+ * Perfect for security/intercom services with consultation form
+ *
+ * Usage:
+ * <Hero4
+ *   title="Надежные видеодомофоны с установкой под ключ"
+ *   subtitle="Безопасность вашего дома под умной защитой"
+ *   formTitle="Получите бесплатную консультацию"
+ *   phonePlaceholder="+7 (000) 000-00-00"
+ *   submitText="Получить консультацию"
+ *   formNote="Напишите номер. Перезвоним через 1 минуту!"
+ *   trustBadges={[
+ *     { icon: "ri-home-office-line", text: "10 лет устанавливаем видеодомофоны" },
+ *     { icon: "ri-user-star-line", text: "Более 1500 довольных клиентов" },
+ *     { icon: "ri-shield-check-line", text: "Гарантия 3 года на оборудование" }
+ *   ]}
+ *   imageUrl="/images/placeholder-img.jpg"
+ *   imageAlt="Установка видеодомофонов"
+ * />
+ */
+
+interface TrustBadge {
+  icon: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  formTitle: string;
+  phonePlaceholder?: string;
+  submitText: string;
+  formNote: string;
+  trustBadges: TrustBadge[];
+  imageUrl?: string;
+  imageAlt?: string;
+}
+
+const {
+  title,
+  subtitle,
+  formTitle,
+  phonePlaceholder = "+7 (000) 000-00-00",
+  submitText,
+  formNote,
+  trustBadges,
+  imageUrl = "/images/placeholder-img.jpg",
+  imageAlt = "Hero image"
+} = Astro.props;
+---
+
+<section class="bg-white py-16 md:py-20 lg:py-24">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
+      <!-- Left Column: Content + Form Card + Trust Badges -->
+      <div class="space-y-6">
+        <!-- Heading -->
+        <h1 class="max-w-2xl text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight">
+          {title}
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="max-w-2xl text-base md:text-lg font-light text-gray-700">
+          {subtitle}
+        </p>
+
+        <!-- Form Card -->
+        <div class="bg-blue-700 rounded-lg p-6 md:p-8 max-w-lg">
+          <h2 class="text-xl md:text-2xl font-bold text-white mb-6">{formTitle}</h2>
+
+          <form class="space-y-4">
+            <!-- Phone Input -->
+            <input
+              type="tel"
+              placeholder={phonePlaceholder}
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+              pattern="[+]?[0-9\s\-\(\)]+"
+              required
+            />
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="w-full px-6 py-3 text-base font-medium text-white bg-orange-600 hover:bg-orange-700 rounded-lg focus:ring-4 focus:ring-orange-300 transition-colors"
+            >
+              {submitText}
+            </button>
+
+            <!-- Form Note -->
+            <p class="text-sm text-white/90 text-center">{formNote}</p>
+          </form>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="grid md:grid-cols-3 gap-4 pt-4">
+          {trustBadges.map((badge) => (
+            <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+              <i class={`${badge.icon} text-3xl text-blue-700 mb-3 block`}></i>
+              <p class="text-sm text-gray-900 leading-snug">{badge.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Column: Image -->
+      <div class="hidden lg:flex justify-center">
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          class="max-w-full h-auto rounded-xl"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>

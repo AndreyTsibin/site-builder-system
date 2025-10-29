@@ -50,16 +50,39 @@
 - Subtitle — location coverage
 - Description with tooltip link ("Бесплатный" with hover tooltip)
 - Benefits list (3 items) with green checkmark icons
-- Contact form on right side:
-  - Phone input with country flag dropdown
+- Contact form in left column:
+  - Phone input (simple field with HTML5 validation)
   - Submit button (red CTA)
   - Privacy policy text with link
 - White background
-- Image hidden on desktop, shown below form on mobile
+- Image on right side (hidden on mobile)
 
 **Status:** [x] Completed
 
 **File:** `src/components/sections/heroes/Hero3.astro`
+
+---
+
+### Hero4 — Hero with Form Card & Trust Badges
+
+**Required elements:**
+
+- Main heading (h1) — service name + value proposition
+- Subtitle — additional description
+- Form card (blue background):
+  - Form title
+  - Phone input (simple field with HTML5 validation)
+  - Submit button (orange CTA)
+  - Call-to-action note below form
+- Three trust badge cards below form (grid):
+  - Icon (Remix Icons)
+  - Short text description
+- White background
+- Image on right side (hidden on mobile)
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/heroes/Hero4.astro`
 
 ---
 
@@ -277,6 +300,6 @@
 
 ## TOTAL: 18 Components Across 10 Categories
 
-**Progress:** 3 / 18 completed (16.7%)
+**Progress:** 4 / 18 completed (22.2%)
 
 **Last Updated:** 2025-10-29

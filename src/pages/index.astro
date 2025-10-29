@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero1 from '@/components/sections/heroes/Hero1.astro';
 import Hero2 from '@/components/sections/heroes/Hero2.astro';
 import Hero3 from '@/components/sections/heroes/Hero3.astro';
+import Hero4 from '@/components/sections/heroes/Hero4.astro';
 ---
 
 <BaseLayout title="Site Builder 2.0 | Component Library Demo">
@@ -49,6 +50,23 @@ import Hero3 from '@/components/sections/heroes/Hero3.astro';
     privacyText="Отправляя форму, вы соглашаетесь с <a href='/privacy' class='text-blue-600 hover:underline'>Политикой конфиденциальности</a>"
     imageUrl="/images/placeholder-img.jpg"
     imageAlt="Мастер по ремонту техники LG"
+  />
+
+  <!-- Hero Section 4 - With Form Card & Trust Badges -->
+  <Hero4
+    title="Надежные видеодомофоны с установкой под ключ"
+    subtitle="Безопасность вашего дома под умной защитой"
+    formTitle="Получите бесплатную консультацию"
+    phonePlaceholder="+7 (000) 000-00-00"
+    submitText="Получить консультацию"
+    formNote="Напишите номер. Перезвоним через 1 минуту!"
+    trustBadges={[
+      { icon: "ri-home-office-line", text: "10 лет устанавливаем видеодомофоны" },
+      { icon: "ri-user-star-line", text: "Более 1500 довольных клиентов" },
+      { icon: "ri-shield-check-line", text: "Гарантия 3 года на оборудование" }
+    ]}
+    imageUrl="/images/placeholder-img.jpg"
+    imageAlt="Установка видеодомофонов"
   />
 
   <!-- More sections will be added here as they are completed -->
