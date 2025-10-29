@@ -217,6 +217,8 @@ Use in components: `class="bg-brand-blue p-section"`
 
 **CRITICAL:** All sections MUST follow these standards for consistent spacing and responsive behavior.
 
+**APPLIES TO:** Hero sections, Services & Pricing, Benefits, CTA sections, Testimonials, Footer, and ALL other components.
+
 ### Base Section Structure
 
 ```astro
