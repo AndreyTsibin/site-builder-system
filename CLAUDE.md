@@ -211,6 +211,32 @@ Edit `src/styles/global.css` for custom design tokens:
 
 Use in components: `class="bg-brand-blue p-section"`
 
+### Nested Border Radius Formula
+
+**Rule:** When nesting elements inside containers with border-radius, maintain smooth visual curvature:
+
+```
+Inner Radius = Outer Radius - Gap/Padding
+```
+
+**Example:**
+```astro
+<!-- Outer container: rounded-2xl (16px), gap-4 (16px) -->
+<div class="rounded-2xl p-6 gap-4">
+  <!-- Inner element: rounded-lg (8px) -->
+  <img class="rounded-lg" />
+</div>
+```
+
+**Tailwind values:**
+- `rounded-2xl` (16px) - `gap-4` (16px) ≈ `rounded-lg` (8px)
+- `rounded-xl` (12px) - `gap-3` (12px) ≈ `rounded` (4px)
+- `rounded-3xl` (24px) - `gap-6` (24px) ≈ `rounded-xl` (12px)
+
+**Why:** Using the same radius for parent and child creates uneven visual gaps. Subtracting the distance maintains smooth curvature.
+
+**Reference:** [Frontend Masters - Nested Border Radius](https://frontendmasters.com/blog/the-classic-border-radius-advice-plus-an-unusual-trick/)
+
 ---
 
 ## LAYOUT & SPACING STANDARDS
