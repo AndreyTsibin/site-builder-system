@@ -1,0 +1,97 @@
+---
+/**
+ * Hero2 — Hero with Benefits List & Image
+ *
+ * Two-column hero section with heading, description, benefits list and image
+ * Perfect for repair services showcasing speed, availability, warranty
+ *
+ * Usage:
+ * <Hero2
+ *   title="Срочный ремонт стиральных машин в СПБ за 1 час"
+ *   subtitle="Устраняем любые неисправности стиральных машин всех марок. Бесплатная диагностика и выезд мастера"
+ *   benefits={[
+ *     { icon: "ri-time-line", text: "Мастер за 60 минут" },
+ *     { icon: "ri-tools-line", text: "Запчасти в наличии" },
+ *     { icon: "ri-shield-check-line", text: "Гарантия до 12 месяцев" }
+ *   ]}
+ *   ctaText="Вызвать мастера бесплатно"
+ *   ctaUrl="#contact"
+ *   imageUrl="/images/placeholder-img.jpg"
+ *   imageAlt="Мастер по ремонту стиральных машин"
+ * />
+ */
+
+interface Benefit {
+  icon: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  benefits: Benefit[];
+  ctaText: string;
+  ctaUrl: string;
+  imageUrl?: string;
+  imageAlt?: string;
+}
+
+const {
+  title,
+  subtitle,
+  benefits,
+  ctaText,
+  ctaUrl,
+  imageUrl = "/images/placeholder-img.jpg",
+  imageAlt = "Hero image"
+} = Astro.props;
+---
+
+<section class="bg-white py-16 md:py-20 lg:py-24">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
+      <!-- Left Column: Content -->
+      <div class="space-y-6">
+        <h1 class="max-w-2xl text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight">
+          {title}
+        </h1>
+
+        <p class="max-w-2xl text-base md:text-lg lg:text-xl font-light text-gray-500">
+          {subtitle}
+        </p>
+
+        <!-- Benefits List -->
+        <ul class="space-y-4">
+          {benefits.map((benefit) => (
+            <li class="flex items-center gap-3">
+              <i class={`${benefit.icon} text-2xl text-green-600`}></i>
+              <span class="text-base md:text-lg font-medium text-gray-900">{benefit.text}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTA Button -->
+        <div class="pt-2">
+          <a
+            href={ctaUrl}
+            class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-white rounded-lg bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 transition-colors"
+          >
+            <i class="ri-phone-line mr-2 text-lg"></i>
+            {ctaText}
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Image -->
+      <div class="hidden lg:flex justify-center">
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          class="max-w-full h-auto rounded-xl"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>

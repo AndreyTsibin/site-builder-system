@@ -9,7 +9,9 @@
 ## 1. HERO SECTIONS
 
 ### Hero1 — Hero with Image & CTAs
+
 **Required elements:**
+
 - Main heading (h1) — service name + location
 - Subheading — value proposition, timing, guarantee
 - Two CTA buttons — primary + secondary
@@ -22,26 +24,25 @@
 
 ---
 
-### Hero2 — Hero with Phone CTA (no form)
-**Required elements:**
-- Main heading (h1) — service name
-- Subheading — value proposition
-- Large phone number (clickable)
-- 2 CTA buttons — primary + secondary
-- Trust badges (24/7, warranty, rating)
-- Background pattern or gradient
+### Hero2 — Hero with Benefits List & Image
 
-**Status:** [ ] Not started
+**Required elements:**
+
+- Main heading (h1) — service name + location + timing
+- Subheading — value proposition, diagnostic offer
+- Benefits list (3 items) — speed, availability, warranty
+- Benefits icons — Remix Icons (time, tools, shield)
+- Single CTA button (green) with phone icon
+- Image on right side (hidden on mobile)
+- White background
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/heroes/Hero2.astro`
 
 ---
 
-### Hero3 — Minimal Hero
-**Required elements:**
-- Main heading (h1) — centered
-- Subheading — centered
-- Single CTA button
-- Scroll hint arrow (optional)
-- Simple background (gradient or solid color)
+### Hero3
 
 **Status:** [ ] Not started
 
@@ -50,7 +51,9 @@
 ## 2. CONTACT FORMS
 
 ### ContactForm — Full Contact Form
+
 **Required elements:**
+
 - Section heading
 - Form fields: name, phone, service type (select), comment (textarea)
 - Submit button with icon
@@ -62,7 +65,9 @@
 ---
 
 ### ContactFormCompact — Compact Form
+
 **Required elements:**
+
 - Simple heading
 - Form fields: name, phone only
 - Submit button
@@ -73,7 +78,9 @@
 ---
 
 ### ContactFormModal — Popup Form
+
 **Required elements:**
+
 - Trigger button
 - Modal overlay
 - Form inside modal: name, phone
@@ -88,7 +95,9 @@
 ## 3. SERVICES & PRICING
 
 ### ServicesGrid — Service Cards Grid
+
 **Required elements:**
+
 - Section heading + description
 - Grid of service cards (3-4 columns → responsive)
 - Each card: icon, service name, description, price from, CTA button
@@ -99,7 +108,9 @@
 ---
 
 ### ServicesPricing — Pricing Table
+
 **Required elements:**
+
 - Section heading
 - Table with columns: Service, Price, Duration
 - Responsive: table → stacked cards on mobile
@@ -113,7 +124,9 @@
 ## 4. BENEFITS
 
 ### Benefits — Why Choose Us
+
 **Required elements:**
+
 - Section heading + description
 - Grid of benefits (3 columns → 2 → 1 responsive)
 - Each benefit: icon, title, short description
@@ -126,7 +139,9 @@
 ## 5. CONTACTS
 
 ### Contacts — Company Contacts & Details
+
 **Required elements:**
+
 - Section heading
 - Two columns: contact info + map embed (optional)
 - Phone (clickable)
@@ -142,7 +157,9 @@
 ## 6. CTA SECTIONS
 
 ### CTA1 — Bold CTA Banner
+
 **Required elements:**
+
 - Large heading
 - Subheading / urgency message
 - Phone number (large, clickable)
@@ -154,7 +171,9 @@
 ---
 
 ### CTA2 — CTA with Background Image
+
 **Required elements:**
+
 - Heading
 - Short description
 - CTA button
@@ -166,7 +185,9 @@
 ---
 
 ### CTA3 — Minimal CTA
+
 **Required elements:**
+
 - Heading
 - Single CTA button
 - Simple background (solid color or subtle gradient)
@@ -178,7 +199,9 @@
 ## 7. TESTIMONIALS
 
 ### Testimonials — Customer Reviews
+
 **Required elements:**
+
 - Section heading
 - Grid of testimonial cards (3 columns → responsive)
 - Each card: customer name, review text, star rating (5 stars), photo (optional), date
@@ -191,7 +214,9 @@
 ## 8. HOW IT WORKS
 
 ### HowItWorks — Service Process
+
 **Required elements:**
+
 - Section heading
 - Timeline or numbered steps (4-5 steps)
 - Each step: number badge, icon, title, description
@@ -205,7 +230,9 @@
 ## 9. FAQ
 
 ### FAQ — Frequently Asked Questions
+
 **Required elements:**
+
 - Section heading
 - Accordion list (collapsible items)
 - Each item: question, answer
@@ -219,7 +246,9 @@
 ## 10. FOOTER
 
 ### Footer — Site Footer
+
 **Required elements:**
+
 - Logo or company name
 - Contact info: phone, email, address
 - Social media links (VK, Telegram, WhatsApp) with icons
@@ -233,6 +262,6 @@
 
 ## TOTAL: 18 Components Across 10 Categories
 
-**Progress:** 1 / 18 completed (5.6%)
+**Progress:** 2 / 18 completed (11.1%)
 
 **Last Updated:** 2025-10-29
