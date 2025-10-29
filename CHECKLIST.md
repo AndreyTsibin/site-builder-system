@@ -285,7 +285,9 @@
   - Доступные цены / Fair pricing (ri-price-tag-3-line)
   - 24/7 поддержка / Round-the-clock support (ri-customer-service-line)
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/benefits/Benefits1.astro`
 
 ---
 
@@ -469,9 +471,9 @@
 
 ## TOTAL: 20 Components Across 9 Categories
 
-**Progress:** 12 / 20 completed (60.0%)
+**Progress:** 13 / 20 completed (65.0%)
 
 **Services & Pricing:** 6 completed, 1 slot reserved for future variants
-**Benefits:** 0 / 3 completed — 3 modern variants planned
+**Benefits:** 1 / 3 completed — Benefits1 (Classic Icon Grid) completed
 
 **Last Updated:** 2025-10-29
