@@ -164,6 +164,66 @@
 
 ---
 
+## 7. TESTIMONIALS (Отзывы)
+
+### Testimonials — Отзывы клиентов
+- [ ] Найти Testimonials на Flowbite (Marketing > Testimonials)
+- [ ] Создать `src/components/sections/testimonials/Testimonials.astro`
+- [ ] Конвертировать HTML → Astro
+- [ ] Добавить Props: `title`, `testimonials[]` (name, text, rating, photo, date)
+- [ ] Добавить звёзды рейтинга (Remix Icons: ri-star-fill)
+- [ ] Заменить SVG → Remix Icons
+- [ ] Проверить responsive (3 cols → 2 cols → 1 col)
+- [ ] Тест на странице
+- [ ] Проверить UTF-8
+
+---
+
+## 8. HOW IT WORKS (Как мы работаем)
+
+### HowItWorks — Процесс работы
+- [ ] Найти Timeline или Steps на Flowbite (Marketing > Feature Sections)
+- [ ] Создать `src/components/sections/process/HowItWorks.astro`
+- [ ] Конвертировать HTML → Astro
+- [ ] Добавить Props: `title`, `steps[]` (number, title, description, icon)
+- [ ] Иконки для шагов (ri-phone-line, ri-car-line, ri-tools-line, ri-checkbox-circle-line)
+- [ ] Заменить SVG → Remix Icons
+- [ ] Проверить responsive (timeline → vertical stack mobile)
+- [ ] Тест на странице
+- [ ] Проверить UTF-8
+
+---
+
+## 9. FAQ
+
+### FAQ — Частые вопросы
+- [ ] Найти FAQ Accordion на Flowbite (Marketing > FAQ)
+- [ ] Создать `src/components/sections/faq/FAQ.astro`
+- [ ] Конвертировать HTML → Astro
+- [ ] Добавить Props: `title`, `questions[]` (question, answer)
+- [ ] Добавить Astro islands для интерактивности (accordion)
+- [ ] Заменить SVG → Remix Icons (ri-arrow-down-s-line)
+- [ ] Проверить responsive
+- [ ] Тест на странице
+- [ ] Проверить UTF-8
+
+---
+
+## 10. FOOTER
+
+### Footer — Подвал сайта
+- [ ] Найти Footer на Flowbite (Marketing > Footer)
+- [ ] Создать `src/components/sections/footers/Footer.astro`
+- [ ] Конвертировать HTML → Astro
+- [ ] Добавить Props: `logo`, `phone`, `email`, `address`, `socialLinks[]`, `copyright`
+- [ ] Иконки соцсетей (ri-vk-line, ri-telegram-line, ri-whatsapp-line)
+- [ ] Заменить SVG → Remix Icons
+- [ ] Проверить responsive (multi-col → single-col mobile)
+- [ ] Тест на странице
+- [ ] Проверить UTF-8
+
+---
+
 ## ФИНАЛЬНАЯ ПРОВЕРКА
 
 - [ ] `npm run build` — без ошибок
@@ -179,7 +239,7 @@
 
 - [ ] Сделать коммит:
 ```
-feat: add Priority 1 components (Hero, Forms, Services, Benefits, Contacts, CTA)
+feat: add Priority 1 components (complete landing page library)
 
 - Create 3 Hero variants with form/phone/minimal layouts
 - Add 3 Contact Form variants (full, compact, modal)
@@ -187,6 +247,12 @@ feat: add Priority 1 components (Hero, Forms, Services, Benefits, Contacts, CTA)
 - Add Benefits section with icon grid
 - Create Contacts section with company details
 - Add 3 CTA variants (banner, background, minimal)
+- Add Testimonials with ratings and reviews
+- Implement How It Works process timeline
+- Create FAQ accordion section
+- Add Footer with contacts and social links
+
+Total: 18 components across 10 categories
 
 All components:
 - Astro + TypeScript Props
@@ -202,6 +268,6 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ---
 
-**Estimated time:** 2-3 hours
+**Estimated time:** 3-4 hours
 **Status:** Not started
 **Created:** 2025-10-29
