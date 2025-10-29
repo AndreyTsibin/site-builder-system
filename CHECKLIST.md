@@ -42,9 +42,24 @@
 
 ---
 
-### Hero3
+### Hero3 — Hero with Benefits List & Contact Form
 
-**Status:** [ ] Not started
+**Required elements:**
+
+- Main heading (h1) with brand highlight (e.g., "LG" in red)
+- Subtitle — location coverage
+- Description with tooltip link ("Бесплатный" with hover tooltip)
+- Benefits list (3 items) with green checkmark icons
+- Contact form on right side:
+  - Phone input with country flag dropdown
+  - Submit button (red CTA)
+  - Privacy policy text with link
+- White background
+- Image hidden on desktop, shown below form on mobile
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/heroes/Hero3.astro`
 
 ---
 
@@ -262,6 +277,6 @@
 
 ## TOTAL: 18 Components Across 10 Categories
 
-**Progress:** 2 / 18 completed (11.1%)
+**Progress:** 3 / 18 completed (16.7%)
 
 **Last Updated:** 2025-10-29

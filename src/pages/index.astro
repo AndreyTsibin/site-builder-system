@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero1 from '@/components/sections/heroes/Hero1.astro';
 import Hero2 from '@/components/sections/heroes/Hero2.astro';
+import Hero3 from '@/components/sections/heroes/Hero3.astro';
 ---
 
 <BaseLayout title="Site Builder 2.0 | Component Library Demo">
@@ -30,6 +31,25 @@ import Hero2 from '@/components/sections/heroes/Hero2.astro';
     ctaUrl="#contact"
     imageUrl="/images/placeholder-img.jpg"
     imageAlt="Мастер по ремонту стиральных машин"
+  />
+
+  <!-- Hero Section 3 - With Contact Form -->
+  <Hero3
+    title="Ремонт техники LG"
+    titleHighlight="LG"
+    subtitle="в СПБ и области"
+    description="<strong class='underline decoration-dotted cursor-help' title='Бесплатно при заказе ремонта'>Бесплатный</strong> выезд специалиста для диагностики и профессионального ремонта техники LG"
+    benefits={[
+      { icon: "ri-checkbox-circle-line", text: "Запчасти от производителя" },
+      { icon: "ri-checkbox-circle-line", text: "Выезд в течение часа" },
+      { icon: "ri-checkbox-circle-line", text: "Гарантия на услуги до 2 лет" }
+    ]}
+    formTitle="Вызвать мастера"
+    phonePlaceholder="+7 (000) 000-00-00"
+    submitText="Вызвать мастера"
+    privacyText="Отправляя форму, вы соглашаетесь с <a href='/privacy' class='text-blue-600 hover:underline'>Политикой конфиденциальности</a>"
+    imageUrl="/images/placeholder-img.jpg"
+    imageAlt="Мастер по ремонту техники LG"
   />
 
   <!-- More sections will be added here as they are completed -->
