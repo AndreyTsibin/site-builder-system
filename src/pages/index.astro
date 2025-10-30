@@ -1,95 +1,108 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Calculator Sections
-import Calculator1 from '../components/sections/calculator/Calculator1.astro';
-import Calculator2 from '../components/sections/calculator/Calculator2.astro';
+// Portfolio Sections
+import Portfolio2 from '../components/sections/portfolio/Portfolio2.astro';
+import Portfolio3 from '../components/sections/portfolio/Portfolio3.astro';
 ---
 
-<BaseLayout title="Site Builder 2.0 - Calculator Demo">
+<BaseLayout title="Site Builder 2.0 - Portfolio Demo">
 
   <!-- ========================================
-       CALCULATOR SECTIONS (2 variants)
+       PORTFOLIO SECTIONS (2 variants)
        ======================================== -->
 
-  <!-- Calculator1: Simple Cost Estimator -->
-  <Calculator1
-    title="Рассчитайте стоимость ремонта"
-    subtitle="Узнайте примерную стоимость за 1 минуту"
-    deviceTypes={[
-      { label: "Холодильник", value: "refrigerator", price: 500 },
-      { label: "Стиральная машина", value: "washer", price: 600 },
-      { label: "Посудомоечная машина", value: "dishwasher", price: 550 },
-      { label: "Духовой шкаф", value: "oven", price: 450 },
-      { label: "Варочная панель", value: "cooktop", price: 400 },
-      { label: "Микроволновая печь", value: "microwave", price: 300 }
+  <!-- Portfolio2: Multi-Card Carousel -->
+  <Portfolio2
+    title="Наши работы"
+    subtitle="Примеры успешно выполненных ремонтов"
+    items={[
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт холодильника Samsung",
+        category: "Холодильники",
+        description: "Замена компрессора и заправка хладагента"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Восстановление стиральной машины Bosch",
+        category: "Стиральные машины",
+        description: "Ремонт электроники и замена подшипников"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт духового шкафа Electrolux",
+        category: "Духовые шкафы",
+        description: "Замена ТЭНа и настройка терморегулятора"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт посудомоечной машины Siemens",
+        category: "Посудомойки",
+        description: "Замена циркуляционного насоса"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт варочной панели Gorenje",
+        category: "Варочные панели",
+        description: "Замена сенсорной панели управления"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт микроволновки LG",
+        category: "Микроволновки",
+        description: "Замена магнетрона и диода"
+      }
     ]}
-    problemTypes={[
-      { label: "Не включается", value: "no_power", price: 800 },
-      { label: "Шумит / вибрирует", value: "noise", price: 600 },
-      { label: "Течет вода", value: "leak", price: 700 },
-      { label: "Не греет / не морозит", value: "temp", price: 900 },
-      { label: "Не работает функция", value: "function", price: 500 }
-    ]}
-    urgencyOptions={[
-      { label: "Обычный (2-3 дня)", value: "normal", price: 0 },
-      { label: "Экспресс (сегодня)", value: "express", price: 1000 }
-    ]}
-    baseFee={500}
-    resultLabel="Примерная стоимость:"
-    disclaimer="Точная цена после бесплатной диагностики"
-    ctaText="Вызвать мастера"
-    ctaLink="tel:+79991234567"
+    slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }}
+    spaceBetween={24}
+    autoPlay={true}
+    autoPlayDelay={3000}
+    bgColor="white"
   />
 
-  <!-- Calculator2: Detailed Multi-Step Calculator -->
-  <Calculator2
-    title="Подробный расчет стоимости"
-    subtitle="Точная оценка за 3 простых шага"
-    steps={[
+  <!-- Portfolio3: Thumbnail Navigation Carousel -->
+  <Portfolio3
+    title="Примеры наших работ"
+    subtitle="Качество, подтвержденное фотографиями"
+    items={[
       {
-        title: "Шаг 1: Выберите тип устройства",
-        options: [
-          { label: "Холодильник", icon: "ri-fridge-line", price: 500, description: "Ремонт холодильного оборудования" },
-          { label: "Стиральная машина", icon: "ri-shirt-line", price: 600, description: "Ремонт стиральных машин" },
-          { label: "Посудомойка", icon: "ri-cup-line", price: 550, description: "Ремонт посудомоечных машин" },
-          { label: "Духовой шкаф", icon: "ri-fire-line", price: 450, description: "Ремонт духовых шкафов" }
-        ]
+        image: "/images/placeholder-img.jpg",
+        thumbnail: "/images/placeholder-img.jpg",
+        title: "Комплексный ремонт холодильника",
+        category: "Холодильники",
+        description: "Замена компрессора, заправка фреоном, герметизация системы охлаждения."
       },
       {
-        title: "Шаг 2: Выберите проблемы (можно несколько)",
-        allowMultiple: true,
-        options: [
-          { label: "Не включается", icon: "ri-power-off-line", price: 800 },
-          { label: "Шумит", icon: "ri-volume-up-line", price: 600 },
-          { label: "Течет", icon: "ri-drop-line", price: 700 },
-          { label: "Не греет/морозит", icon: "ri-temp-cold-line", price: 900 },
-          { label: "Не работает функция", icon: "ri-settings-4-line", price: 500 }
-        ]
+        image: "/images/placeholder-img.jpg",
+        thumbnail: "/images/placeholder-img.jpg",
+        title: "Ремонт стиральной машины премиум-класса",
+        category: "Стиральные машины",
+        description: "Восстановление платы управления, замена подшипников барабана."
       },
       {
-        title: "Шаг 3: Дополнительные услуги",
-        allowMultiple: true,
-        options: [
-          { label: "Гарантия 1 год", icon: "ri-shield-check-line", price: 500, description: "Расширенная гарантия" },
-          { label: "Экспресс (сегодня)", icon: "ri-rocket-line", price: 1000, description: "Выезд в течение 2 часов" },
-          { label: "Оригинальные запчасти", icon: "ri-tools-line", price: 300, description: "Гарантия качества" },
-          { label: "Ничего не нужно", icon: "ri-close-line", price: 0, description: "Без дополнительных услуг" }
-        ]
+        image: "/images/placeholder-img.jpg",
+        thumbnail: "/images/placeholder-img.jpg",
+        title: "Ремонт встроенного духового шкафа",
+        category: "Духовые шкафы",
+        description: "Замена нагревательных элементов, калибровка температурных датчиков."
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        thumbnail: "/images/placeholder-img.jpg",
+        title: "Восстановление посудомоечной машины",
+        category: "Посудомойки",
+        description: "Замена помпы, очистка системы слива, замена уплотнителей."
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        thumbnail: "/images/placeholder-img.jpg",
+        title: "Ремонт индукционной варочной панели",
+        category: "Варочные панели",
+        description: "Замена сенсорной панели, ремонт блока питания."
       }
     ]}
-    baseFee={500}
-    resultScreen={{
-      title: "Ваша смета готова!",
-      priceLabel: "Итоговая стоимость:",
-      breakdown: true,
-      ctaText: "Заказать ремонт",
-      leadForm: {
-        nameLabel: "Ваше имя",
-        phoneLabel: "Телефон",
-        submitText: "Отправить заявку"
-      }
-    }}
+    bgColor="gray-50"
   />
 
 </BaseLayout>
