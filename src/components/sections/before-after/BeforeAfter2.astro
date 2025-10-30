@@ -1,0 +1,164 @@
+---
+/**
+ * BeforeAfter2: Grid of Comparisons (3 examples)
+ *
+ * Multiple before/after sliders in responsive grid layout.
+ * Features: 3-column grid, individual sliders per card, compact design.
+ * Best for: Portfolio showcase, multiple repair results, case studies grid.
+ */
+
+interface ComparisonItem {
+  imageBefore: string;
+  imageAfter: string;
+  serviceName: string;
+  description: string;
+}
+
+interface Props {
+  title: string; // "Наши работы"
+  subtitle?: string; // "Примеры выполненных ремонтов"
+  comparisons: ComparisonItem[]; // 3-6 items
+  ctaText?: string; // "Заказать ремонт"
+  ctaLink?: string; // "#contact"
+  bgColor?: string; // "white" | "gray-50"
+}
+
+const {
+  title,
+  subtitle,
+  comparisons,
+  ctaText,
+  ctaLink = "#contact",
+  bgColor = "gray-50"
+} = Astro.props;
+---
+
+<section class={`py-16 md:py-20 lg:py-24 bg-${bgColor}`}>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      {subtitle && (
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    {/* Grid of Comparisons */}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {comparisons.map((item, index) => (
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          {/* Before/After Slider */}
+          <div class="before-after-card relative overflow-hidden" style="aspect-ratio: 4/3;" data-card-index={index}>
+            {/* Before Image (bottom layer) */}
+            <img
+              src={item.imageBefore}
+              alt={`До: ${item.serviceName}`}
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* After Image (top layer, clipped) */}
+            <div
+              class="before-after-card-overlay absolute inset-0"
+              style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);"
+            >
+              <img
+                src={item.imageAfter}
+                alt={`После: ${item.serviceName}`}
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Labels */}
+            <div class="absolute top-2 left-2 bg-black/70 text-white px-3 py-1 rounded text-xs font-semibold">
+              До
+            </div>
+            <div class="absolute top-2 right-2 bg-black/70 text-white px-3 py-1 rounded text-xs font-semibold">
+              После
+            </div>
+
+            {/* Slider Handle */}
+            <div class="before-after-card-handle absolute top-0 bottom-0 w-0.5 bg-white cursor-ew-resize" style="left: 50%; transform: translateX(-50%);">
+              {/* Circular drag handle */}
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
+                <i class="ri-arrow-left-right-line text-sm text-gray-900"></i>
+              </div>
+            </div>
+
+            {/* Range Input (invisible, controls slider) */}
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              class="before-after-card-input absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-10"
+              aria-label={`Сравнить до и после: ${item.serviceName}`}
+            />
+          </div>
+
+          {/* Card Content */}
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              {item.serviceName}
+            </h3>
+            <p class="text-base text-gray-600">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* CTA (optional) */}
+    {ctaText && (
+      <div class="text-center">
+        <a
+          href={ctaLink}
+          class="inline-block px-8 py-4 bg-blue-700 text-white font-bold text-lg rounded-xl hover:bg-blue-800 transition-colors"
+        >
+          {ctaText}
+        </a>
+      </div>
+    )}
+  </div>
+</section>
+
+<script>
+  // Before/After card slider interaction
+  const initCardSliders = () => {
+    const cards = document.querySelectorAll('.before-after-card');
+
+    cards.forEach((card) => {
+      const input = card.querySelector('.before-after-card-input') as HTMLInputElement;
+      const overlay = card.querySelector('.before-after-card-overlay') as HTMLElement;
+      const handle = card.querySelector('.before-after-card-handle') as HTMLElement;
+
+      if (!input || !overlay || !handle) return;
+
+      const updateSlider = (value: number) => {
+        // Update overlay clip-path
+        overlay.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
+        // Update handle position
+        handle.style.left = `${value}%`;
+      };
+
+      // Handle input change
+      input.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement;
+        updateSlider(parseInt(target.value));
+      });
+
+      // Initial position
+      updateSlider(50);
+    });
+  };
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initCardSliders);
+
+  // Re-initialize after navigation (for SPAs)
+  document.addEventListener('astro:page-load', initCardSliders);
+</script>

@@ -1,0 +1,256 @@
+---
+/**
+ * BeforeAfter3: Featured Result with Thumbnails Gallery
+ *
+ * Large main slider with thumbnail navigation and optional testimonial.
+ * Features: Click thumbnail to switch main image, client testimonial integration.
+ * Best for: Case study showcase, detailed portfolio, testimonial with proof.
+ */
+
+interface BeforeAfterGalleryItem {
+  imageBefore: string;
+  imageAfter: string;
+  serviceName: string;
+  description: string;
+}
+
+interface Testimonial {
+  text: string;
+  author: string;
+  rating?: number; // 1-5 stars
+}
+
+interface Props {
+  title: string; // "Результаты наших работ"
+  subtitle?: string; // "Примеры выполненных ремонтов с отзывами клиентов"
+  featured: BeforeAfterGalleryItem; // Initial featured item
+  gallery: BeforeAfterGalleryItem[]; // 4-6 additional items
+  testimonial?: Testimonial; // Optional client testimonial
+  ctaText: string; // "Заказать такой же ремонт"
+  ctaLink?: string; // "#contact"
+  bgColor?: string; // "white" | "gray-50"
+}
+
+const {
+  title,
+  subtitle,
+  featured,
+  gallery,
+  testimonial,
+  ctaText,
+  ctaLink = "#contact",
+  bgColor = "white"
+} = Astro.props;
+
+// Combine featured + gallery for easy indexing
+const allItems = [featured, ...gallery];
+---
+
+<section class={`py-16 md:py-20 lg:py-24 bg-${bgColor}`}>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      {subtitle && (
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    {/* Main Featured Slider */}
+    <div class="max-w-5xl mx-auto mb-8">
+      <div class="before-after-featured relative overflow-hidden rounded-2xl shadow-2xl" style="aspect-ratio: 16/9;">
+        {/* Before Image (bottom layer) */}
+        <img
+          id="featured-before"
+          src={featured.imageBefore}
+          alt="До ремонта"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* After Image (top layer, clipped) */}
+        <div
+          class="before-after-featured-overlay absolute inset-0"
+          style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);"
+        >
+          <img
+            id="featured-after"
+            src={featured.imageAfter}
+            alt="После ремонта"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Labels */}
+        <div class="absolute top-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+          До
+        </div>
+        <div class="absolute top-4 right-4 bg-black/70 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+          После
+        </div>
+
+        {/* Slider Handle */}
+        <div class="before-after-featured-handle absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize" style="left: 50%; transform: translateX(-50%);">
+          {/* Circular drag handle */}
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
+            <i class="ri-arrow-left-right-line text-xl text-gray-900"></i>
+          </div>
+        </div>
+
+        {/* Range Input (invisible, controls slider) */}
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="50"
+          class="before-after-featured-input absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-10"
+          aria-label="Сравнить до и после"
+        />
+      </div>
+
+      {/* Featured Item Info */}
+      <div class="text-center mt-6">
+        <h3 id="featured-title" class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+          {featured.serviceName}
+        </h3>
+        <p id="featured-description" class="text-base md:text-lg text-gray-600">
+          {featured.description}
+        </p>
+      </div>
+    </div>
+
+    {/* Thumbnail Gallery */}
+    <div class="max-w-5xl mx-auto mb-12">
+      <div class="flex gap-4 overflow-x-auto pb-4">
+        {allItems.map((item, index) => (
+          <button
+            class={`thumbnail-item flex-shrink-0 w-32 h-24 rounded-lg overflow-hidden border-2 transition-all ${index === 0 ? 'border-blue-700 ring-2 ring-blue-300' : 'border-gray-300 hover:border-blue-500'}`}
+            data-index={index}
+            data-before={item.imageBefore}
+            data-after={item.imageAfter}
+            data-title={item.serviceName}
+            data-description={item.description}
+            aria-label={`Показать: ${item.serviceName}`}
+          >
+            <img
+              src={item.imageAfter}
+              alt={item.serviceName}
+              class="w-full h-full object-cover"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* Testimonial (optional) */}
+    {testimonial && (
+      <div class="max-w-3xl mx-auto mb-12 bg-gray-50 rounded-2xl p-8">
+        {/* Rating */}
+        {testimonial.rating && (
+          <div class="flex justify-center gap-1 mb-4">
+            {Array.from({ length: 5 }, (_, i) => (
+              <i class={`ri-star${i < testimonial.rating! ? '-fill' : '-line'} text-2xl text-yellow-500`}></i>
+            ))}
+          </div>
+        )}
+
+        {/* Quote */}
+        <blockquote class="text-lg md:text-xl text-gray-800 italic text-center mb-4">
+          "{testimonial.text}"
+        </blockquote>
+
+        {/* Author */}
+        <p class="text-base font-semibold text-gray-900 text-center">
+          — {testimonial.author}
+        </p>
+      </div>
+    )}
+
+    {/* CTA */}
+    <div class="text-center">
+      <a
+        href={ctaLink}
+        class="inline-block px-8 py-4 bg-blue-700 text-white font-bold text-lg rounded-xl hover:bg-blue-800 transition-colors"
+      >
+        {ctaText}
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Featured slider interaction
+  const initFeaturedSlider = () => {
+    const slider = document.querySelector('.before-after-featured');
+    if (!slider) return;
+
+    const input = slider.querySelector('.before-after-featured-input') as HTMLInputElement;
+    const overlay = slider.querySelector('.before-after-featured-overlay') as HTMLElement;
+    const handle = slider.querySelector('.before-after-featured-handle') as HTMLElement;
+
+    if (!input || !overlay || !handle) return;
+
+    const updateSlider = (value: number) => {
+      overlay.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
+      handle.style.left = `${value}%`;
+    };
+
+    input.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement;
+      updateSlider(parseInt(target.value));
+    });
+
+    updateSlider(50);
+  };
+
+  // Thumbnail gallery interaction
+  const initThumbnails = () => {
+    const thumbnails = document.querySelectorAll('.thumbnail-item');
+    const beforeImg = document.getElementById('featured-before') as HTMLImageElement;
+    const afterImg = document.getElementById('featured-after') as HTMLImageElement;
+    const titleEl = document.getElementById('featured-title');
+    const descEl = document.getElementById('featured-description');
+
+    if (!beforeImg || !afterImg || !titleEl || !descEl) return;
+
+    thumbnails.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        // Remove active state from all thumbnails
+        thumbnails.forEach(t => {
+          t.classList.remove('border-blue-700', 'ring-2', 'ring-blue-300');
+          t.classList.add('border-gray-300');
+        });
+
+        // Add active state to clicked thumbnail
+        thumb.classList.remove('border-gray-300');
+        thumb.classList.add('border-blue-700', 'ring-2', 'ring-blue-300');
+
+        // Update main slider images and info
+        const before = thumb.getAttribute('data-before') || '';
+        const after = thumb.getAttribute('data-after') || '';
+        const title = thumb.getAttribute('data-title') || '';
+        const description = thumb.getAttribute('data-description') || '';
+
+        beforeImg.src = before;
+        afterImg.src = after;
+        titleEl.textContent = title;
+        descEl.textContent = description;
+      });
+    });
+  };
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    initFeaturedSlider();
+    initThumbnails();
+  });
+
+  // Re-initialize after navigation (for SPAs)
+  document.addEventListener('astro:page-load', () => {
+    initFeaturedSlider();
+    initThumbnails();
+  });
+</script>
