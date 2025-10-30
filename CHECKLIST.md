@@ -570,17 +570,61 @@
 
 ## 6. HOW IT WORKS
 
-### HowItWorks — Service Process
+### HowItWorks1 — Vertical Timeline
+
+**Concept:** Vertical timeline with numbered badges on the left, content on the right.
 
 **Required elements:**
 
-- Section heading
-- Timeline or numbered steps (4-5 steps)
-- Each step: number badge, icon, title, description
-- Icons: ri-phone-line (call), ri-car-line (arrival), ri-tools-line (repair), ri-checkbox-circle-line (done)
-- Responsive: horizontal timeline → vertical stack on mobile
+- Section heading + subheading
+- Vertical timeline line (border-left)
+- 4-5 steps with circular number badges
+- Each step: icon, title, description
+- Last step highlighted (green color, optional CTA button)
+- Responsive: vertical layout maintained on all screen sizes
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/how-it-works/HowItWorks1.astro`
+
+---
+
+### HowItWorks2 — Horizontal Cards with Arrows
+
+**Concept:** Horizontal card layout with connecting arrows between steps.
+
+**Required elements:**
+
+- Section heading + subheading
+- Grid of 4 cards (4 columns → 2 → 1 responsive)
+- Arrows between cards (→ on desktop, ↓ on mobile)
+- Each card: number badge, icon, title, description
+- Border hover effects (scale, shadow, border color change)
+- Optional: CTA section below cards
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/how-it-works/HowItWorks2.astro`
+
+---
+
+### HowItWorks3 — Icon Grid (Minimalist)
+
+**Concept:** Simple grid layout with large icons and numbers, clean minimalist design.
+
+**Required elements:**
+
+- Section heading + subheading
+- Grid layout (4 columns → 2 → 1 responsive)
+- Each block: large number circle (blue), large icon (64px+), title, description
+- No lines/arrows — pure clean design
+- Centered text layout
+- Gradient background (blue-to-white)
+- Hover effects on icons and numbers (scale)
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/how-it-works/HowItWorks3.astro`
 
 ---
 
@@ -617,18 +661,18 @@
 
 ---
 
-## TOTAL: 26 Components Across 8 Categories
+## TOTAL: 28 Components Across 8 Categories
 
-**Progress:** 23 / 26 completed (88.5%)
+**Progress:** 26 / 28 completed (92.9%)
 
 **Heroes:** 6 / 6 completed ✅
 **Services & Pricing:** 6 / 6 completed ✅
 **Benefits:** 3 / 3 completed ✅
 **CTA Sections:** 5 / 5 completed ✅
 **Testimonials:** 3 / 3 completed ✅
+**How It Works:** 3 / 3 completed ✅
 
 **Remaining:**
-- How It Works: 0 / 1
 - FAQ: 0 / 1
 - Footer: 0 / 1
 
