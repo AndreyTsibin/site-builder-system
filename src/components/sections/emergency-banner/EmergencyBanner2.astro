@@ -1,0 +1,147 @@
+---
+/**
+ * EmergencyBanner2: Floating Corner Badge
+ *
+ * Fixed position badge at bottom-right corner with expand/collapse.
+ * Features: Pulse animation, click to expand, minimal footprint.
+ * Best for: 24/7 availability indicator, SOS button, emergency contact.
+ */
+
+interface Props {
+  icon: string; // Remix Icon class (e.g., "ri-customer-service-2-line")
+  shortText?: string; // "24/7" or "SOS" or empty for icon-only
+  expandedMessage: string; // Full text when expanded
+  phone: string; // "+7 (999) 123-45-67"
+  ctaText: string; // "Вызвать сейчас"
+  ctaLink?: string; // "tel:+79991234567" or "#contact"
+  bgColor?: string; // "blue-700" | "red-600" | "green-600"
+  position?: 'bottom-right' | 'bottom-left';
+  pulseAnimation?: boolean; // default: true
+}
+
+const {
+  icon,
+  shortText,
+  expandedMessage,
+  phone,
+  ctaText,
+  ctaLink,
+  bgColor = "red-600",
+  position = "bottom-right",
+  pulseAnimation = true
+} = Astro.props;
+
+const positionClasses = position === "bottom-right" ? "right-4 sm:right-6" : "left-4 sm:left-6";
+---
+
+<div
+  id="emergency-badge"
+  class={`fixed bottom-4 sm:bottom-6 ${positionClasses} z-50`}
+>
+  {/* Collapsed Badge */}
+  <button
+    id="emergency-badge-button"
+    class={`flex items-center gap-2 bg-${bgColor} text-white px-4 py-3 sm:px-5 sm:py-4 rounded-full shadow-2xl hover:scale-105 transition-transform ${pulseAnimation ? 'animate-pulse-slow' : ''}`}
+    aria-label="Открыть срочную помощь"
+  >
+    <i class={`${icon} text-2xl sm:text-3xl`}></i>
+    {shortText && (
+      <span class="font-bold text-sm sm:text-base">{shortText}</span>
+    )}
+  </button>
+
+  {/* Expanded Panel */}
+  <div
+    id="emergency-badge-panel"
+    class={`hidden absolute bottom-full mb-4 ${position === "bottom-right" ? "right-0" : "left-0"} bg-white rounded-2xl shadow-2xl p-6 w-80 sm:w-96 max-w-[calc(100vw-2rem)]`}
+  >
+    {/* Close Button */}
+    <button
+      id="emergency-badge-panel-close"
+      class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
+      aria-label="Закрыть"
+    >
+      <i class="ri-close-line text-xl text-gray-600"></i>
+    </button>
+
+    {/* Icon */}
+    <div class={`flex justify-center mb-4 text-${bgColor}`}>
+      <i class={`${icon} text-5xl`}></i>
+    </div>
+
+    {/* Message */}
+    <p class="text-gray-900 text-base sm:text-lg font-semibold text-center mb-4">
+      {expandedMessage}
+    </p>
+
+    {/* Phone */}
+    <a
+      href={`tel:${phone.replace(/\D/g, '')}`}
+      class="flex items-center justify-center gap-2 text-gray-900 font-bold text-xl mb-4 hover:text-blue-700 transition-colors"
+    >
+      <i class="ri-phone-line"></i>
+      <span>{phone}</span>
+    </a>
+
+    {/* CTA Button */}
+    <a
+      href={ctaLink || `tel:${phone.replace(/\D/g, '')}`}
+      class={`block w-full py-3 bg-${bgColor} text-white text-center font-semibold rounded-xl hover:opacity-90 transition-opacity`}
+    >
+      {ctaText}
+    </a>
+  </div>
+</div>
+
+<style>
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
+
+<script>
+  // Toggle expanded panel
+  const initBadge = () => {
+    const button = document.getElementById('emergency-badge-button');
+    const panel = document.getElementById('emergency-badge-panel');
+    const closeBtn = document.getElementById('emergency-badge-panel-close');
+
+    if (!button || !panel || !closeBtn) return;
+
+    // Open panel
+    button.addEventListener('click', () => {
+      panel.classList.remove('hidden');
+      button.style.display = 'none';
+    });
+
+    // Close panel
+    closeBtn.addEventListener('click', () => {
+      panel.classList.add('hidden');
+      button.style.display = 'flex';
+    });
+
+    // Close panel when clicking outside
+    document.addEventListener('click', (e) => {
+      const badge = document.getElementById('emergency-badge');
+      if (!badge?.contains(e.target as Node) && !panel.classList.contains('hidden')) {
+        panel.classList.add('hidden');
+        button.style.display = 'flex';
+      }
+    });
+  };
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initBadge);
+
+  // Re-initialize after navigation (for SPAs)
+  document.addEventListener('astro:page-load', initBadge);
+</script>

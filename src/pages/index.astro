@@ -3,9 +3,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Stats1 from '../components/sections/stats/Stats1.astro';
 import Stats2 from '../components/sections/stats/Stats2.astro';
 import Stats3 from '../components/sections/stats/Stats3.astro';
+import EmergencyBanner1 from '../components/sections/emergency-banner/EmergencyBanner1.astro';
+import EmergencyBanner2 from '../components/sections/emergency-banner/EmergencyBanner2.astro';
+import EmergencyBanner3 from '../components/sections/emergency-banner/EmergencyBanner3.astro';
 ---
 
-<BaseLayout title="Site Builder 2.0 - Stats Sections Demo">
+<BaseLayout title="Site Builder 2.0 - Stats & Emergency Banner Demo">
+
+  <!-- EmergencyBanner1: Sticky Top Bar -->
+  <EmergencyBanner1
+    message="Срочный ремонт 24/7! Выезд мастера за 30 минут"
+    icon="ri-alarm-warning-line"
+    phone="+7 (999) 123-45-67"
+    ctaText="Вызвать сейчас"
+    ctaLink="tel:+79991234567"
+    bgColor="red-600"
+  />
+
+  <!-- EmergencyBanner3: Hero Banner with Countdown -->
+  <EmergencyBanner3
+    title="Экстренный ремонт за 1 час!"
+    message="Работаем 24/7 без выходных и праздников. Гарантия на все работы."
+    icon="ri-tools-fill"
+    phone="+7 (999) 123-45-67"
+    primaryCta={{ text: "Вызвать мастера" }}
+    secondaryCta={{ text: "Узнать цены", link: "#pricing" }}
+    countdown={{
+      endDate: "2025-12-31T23:59:59",
+      label: "До конца новогодней акции:"
+    }}
+    bgColor="blue-700"
+  />
 
   <!-- Stats1: Counter Grid -->
   <Stats1
@@ -67,6 +95,17 @@ import Stats3 from '../components/sections/stats/Stats3.astro';
       { value: "500+", label: "Ремонтов в год" },
       { value: "98%", label: "Положительных отзывов" }
     ]}
+  />
+
+  <!-- EmergencyBanner2: Floating Corner Badge -->
+  <EmergencyBanner2
+    icon="ri-customer-service-2-fill"
+    shortText="24/7"
+    expandedMessage="Срочный ремонт в любое время! Выезд мастера за 30 минут."
+    phone="+7 (999) 123-45-67"
+    ctaText="Вызвать мастера"
+    bgColor="red-600"
+    pulseAnimation={true}
   />
 
 </BaseLayout>
