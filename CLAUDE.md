@@ -290,12 +290,18 @@ xl:  1280px
 
 **1. Receive Client Requirements**
 
-Client provides:
+**📋 Client Brief Template:** [CLIENT_BRIEF.md](CLIENT_BRIEF.md)
+
+Send this template to client for filling. Client provides:
 - **Niche:** e.g., "Ремонт холодильников Москва"
 - **Company name:** e.g., "МастерХолод"
 - **Phone number:** e.g., "+7 (495) 123-45-67"
 - **Services & prices:** e.g., "Диагностика — 500₽, Замена компрессора — 5000₽"
+- **Images:** Logo, hero image, team photos, portfolio (URLs)
+- **Content:** Hero text, benefits, FAQ, testimonials
 - **Additional info:** working hours, guarantees, brands, etc.
+
+**When client sends filled brief:** Read CLIENT_BRIEF.md file and extract all data for landing page assembly.
 
 **2. Review Sections Library**
 
