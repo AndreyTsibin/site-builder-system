@@ -1,9 +1,107 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Portfolio Sections
+import Portfolio2 from '../components/sections/portfolio/Portfolio2.astro';
+import Portfolio3 from '../components/sections/portfolio/Portfolio3.astro';
 ---
 
-<BaseLayout title="Site Builder 2.0 - Development">
+<BaseLayout title="Site Builder 2.0 - Portfolio Demo">
 
-  <!-- Ready for next components -->
+  <!-- ========================================
+       PORTFOLIO SECTIONS (2 new variants)
+       ======================================== -->
+
+  <!-- Portfolio2: Multi-Card Carousel (3 visible) -->
+  <Portfolio2
+    title="Наши работы"
+    subtitle="Портфолио выполненных проектов — карусель с несколькими карточками"
+    items={[
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт холодильника Samsung",
+        category: "Холодильники",
+        description: "Замена компрессора и системы охлаждения"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт стиральной машины LG",
+        category: "Стиральные машины",
+        description: "Замена подшипников барабана"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт посудомоечной машины Bosch",
+        category: "Посудомоечные машины",
+        description: "Замена нагревательного элемента"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт духового шкафа Electrolux",
+        category: "Духовые шкафы",
+        description: "Замена термостата и вентилятора"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт варочной панели Siemens",
+        category: "Варочные панели",
+        description: "Замена конфорки и блока управления"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт микроволновой печи Samsung",
+        category: "Микроволновые печи",
+        description: "Замена магнетрона"
+      }
+    ]}
+    slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }}
+    spaceBetween={24}
+    autoPlay={false}
+  />
+
+  <!-- Portfolio3: Thumbnail Navigation Carousel -->
+  <Portfolio3
+    title="Детальный просмотр работ"
+    subtitle="Галерея с миниатюрами для удобной навигации"
+    items={[
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт кухни в ЖК Новый",
+        category: "Кухонная техника",
+        description: "Полный ремонт встроенной техники: холодильник, посудомойка, духовка"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Восстановление холодильника Samsung",
+        category: "Холодильники",
+        description: "Замена компрессора и системы охлаждения"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт стиральной машины LG",
+        category: "Стиральные машины",
+        description: "Замена подшипников барабана"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт духового шкафа Bosch",
+        category: "Духовые шкафы",
+        description: "Замена нагревательного элемента"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт варочной панели Electrolux",
+        category: "Варочные панели",
+        description: "Замена конфорки"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Ремонт посудомойки Siemens",
+        category: "Посудомоечные машины",
+        description: "Замена помпы"
+      }
+    ]}
+    thumbnailCount={5}
+  />
 
 </BaseLayout>
