@@ -276,22 +276,155 @@ xl:  1280px
 
 ---
 
-## LANDING PAGE ASSEMBLY
+## CLIENT PROJECT WORKFLOW
+
+**🎯 SCENARIO:** Client comes with landing page requirements (niche, contacts, prices)
+
+**📍 YOUR ROLE:** Assemble production-ready landing page from existing sections library
+
+**⏱ EXPECTED TIME:** 10-15 minutes total (3-5 min assembly + 5-10 min Tilda bundle)
+
+---
+
+### Step-by-Step Process
+
+**1. Receive Client Requirements**
+
+Client provides:
+- **Niche:** e.g., "Ремонт холодильников Москва"
+- **Company name:** e.g., "МастерХолод"
+- **Phone number:** e.g., "+7 (495) 123-45-67"
+- **Services & prices:** e.g., "Диагностика — 500₽, Замена компрессора — 5000₽"
+- **Additional info:** working hours, guarantees, brands, etc.
+
+**2. Review Sections Library**
+
+Available sections: `src/components/sections/`
+- **Heroes:** 6 variants (gradient, split, minimal, centered, video, image)
+- **Services/Pricing:** 3 variants (grid, table, cards)
+- **Benefits:** Multiple layouts
+- **Testimonials:** Swiper carousel
+- **FAQ:** Accordion style
+- **CTA:** Multiple variants
+- **Contact:** Form + map variants
+- **Stats, Portfolio, Team, Calculator** — as needed
+
+**3. Assemble Landing Page**
+
+**Location:** `src/pages/index.astro` (ALWAYS use this file, not new pages)
+
+**Process:**
+```astro
+---
+// Import components from library
+import Hero1 from '@/components/sections/heroes/Hero1.astro';
+import ServicesGrid1 from '@/components/sections/pricing/ServicesGrid1.astro';
+// ... etc
+
+// Check required props for each component:
+// grep -A 20 "interface Props" src/components/sections/heroes/Hero1.astro
+---
+
+<BaseLayout title="МастерХолод — Ремонт холодильников Москва">
+  <Hero1
+    title="Ремонт холодильников в Москве"
+    subtitle="Приезжаем за 30 минут. Гарантия 2 года."
+    ctaText="Вызвать мастера"
+    phone="+7 (495) 123-45-67"
+  />
+
+  <ServicesGrid1
+    title="Наши услуги"
+    services={[
+      { name: "Диагностика", price: "500₽", icon: "ri-search-line" },
+      // ... client's services
+    ]}
+  />
+
+  <!-- Continue with other sections -->
+</BaseLayout>
+```
+
+**Common Pitfalls:**
+- ❌ Creating new page files — Always use `index.astro`
+- ❌ Skipping props check — Components have different requirements
+- ❌ Empty arrays — Testimonials, FAQ, Team, Portfolio need data arrays
+- ❌ Missing phone numbers — Hero and Contact sections need contact info
+
+**4. Test Locally**
+
+```bash
+# Start dev server
+npm run dev
+# → http://localhost:4321
+```
+
+**Checklist:**
+- [ ] All client data visible (company name, phone, prices)
+- [ ] No placeholder text (Lorem Ipsum) remaining
+- [ ] Phone numbers clickable (`tel:` links)
+- [ ] Mobile responsive (check 375px, 768px, 1024px)
+- [ ] All sections render without errors
+- [ ] Smooth scrolling between sections
+
+**5. Build Production Files**
+
+**For Tilda deployment (90% of clients):**
+```bash
+npm run build:tilda
+# → outputs to dist/tilda-bundle.html
+```
+
+**For regular hosting:**
+```bash
+npm run build
+# → outputs to dist/ (index.html + assets)
+```
+
+**6. Final Verification**
+
+**For Tilda Bundle:**
+- [ ] Open `dist/tilda-bundle.html`
+- [ ] File size ~100KB (reasonable)
+- [ ] Contains priority script (`important: true` config)
+- [ ] All CSS inlined (no external `<link>` tags)
+- [ ] All JS inlined (no external `<script src>`)
+- [ ] Image placeholders present (`TILDA_IMAGE_1`, etc.)
+- [ ] Image checklist at end of file
+
+**7. Handoff to Client**
+
+**For Tilda:**
+1. Send `dist/tilda-bundle.html` to client
+2. Instructions:
+   - Paste into T123 block
+   - Replace `TILDA_IMAGE_*` with image URLs
+   - Publish
+
+**For Hosting:**
+1. Send entire `dist/` folder
+2. Instructions:
+   - Upload to hosting (FTP/cPanel/Vercel/Netlify)
+   - Configure domain
+
+**⏱ TOTAL TIME BREAKDOWN:**
+- Assembly: 3-5 minutes
+- Testing: 2-3 minutes
+- Build: 1-2 minutes
+- Verification: 2-3 minutes
+- **Total: 10-15 minutes**
+
+---
+
+## LANDING PAGE ASSEMBLY (Technical Details)
 
 **⚠️ CRITICAL:** Always assemble landing pages in `src/pages/index.astro` (not in new files).
-
-**Time:** 3-5 minutes for a complete landing page
 
 **Quick Steps:**
 1. Import components from `src/components/sections/`
 2. Check component props: `grep -A 20 "interface Props" path/to/Component.astro`
 3. Assemble in index.astro with realistic data
 4. Test at http://localhost:4321/
-
-**Common Pitfalls:**
-- ❌ Creating new page files — Always use `index.astro`
-- ❌ Skipping props check — Components have different requirements
-- ❌ Empty arrays — Testimonials, FAQ, Team, Portfolio need data arrays
 
 ---
 
@@ -534,7 +667,7 @@ The generated `dist/tilda-bundle.html` contains (in order):
 
 ---
 
-**Version:** 3.0.0
+**Version:** 3.1.0
 **Last Updated:** 2025-10-30
 **Phase:** Premium Enhancement & Optimization
 **Niche:** Repair Services Landing Pages
