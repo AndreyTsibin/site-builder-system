@@ -495,16 +495,76 @@
 
 ## 5. TESTIMONIALS
 
-### Testimonials — Customer Reviews
+### Testimonials — Customer Reviews Carousel
+
+**Concept:** Swiper.js carousel showing 2 testimonials per slide on desktop, 1 on mobile.
 
 **Required elements:**
 
-- Section heading
-- Grid of testimonial cards (3 columns → responsive)
-- Each card: customer name, review text, star rating (5 stars), photo (optional), date
-- Star icons: ri-star-fill (filled), ri-star-line (empty)
+- Section heading + subheading
+- Swiper carousel with loop enabled
+- Each testimonial card:
+  - Avatar (circular, 64px)
+  - Star rating (5 stars, ri-star-fill/ri-star-line)
+  - Customer name (bold)
+  - Date
+  - Review text
+- Navigation: centered arrows + pagination dots
+- Responsive: 2 cards on desktop (lg:), 1 card on mobile
+- Border instead of shadow (border-gray-200)
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/testimonials/Testimonials.astro`
+
+---
+
+### Testimonials2 — Customer Reviews Grid with Toggle
+
+**Concept:** Grid layout with "Show more" button to reveal hidden testimonials.
+
+**Required elements:**
+
+- Section heading + subheading
+- Grid layout (2 columns on desktop, 1 on mobile)
+- Each testimonial card:
+  - Avatar (circular, 64px)
+  - Star rating (5 stars)
+  - Customer name + date
+  - Review text
+- Shows first 4 testimonials by default
+- "Показать ещё" / "Скрыть" toggle button
+- Smooth CSS animations (fadeInUp/fadeOutDown)
+- Cards have equal height (flexbox)
+- Gray background cards (bg-gray-50)
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/testimonials/Testimonials2.astro`
+
+---
+
+### Testimonials3 — Customer Reviews with Work Photos
+
+**Concept:** Carousel with photos of completed work alongside testimonials (proof of quality).
+
+**Required elements:**
+
+- Section heading + subheading
+- Swiper carousel (1 full-width card per slide)
+- Each testimonial card (two-column layout):
+  - Left side: Work photo (full height, object-cover)
+  - Right side: Testimonial content (avatar, stars, name, date, text)
+- Responsive: side-by-side on desktop (lg:grid-cols-2), stacked on mobile
+- Navigation: centered arrows + pagination dots
+- Loop enabled
+- Border instead of shadow
+
+**Use case:** Perfect for showcasing real results with customer feedback (before/after photos, completed repairs, etc.)
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/testimonials/Testimonials3.astro`
 
 ---
 
@@ -557,13 +617,20 @@
 
 ---
 
-## TOTAL: 21 Components Across 8 Categories
+## TOTAL: 26 Components Across 8 Categories
 
-**Progress:** 20 / 21 completed (95.2%)
+**Progress:** 23 / 26 completed (88.5%)
 
+**Heroes:** 6 / 6 completed ✅
 **Services & Pricing:** 6 / 6 completed ✅
 **Benefits:** 3 / 3 completed ✅
 **CTA Sections:** 5 / 5 completed ✅
+**Testimonials:** 3 / 3 completed ✅
+
+**Remaining:**
+- How It Works: 0 / 1
+- FAQ: 0 / 1
+- Footer: 0 / 1
 
 **Note:** Contacts section removed (duplicate of Footer functionality)
 
