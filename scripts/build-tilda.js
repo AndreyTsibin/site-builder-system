@@ -110,14 +110,12 @@ tailwind.onload = function() {
 
     // Защита ссылок от стилей Tilda
     const style = document.createElement('style');
-    style.textContent = \\\`
-        /* Отключаем стили Tilda для всех ссылок */
-        a, a:hover, a:active, a:visited {
-            color: inherit !important;
-            text-decoration: inherit !important;
-            border-bottom: none !important;
-        }
-    \\\`;
+    style.textContent = '/* Отключаем стили Tilda для всех ссылок */ ' +
+        'a, a:hover, a:active, a:visited { ' +
+        'color: inherit !important; ' +
+        'text-decoration: inherit !important; ' +
+        'border-bottom: none !important; ' +
+        '}';
     document.head.appendChild(style);
 };
 document.head.appendChild(tailwind);
@@ -138,61 +136,55 @@ links.forEach(href => {
 // Swiper для слайдеров (Testimonials, Portfolio)
 const script = document.createElement('script');
 script.type = 'module';
-script.textContent = \\\`
-    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
-    setTimeout(() => {
-        new Swiper('.testimonials-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 24,
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next-custom',
-                prevEl: '.swiper-button-prev-custom'
-            },
-            pagination: {
-                el: '.swiper-pagination-custom',
-                clickable: true
-            },
-            breakpoints: {
-                1024: { slidesPerView: 2, spaceBetween: 32 }
-            }
-        });
-    }, 1000);
-\\\`;
+script.textContent = 'import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs"; ' +
+    'setTimeout(() => { ' +
+    'new Swiper(".testimonials-swiper", { ' +
+    'slidesPerView: 1, ' +
+    'spaceBetween: 24, ' +
+    'loop: true, ' +
+    'navigation: { nextEl: ".swiper-button-next-custom", prevEl: ".swiper-button-prev-custom" }, ' +
+    'pagination: { el: ".swiper-pagination-custom", clickable: true }, ' +
+    'breakpoints: { 1024: { slidesPerView: 2, spaceBetween: 32 } } ' +
+    '}); ' +
+    '}, 1000);';
 document.body.appendChild(script);`;
 
-// Build final bundle
-const bundle = `<!-- ============================================ -->
-<!-- Tilda Bundle - Ready to paste into T123 block -->
-<!-- Generated: ${new Date().toISOString()} -->
-<!-- ============================================ -->
+// Build final bundle (using string concatenation for safety)
+let bundle = '<!-- ============================================ -->\n';
+bundle += '<!-- Tilda Bundle - Ready to paste into T123 block -->\n';
+bundle += '<!-- Generated: ' + new Date().toISOString() + ' -->\n';
+bundle += '<!-- ============================================ -->\n\n';
 
-<!-- STEP 1: Priority Script (Tailwind CDN + Remix Icons + Swiper) -->
-<script>
-${priorityScript}
-</script>
+bundle += '<!-- STEP 1: Priority Script (Tailwind CDN + Remix Icons + Swiper) -->\n';
+bundle += '<script>\n';
+bundle += priorityScript;
+bundle += '\n</script>\n\n';
 
-<!-- STEP 2: Compiled Styles -->
-<style>
-${combinedCSS}
-</style>
+bundle += '<!-- STEP 2: Compiled Styles -->\n';
+bundle += '<style>\n';
+bundle += combinedCSS;
+bundle += '</style>\n\n';
 
-<!-- STEP 3: Page Content (sections without body tag) -->
-${bodyContent}
+bundle += '<!-- STEP 3: Page Content (sections without body tag) -->\n';
+bundle += bodyContent;
+bundle += '\n\n';
 
-${combinedJS ? `<!-- STEP 4: Compiled Scripts -->
-<script>
-${combinedJS}
-</script>` : ''}
+if (combinedJS) {
+  bundle += '<!-- STEP 4: Compiled Scripts -->\n';
+  bundle += '<script>\n';
+  bundle += combinedJS;
+  bundle += '</script>\n\n';
+}
 
-<!-- ============================================ -->
-<!-- IMAGE REPLACEMENT CHECKLIST -->
-<!-- Replace these placeholders with Tilda image URLs: -->
-<!-- -->
-${imagePaths.map((path, i) => `<!-- TILDA_IMAGE_${i + 1}: ${path} -->`).join('\n')}
-<!-- -->
-<!-- ============================================ -->
-`;
+bundle += '<!-- ============================================ -->\n';
+bundle += '<!-- IMAGE REPLACEMENT CHECKLIST -->\n';
+bundle += '<!-- Replace these placeholders with Tilda image URLs: -->\n';
+bundle += '<!-- -->\n';
+imagePaths.forEach((imgPath, i) => {
+  bundle += '<!-- TILDA_IMAGE_' + (i + 1) + ': ' + imgPath + ' -->\n';
+});
+bundle += '<!-- -->\n';
+bundle += '<!-- ============================================ -->\n';
 
 // Write bundle file
 fs.writeFileSync(outputFile, bundle, 'utf8');
