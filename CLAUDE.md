@@ -56,9 +56,13 @@ All 40+ landing page sections developed, tested, and unified. Tilda integration 
 npm run dev
 # → http://localhost:4321
 
-# Production build
+# Production build (for hosting)
 npm run build
-# → outputs to dist/
+# → outputs to dist/ with separate CSS/JS files
+
+# Tilda build (for Tilda T123 block)
+npm run build:tilda
+# → outputs to dist/tilda-bundle.html (single file, all inline)
 
 # Preview production build
 npm run preview
@@ -361,146 +365,137 @@ Tilda is a popular no-code website builder in Russia/CIS. Deploying our Astro-bu
 - Client can edit text directly in Tilda interface
 - No need for separate hosting setup
 
-### Deployment Process
+---
 
-**1. Build production files**
+### 🚀 Quick Deployment (Recommended)
+
+**1. Build Tilda bundle**
 
 ```bash
-npm run build
-# → dist/ folder with index.html, CSS, JS, images
+npm run build:tilda
 ```
 
-**2. Open Tilda project**
+This command:
+- Runs production build
+- Generates `dist/tilda-bundle.html` — single file ready for T123
+- Includes priority script (Tailwind CDN + `important: true`)
+- Inlines all CSS and JS
+- Replaces image paths with `TILDA_IMAGE_*` placeholders
+- Creates image replacement checklist at the end of file
 
-- Create new page or edit existing
-- Add **T123 block** (HTML/CSS/JS code block)
+**2. Copy to Tilda**
 
-**3. Copy HTML from `dist/index.html`**
+- Open `dist/tilda-bundle.html`
+- Copy **entire file content**
+- Paste into Tilda **T123 block** (HTML field)
 
-- Open `dist/index.html` in code editor
-- Copy **entire body content** (without `<body>` tags)
-- Paste into T123 block HTML field
+**3. Replace images**
 
-**4. Add priority script**
-
-**⚠️ CRITICAL:** Tilda has its own styles that conflict with Tailwind. Use this script to override Tilda styles:
-
-**Paste this script into T123 block "Before closing </body>" field:**
-
-```html
-<script>
-// Tailwind с приоритетом — перезаписывает стили Tilda
-const tailwind = document.createElement('script');
-tailwind.src = 'https://cdn.tailwindcss.com';
-tailwind.onload = function() {
-    window.tailwind.config = {
-        important: true // Делаем Tailwind важнее стилей Tilda!
-    };
-
-    // Защита ссылок от стилей Tilda
-    const style = document.createElement('style');
-    style.textContent = \`
-        /* Отключаем стили Tilda для всех ссылок */
-        a, a:hover, a:active, a:visited {
-            color: inherit !important;
-            text-decoration: inherit !important;
-            border-bottom: none !important;
-        }
-    \`;
-    document.head.appendChild(style);
-};
-document.head.appendChild(tailwind);
-
-// Remix Icons для иконок
-const links = [
-    'https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css',
-    'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
-];
-
-links.forEach(href => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    document.head.appendChild(link);
-});
-
-// Swiper для слайдеров (Testimonials, Portfolio)
-const script = document.createElement('script');
-script.type = 'module';
-script.textContent = \`
-    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
-    setTimeout(() => {
-        new Swiper('.testimonials-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 24,
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next-custom',
-                prevEl: '.swiper-button-prev-custom'
-            },
-            pagination: {
-                el: '.swiper-pagination-custom',
-                clickable: true
-            },
-            breakpoints: {
-                1024: { slidesPerView: 2, spaceBetween: 32 }
-            }
-        });
-    }, 1000);
-\`;
-document.body.appendChild(script);
-</script>
-```
-
-**5. Replace image URLs**
-
-- Find all `/images/placeholder-img.jpg` references in HTML
+- Find `TILDA_IMAGE_1`, `TILDA_IMAGE_2`, etc. in the pasted code
 - Upload images to Tilda or external hosting
-- Replace with full URLs: `https://static.tildacdn.com/...`
+- Replace placeholders with actual URLs
+- See image checklist at the bottom of bundle file
 
-**6. Test & Publish**
+**4. Publish**
 
-- Click "Preview" in Tilda
-- Verify all styles work correctly
-- Check sliders, hover effects, buttons
+- Preview in Tilda
+- Verify styles, sliders, hover effects work
 - Publish page
 
-### How It Works
+**⏱ Total time:** 5-10 minutes
 
-**The Script Explanation:**
+---
 
-1. **`important: true` config** — Makes ALL Tailwind utilities use `!important`, overriding Tilda's default styles
-2. **CDN libraries** — Loads Tailwind, Remix Icons, Swiper from CDN (no local files needed)
-3. **Swiper init with delay** — `setTimeout(1000)` ensures DOM is ready before initializing sliders
+### 📦 Bundle File Structure
 
-### Tilda Integration Checklist
+The generated `dist/tilda-bundle.html` contains (in order):
 
-- [ ] Production build created (`npm run build`)
-- [ ] HTML copied from `dist/index.html` to T123 block
-- [ ] Priority script added to "Before </body>" field
-- [ ] Image URLs replaced with Tilda/external URLs
-- [ ] Page tested in Tilda preview
-- [ ] All components render correctly
-- [ ] Sliders work (if used)
-- [ ] Hover effects work
-- [ ] Mobile responsive works
+1. **Priority Script** — Tailwind CDN with `important: true` config
+2. **Inline CSS** — All compiled Tailwind styles
+3. **Page Content** — Sections without `<html>`, `<head>`, `<body>` tags
+4. **Inline JS** — All compiled scripts (Swiper, etc.)
+5. **Image Checklist** — List of all images to replace
 
-### Troubleshooting
+**Example:**
+```html
+<!-- Tilda Bundle - Ready to paste -->
+
+<script>
+// Priority script (Tailwind + important: true)
+...
+</script>
+
+<style>
+/* Compiled CSS */
+...
+</style>
+
+<!-- Sections -->
+<header>...</header>
+<section>...</section>
+...
+
+<script>
+// Compiled JS
+...
+</script>
+
+<!-- IMAGE REPLACEMENT CHECKLIST -->
+<!-- TILDA_IMAGE_1: /images/hero.jpg -->
+<!-- TILDA_IMAGE_2: /images/service-1.jpg -->
+```
+
+---
+
+### ⚙️ How It Works
+
+**Automated bundling script:**
+- Reads `dist/index.html` after production build
+- Extracts body content (without `<body>` tags)
+- Finds and inlines all CSS from `/_astro/*.css`
+- Finds and inlines all JS from `/_astro/*.js`
+- Adds priority script with `important: true` config
+- Replaces `/images/` paths with `TILDA_IMAGE_*` placeholders
+- Outputs single file ready for T123 block
+
+**Priority script features:**
+- Loads Tailwind CSS via CDN with `important: true`
+- Overrides Tilda's default styles
+- Protects links from Tilda color overrides
+- Loads Remix Icons and Swiper from CDN
+- Initializes Swiper carousel with delay
+
+---
+
+### ✅ Deployment Checklist
+
+- [ ] Run `npm run build:tilda`
+- [ ] Open `dist/tilda-bundle.html`
+- [ ] Copy entire content
+- [ ] Paste into Tilda T123 block
+- [ ] Replace all `TILDA_IMAGE_*` placeholders with URLs
+- [ ] Test in Tilda preview
+- [ ] Verify: styles, sliders, hover effects, mobile responsive
+- [ ] Publish page
+
+---
+
+### 🐛 Troubleshooting
 
 **Problem:** Tailwind styles don't apply
-**Solution:** Verify `important: true` is in script, check browser console for errors
+**Solution:** Bundle includes priority script automatically. Check browser console for CDN loading errors.
 
 **Problem:** Links have wrong colors (blue/underlined)
-**Solution:** Tilda overrides link styles. The priority script includes link protection (`color: inherit !important`). Make sure you're using the latest version of the script from CLAUDE.md
+**Solution:** Priority script includes link protection (`color: inherit !important`). Clear browser cache.
 
 **Problem:** Sliders don't work
-**Solution:** Check `.testimonials-swiper` class exists in HTML, increase setTimeout delay
+**Solution:** Ensure Swiper CDN loaded correctly. Increase `setTimeout` delay in priority script if needed.
 
 **Problem:** Icons missing
-**Solution:** Verify Remix Icons CDN loaded, check icon class names (e.g., `ri-phone-line`)
+**Solution:** Verify Remix Icons CDN loaded. Check class names (e.g., `ri-phone-line`).
 
 **Problem:** Images broken
-**Solution:** Replace all `/images/...` paths with full URLs
+**Solution:** Replace all `TILDA_IMAGE_*` placeholders with actual Tilda/external URLs. See checklist at end of bundle file.
 
 ---
 
