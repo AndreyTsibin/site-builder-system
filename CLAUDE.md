@@ -35,23 +35,13 @@ All required landing page sections have been developed and tested. The project n
 
 **Philosophy:** Build professional landing pages in minutes using pre-built sections
 
-**Development Approach:**
+**Development Principles:**
 
 - ✅ **Quality over quantity** — One section at a time, thoroughly tested
 - ✅ **Finished, polished components** — Every section must be production-ready
 - ✅ **Fully responsive** — Mobile-first, tested across all breakpoints
-- ✅ **User-driven workflow** — User provides code/screenshots, Claude converts to Astro
 - ✅ **Tailwind CSS only** — No custom CSS, pure utility classes
-
-**Claude's Role:**
-
-1. **Convert screenshots → Astro components** with proper structure and spacing
-2. **Convert HTML/CSS code → Astro components** with Tailwind classes
-3. **Apply layout standards** automatically (containers, padding, responsive)
-4. **Extract dynamic props** from hardcoded content
-5. **Replace icons** with Remix Icons equivalents
-6. **Ensure accessibility** (ARIA labels, semantic HTML, alt texts)
-7. **Test and verify** UTF-8 encoding for Cyrillic text
+- ✅ **Consistent design** — Unified look and feel across all sections
 
 ---
 
@@ -278,62 +268,29 @@ xl:  1280px
 
 ---
 
-## COMPONENT CREATION WORKFLOW
+## CURRENT WORKFLOW: UNIFICATION PHASE
 
-**NEW APPROACH:** User provides code or screenshots → Claude converts to Astro
+**⚠️ IMPORTANT:** All 40+ sections are already created and functional. Current focus is **Design System Unification**.
 
-**Process:**
+**Primary Task:** Standardize visual design across all components to ensure consistency.
 
-1. **User provides:**
-   - Ready HTML/CSS code to convert
-   - OR screenshot of desired section
+**See:** [PROMPT_UNIFICATION.md](PROMPT_UNIFICATION.md) for detailed unification checklist and process.
 
-2. **Claude converts:**
-   - Create file: `src/components/sections/{category}/{Name}.astro`
-   - Add frontmatter with `interface Props`
-   - Apply LAYOUT & SPACING STANDARDS (see above)
-   - Replace hardcoded text with `{props.field}`
-   - Replace SVG icons with Remix Icons
-   - Ensure responsive classes follow mobile-first approach
+**Key Unification Areas:**
 
-3. **Test:**
-   - Import in `src/pages/index.astro`
-   - Check all viewports: 320px, 768px, 1024px, 1440px
-   - Verify UTF-8 (run `head -5 filename` after Write if Cyrillic)
+1. **Border Radius** - Standardize rounded corners (cards: `rounded-2xl`, buttons: `rounded-xl`, inputs: `rounded-lg`)
+2. **Button Colors** - All primary CTAs should use `bg-blue-700` with `hover:bg-blue-800`
+3. **Typography** - Ensure H2/H3/H4 sizes are consistent across all sections
+4. **Borders vs Shadows** - Replace shadows with `border-2 border-gray-200` where clipping occurs
+5. **Spacing** - Verify consistent gap and padding values
 
-4. **Commit:**
-   - After section is tested and approved
-   - One section per commit
-
-**Priority:** Work section-by-section, quality over quantity.
-
-### Hero Section Pattern (Base Template)
-
-**Hero1 is the base pattern** for all hero sections. Use this structure consistently:
-
-**Fixed structure (DO NOT change):**
-```astro
-<section class="bg-white py-16 md:py-20 lg:py-24">
-  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <!-- Left: Content -->
-      <!-- Right: Image/Form/Visual -->
-    </div>
-  </div>
-</section>
-```
-
-**What changes between hero variants:**
-- Content (headings, text, CTAs)
-- Additional elements (benefits list, trust badges, USP points)
-- Visual styling (background colors, gradients)
-- Right column content (image, form, illustration, etc.)
-
-**Key principle:** Keep the grid, container, and spacing consistent across all hero sections.
+**Workflow:**
+- Work category-by-category (Heroes → CTA → Contact → etc.)
+- Test all variants in category together in `index.astro`
+- Commit after each category is unified
 
 **Default placeholder image:**
 - Path: `/images/placeholder-img.jpg`
-- Use this as default for all components with images
 - Located in: `public/images/placeholder-img.jpg`
 
 ---
@@ -414,6 +371,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 - [Tailwind CSS 4](https://tailwindcss.com/docs)
 - [Remix Icon](https://remixicon.com)
 - [Project README](README.md) — User-facing docs
+- **[PROMPT_UNIFICATION.md](PROMPT_UNIFICATION.md) — Design System Unification Guide** ⭐
 
 ---
 
