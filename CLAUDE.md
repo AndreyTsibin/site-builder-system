@@ -6,17 +6,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## PROJECT STATUS
 
-**✅ DEVELOPMENT & UNIFICATION COMPLETED** (as of 2025-10-30)
+**✅ MVP COMPLETED** (as of 2025-10-30)
 
-All 40+ landing page sections developed, tested, and unified into a consistent design system.
+All 40+ landing page sections developed, tested, and unified. Tilda integration working. System ready for production use.
 
-**Current Phase:** **Production & Assembly Testing**
+**Current Phase:** **🎨 PREMIUM ENHANCEMENT & OPTIMIZATION**
+
+**Goal:** Transform from functional MVP into premium product with modern design indistinguishable from professional designer work.
 
 **Focus:**
-- Assembling landing pages for real clients
-- Testing component compatibility and integration
-- Refining the assembly workflow
-- Optimizing build speed and quality
+- **Design transformation** — gradients, typography, glassmorphism, animations
+- **Component enhancement** — multiple style variants, micro-interactions
+- **UX improvements** — better forms, testimonials, mobile-first features
+- **Content library** — ready-to-use FAQs, testimonials, copy by niche
+- **Performance & SEO** — optimization for production websites
+
+**📋 Detailed Roadmap:** See [ROADMAP_OPTIMIZATION.md](ROADMAP_OPTIMIZATION.md) for complete enhancement plan
 
 ---
 
@@ -267,93 +272,52 @@ xl:  1280px
 
 ---
 
-## LANDING PAGE ASSEMBLY PROCESS
+## LANDING PAGE ASSEMBLY
 
 **⚠️ CRITICAL:** Always assemble landing pages in `src/pages/index.astro` (not in new files).
 
-### Quick Assembly Workflow
-
 **Time:** 3-5 minutes for a complete landing page
 
-**Steps:**
+**Quick Steps:**
+1. Import components from `src/components/sections/`
+2. Check component props: `grep -A 20 "interface Props" path/to/Component.astro`
+3. Assemble in index.astro with realistic data
+4. Test at http://localhost:4321/
 
-1. **Understand Client Requirements**
-   - Business type (e.g., washing machine repair)
-   - Location (e.g., Saint Petersburg)
-   - Phone number
-   - Key selling points (speed, price, warranty)
-
-2. **Choose Components**
-   - Select appropriate sections from `src/components/sections/`
-   - Typical structure:
-     - Header (Header1 or Header2)
-     - Hero (Hero1, Hero2, Hero4, etc.)
-     - Benefits (Benefits1, Benefits2)
-     - Services/Pricing (ServicesCards, Services4, PricingTable)
-     - Social Proof (Testimonials, Portfolio)
-     - FAQ (FAQ1, FAQ2, FAQ3)
-     - CTA (CTA1, CTA2, CTA3)
-     - Footer (Footer1-Footer5)
-
-3. **Check Component Props**
-   - **IMPORTANT:** Always check component interface before using
-   - Many components require arrays (testimonials, faqs, services)
-   - Some have optional props with defaults, some require all props
-   - Use grep to quickly check: `grep -A 20 "interface Props" path/to/Component.astro`
-
-4. **Assemble in index.astro**
-   - Import required components
-   - Pass props with client-specific content
-   - Use realistic data (phone numbers, addresses, testimonials, FAQs)
-
-5. **Test in Browser**
-   - Open http://localhost:4321/
-   - Check mobile and desktop responsive
-   - Verify all content displays correctly
-   - No console errors
-
-### Common Pitfalls
-
-**❌ Creating new page files** — Always use `index.astro`
-**❌ Skipping props check** — Components have different prop requirements
-**❌ Empty arrays** — Components like Testimonials, FAQ need data arrays
-**❌ Wrong prop names** — Check exact prop names (e.g., `heading` vs `title`)
-
-### Component Prop Quick Reference
-
-**Simple components (minimal props):**
-- Hero1: title, subtitle, primaryCtaText, primaryCtaUrl
-- Benefits1, ServicesCards: All props optional with defaults
-
-**Complex components (require arrays):**
-- Testimonials: heading, testimonials[]
-- FAQ1: heading, faqs[]
-- Team: heading, members[]
-- Portfolio: heading, items[]
-
-**Default placeholder:**
-- Path: `/images/placeholder-img.jpg`
-- Located in: `public/images/placeholder-img.jpg`
+**Common Pitfalls:**
+- ❌ Creating new page files — Always use `index.astro`
+- ❌ Skipping props check — Components have different requirements
+- ❌ Empty arrays — Testimonials, FAQ, Team, Portfolio need data arrays
 
 ---
 
 ## DESIGN SYSTEM
 
-**Colors:**
+**⚠️ CURRENT STATE:** Basic MVP design system
 
-- Brand Blue: `#1E40AF` → `bg-brand-blue` or `text-blue-700`
-- Brand Green: `#10B981` → `bg-brand-green` or `text-green-600`
-- Brand Red: `#DC2626` → `bg-red-600` (for CTAs, prices)
+**🎨 EVOLUTION IN PROGRESS:** See [ROADMAP_OPTIMIZATION.md](ROADMAP_OPTIMIZATION.md) for planned enhancements
 
-**Typography:**
+**Current Colors:**
+- Brand Blue: `#1E40AF` → `bg-blue-700`
+- Brand Green: `#10B981` → `bg-brand-green`
 
+**Planned Additions:**
+- Extended color palette with 50-900 shades
+- Gradient library (mesh, warm, cool, sunset, ocean)
+- Dark mode support
+- Glassmorphism utilities
+
+**Current Typography:**
 - System fonts: `system-ui, -apple-system, sans-serif`
-- Headings: Bold, large responsive sizes
-- Body: `text-base md:text-lg`
+
+**Planned Upgrades:**
+- Google Fonts integration (Sora + Inter recommended)
+- Fluid typography with clamp()
+- Gradient text effects
+- Text shadows and highlights
 
 **Spacing:**
-
-- Use Tailwind spacing scale: `p-4`, `mb-8`, `gap-6`
+- Tailwind spacing scale: `p-4`, `mb-8`, `gap-6`
 - Section padding: see LAYOUT & SPACING STANDARDS
 
 ---
@@ -564,14 +528,18 @@ document.body.appendChild(script);
 
 ## REFERENCE DOCS
 
-- [Astro Docs](https://docs.astro.build)
-- [Tailwind CSS 4](https://tailwindcss.com/docs)
-- [Remix Icon](https://remixicon.com)
-- [Project README](README.md) — User-facing docs
+### Internal Documentation
+- **[ROADMAP_OPTIMIZATION.md](ROADMAP_OPTIMIZATION.md)** ⭐ — Complete enhancement plan (design, UX, technical)
+- [Project README](README.md) — User-facing documentation
+
+### External Resources
+- [Astro Docs](https://docs.astro.build) — Static site generator
+- [Tailwind CSS 4](https://tailwindcss.com/docs) — Utility-first CSS
+- [Remix Icon](https://remixicon.com) — Icon library
 
 ---
 
-**Version:** 2.4.1
+**Version:** 3.0.0
 **Last Updated:** 2025-10-30
-**Phase:** Production & Tilda Integration
+**Phase:** Premium Enhancement & Optimization
 **Niche:** Repair Services Landing Pages
