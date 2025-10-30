@@ -30,7 +30,7 @@ const { title, subtitle, services } = Astro.props;
     <!-- Services Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {services.map((service) => (
-        <div class="flex flex-col bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+        <div class="flex flex-col bg-gray-50 border-2 border-gray-200 rounded-2xl overflow-hidden transition-all duration-300">
           <!-- Image Header -->
           <div class="relative w-full h-64 bg-gray-100">
             <img
@@ -55,7 +55,7 @@ const { title, subtitle, services } = Astro.props;
             <!-- Price Button -->
             <button
               type="button"
-              class="w-full py-3.5 px-6 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg transition-colors duration-200"
+              class="w-full py-3.5 px-6 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-xl transition-colors duration-200"
             >
               {service.price}
             </button>

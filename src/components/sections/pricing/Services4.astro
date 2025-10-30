@@ -34,15 +34,15 @@ const { title, subtitle, categories } = Astro.props;
     <!-- Categories Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {categories.map((category) => (
-        <details class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+        <details class="bg-white rounded-2xl p-6 border-2 border-gray-200 transition-all duration-300">
           <summary class="cursor-pointer list-none">
             <div class="flex items-center gap-3 mb-4">
-              <i class={`${category.icon} text-2xl text-red-600`}></i>
+              <i class={`${category.icon} text-2xl text-blue-700`}></i>
               <h3 class="text-xl md:text-2xl font-semibold text-gray-900">
                 {category.title}
               </h3>
             </div>
-            <div class="w-full py-3 px-4 border border-gray-200 rounded-lg flex items-center justify-center gap-2 text-gray-700 font-medium text-sm transition-all duration-200 toggle-btn hover:border-red-600 hover:bg-red-50 hover:text-red-600">
+            <div class="w-full py-3 px-4 border-2 border-gray-200 rounded-xl flex items-center justify-center gap-2 text-gray-700 font-medium text-sm transition-all duration-200 toggle-btn hover:border-blue-700 hover:bg-blue-50 hover:text-blue-700">
               <span class="btn-show">Показать цены</span>
               <span class="btn-hide">Скрыть цены</span>
               <i class="ri-add-line text-lg icon-show"></i>
@@ -57,7 +57,7 @@ const { title, subtitle, categories } = Astro.props;
                 <span class="text-sm md:text-base text-gray-700 flex-1">
                   {service.name}
                 </span>
-                <span class="text-sm md:text-base font-semibold text-red-600 whitespace-nowrap">
+                <span class="text-sm md:text-base font-semibold text-blue-700 whitespace-nowrap">
                   {service.price}
                 </span>
               </div>
