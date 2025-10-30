@@ -1,0 +1,87 @@
+---
+/**
+ * CTA5 — CTA with Social Proof Cards
+ *
+ * Trust-building CTA combining statistics, testimonials, and action button.
+ * Grid of stat cards above central CTA block.
+ */
+
+interface Props {
+  heading: string;
+  stats: Array<{
+    value: string;
+    label: string;
+    icon?: string;
+  }>;
+  ctaHeading: string;
+  ctaButtonText: string;
+  phone: string;
+  secondaryText?: string;
+}
+
+const {
+  heading,
+  stats,
+  ctaHeading,
+  ctaButtonText,
+  phone,
+  secondaryText,
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 lg:py-24 bg-white">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Heading -->
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-900">
+      {heading}
+    </h2>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      {stats.map(stat => (
+        <div class="bg-gray-50 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+          {stat.icon && (
+            <i class={`${stat.icon} text-4xl text-blue-600 mb-3`}></i>
+          )}
+          <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            {stat.value}
+          </div>
+          <div class="text-sm md:text-base text-gray-600">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Central CTA Block -->
+    <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12 text-center text-white shadow-2xl">
+      <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+        {ctaHeading}
+      </h3>
+
+      <!-- CTA Button -->
+      <a
+        href={`tel:${phone.replace(/\s/g, '')}`}
+        class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white text-lg md:text-xl font-bold py-4 px-8 rounded-lg transition-colors shadow-lg mb-4"
+      >
+        <i class="ri-phone-line text-2xl"></i>
+        {ctaButtonText}
+      </a>
+
+      <!-- Secondary Text -->
+      {secondaryText && (
+        <p class="text-base md:text-lg text-white/90 mt-4">
+          Или позвоните нам:{' '}
+          <a
+            href={`tel:${phone.replace(/\s/g, '')}`}
+            class="font-bold hover:underline"
+          >
+            {phone}
+          </a>
+        </p>
+      )}
+    </div>
+
+  </div>
+</section>

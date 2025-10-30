@@ -1,19 +1,72 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Benefits1 from '../components/sections/benefits/Benefits1.astro';
-import Benefits2 from '../components/sections/benefits/Benefits2.astro';
-import Benefits3 from '../components/sections/benefits/Benefits3.astro';
+import CTA1 from '../components/sections/cta/CTA1.astro';
+import CTA2 from '../components/sections/cta/CTA2.astro';
+import CTA3 from '../components/sections/cta/CTA3.astro';
+import CTA4 from '../components/sections/cta/CTA4.astro';
+import CTA5 from '../components/sections/cta/CTA5.astro';
 ---
 
-<BaseLayout title="Site Builder 2.0 | Component Library">
-  <!-- Component demo page - import and add components here for testing -->
+<BaseLayout title="Site Builder 2.0 | CTA Sections Demo">
+  <!-- CTA Sections Demo Page -->
 
-  <!-- Benefits1 - Classic Icon Grid -->
-  <Benefits1 />
+  <!-- CTA1 - Bold CTA Banner with Stats -->
+  <CTA1
+    heading="Не откладывайте ремонт!"
+    subheading="Вызовите мастера прямо сейчас и получите бесплатную диагностику"
+    phone="+7 (495) 123-45-67"
+    ctaText="Вызвать мастера"
+    stats={[
+      { value: '2000+', label: 'Довольных клиентов' },
+      { value: '24/7', label: 'Работаем круглосуточно' },
+      { value: '30 мин', label: 'Выезд мастера' },
+      { value: '12 мес', label: 'Гарантия на работу' }
+    ]}
+  />
 
-  <!-- Benefits2 - Stats & Social Proof Cards -->
-  <Benefits2 />
+  <!-- CTA2 - CTA with Background Image & Overlay -->
+  <CTA2
+    heading="Профессиональный ремонт бытовой техники"
+    description="Опытные мастера, оригинальные запчасти, гарантия качества. Работаем быстро и надёжно."
+    ctaText="Заказать ремонт"
+    ctaLink="tel:+74951234567"
+    secondaryText="+7 (495) 123-45-67"
+    secondaryLink="tel:+74951234567"
+  />
 
-  <!-- Benefits3 - Feature Highlights with Images -->
-  <Benefits3 />
+  <!-- CTA3 - Split CTA with Contact Form -->
+  <CTA3
+    heading="Оставьте заявку на ремонт"
+    benefits={[
+      'Бесплатная диагностика на дому',
+      'Выезд мастера в течение 30 минут',
+      'Гарантия 12 месяцев на все работы',
+      'Оригинальные запчасти в наличии'
+    ]}
+    guaranteeText="Гарантия качества и безопасности ремонта"
+    formTitle="Получить консультацию"
+    formButtonText="Отправить заявку"
+  />
+
+  <!-- CTA4 - Sticky Bottom CTA Bar (Mobile-First) -->
+  <CTA4
+    phone="+7 (495) 123-45-67"
+    whatsappNumber="+74951234567"
+    whatsappMessage="Здравствуйте! Хочу заказать ремонт техники."
+  />
+
+  <!-- CTA5 - CTA with Social Proof Cards -->
+  <CTA5
+    heading="Почему выбирают нас?"
+    stats={[
+      { value: '10+ лет', label: 'Опыт работы', icon: 'ri-time-line' },
+      { value: '2000+', label: 'Довольных клиентов', icon: 'ri-user-smile-line' },
+      { value: '98%', label: 'Успешных ремонтов', icon: 'ri-checkbox-circle-line' },
+      { value: '24/7', label: 'Работаем круглосуточно', icon: 'ri-customer-service-line' }
+    ]}
+    ctaHeading="Готовы заказать ремонт?"
+    ctaButtonText="Вызвать мастера"
+    phone="+7 (495) 123-45-67"
+    secondaryText="Или позвоните нам"
+  />
 </BaseLayout>

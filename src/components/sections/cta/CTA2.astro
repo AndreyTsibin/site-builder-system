@@ -1,0 +1,74 @@
+---
+/**
+ * CTA2 — CTA with Background Image & Overlay
+ *
+ * Visual storytelling CTA with background image to create emotional connection.
+ * Centered content layout with dark overlay for text readability.
+ */
+
+interface Props {
+  heading: string;
+  description: string;
+  ctaText: string;
+  ctaLink: string;
+  secondaryText?: string;
+  secondaryLink?: string;
+  backgroundImage?: string;
+}
+
+const {
+  heading,
+  description,
+  ctaText,
+  ctaLink,
+  secondaryText,
+  secondaryLink,
+  backgroundImage = '/images/placeholder-img.jpg',
+} = Astro.props;
+---
+
+<section class="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={backgroundImage}
+      alt=""
+      class="w-full h-full object-cover"
+    />
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center text-white">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+        {heading}
+      </h2>
+      <p class="text-lg md:text-xl mb-8 text-white/90">
+        {description}
+      </p>
+
+      <!-- Primary CTA -->
+      <a
+        href={ctaLink}
+        class="inline-block bg-green-600 hover:bg-green-700 text-white text-lg md:text-xl font-bold py-4 px-8 rounded-lg transition-colors shadow-lg mb-4"
+      >
+        {ctaText}
+      </a>
+
+      <!-- Secondary CTA (optional) -->
+      {secondaryText && secondaryLink && (
+        <div class="mt-4">
+          <a
+            href={secondaryLink}
+            class="inline-flex items-center gap-2 text-white hover:text-green-400 transition-colors text-base md:text-lg"
+          >
+            <i class="ri-phone-line"></i>
+            {secondaryText}
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
