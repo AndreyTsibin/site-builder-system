@@ -1,107 +1,132 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Portfolio Sections
-import Portfolio2 from '../components/sections/portfolio/Portfolio2.astro';
-import Portfolio3 from '../components/sections/portfolio/Portfolio3.astro';
+// Team Sections
+import Team1 from '../components/sections/team/Team1.astro';
+import Team2 from '../components/sections/team/Team2.astro';
+import Team3 from '../components/sections/team/Team3.astro';
 ---
 
-<BaseLayout title="Site Builder 2.0 - Portfolio Demo">
+<BaseLayout title="Site Builder 2.0 - Team Demo">
 
   <!-- ========================================
-       PORTFOLIO SECTIONS (2 new variants)
+       TEAM SECTIONS (3 variants)
        ======================================== -->
 
-  <!-- Portfolio2: Multi-Card Carousel (3 visible) -->
-  <Portfolio2
-    title="Наши работы"
-    subtitle="Портфолио выполненных проектов — карусель с несколькими карточками"
-    items={[
+  <!-- Team1: Grid with Photo Cards -->
+  <Team1
+    title="Наши мастера"
+    subtitle="Опытные специалисты с многолетним стажем"
+    members={[
       {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт холодильника Samsung",
-        category: "Холодильники",
-        description: "Замена компрессора и системы охлаждения"
+        photo: "/images/placeholder-img.jpg",
+        name: "Иван Петров",
+        role: "Мастер по ремонту холодильников",
+        experience: "15 лет опыта",
+        bio: "Специализируется на ремонте холодильного оборудования. Прошел обучение в сервисных центрах ведущих брендов.",
+        specializations: ["Bosch", "Siemens", "Samsung", "LG"],
+        certifications: ["Сертификат Bosch Service", "Мастер года 2024"]
       },
       {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт стиральной машины LG",
-        category: "Стиральные машины",
-        description: "Замена подшипников барабана"
+        photo: "/images/placeholder-img.jpg",
+        name: "Сергей Иванов",
+        role: "Мастер по ремонту стиральных машин",
+        experience: "12 лет опыта",
+        bio: "Эксперт в диагностике и ремонте стиральных машин любой сложности. Работает с импортными и отечественными брендами.",
+        specializations: ["Electrolux", "Ariston", "Indesit", "Zanussi"],
+        certifications: ["Сертификат Electrolux Professional"]
       },
       {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт посудомоечной машины Bosch",
-        category: "Посудомоечные машины",
-        description: "Замена нагревательного элемента"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт духового шкафа Electrolux",
-        category: "Духовые шкафы",
-        description: "Замена термостата и вентилятора"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт варочной панели Siemens",
-        category: "Варочные панели",
-        description: "Замена конфорки и блока управления"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт микроволновой печи Samsung",
-        category: "Микроволновые печи",
-        description: "Замена магнетрона"
+        photo: "/images/placeholder-img.jpg",
+        name: "Алексей Смирнов",
+        role: "Мастер по ремонту духовых шкафов",
+        experience: "10 лет опыта",
+        bio: "Специалист по встроенной кухонной технике. Быстро находит и устраняет любые неисправности.",
+        specializations: ["Gorenje", "Hansa", "Bosch", "Siemens"],
+        certifications: ["Сертификат Gorenje Service"]
       }
     ]}
-    slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }}
-    spaceBetween={24}
-    autoPlay={false}
   />
 
-  <!-- Portfolio3: Thumbnail Navigation Carousel -->
-  <Portfolio3
-    title="Детальный просмотр работ"
-    subtitle="Галерея с миниатюрами для удобной навигации"
-    items={[
+  <!-- Team2: Featured Lead + Supporting Team -->
+  <Team2
+    title="Познакомьтесь с нашей командой"
+    subtitle="Профессионалы под руководством опытного мастера"
+    lead={{
+      photo: "/images/placeholder-img.jpg",
+      name: "Дмитрий Кузнецов",
+      role: "Основатель и главный мастер",
+      bio: "Основал компанию в 2005 году. За это время собрал команду из лучших специалистов города и наладил сотрудничество с ведущими производителями техники. Лично контролирует качество всех работ.",
+      experience: "20 лет опыта",
+      certifications: [
+        "Авторизованный партнер Bosch",
+        "Сертифицированный мастер Samsung",
+        "Премия 'Лучший сервис года' 2023"
+      ]
+    }}
+    team={[
       {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт кухни в ЖК Новый",
-        category: "Кухонная техника",
-        description: "Полный ремонт встроенной техники: холодильник, посудомойка, духовка"
+        photo: "/images/placeholder-img.jpg",
+        name: "Михаил Попов",
+        role: "Мастер-универсал",
+        experience: "8 лет опыта"
       },
       {
-        image: "/images/placeholder-img.jpg",
-        title: "Восстановление холодильника Samsung",
-        category: "Холодильники",
-        description: "Замена компрессора и системы охлаждения"
+        photo: "/images/placeholder-img.jpg",
+        name: "Андрей Новиков",
+        role: "Мастер по холодильникам",
+        experience: "7 лет опыта"
       },
       {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт стиральной машины LG",
-        category: "Стиральные машины",
-        description: "Замена подшипников барабана"
+        photo: "/images/placeholder-img.jpg",
+        name: "Николай Федоров",
+        role: "Мастер по посудомойкам",
+        experience: "6 лет опыта"
       },
       {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт духового шкафа Bosch",
-        category: "Духовые шкафы",
-        description: "Замена нагревательного элемента"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт варочной панели Electrolux",
-        category: "Варочные панели",
-        description: "Замена конфорки"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт посудомойки Siemens",
-        category: "Посудомоечные машины",
-        description: "Замена помпы"
+        photo: "/images/placeholder-img.jpg",
+        name: "Виктор Соколов",
+        role: "Мастер по варочным панелям",
+        experience: "5 лет опыта"
       }
     ]}
-    thumbnailCount={5}
+    stats={[
+      { value: "12+", label: "мастеров в команде" },
+      { value: "200+", label: "ремонтов в месяц" },
+      { value: "15", label: "лет на рынке" },
+      { value: "98%", label: "довольных клиентов" }
+    ]}
+  />
+
+  <!-- Team3: Simple Photo Row with Bios -->
+  <Team3
+    title="Наша команда"
+    subtitle="Мы работаем честно и качественно"
+    teamDescription="Наша небольшая, но профессиональная команда готова решить любую проблему с вашей бытовой техникой. Каждый мастер имеет многолетний опыт работы и регулярно проходит обучение новым технологиям ремонта."
+    members={[
+      {
+        photo: "/images/placeholder-img.jpg",
+        name: "Павел Морозов",
+        role: "Главный мастер"
+      },
+      {
+        photo: "/images/placeholder-img.jpg",
+        name: "Роман Белов",
+        role: "Старший мастер"
+      },
+      {
+        photo: "/images/placeholder-img.jpg",
+        name: "Олег Зайцев",
+        role: "Мастер-диагност"
+      }
+    ]}
+    certifications={[
+      "Лицензия на ремонт бытовой техники",
+      "Сертификат ISO 9001",
+      "Авторизованный сервисный центр"
+    ]}
+    ctaText="Заказать выезд мастера"
+    ctaLink="tel:+79991234567"
   />
 
 </BaseLayout>

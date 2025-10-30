@@ -1,0 +1,117 @@
+---
+/**
+ * Team3: Simple Photo Row with Bios
+ *
+ * Horizontal photo row with circular avatars and shared team bio.
+ * Features: Minimalist design, company-wide certifications, optional CTA.
+ * Best for: Smaller teams (2-4 people), simple trust-building section.
+ */
+
+interface Props {
+  title: string; // "Наша команда"
+  subtitle?: string; // "Профессионалы с многолетним опытом"
+  teamDescription: string; // Paragraph about the team (2-3 sentences)
+  members: Array<{
+    photo: string;
+    name: string;
+    role: string;
+  }>; // 2-4 members
+  certifications?: string[]; // Company-wide certifications
+  ctaText?: string; // "Заказать выезд мастера"
+  ctaLink?: string; // Link for CTA
+  bgColor?: string; // "white" | "gray-50"
+}
+
+const {
+  title,
+  subtitle,
+  teamDescription,
+  members,
+  certifications,
+  ctaText,
+  ctaLink = "#contact",
+  bgColor = "white"
+} = Astro.props;
+---
+
+<section class={`py-16 md:py-20 lg:py-24 bg-${bgColor}`}>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      {subtitle && (
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      {/* Team Photos Row */}
+      <div class="flex flex-wrap justify-center gap-8 md:gap-12 mb-12">
+        {members.map((member) => (
+          <div class="text-center group">
+            {/* Circular Photo */}
+            <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4">
+              <div class="w-full h-full rounded-full overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 border-4 border-blue-700">
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+            </div>
+
+            {/* Name */}
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">
+              {member.name}
+            </h3>
+
+            {/* Role */}
+            <p class="text-base text-blue-700 font-semibold">
+              {member.role}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Team Description */}
+      <div class="text-center mb-8">
+        <p class="text-lg md:text-xl text-gray-600 leading-relaxed">
+          {teamDescription}
+        </p>
+      </div>
+
+      {/* Certifications */}
+      {certifications && certifications.length > 0 && (
+        <div class="mb-8">
+          <h4 class="text-lg font-semibold text-gray-900 text-center mb-4">
+            Сертификаты и лицензии
+          </h4>
+          <div class="flex flex-wrap justify-center gap-3">
+            {certifications.map((cert) => (
+              <div class="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg">
+                <i class="ri-award-line text-blue-700 text-xl"></i>
+                <span class="text-sm font-medium text-gray-700">{cert}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* CTA Button */}
+      {ctaText && (
+        <div class="text-center">
+          <a
+            href={ctaLink}
+            class="inline-block px-8 py-4 bg-blue-700 text-white font-semibold text-lg rounded-xl hover:bg-blue-800 transition-colors shadow-lg hover:shadow-xl"
+          >
+            {ctaText}
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
