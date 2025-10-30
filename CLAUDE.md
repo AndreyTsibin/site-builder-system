@@ -432,6 +432,18 @@ tailwind.onload = function() {
     window.tailwind.config = {
         important: true // Делаем Tailwind важнее стилей Tilda!
     };
+
+    // Защита ссылок от стилей Tilda
+    const style = document.createElement('style');
+    style.textContent = \`
+        /* Отключаем стили Tilda для всех ссылок */
+        a, a:hover, a:active, a:visited {
+            color: inherit !important;
+            text-decoration: inherit !important;
+            border-bottom: none !important;
+        }
+    \`;
+    document.head.appendChild(style);
 };
 document.head.appendChild(tailwind);
 
@@ -514,6 +526,9 @@ document.body.appendChild(script);
 **Problem:** Tailwind styles don't apply
 **Solution:** Verify `important: true` is in script, check browser console for errors
 
+**Problem:** Links have wrong colors (blue/underlined)
+**Solution:** Tilda overrides link styles. The priority script includes link protection (`color: inherit !important`). Make sure you're using the latest version of the script from CLAUDE.md
+
 **Problem:** Sliders don't work
 **Solution:** Check `.testimonials-swiper` class exists in HTML, increase setTimeout delay
 
@@ -556,7 +571,7 @@ document.body.appendChild(script);
 
 ---
 
-**Version:** 2.4.0
+**Version:** 2.4.1
 **Last Updated:** 2025-10-30
 **Phase:** Production & Tilda Integration
 **Niche:** Repair Services Landing Pages
