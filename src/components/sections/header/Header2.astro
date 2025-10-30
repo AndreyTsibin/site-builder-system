@@ -29,11 +29,18 @@ const {
 ---
 
 <!-- Promo Banner -->
-<div class={`fixed top-0 left-0 right-0 z-50 ${promoBannerBg} text-white py-2.5`}>
+<div id="promo-banner-h2" class={`fixed top-0 left-0 right-0 z-50 ${promoBannerBg} text-white py-2.5`}>
   <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-center gap-2 text-sm md:text-base font-medium leading-tight">
+    <div class="flex items-center justify-center gap-2 text-sm md:text-base font-medium leading-tight relative">
       <i class="ri-gift-line"></i>
       <span>{promoBanner}</span>
+      <button
+        id="close-promo-h2"
+        class="absolute right-0 text-white hover:text-gray-200 transition-colors"
+        aria-label="Закрыть баннер"
+      >
+        <i class="ri-close-line text-xl"></i>
+      </button>
     </div>
   </div>
 </div>
@@ -76,7 +83,7 @@ const {
         </div>
         <a
           href={ctaLink}
-          class="px-6 py-3 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors"
+          class="px-6 py-3 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition-colors"
         >
           {ctaText}
         </a>
@@ -162,7 +169,7 @@ const {
       </div>
       <a
         href={ctaLink}
-        class="block w-full px-6 py-3 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors text-center"
+        class="block w-full px-6 py-3 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition-colors text-center"
       >
         {ctaText}
       </a>
@@ -171,6 +178,25 @@ const {
 </aside>
 
 <script>
+  // Promo banner close functionality
+  const promoBanner = document.getElementById('promo-banner-h2');
+  const closePromoBtn = document.getElementById('close-promo-h2');
+  const mainHeader = document.querySelector('header');
+  const headerSpacer = document.querySelector('div.h-\\[112px\\]');
+
+  closePromoBtn?.addEventListener('click', () => {
+    promoBanner?.classList.add('hidden');
+    // Adjust header position when banner is hidden
+    if (mainHeader) {
+      mainHeader.style.top = '0';
+    }
+    // Adjust spacer height
+    if (headerSpacer) {
+      headerSpacer.style.height = '72px'; // Just header height without banner
+    }
+  });
+
+  // Mobile menu functionality
   const burgerBtn2 = document.getElementById('burger-btn-h2');
   const closeMobileMenuBtn2 = document.getElementById('close-menu-btn-h2');
   const mobileMenu2 = document.getElementById('mobile-menu-h2');

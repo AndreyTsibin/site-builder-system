@@ -6,18 +6,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## PROJECT STATUS
 
-**✅ SECTION DEVELOPMENT COMPLETED** (as of 2025-10-30)
+**✅ DEVELOPMENT & UNIFICATION COMPLETED** (as of 2025-10-30)
 
-All required landing page sections have been developed and tested. The project now moves into the **optimization and unification phase**.
+All 40+ landing page sections developed, tested, and unified into a consistent design system.
 
-**Next Phase Goals:**
+**Current Phase:** **Production & Assembly Testing**
 
-1. **Design System Unification** — Standardize colors, spacing, typography across all sections
-2. **CSS Variables** — Extract hardcoded values into reusable theme variables
-3. **Component Refinement** — Ensure consistent look and feel across all 40+ sections
-4. **Performance Optimization** — Review bundle size, loading times, accessibility
-
-**Current Focus:** Bringing all sections to a unified standard with consistent branding and UX.
+**Focus:**
+- Assembling landing pages for real clients
+- Testing component compatibility and integration
+- Refining the assembly workflow
+- Optimizing build speed and quality
 
 ---
 
@@ -268,28 +267,71 @@ xl:  1280px
 
 ---
 
-## CURRENT WORKFLOW: UNIFICATION PHASE
+## LANDING PAGE ASSEMBLY PROCESS
 
-**⚠️ IMPORTANT:** All 40+ sections are already created and functional. Current focus is **Design System Unification**.
+**⚠️ CRITICAL:** Always assemble landing pages in `src/pages/index.astro` (not in new files).
 
-**Primary Task:** Standardize visual design across all components to ensure consistency.
+### Quick Assembly Workflow
 
-**See:** [PROMPT_UNIFICATION.md](PROMPT_UNIFICATION.md) for detailed unification checklist and process.
+**Time:** 3-5 minutes for a complete landing page
 
-**Key Unification Areas:**
+**Steps:**
 
-1. **Border Radius** - Standardize rounded corners (cards: `rounded-2xl`, buttons: `rounded-xl`, inputs: `rounded-lg`)
-2. **Button Colors** - All primary CTAs should use `bg-blue-700` with `hover:bg-blue-800`
-3. **Typography** - Ensure H2/H3/H4 sizes are consistent across all sections
-4. **Borders vs Shadows** - Replace shadows with `border-2 border-gray-200` where clipping occurs
-5. **Spacing** - Verify consistent gap and padding values
+1. **Understand Client Requirements**
+   - Business type (e.g., washing machine repair)
+   - Location (e.g., Saint Petersburg)
+   - Phone number
+   - Key selling points (speed, price, warranty)
 
-**Workflow:**
-- Work category-by-category (Heroes → CTA → Contact → etc.)
-- Test all variants in category together in `index.astro`
-- Commit after each category is unified
+2. **Choose Components**
+   - Select appropriate sections from `src/components/sections/`
+   - Typical structure:
+     - Header (Header1 or Header2)
+     - Hero (Hero1, Hero2, Hero4, etc.)
+     - Benefits (Benefits1, Benefits2)
+     - Services/Pricing (ServicesCards, Services4, PricingTable)
+     - Social Proof (Testimonials, Portfolio)
+     - FAQ (FAQ1, FAQ2, FAQ3)
+     - CTA (CTA1, CTA2, CTA3)
+     - Footer (Footer1-Footer5)
 
-**Default placeholder image:**
+3. **Check Component Props**
+   - **IMPORTANT:** Always check component interface before using
+   - Many components require arrays (testimonials, faqs, services)
+   - Some have optional props with defaults, some require all props
+   - Use grep to quickly check: `grep -A 20 "interface Props" path/to/Component.astro`
+
+4. **Assemble in index.astro**
+   - Import required components
+   - Pass props with client-specific content
+   - Use realistic data (phone numbers, addresses, testimonials, FAQs)
+
+5. **Test in Browser**
+   - Open http://localhost:4321/
+   - Check mobile and desktop responsive
+   - Verify all content displays correctly
+   - No console errors
+
+### Common Pitfalls
+
+**❌ Creating new page files** — Always use `index.astro`
+**❌ Skipping props check** — Components have different prop requirements
+**❌ Empty arrays** — Components like Testimonials, FAQ need data arrays
+**❌ Wrong prop names** — Check exact prop names (e.g., `heading` vs `title`)
+
+### Component Prop Quick Reference
+
+**Simple components (minimal props):**
+- Hero1: title, subtitle, primaryCtaText, primaryCtaUrl
+- Benefits1, ServicesCards: All props optional with defaults
+
+**Complex components (require arrays):**
+- Testimonials: heading, testimonials[]
+- FAQ1: heading, faqs[]
+- Team: heading, members[]
+- Portfolio: heading, items[]
+
+**Default placeholder:**
 - Path: `/images/placeholder-img.jpg`
 - Located in: `public/images/placeholder-img.jpg`
 
@@ -343,6 +385,146 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ---
 
+## TILDA DEPLOYMENT
+
+**🎯 Deploy landing pages to Tilda constructor using T123 HTML block**
+
+### Why Tilda?
+
+Tilda is a popular no-code website builder in Russia/CIS. Deploying our Astro-built landing pages to Tilda allows:
+- Using Tilda's hosting and domain management
+- Adding Tilda's built-in forms, CRM, analytics
+- Client can edit text directly in Tilda interface
+- No need for separate hosting setup
+
+### Deployment Process
+
+**1. Build production files**
+
+```bash
+npm run build
+# → dist/ folder with index.html, CSS, JS, images
+```
+
+**2. Open Tilda project**
+
+- Create new page or edit existing
+- Add **T123 block** (HTML/CSS/JS code block)
+
+**3. Copy HTML from `dist/index.html`**
+
+- Open `dist/index.html` in code editor
+- Copy **entire body content** (without `<body>` tags)
+- Paste into T123 block HTML field
+
+**4. Add priority script**
+
+**⚠️ CRITICAL:** Tilda has its own styles that conflict with Tailwind. Use this script to override Tilda styles:
+
+**Paste this script into T123 block "Before closing </body>" field:**
+
+```html
+<script>
+// Tailwind с приоритетом — перезаписывает стили Tilda
+const tailwind = document.createElement('script');
+tailwind.src = 'https://cdn.tailwindcss.com';
+tailwind.onload = function() {
+    window.tailwind.config = {
+        important: true // Делаем Tailwind важнее стилей Tilda!
+    };
+};
+document.head.appendChild(tailwind);
+
+// Remix Icons для иконок
+const links = [
+    'https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css',
+    'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
+];
+
+links.forEach(href => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+});
+
+// Swiper для слайдеров (Testimonials, Portfolio)
+const script = document.createElement('script');
+script.type = 'module';
+script.textContent = \`
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+    setTimeout(() => {
+        new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next-custom',
+                prevEl: '.swiper-button-prev-custom'
+            },
+            pagination: {
+                el: '.swiper-pagination-custom',
+                clickable: true
+            },
+            breakpoints: {
+                1024: { slidesPerView: 2, spaceBetween: 32 }
+            }
+        });
+    }, 1000);
+\`;
+document.body.appendChild(script);
+</script>
+```
+
+**5. Replace image URLs**
+
+- Find all `/images/placeholder-img.jpg` references in HTML
+- Upload images to Tilda or external hosting
+- Replace with full URLs: `https://static.tildacdn.com/...`
+
+**6. Test & Publish**
+
+- Click "Preview" in Tilda
+- Verify all styles work correctly
+- Check sliders, hover effects, buttons
+- Publish page
+
+### How It Works
+
+**The Script Explanation:**
+
+1. **`important: true` config** — Makes ALL Tailwind utilities use `!important`, overriding Tilda's default styles
+2. **CDN libraries** — Loads Tailwind, Remix Icons, Swiper from CDN (no local files needed)
+3. **Swiper init with delay** — `setTimeout(1000)` ensures DOM is ready before initializing sliders
+
+### Tilda Integration Checklist
+
+- [ ] Production build created (`npm run build`)
+- [ ] HTML copied from `dist/index.html` to T123 block
+- [ ] Priority script added to "Before </body>" field
+- [ ] Image URLs replaced with Tilda/external URLs
+- [ ] Page tested in Tilda preview
+- [ ] All components render correctly
+- [ ] Sliders work (if used)
+- [ ] Hover effects work
+- [ ] Mobile responsive works
+
+### Troubleshooting
+
+**Problem:** Tailwind styles don't apply
+**Solution:** Verify `important: true` is in script, check browser console for errors
+
+**Problem:** Sliders don't work
+**Solution:** Check `.testimonials-swiper` class exists in HTML, increase setTimeout delay
+
+**Problem:** Icons missing
+**Solution:** Verify Remix Icons CDN loaded, check icon class names (e.g., `ri-phone-line`)
+
+**Problem:** Images broken
+**Solution:** Replace all `/images/...` paths with full URLs
+
+---
+
 ## NICHE-SPECIFIC GUIDANCE
 
 **Target:** Repair service businesses (appliance, digital device, home renovation)
@@ -371,11 +553,10 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 - [Tailwind CSS 4](https://tailwindcss.com/docs)
 - [Remix Icon](https://remixicon.com)
 - [Project README](README.md) — User-facing docs
-- **[PROMPT_UNIFICATION.md](PROMPT_UNIFICATION.md) — Design System Unification Guide** ⭐
 
 ---
 
-**Version:** 2.2.0
+**Version:** 2.4.0
 **Last Updated:** 2025-10-30
-**Phase:** Optimization & Unification
+**Phase:** Production & Tilda Integration
 **Niche:** Repair Services Landing Pages

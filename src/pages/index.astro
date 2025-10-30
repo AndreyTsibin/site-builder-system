@@ -1,108 +1,123 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-// Portfolio Sections
-import Portfolio2 from '../components/sections/portfolio/Portfolio2.astro';
-import Portfolio3 from '../components/sections/portfolio/Portfolio3.astro';
+import Header2 from '../components/sections/header/Header2.astro';
+import Hero1 from '../components/sections/heroes/Hero1.astro';
+import Benefits1 from '../components/sections/benefits/Benefits1.astro';
+import PricingTable from '../components/sections/pricing/PricingTable.astro';
+import Testimonials from '../components/sections/testimonials/Testimonials.astro';
+import FAQ1 from '../components/sections/faq/FAQ1.astro';
+import Footer1 from '../components/sections/footer/Footer1.astro';
 ---
 
-<BaseLayout title="Site Builder 2.0 - Portfolio Demo">
+<BaseLayout title="Ремонт стиральных машин в СПб за 1-2 часа | МастерСтирка">
 
-  <!-- ========================================
-       PORTFOLIO SECTIONS (2 variants)
-       ======================================== -->
-
-  <!-- Portfolio2: Multi-Card Carousel -->
-  <Portfolio2
-    title="Наши работы"
-    subtitle="Примеры успешно выполненных ремонтов"
-    items={[
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт холодильника Samsung",
-        category: "Холодильники",
-        description: "Замена компрессора и заправка хладагента"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Восстановление стиральной машины Bosch",
-        category: "Стиральные машины",
-        description: "Ремонт электроники и замена подшипников"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт духового шкафа Electrolux",
-        category: "Духовые шкафы",
-        description: "Замена ТЭНа и настройка терморегулятора"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт посудомоечной машины Siemens",
-        category: "Посудомойки",
-        description: "Замена циркуляционного насоса"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт варочной панели Gorenje",
-        category: "Варочные панели",
-        description: "Замена сенсорной панели управления"
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        title: "Ремонт микроволновки LG",
-        category: "Микроволновки",
-        description: "Замена магнетрона и диода"
-      }
-    ]}
-    slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }}
-    spaceBetween={24}
-    autoPlay={true}
-    autoPlayDelay={3000}
-    bgColor="white"
+  <Header2
+    logo="МастерСтирка СПб"
+    phone="+7 (812) 555-01-23"
+    ctaText="Вызвать мастера"
   />
 
-  <!-- Portfolio3: Thumbnail Navigation Carousel -->
-  <Portfolio3
-    title="Примеры наших работ"
-    subtitle="Качество, подтвержденное фотографиями"
-    items={[
+  <Hero1
+    title="Ремонт стиральных машин в Санкт-Петербурге за 1-2 часа"
+    subtitle="Выезд мастера за 30 минут. Диагностика бесплатно при ремонте. Гарантия 1 год на все работы. Оригинальные запчасти в наличии."
+    primaryCtaText="Вызвать мастера"
+    primaryCtaUrl="tel:+78125550123"
+    secondaryCtaText="Узнать цены"
+    secondaryCtaUrl="#services"
+  />
+
+  <Benefits1
+    title="Почему выбирают МастерСтирку"
+    subtitle="Более 5000 отремонтированных стиральных машин за 9 лет работы"
+  />
+
+  <PricingTable
+    heading="Стоимость ремонта стиральных машин"
+    subheading="Фиксированные цены. Точную стоимость назовёт мастер после диагностики"
+    services={[
+      { name: "Замена ТЭНа (нагревательного элемента)", time: "50-70 мин", price: "от 890₽" },
+      { name: "Замена помпы (сливного насоса)", time: "40-50 мин", price: "от 720₽" },
+      { name: "Замена ремня привода", time: "30-40 мин", price: "от 540₽" },
+      { name: "Замена амортизаторов", time: "45-60 мин", price: "от 980₽" },
+      { name: "Замена подшипников барабана", time: "2-3 часа", price: "от 2500₽" },
+      { name: "Замена манжеты люка", time: "30-45 мин", price: "от 560₽", hidden: true },
+      { name: "Замена модуля управления", time: "60-90 мин", price: "от 1800₽", hidden: true },
+      { name: "Замена датчика температуры", time: "25-35 мин", price: "от 440₽", hidden: true },
+      { name: "Извлечение посторонних предметов", time: "40-60 мин", price: "от 600₽", hidden: true },
+      { name: "Чистка фильтра и сливной системы", time: "30-40 мин", price: "от 450₽", hidden: true },
+    ]}
+    showMoreText="Показать все услуги"
+    showLessText="Скрыть"
+  />
+
+  <Testimonials
+    heading="Отзывы наших клиентов"
+    subheading="Более 500 положительных отзывов на Яндекс.Картах и 2ГИС"
+    testimonials={[
       {
-        image: "/images/placeholder-img.jpg",
-        thumbnail: "/images/placeholder-img.jpg",
-        title: "Комплексный ремонт холодильника",
-        category: "Холодильники",
-        description: "Замена компрессора, заправка фреоном, герметизация системы охлаждения."
+        name: "Елена Иванова",
+        date: "15 октября 2024",
+        rating: 5,
+        text: "Отличная работа! Мастер приехал через 40 минут, быстро нашел проблему и починил стиральную машину прямо на месте. Очень довольна сервисом!"
       },
       {
-        image: "/images/placeholder-img.jpg",
-        thumbnail: "/images/placeholder-img.jpg",
-        title: "Ремонт стиральной машины премиум-класса",
-        category: "Стиральные машины",
-        description: "Восстановление платы управления, замена подшипников барабана."
+        name: "Дмитрий Петров",
+        date: "8 октября 2024",
+        rating: 5,
+        text: "Профессионалы своего дела. Заменили подшипник и ремень за полтора часа. Цена адекватная, работа качественная. Рекомендую!"
       },
       {
-        image: "/images/placeholder-img.jpg",
-        thumbnail: "/images/placeholder-img.jpg",
-        title: "Ремонт встроенного духового шкафа",
-        category: "Духовые шкафы",
-        description: "Замена нагревательных элементов, калибровка температурных датчиков."
+        name: "Мария Смирнова",
+        date: "2 октября 2024",
+        rating: 5,
+        text: "Спасибо огромное! Стиральная машина Samsung не включалась. Мастер приехал вечером в этот же день, оказалась проблема в модуле управления. Всё починили, дали гарантию на год."
       },
       {
-        image: "/images/placeholder-img.jpg",
-        thumbnail: "/images/placeholder-img.jpg",
-        title: "Восстановление посудомоечной машины",
-        category: "Посудомойки",
-        description: "Замена помпы, очистка системы слива, замена уплотнителей."
-      },
-      {
-        image: "/images/placeholder-img.jpg",
-        thumbnail: "/images/placeholder-img.jpg",
-        title: "Ремонт индукционной варочной панели",
-        category: "Варочные панели",
-        description: "Замена сенсорной панели, ремонт блока питания."
+        name: "Александр Козлов",
+        date: "28 сентября 2024",
+        rating: 5,
+        text: "Очень оперативно и качественно! Машинка Bosch стала сильно шуметь. Мастер заменил амортизаторы, теперь работает как новая. Спасибо!"
       }
     ]}
-    bgColor="gray-50"
+  />
+
+  <FAQ1
+    heading="Частые вопросы"
+    subheading="Не нашли ответ? Позвоните нам: +7 (812) 555-01-23"
+    faqs={[
+      {
+        question: "Сколько стоит выезд мастера?",
+        answer: "Выезд мастера бесплатный при ремонте. Если вы откажетесь от ремонта после диагностики, диагностика будет стоить 500 рублей."
+      },
+      {
+        question: "Как быстро приедет мастер?",
+        answer: "В среднем мастер приезжает в течение 30-60 минут после вашего звонка. В загруженные дни возможно увеличение времени до 2 часов."
+      },
+      {
+        question: "Какая гарантия на ремонт?",
+        answer: "Мы даём гарантию 1 год на все выполненные работы и установленные запчасти."
+      },
+      {
+        question: "Вы работаете в выходные?",
+        answer: "Да, мы работаем без выходных с 8:00 до 22:00, включая праздничные дни."
+      },
+      {
+        question: "Какие марки стиральных машин вы ремонтируете?",
+        answer: "Мы ремонтируем стиральные машины всех марок: Samsung, LG, Bosch, Indesit, Ariston, Candy, Whirlpool, Electrolux, Zanussi и другие."
+      },
+      {
+        question: "Можно ли оплатить картой?",
+        answer: "Да, мы принимаем оплату наличными и картой (терминал у мастера)."
+      }
+    ]}
+  />
+
+  <Footer1
+    logo="МастерСтирка СПб"
+    phone="+7 (812) 555-01-23"
+    email="info@masterstirka.spb.ru"
+    address="Санкт-Петербург, Невский пр., 100"
+    workingHours="Ежедневно с 8:00 до 22:00"
   />
 
 </BaseLayout>
