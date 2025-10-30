@@ -34,21 +34,8 @@ import Portfolio1 from '../components/sections/portfolio/Portfolio1.astro';
     ctaText="Вызвать сейчас"
     ctaLink="tel:+79991234567"
     bgColor="red-600"
-  />
-
-  <!-- EmergencyBanner3: Hero Banner with Countdown -->
-  <EmergencyBanner3
-    title="Экстренный ремонт за 1 час!"
-    message="Работаем 24/7 без выходных и праздников. Гарантия на все работы."
-    icon="ri-tools-fill"
-    phone="+7 (999) 123-45-67"
-    primaryCta={{ text: "Вызвать мастера" }}
-    secondaryCta={{ text: "Узнать цены", link: "#pricing" }}
-    countdown={{
-      endDate: "2025-12-31T23:59:59",
-      label: "До конца новогодней акции:"
-    }}
-    bgColor="blue-700"
+    dismissible={true}
+    storageKey="emergency-banner-test-v1"
   />
 
   <!-- ========================================
