@@ -26,7 +26,8 @@ import Portfolio1 from '../components/sections/portfolio/Portfolio1.astro';
        EMERGENCY BANNERS (3 variants)
        ======================================== -->
 
-  <!-- EmergencyBanner1: Sticky Top Bar (dismissible) -->
+  <!-- EmergencyBanner1: Sticky Top Bar - TESTED ✅ HIDDEN FOR NOW -->
+  <!--
   <EmergencyBanner1
     message="Срочный ремонт 24/7! Выезд мастера за 30 минут"
     icon="ri-alarm-warning-line"
@@ -36,6 +37,18 @@ import Portfolio1 from '../components/sections/portfolio/Portfolio1.astro';
     bgColor="red-600"
     dismissible={true}
     storageKey="emergency-banner-test-v1"
+  />
+  -->
+
+  <!-- EmergencyBanner2: Floating Corner Badge - TESTING NOW ⏳ -->
+  <EmergencyBanner2
+    icon="ri-customer-service-2-fill"
+    shortText="24/7"
+    expandedMessage="Срочный ремонт в любое время! Выезд мастера за 30 минут."
+    phone="+7 (999) 123-45-67"
+    ctaText="Вызвать мастера"
+    bgColor="red-600"
+    pulseAnimation={true}
   />
 
   <!-- ========================================

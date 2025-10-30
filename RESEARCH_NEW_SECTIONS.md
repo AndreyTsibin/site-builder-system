@@ -54,12 +54,39 @@ _(nothing currently in progress)_
 **All completed components are available for testing at:**
 - URL: `http://localhost:4321/`
 - File: `src/pages/index.astro`
+- **Dev server is ALREADY RUNNING** (bash_id: e0307f) — DO NOT restart!
 
 **Test Results:**
-- ✅ Stats sections — Counters animate on scroll, responsive layout works
-- ✅ Emergency Banners — Sticky bar, floating badge, countdown timer all functional
-- ✅ Before/After sliders — Interactive draggable sliders work perfectly
-- ⏳ Portfolio carousel — Added to index.astro, needs visual testing
+- ✅ **EmergencyBanner1** — TESTED & APPROVED! Mobile layout (2 rows), desktop layout (1 row), CTA hidden on mobile
+- ⏳ **EmergencyBanner2** — Not tested yet (Floating Corner Badge)
+- ⏳ **EmergencyBanner3** — Not tested yet (Hero Banner with countdown)
+- ⏳ **Stats1, Stats2, Stats3** — Not tested yet
+- ⏳ **BeforeAfter1, BeforeAfter2, BeforeAfter3** — Not tested yet
+- ⏳ **Portfolio1** — Not tested yet
+
+---
+
+## 🔧 Current Session Notes (for next session)
+
+**What we just finished:**
+1. ✅ Fixed EmergencyBanner1 Tailwind dynamic class issue (`bg-${color}` → static mappings)
+2. ✅ Improved mobile responsive layout (2 rows: message → phone/close)
+3. ✅ Hide CTA button on mobile (< 640px), show on tablet+ (≥ 640px)
+4. ✅ Committed: `fix: improve EmergencyBanner1 responsive layout and Tailwind classes`
+
+**Next steps:**
+1. Hide EmergencyBanner1 in index.astro
+2. Show EmergencyBanner2 (Floating Corner Badge) for testing
+3. Test EmergencyBanner3 (Hero Banner with countdown)
+4. Test remaining Stats, BeforeAfter, Portfolio sections
+5. Fix any Tailwind dynamic class issues in other components
+6. Continue with Portfolio2, Portfolio3, Team, Calculator sections
+
+**Important reminders:**
+- ⚠️ Dev server is RUNNING on bash_id: e0307f — don't restart!
+- ⚠️ All components in `src/pages/index.astro` — one page for all testing
+- ⚠️ Tailwind doesn't support `bg-${variable}` — use static class mappings
+- ⚠️ EmergencyBanner1 uses `storageKey="emergency-banner-test-v1"` to avoid old localStorage
 
 ---
 
