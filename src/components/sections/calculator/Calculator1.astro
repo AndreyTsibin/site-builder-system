@@ -211,11 +211,6 @@ const instanceId = Math.random().toString(36).substring(7);
 </script>
 
 <style>
-  /* Smooth transitions */
-  #calc-result-${instanceId} {
-    transition: transform 0.2s ease;
-  }
-
   /* Radio button styling */
   input[type="radio"]:checked + span {
     color: #1e40af;
@@ -223,5 +218,10 @@ const instanceId = Math.random().toString(36).substring(7);
 
   input[type="radio"]:checked {
     accent-color: #1e40af;
+  }
+
+  /* Smooth transitions for result */
+  [id^="calc-result-"] {
+    transition: transform 0.2s ease;
   }
 </style>
