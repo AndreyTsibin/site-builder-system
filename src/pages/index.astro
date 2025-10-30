@@ -1,54 +1,78 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FAQ1 from '../components/sections/faq/FAQ1.astro';
-import FAQ2 from '../components/sections/faq/FAQ2.astro';
-import FAQ3 from '../components/sections/faq/FAQ3.astro';
-
-// FAQ data template (used in all variants)
-const faqData = [
-  {
-    question: 'Сколько стоит ремонт?',
-    answer: 'Стоимость ремонта зависит от типа неисправности и модели техники. Диагностика бесплатная. После осмотра мастер озвучит точную цену. Средняя стоимость ремонта от 1500₽.'
-  },
-  {
-    question: 'Как быстро приедет мастер?',
-    answer: 'В большинстве случаев мастер приезжает в течение 2 часов после вашего звонка. Для срочных вызовов возможен выезд в течение 30-60 минут. Вы можете выбрать удобное время.'
-  },
-  {
-    question: 'Какая гарантия на ремонт?',
-    answer: 'Мы предоставляем официальную гарантию от 6 до 12 месяцев на все виды работ и установленные запчасти. Гарантия оформляется документально с актом выполненных работ.'
-  },
-  {
-    question: 'Ремонтируете ли вы технику на дому?',
-    answer: 'Да, 95% ремонтов мы выполняем на дому у клиента. Мастер приезжает со всеми необходимыми инструментами и запчастями. Только в сложных случаях может потребоваться доставка техники в сервис.'
-  },
-  {
-    question: 'Какие способы оплаты вы принимаете?',
-    answer: 'Мы принимаем наличные, банковские карты, переводы по номеру телефона (СБП). Оплата производится после завершения ремонта и проверки работы техники.'
-  }
-];
+import Header1 from '../components/sections/header/Header1.astro';
+import Header2 from '../components/sections/header/Header2.astro';
+import Header3 from '../components/sections/header/Header3.astro';
 ---
 
-<BaseLayout title="Site Builder 2.0 | FAQ Demo">
+<BaseLayout title="Site Builder 2.0 | Header Demo">
 
-  <!-- FAQ1 - Centered Single Column -->
-  <FAQ1
-    heading="Часто задаваемые вопросы"
-    subheading="Ответы на самые популярные вопросы о ремонте техники"
-    faqs={faqData}
+  <!-- Header1 - Simple Logo + Menu + Phone -->
+  <Header1
+    logo="РемонтТех"
+    phone="+7 (495) 123-45-67"
   />
 
-  <!-- FAQ2 - Two-Column with Image -->
-  <FAQ2
-    heading="Остались вопросы?"
-    subheading="Мы собрали ответы на самые частые вопросы наших клиентов"
-    faqs={faqData}
+  <!-- Demo Content for Header1 -->
+  <section class="py-16 md:py-20 lg:py-24 bg-gray-50" id="services">
+    <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8">
+        Header 1 — Simple Logo + Menu + Phone
+      </h2>
+      <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+        Классический вариант с логотипом слева, меню по центру и контактами справа.
+        Sticky позиционирование и slide-in sidebar на мобильных устройствах.
+      </p>
+    </div>
+  </section>
+
+  <!-- Spacer between demos -->
+  <div class="h-screen"></div>
+
+  <!-- Header2 - Logo + Menu + Promo Banner -->
+  <Header2
+    logo="РемонтТех"
+    phone="+7 (495) 123-45-67"
+    promoBanner="Бесплатная диагностика при ремонте!"
+    promoBannerBg="bg-green-600"
   />
 
-  <!-- FAQ3 - Two-Column Split Layout -->
-  <FAQ3
-    heading="Популярные вопросы"
-    subheading="Всё что нужно знать о ремонте бытовой техники"
-    faqs={faqData}
+  <!-- Demo Content for Header2 -->
+  <section class="py-16 md:py-20 lg:py-24 bg-blue-50" id="testimonials">
+    <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8">
+        Header 2 — Logo + Menu + Promo Banner
+      </h2>
+      <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+        Вариант с промо-баннером сверху для акций и спецпредложений.
+        Яркий баннер привлекает внимание к выгодным условиям.
+      </p>
+    </div>
+  </section>
+
+  <!-- Spacer between demos -->
+  <div class="h-screen"></div>
+
+  <!-- Header3 - Centered Logo -->
+  <Header3
+    logo="РемонтТех"
+    phone="+7 (495) 123-45-67"
   />
+
+  <!-- Demo Content for Header3 -->
+  <section class="py-16 md:py-20 lg:py-24 bg-green-50" id="contacts">
+    <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8">
+        Header 3 — Centered Logo
+      </h2>
+      <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+        Премиальный вариант с центрированным логотипом и симметричным расположением элементов.
+        Создает более изысканный и сбалансированный вид.
+      </p>
+    </div>
+  </section>
+
+  <!-- Spacer for footer -->
+  <div class="h-screen"></div>
+
 </BaseLayout>

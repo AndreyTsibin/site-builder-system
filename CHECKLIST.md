@@ -6,7 +6,76 @@
 
 ---
 
-## 1. HERO SECTIONS
+## 1. HEADER
+
+### Header1 — Simple Logo + Menu + Phone
+
+**Concept:** Classic header with logo on left, navigation in center, contacts on right.
+
+**Required elements:**
+
+- Logo/company name (left, clickable to homepage)
+- Desktop navigation menu (center/right)
+- Phone number with icon (desktop)
+- CTA button (desktop)
+- Burger menu button (mobile)
+- Slide-in sidebar (mobile) — 80% width, max 384px
+- Sticky/fixed positioning
+- Mobile menu items: Услуги, Отзывы, Контакты
+- Close button in sidebar
+- Overlay background when sidebar open
+- ESC key to close sidebar
+- Spacer div to prevent content hiding under header
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/header/Header1.astro`
+
+---
+
+### Header2 — Logo + Menu + Promo Banner
+
+**Concept:** Header with promotional banner on top for special offers and discounts.
+
+**Required elements:**
+
+- Promo banner at very top (fixed, customizable background color)
+- Banner icon + message text
+- Main header below banner (all Header1 elements)
+- Sticky/fixed positioning for both banner and header
+- Promo message also shown in mobile sidebar
+- Two spacers: one for banner height, one for header height
+- Default banner: green background, gift icon
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/header/Header2.astro`
+
+---
+
+### Header3 — Centered Logo
+
+**Concept:** Premium design with centered logo and symmetrical element placement.
+
+**Required elements:**
+
+- Desktop: 3-column grid layout
+  - Left: Navigation menu
+  - Center: Logo (centered)
+  - Right: Phone + CTA button
+- Mobile: Logo left, phone + burger right
+- Sticky/fixed positioning
+- Slide-in sidebar (same as Header1)
+- Balanced, symmetrical design
+- More premium visual appearance
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/header/Header3.astro`
+
+---
+
+## 2. HERO SECTIONS
 
 ### Hero1 — Hero with Image & CTAs
 
@@ -704,10 +773,11 @@
 
 ---
 
-## TOTAL: 30 Components Across 8 Categories
+## TOTAL: 33 Components Across 9 Categories
 
-**Progress:** 29 / 30 completed (96.7%)
+**Progress:** 32 / 33 completed (97.0%)
 
+**Header:** 3 / 3 completed ✅
 **Heroes:** 6 / 6 completed ✅
 **Services & Pricing:** 6 / 6 completed ✅
 **Benefits:** 3 / 3 completed ✅
