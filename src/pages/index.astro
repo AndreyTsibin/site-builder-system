@@ -2,10 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header1 from '../components/sections/header/Header1.astro';
 import Header2 from '../components/sections/header/Header2.astro';
-import Header3 from '../components/sections/header/Header3.astro';
 ---
 
 <BaseLayout title="Site Builder 2.0 | Header Demo">
+
+  <!-- ============================================ -->
+  <!-- HEADER DEMOS - Uncomment one at a time     -->
+  <!-- ============================================ -->
 
   <!-- Header1 - Simple Logo + Menu + Phone -->
   <Header1
@@ -26,10 +29,7 @@ import Header3 from '../components/sections/header/Header3.astro';
     </div>
   </section>
 
-  <!-- Spacer between demos -->
-  <div class="h-screen"></div>
-
-  <!-- Header2 - Logo + Menu + Promo Banner -->
+  <!--
   <Header2
     logo="РемонтТех"
     phone="+7 (495) 123-45-67"
@@ -37,7 +37,6 @@ import Header3 from '../components/sections/header/Header3.astro';
     promoBannerBg="bg-green-600"
   />
 
-  <!-- Demo Content for Header2 -->
   <section class="py-16 md:py-20 lg:py-24 bg-blue-50" id="testimonials">
     <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8">
@@ -49,30 +48,9 @@ import Header3 from '../components/sections/header/Header3.astro';
       </p>
     </div>
   </section>
+  -->
 
-  <!-- Spacer between demos -->
-  <div class="h-screen"></div>
-
-  <!-- Header3 - Centered Logo -->
-  <Header3
-    logo="РемонтТех"
-    phone="+7 (495) 123-45-67"
-  />
-
-  <!-- Demo Content for Header3 -->
-  <section class="py-16 md:py-20 lg:py-24 bg-green-50" id="contacts">
-    <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8">
-        Header 3 — Centered Logo
-      </h2>
-      <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto">
-        Премиальный вариант с центрированным логотипом и симметричным расположением элементов.
-        Создает более изысканный и сбалансированный вид.
-      </p>
-    </div>
-  </section>
-
-  <!-- Spacer for footer -->
-  <div class="h-screen"></div>
+  <!-- Spacer for demo scrolling -->
+  <div class="h-screen bg-gradient-to-b from-gray-50 to-white"></div>
 
 </BaseLayout>

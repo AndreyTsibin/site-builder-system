@@ -1,20 +1,24 @@
 ---
 interface Props {
   logo: string;
+  logoIcon?: string;
   menuItems?: { label: string; href: string }[];
   phone: string;
+  workingHours?: string;
   ctaText?: string;
   ctaLink?: string;
 }
 
 const {
   logo,
+  logoIcon = 'ri-tools-line',
   menuItems = [
     { label: 'Услуги', href: '#services' },
     { label: 'Отзывы', href: '#testimonials' },
     { label: 'Контакты', href: '#contacts' }
   ],
   phone,
+  workingHours = 'Ежедневно 8:00 - 22:00',
   ctaText = 'Вызвать мастера',
   ctaLink = '#cta'
 } = Astro.props;
@@ -25,8 +29,9 @@ const {
     <div class="flex items-center justify-between py-4 md:py-6">
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href="/" class="text-xl md:text-2xl font-bold text-blue-700 hover:text-blue-800 transition-colors">
-          {logo}
+        <a href="/" class="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 hover:text-blue-700 transition-colors">
+          <i class={`${logoIcon} text-2xl md:text-3xl`}></i>
+          <span>{logo}</span>
         </a>
       </div>
 
@@ -35,7 +40,7 @@ const {
         {menuItems.map((item) => (
           <a
             href={item.href}
-            class="text-base text-gray-700 hover:text-blue-700 transition-colors font-medium"
+            class="menu-link-underline text-base text-gray-700 hover:text-blue-700 transition-colors font-medium relative py-1"
           >
             {item.label}
           </a>
@@ -44,13 +49,16 @@ const {
 
       <!-- Desktop Phone + CTA -->
       <div class="hidden md:flex items-center gap-4">
-        <a
-          href={`tel:${phone.replace(/\s/g, '')}`}
-          class="flex items-center gap-2 text-base lg:text-lg font-semibold text-gray-900 hover:text-blue-700 transition-colors"
-        >
-          <i class="ri-phone-line text-xl"></i>
-          <span>{phone}</span>
-        </a>
+        <div class="flex flex-col">
+          <a
+            href={`tel:${phone.replace(/\s/g, '')}`}
+            class="flex items-center gap-2 text-base lg:text-lg font-semibold text-gray-900 hover:text-blue-700 transition-colors"
+          >
+            <i class="ri-phone-line text-xl"></i>
+            <span>{phone}</span>
+          </a>
+          <span class="text-xs text-gray-500 ml-7">{workingHours}</span>
+        </div>
         <a
           href={ctaLink}
           class="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors"
@@ -90,7 +98,10 @@ const {
   <div class="flex flex-col h-full">
     <!-- Sidebar Header -->
     <div class="flex items-center justify-between p-6 border-b border-gray-200">
-      <span class="text-xl font-bold text-blue-700">{logo}</span>
+      <div class="flex items-center gap-2">
+        <i class={`${logoIcon} text-2xl text-gray-900`}></i>
+        <span class="text-xl font-bold text-gray-900">{logo}</span>
+      </div>
       <button
         id="close-menu-btn"
         class="text-gray-700 hover:text-red-600 transition-colors"
@@ -118,13 +129,16 @@ const {
 
     <!-- Sidebar Footer -->
     <div class="p-6 border-t border-gray-200 space-y-4">
-      <a
-        href={`tel:${phone.replace(/\s/g, '')}`}
-        class="flex items-center gap-3 text-lg font-semibold text-gray-900 hover:text-blue-700 transition-colors"
-      >
-        <i class="ri-phone-line text-xl"></i>
-        <span>{phone}</span>
-      </a>
+      <div class="flex flex-col gap-1">
+        <a
+          href={`tel:${phone.replace(/\s/g, '')}`}
+          class="flex items-center gap-3 text-lg font-semibold text-gray-900 hover:text-blue-700 transition-colors"
+        >
+          <i class="ri-phone-line text-xl"></i>
+          <span>{phone}</span>
+        </a>
+        <span class="text-xs text-gray-500 ml-9">{workingHours}</span>
+      </div>
       <a
         href={ctaLink}
         class="block w-full px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors text-center"
@@ -170,6 +184,25 @@ const {
     }
   });
 </script>
+
+<style>
+  .menu-link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1d4ed8; /* blue-700 */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .menu-link-underline:hover::after {
+    transform: scaleX(1);
+  }
+</style>
 
 <!-- Spacer to prevent content from hiding under fixed header -->
 <div class="h-[72px] md:h-[88px]"></div>
