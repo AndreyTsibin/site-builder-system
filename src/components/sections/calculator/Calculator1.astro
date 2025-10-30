@@ -1,0 +1,227 @@
+---
+/**
+ * Calculator1: Simple Cost Estimator
+ *
+ * Interactive repair cost calculator with real-time price display.
+ * Features: Device type dropdown, problem radio buttons, urgency toggle.
+ * Best for: Quick cost estimation, lead generation, transparency.
+ */
+
+interface CalculatorOption {
+  label: string;
+  value: string;
+  price: number; // base price for this option
+}
+
+interface Props {
+  title: string; // "Рассчитайте стоимость ремонта"
+  subtitle?: string; // "Узнайте примерную стоимость за 1 минуту"
+  deviceTypes: CalculatorOption[]; // ["Холодильник", "Стиральная машина", ...]
+  problemTypes: CalculatorOption[]; // ["Не включается", "Шумит", ...]
+  urgencyOptions: CalculatorOption[]; // ["Обычный", "Экспресс (+50%)"]
+  baseFee: number; // Выезд мастера
+  resultLabel: string; // "Примерная стоимость:"
+  disclaimer: string; // "Точная цена после диагностики"
+  ctaText: string; // "Вызвать мастера"
+  ctaLink?: string; // Link for CTA button
+  bgColor?: string; // "white" | "gray-50"
+}
+
+const {
+  title,
+  subtitle,
+  deviceTypes,
+  problemTypes,
+  urgencyOptions,
+  baseFee,
+  resultLabel,
+  disclaimer,
+  ctaText,
+  ctaLink = "tel:+79991234567",
+  bgColor = "white"
+} = Astro.props;
+
+// Generate unique IDs for this instance
+const instanceId = Math.random().toString(36).substring(7);
+---
+
+<section class={`py-16 md:py-20 lg:py-24 bg-${bgColor}`}>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      {subtitle && (
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    {/* Calculator Form */}
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-10">
+        <form id={`calculator-form-${instanceId}`} class="space-y-8">
+          {/* Device Type Dropdown */}
+          <div>
+            <label for={`device-${instanceId}`} class="block text-lg font-semibold text-gray-900 mb-3">
+              Тип устройства
+            </label>
+            <select
+              id={`device-${instanceId}`}
+              name="device"
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-base focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20 transition-colors"
+              required
+            >
+              <option value="">Выберите устройство</option>
+              {deviceTypes.map((device) => (
+                <option value={device.value} data-price={device.price}>
+                  {device.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Problem Type Radio Buttons */}
+          <div>
+            <label class="block text-lg font-semibold text-gray-900 mb-3">
+              Проблема
+            </label>
+            <div class="space-y-3">
+              {problemTypes.map((problem, index) => (
+                <label class="flex items-center gap-3 p-4 border-2 border-gray-300 rounded-lg hover:border-blue-700 hover:bg-blue-50 cursor-pointer transition-all group">
+                  <input
+                    type="radio"
+                    name={`problem-${instanceId}`}
+                    value={problem.value}
+                    data-price={problem.price}
+                    class="w-5 h-5 text-blue-700 focus:ring-2 focus:ring-blue-700"
+                    required={index === 0}
+                  />
+                  <span class="text-base font-medium text-gray-900 group-hover:text-blue-700">
+                    {problem.label}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Urgency Toggle */}
+          <div>
+            <label class="block text-lg font-semibold text-gray-900 mb-3">
+              Срочность
+            </label>
+            <div class="grid grid-cols-2 gap-4">
+              {urgencyOptions.map((urgency, index) => (
+                <label class="flex items-center justify-center gap-3 p-4 border-2 border-gray-300 rounded-lg hover:border-blue-700 hover:bg-blue-50 cursor-pointer transition-all group">
+                  <input
+                    type="radio"
+                    name={`urgency-${instanceId}`}
+                    value={urgency.value}
+                    data-price={urgency.price}
+                    class="w-5 h-5 text-blue-700 focus:ring-2 focus:ring-blue-700"
+                    checked={index === 0}
+                  />
+                  <span class="text-base font-medium text-gray-900 group-hover:text-blue-700">
+                    {urgency.label}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Result Display */}
+          <div class="bg-gradient-to-br from-blue-700 to-blue-900 rounded-xl p-6 md:p-8 text-center">
+            <p class="text-lg text-white/90 mb-2">
+              {resultLabel}
+            </p>
+            <div id={`calc-result-${instanceId}`} class="text-5xl md:text-6xl font-bold text-white mb-4">
+              {baseFee} ₽
+            </div>
+            <p class="text-sm text-white/80">
+              {disclaimer}
+            </p>
+          </div>
+
+          {/* CTA Button */}
+          <div class="text-center">
+            <a
+              href={ctaLink}
+              class="inline-block px-8 py-4 bg-green-600 text-white font-semibold text-lg rounded-xl hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl"
+            >
+              {ctaText}
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ instanceId, baseFee }}>
+  // Real-time calculator
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById(`calculator-form-${instanceId}`);
+    const resultEl = document.getElementById(`calc-result-${instanceId}`);
+
+    if (!form || !resultEl) return;
+
+    function calculatePrice() {
+      const deviceSelect = form.querySelector('select[name="device"]');
+      const problemRadios = form.querySelectorAll(`input[name="problem-${instanceId}"]:checked`);
+      const urgencyRadios = form.querySelectorAll(`input[name="urgency-${instanceId}"]:checked`);
+
+      let total = baseFee;
+
+      // Add device price
+      if (deviceSelect.value) {
+        const selectedOption = deviceSelect.options[deviceSelect.selectedIndex];
+        total += parseInt(selectedOption.dataset.price || '0');
+      }
+
+      // Add problem price
+      if (problemRadios.length > 0) {
+        total += parseInt(problemRadios[0].dataset.price || '0');
+      }
+
+      // Add urgency multiplier or fixed price
+      if (urgencyRadios.length > 0) {
+        const urgencyPrice = parseInt(urgencyRadios[0].dataset.price || '0');
+        if (urgencyPrice > 0) {
+          total += urgencyPrice;
+        }
+      }
+
+      // Animate number change
+      resultEl.style.transform = 'scale(1.1)';
+      setTimeout(() => {
+        resultEl.textContent = `${total.toLocaleString('ru-RU')} ₽`;
+        resultEl.style.transform = 'scale(1)';
+      }, 100);
+    }
+
+    // Add event listeners
+    form.addEventListener('change', calculatePrice);
+    form.addEventListener('input', calculatePrice);
+
+    // Initial calculation
+    calculatePrice();
+  });
+</script>
+
+<style>
+  /* Smooth transitions */
+  #calc-result-${instanceId} {
+    transition: transform 0.2s ease;
+  }
+
+  /* Radio button styling */
+  input[type="radio"]:checked + span {
+    color: #1e40af;
+  }
+
+  input[type="radio"]:checked {
+    accent-color: #1e40af;
+  }
+</style>

@@ -1,132 +1,95 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Team Sections
-import Team1 from '../components/sections/team/Team1.astro';
-import Team2 from '../components/sections/team/Team2.astro';
-import Team3 from '../components/sections/team/Team3.astro';
+// Calculator Sections
+import Calculator1 from '../components/sections/calculator/Calculator1.astro';
+import Calculator2 from '../components/sections/calculator/Calculator2.astro';
 ---
 
-<BaseLayout title="Site Builder 2.0 - Team Demo">
+<BaseLayout title="Site Builder 2.0 - Calculator Demo">
 
   <!-- ========================================
-       TEAM SECTIONS (3 variants)
+       CALCULATOR SECTIONS (2 variants)
        ======================================== -->
 
-  <!-- Team1: Grid with Photo Cards -->
-  <Team1
-    title="Наши мастера"
-    subtitle="Опытные специалисты с многолетним стажем"
-    members={[
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Иван Петров",
-        role: "Мастер по ремонту холодильников",
-        experience: "15 лет опыта",
-        bio: "Специализируется на ремонте холодильного оборудования. Прошел обучение в сервисных центрах ведущих брендов.",
-        specializations: ["Bosch", "Siemens", "Samsung", "LG"],
-        certifications: ["Сертификат Bosch Service", "Мастер года 2024"]
-      },
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Сергей Иванов",
-        role: "Мастер по ремонту стиральных машин",
-        experience: "12 лет опыта",
-        bio: "Эксперт в диагностике и ремонте стиральных машин любой сложности. Работает с импортными и отечественными брендами.",
-        specializations: ["Electrolux", "Ariston", "Indesit", "Zanussi"],
-        certifications: ["Сертификат Electrolux Professional"]
-      },
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Алексей Смирнов",
-        role: "Мастер по ремонту духовых шкафов",
-        experience: "10 лет опыта",
-        bio: "Специалист по встроенной кухонной технике. Быстро находит и устраняет любые неисправности.",
-        specializations: ["Gorenje", "Hansa", "Bosch", "Siemens"],
-        certifications: ["Сертификат Gorenje Service"]
-      }
+  <!-- Calculator1: Simple Cost Estimator -->
+  <Calculator1
+    title="Рассчитайте стоимость ремонта"
+    subtitle="Узнайте примерную стоимость за 1 минуту"
+    deviceTypes={[
+      { label: "Холодильник", value: "refrigerator", price: 500 },
+      { label: "Стиральная машина", value: "washer", price: 600 },
+      { label: "Посудомоечная машина", value: "dishwasher", price: 550 },
+      { label: "Духовой шкаф", value: "oven", price: 450 },
+      { label: "Варочная панель", value: "cooktop", price: 400 },
+      { label: "Микроволновая печь", value: "microwave", price: 300 }
     ]}
-  />
-
-  <!-- Team2: Featured Lead + Supporting Team -->
-  <Team2
-    title="Познакомьтесь с нашей командой"
-    subtitle="Профессионалы под руководством опытного мастера"
-    lead={{
-      photo: "/images/placeholder-img.jpg",
-      name: "Дмитрий Кузнецов",
-      role: "Основатель и главный мастер",
-      bio: "Основал компанию в 2005 году. За это время собрал команду из лучших специалистов города и наладил сотрудничество с ведущими производителями техники. Лично контролирует качество всех работ.",
-      experience: "20 лет опыта",
-      certifications: [
-        "Авторизованный партнер Bosch",
-        "Сертифицированный мастер Samsung",
-        "Премия 'Лучший сервис года' 2023"
-      ]
-    }}
-    team={[
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Михаил Попов",
-        role: "Мастер-универсал",
-        experience: "8 лет опыта"
-      },
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Андрей Новиков",
-        role: "Мастер по холодильникам",
-        experience: "7 лет опыта"
-      },
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Николай Федоров",
-        role: "Мастер по посудомойкам",
-        experience: "6 лет опыта"
-      },
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Виктор Соколов",
-        role: "Мастер по варочным панелям",
-        experience: "5 лет опыта"
-      }
+    problemTypes={[
+      { label: "Не включается", value: "no_power", price: 800 },
+      { label: "Шумит / вибрирует", value: "noise", price: 600 },
+      { label: "Течет вода", value: "leak", price: 700 },
+      { label: "Не греет / не морозит", value: "temp", price: 900 },
+      { label: "Не работает функция", value: "function", price: 500 }
     ]}
-    stats={[
-      { value: "12+", label: "мастеров в команде" },
-      { value: "200+", label: "ремонтов в месяц" },
-      { value: "15", label: "лет на рынке" },
-      { value: "98%", label: "довольных клиентов" }
+    urgencyOptions={[
+      { label: "Обычный (2-3 дня)", value: "normal", price: 0 },
+      { label: "Экспресс (сегодня)", value: "express", price: 1000 }
     ]}
-  />
-
-  <!-- Team3: Simple Photo Row with Bios -->
-  <Team3
-    title="Наша команда"
-    subtitle="Мы работаем честно и качественно"
-    teamDescription="Наша небольшая, но профессиональная команда готова решить любую проблему с вашей бытовой техникой. Каждый мастер имеет многолетний опыт работы и регулярно проходит обучение новым технологиям ремонта."
-    members={[
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Павел Морозов",
-        role: "Главный мастер"
-      },
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Роман Белов",
-        role: "Старший мастер"
-      },
-      {
-        photo: "/images/placeholder-img.jpg",
-        name: "Олег Зайцев",
-        role: "Мастер-диагност"
-      }
-    ]}
-    certifications={[
-      "Лицензия на ремонт бытовой техники",
-      "Сертификат ISO 9001",
-      "Авторизованный сервисный центр"
-    ]}
-    ctaText="Заказать выезд мастера"
+    baseFee={500}
+    resultLabel="Примерная стоимость:"
+    disclaimer="Точная цена после бесплатной диагностики"
+    ctaText="Вызвать мастера"
     ctaLink="tel:+79991234567"
+  />
+
+  <!-- Calculator2: Detailed Multi-Step Calculator -->
+  <Calculator2
+    title="Подробный расчет стоимости"
+    subtitle="Точная оценка за 3 простых шага"
+    steps={[
+      {
+        title: "Шаг 1: Выберите тип устройства",
+        options: [
+          { label: "Холодильник", icon: "ri-fridge-line", price: 500, description: "Ремонт холодильного оборудования" },
+          { label: "Стиральная машина", icon: "ri-shirt-line", price: 600, description: "Ремонт стиральных машин" },
+          { label: "Посудомойка", icon: "ri-cup-line", price: 550, description: "Ремонт посудомоечных машин" },
+          { label: "Духовой шкаф", icon: "ri-fire-line", price: 450, description: "Ремонт духовых шкафов" }
+        ]
+      },
+      {
+        title: "Шаг 2: Выберите проблемы (можно несколько)",
+        allowMultiple: true,
+        options: [
+          { label: "Не включается", icon: "ri-power-off-line", price: 800 },
+          { label: "Шумит", icon: "ri-volume-up-line", price: 600 },
+          { label: "Течет", icon: "ri-drop-line", price: 700 },
+          { label: "Не греет/морозит", icon: "ri-temp-cold-line", price: 900 },
+          { label: "Не работает функция", icon: "ri-settings-4-line", price: 500 }
+        ]
+      },
+      {
+        title: "Шаг 3: Дополнительные услуги",
+        allowMultiple: true,
+        options: [
+          { label: "Гарантия 1 год", icon: "ri-shield-check-line", price: 500, description: "Расширенная гарантия" },
+          { label: "Экспресс (сегодня)", icon: "ri-rocket-line", price: 1000, description: "Выезд в течение 2 часов" },
+          { label: "Оригинальные запчасти", icon: "ri-tools-line", price: 300, description: "Гарантия качества" },
+          { label: "Ничего не нужно", icon: "ri-close-line", price: 0, description: "Без дополнительных услуг" }
+        ]
+      }
+    ]}
+    baseFee={500}
+    resultScreen={{
+      title: "Ваша смета готова!",
+      priceLabel: "Итоговая стоимость:",
+      breakdown: true,
+      ctaText: "Заказать ремонт",
+      leadForm: {
+        nameLabel: "Ваше имя",
+        phoneLabel: "Телефон",
+        submitText: "Отправить заявку"
+      }
+    }}
   />
 
 </BaseLayout>

@@ -1,0 +1,333 @@
+---
+/**
+ * Calculator2: Detailed Multi-Step Calculator
+ *
+ * Multi-step interactive calculator with progress indicator and lead form.
+ * Features: Visual card selection, multiple problems, options, breakdown.
+ * Best for: Detailed cost estimation, lead capture, professional presentation.
+ */
+
+interface StepOption {
+  label: string;
+  icon?: string; // Remix Icon class
+  price: number;
+  description?: string;
+}
+
+interface Step {
+  title: string;
+  options: StepOption[];
+  allowMultiple?: boolean; // For step 2 (multiple problems)
+}
+
+interface Props {
+  title: string; // "Рассчитайте стоимость ремонта"
+  subtitle?: string; // "Подробный расчет за 3 шага"
+  steps: Step[]; // 3 steps
+  baseFee: number; // Выезд мастера
+  resultScreen: {
+    title: string; // "Ваша смета готова"
+    priceLabel: string; // "Итоговая стоимость:"
+    breakdown: boolean; // Show price breakdown
+    ctaText: string; // "Заказать ремонт"
+    leadForm: {
+      nameLabel: string;
+      phoneLabel: string;
+      submitText: string;
+    };
+  };
+  bgColor?: string; // "white" | "gray-50"
+}
+
+const {
+  title,
+  subtitle,
+  steps,
+  baseFee,
+  resultScreen,
+  bgColor = "white"
+} = Astro.props;
+
+// Generate unique ID
+const instanceId = Math.random().toString(36).substring(7);
+---
+
+<section class={`py-16 md:py-20 lg:py-24 bg-${bgColor}`}>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      {subtitle && (
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    {/* Calculator Container */}
+    <div class="max-w-4xl mx-auto">
+      <div id={`calc2-${instanceId}`} class="bg-white rounded-2xl shadow-2xl p-8 md:p-10">
+        {/* Progress Bar */}
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-3">
+            <span id={`calc2-progress-text-${instanceId}`} class="text-sm font-semibold text-gray-600">
+              Шаг 1 из {steps.length}
+            </span>
+            <span id={`calc2-progress-percent-${instanceId}`} class="text-sm font-semibold text-blue-700">
+              0%
+            </span>
+          </div>
+          <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div id={`calc2-progress-bar-${instanceId}`} class="h-full bg-blue-700 transition-all duration-300" style="width: 0%"></div>
+          </div>
+        </div>
+
+        {/* Steps Container */}
+        <div id={`calc2-steps-${instanceId}`}>
+          {/* Steps will be generated dynamically */}
+        </div>
+
+        {/* Navigation Buttons */}
+        <div class="flex justify-between items-center mt-8 gap-4">
+          <button
+            id={`calc2-back-${instanceId}`}
+            class="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-colors hidden"
+          >
+            <i class="ri-arrow-left-line mr-2"></i>
+            Назад
+          </button>
+          <button
+            id={`calc2-next-${instanceId}`}
+            class="ml-auto px-8 py-3 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors"
+          >
+            Далее
+            <i class="ri-arrow-right-line ml-2"></i>
+          </button>
+        </div>
+
+        {/* Result Screen (hidden initially) */}
+        <div id={`calc2-result-${instanceId}`} class="hidden">
+          <div class="text-center mb-8">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">
+              {resultScreen.title}
+            </h3>
+
+            {/* Price Display */}
+            <div class="bg-gradient-to-br from-blue-700 to-blue-900 rounded-xl p-8 mb-6">
+              <p class="text-lg text-white/90 mb-2">
+                {resultScreen.priceLabel}
+              </p>
+              <div id={`calc2-final-price-${instanceId}`} class="text-5xl md:text-6xl font-bold text-white">
+                0 ₽
+              </div>
+            </div>
+
+            {/* Breakdown (optional) */}
+            {resultScreen.breakdown && (
+              <div id={`calc2-breakdown-${instanceId}`} class="bg-gray-50 rounded-xl p-6 mb-6 text-left">
+                <h4 class="text-lg font-semibold text-gray-900 mb-4">Детализация:</h4>
+                <div id={`calc2-breakdown-list-${instanceId}`} class="space-y-2">
+                  {/* Will be filled by JS */}
+                </div>
+              </div>
+            )}
+
+            {/* Lead Form */}
+            <form id={`calc2-lead-form-${instanceId}`} class="max-w-md mx-auto space-y-4">
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder={resultScreen.leadForm.nameLabel}
+                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder={resultScreen.leadForm.phoneLabel}
+                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="w-full px-8 py-4 bg-green-600 text-white font-semibold text-lg rounded-xl hover:bg-green-700 transition-colors shadow-lg"
+              >
+                {resultScreen.leadForm.submitText}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ instanceId, steps, baseFee, resultScreen }}>
+  // Multi-step calculator logic
+  document.addEventListener('DOMContentLoaded', () => {
+    let currentStep = 0;
+    const selections = {};
+
+    const stepsContainer = document.getElementById(`calc2-steps-${instanceId}`);
+    const progressBar = document.getElementById(`calc2-progress-bar-${instanceId}`);
+    const progressText = document.getElementById(`calc2-progress-text-${instanceId}`);
+    const progressPercent = document.getElementById(`calc2-progress-percent-${instanceId}`);
+    const backBtn = document.getElementById(`calc2-back-${instanceId}`);
+    const nextBtn = document.getElementById(`calc2-next-${instanceId}`);
+    const resultDiv = document.getElementById(`calc2-result-${instanceId}`);
+    const finalPriceEl = document.getElementById(`calc2-final-price-${instanceId}`);
+    const breakdownList = document.getElementById(`calc2-breakdown-list-${instanceId}`);
+
+    function renderStep(stepIndex) {
+      const step = steps[stepIndex];
+      const isMultiple = step.allowMultiple;
+      const inputType = isMultiple ? 'checkbox' : 'radio';
+      const inputName = `calc2-step${stepIndex}-${instanceId}`;
+
+      stepsContainer.innerHTML = `
+        <div class="mb-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">${step.title}</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            ${step.options.map((option, idx) => `
+              <label class="relative flex flex-col p-6 border-2 border-gray-300 rounded-xl hover:border-blue-700 hover:bg-blue-50 cursor-pointer transition-all group">
+                <input
+                  type="${inputType}"
+                  name="${inputName}"
+                  value="${idx}"
+                  data-price="${option.price}"
+                  data-label="${option.label}"
+                  class="absolute top-4 right-4 w-5 h-5 text-blue-700"
+                />
+                ${option.icon ? `<i class="${option.icon} text-4xl text-blue-700 mb-3"></i>` : ''}
+                <span class="text-lg font-semibold text-gray-900 mb-2">${option.label}</span>
+                ${option.description ? `<span class="text-sm text-gray-600">${option.description}</span>` : ''}
+                <span class="text-xl font-bold text-blue-700 mt-auto">${option.price > 0 ? '+' + option.price.toLocaleString('ru-RU') + ' ₽' : 'Бесплатно'}</span>
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      // Restore previous selections
+      if (selections[stepIndex]) {
+        selections[stepIndex].forEach(val => {
+          const input = stepsContainer.querySelector(`input[value="${val}"]`);
+          if (input) input.checked = true;
+        });
+      }
+
+      // Update progress
+      const progress = ((stepIndex + 1) / steps.length) * 100;
+      progressBar.style.width = `${progress}%`;
+      progressText.textContent = `Шаг ${stepIndex + 1} из ${steps.length}`;
+      progressPercent.textContent = `${Math.round(progress)}%`;
+
+      // Update buttons
+      backBtn.classList.toggle('hidden', stepIndex === 0);
+      nextBtn.textContent = stepIndex === steps.length - 1 ? 'Рассчитать' : 'Далее';
+    }
+
+    function saveSelections() {
+      const step = steps[currentStep];
+      const inputName = `calc2-step${currentStep}-${instanceId}`;
+      const inputs = document.querySelectorAll(`input[name="${inputName}"]:checked`);
+
+      selections[currentStep] = Array.from(inputs).map(input => input.value);
+      return inputs.length > 0;
+    }
+
+    function calculateTotal() {
+      let total = baseFee;
+      const breakdown = [{ label: 'Выезд мастера', price: baseFee }];
+
+      steps.forEach((step, stepIdx) => {
+        if (!selections[stepIdx]) return;
+
+        selections[stepIdx].forEach(optionIdx => {
+          const option = step.options[parseInt(optionIdx)];
+          total += option.price;
+          if (option.price > 0) {
+            breakdown.push({ label: option.label, price: option.price });
+          }
+        });
+      });
+
+      return { total, breakdown };
+    }
+
+    function showResult() {
+      const { total, breakdown } = calculateTotal();
+
+      stepsContainer.classList.add('hidden');
+      backBtn.classList.add('hidden');
+      nextBtn.classList.add('hidden');
+      progressBar.parentElement.parentElement.classList.add('hidden');
+      resultDiv.classList.remove('hidden');
+
+      finalPriceEl.textContent = `${total.toLocaleString('ru-RU')} ₽`;
+
+      if (resultScreen.breakdown && breakdownList) {
+        breakdownList.innerHTML = breakdown.map(item => `
+          <div class="flex justify-between items-center py-2 border-b border-gray-200">
+            <span class="text-gray-700">${item.label}</span>
+            <span class="font-semibold text-gray-900">${item.price.toLocaleString('ru-RU')} ₽</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', () => {
+      if (!saveSelections()) {
+        alert('Пожалуйста, выберите хотя бы один вариант');
+        return;
+      }
+
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        renderStep(currentStep);
+      } else {
+        showResult();
+      }
+    });
+
+    backBtn.addEventListener('click', () => {
+      if (currentStep > 0) {
+        currentStep--;
+        renderStep(currentStep);
+      }
+    });
+
+    // Lead form submission
+    const leadForm = document.getElementById(`calc2-lead-form-${instanceId}`);
+    if (leadForm) {
+      leadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+        leadForm.reset();
+      });
+    }
+
+    // Initialize
+    renderStep(0);
+  });
+</script>
+
+<style>
+  /* Checked state styling */
+  input[type="radio"]:checked,
+  input[type="checkbox"]:checked {
+    accent-color: #1e40af;
+  }
+
+  input[type="radio"]:checked ~ *,
+  input[type="checkbox"]:checked ~ * {
+    color: #1e40af;
+  }
+</style>
