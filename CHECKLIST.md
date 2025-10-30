@@ -367,11 +367,14 @@
 - Single-column stack on mobile
 
 **Design notes:**
+
 - Use color psychology: red/orange for urgency, green for action
 - Phone button must be prominent with `tel:` link
 - Stats add social proof and trust
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/cta/CTA1.astro`
 
 ---
 
@@ -390,11 +393,14 @@
 - Responsive image sizing (object-cover)
 
 **Design notes:**
+
 - Image should be relevant (technician at work, happy customer, etc.)
 - Overlay ensures text readability
 - Button color must contrast strongly with overlay
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/cta/CTA2.astro`
 
 ---
 
@@ -418,11 +424,14 @@
 - Single-column stack on mobile (form below content)
 
 **Design notes:**
+
 - Form should look trustworthy (clean, simple)
 - Minimal required fields = higher conversion
 - Use HTML5 validation for phone input
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/cta/CTA3.astro`
 
 ---
 
@@ -442,12 +451,15 @@
 - Optional: show/hide based on scroll position (appears after 300px scroll)
 
 **Design notes:**
+
 - Must not block content (use padding-bottom on body)
 - Touch-friendly button sizes (min-height 48px)
 - High contrast for visibility
 - Consider hiding on desktop (mobile-only component)
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/cta/CTA4.astro`
 
 ---
 
@@ -470,11 +482,14 @@
 - 4-column grid for stats → 2-column → 1-column responsive
 
 **Design notes:**
+
 - Stats provide credibility before asking for action
 - Works great after pricing/services section
 - Button should be large and impossible to miss
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/cta/CTA5.astro`
 
 ---
 
@@ -544,12 +559,14 @@
 
 ## TOTAL: 21 Components Across 8 Categories
 
-**Progress:** 15 / 21 completed (71.4%)
+**Progress:** 20 / 21 completed (95.2%)
 
 **Services & Pricing:** 6 / 6 completed ✅
 **Benefits:** 3 / 3 completed ✅
-**CTA Sections:** 0 / 5 — Modern conversion-focused variants (2025 trends)
+**CTA Sections:** 5 / 5 completed ✅
 
 **Note:** Contacts section removed (duplicate of Footer functionality)
 
-**Last Updated:** 2025-10-29
+**Last Updated:** 2025-10-30
+
+---
