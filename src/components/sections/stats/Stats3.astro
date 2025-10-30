@@ -57,13 +57,6 @@ const iconColorClass = textColor === "white" ? "text-white" : "text-blue-700";
 
       {/* Featured Stat */}
       <div class="mb-12 lg:mb-16">
-        {/* Icon (optional) */}
-        {featuredStat.icon && (
-          <div class={`flex justify-center mb-6 ${iconColorClass}`}>
-            <i class={`${featuredStat.icon} text-6xl md:text-7xl`}></i>
-          </div>
-        )}
-
         {/* Large Counter */}
         <div class={`text-6xl md:text-7xl lg:text-8xl font-bold mb-4 ${featuredValueClass}`}>
           <span

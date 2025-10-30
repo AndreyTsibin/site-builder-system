@@ -31,6 +31,23 @@ const {
   pulseAnimation = true
 } = Astro.props;
 
+// Map bgColor to actual Tailwind classes (for Tailwind JIT compilation)
+const bgColorMap: Record<string, string> = {
+  "blue-700": "bg-blue-700",
+  "red-600": "bg-red-600",
+  "green-600": "bg-green-600",
+  "amber-500": "bg-amber-500"
+};
+
+const textColorMap: Record<string, string> = {
+  "blue-700": "text-blue-700",
+  "red-600": "text-red-600",
+  "green-600": "text-green-600",
+  "amber-500": "text-amber-500"
+};
+
+const bgClass = bgColorMap[bgColor] || "bg-red-600";
+const textClass = textColorMap[bgColor] || "text-red-600";
 const positionClasses = position === "bottom-right" ? "right-4 sm:right-6" : "left-4 sm:left-6";
 ---
 
@@ -41,7 +58,7 @@ const positionClasses = position === "bottom-right" ? "right-4 sm:right-6" : "le
   {/* Collapsed Badge */}
   <button
     id="emergency-badge-button"
-    class={`flex items-center gap-2 bg-${bgColor} text-white px-4 py-3 sm:px-5 sm:py-4 rounded-full shadow-2xl hover:scale-105 transition-transform ${pulseAnimation ? 'animate-pulse-slow' : ''}`}
+    class={`flex items-center gap-2 ${bgClass} text-white px-4 py-3 sm:px-5 sm:py-4 rounded-full shadow-2xl hover:scale-105 transition-transform ${pulseAnimation ? 'animate-pulse-slow' : ''}`}
     aria-label="Открыть срочную помощь"
   >
     <i class={`${icon} text-2xl sm:text-3xl`}></i>
@@ -65,7 +82,7 @@ const positionClasses = position === "bottom-right" ? "right-4 sm:right-6" : "le
     </button>
 
     {/* Icon */}
-    <div class={`flex justify-center mb-4 text-${bgColor}`}>
+    <div class={`flex justify-center mb-4 ${textClass}`}>
       <i class={`${icon} text-5xl`}></i>
     </div>
 
@@ -86,7 +103,7 @@ const positionClasses = position === "bottom-right" ? "right-4 sm:right-6" : "le
     {/* CTA Button */}
     <a
       href={ctaLink || `tel:${phone.replace(/\D/g, '')}`}
-      class={`block w-full py-3 bg-${bgColor} text-white text-center font-semibold rounded-xl hover:opacity-90 transition-opacity`}
+      class={`block w-full py-3 ${bgClass} text-white text-center font-semibold rounded-xl hover:opacity-90 transition-opacity`}
     >
       {ctaText}
     </a>
@@ -108,40 +125,65 @@ const positionClasses = position === "bottom-right" ? "right-4 sm:right-6" : "le
   }
 </style>
 
-<script>
+<script is:inline>
+(function() {
+  console.log('EmergencyBanner2 script loaded');
+
   // Toggle expanded panel
-  const initBadge = () => {
+  function initBadge() {
     const button = document.getElementById('emergency-badge-button');
     const panel = document.getElementById('emergency-badge-panel');
     const closeBtn = document.getElementById('emergency-badge-panel-close');
 
-    if (!button || !panel || !closeBtn) return;
+    console.log('EmergencyBanner2 init:', { button, panel, closeBtn });
+
+    if (!button || !panel || !closeBtn) {
+      console.error('EmergencyBanner2: Missing elements', {
+        button: !!button,
+        panel: !!panel,
+        closeBtn: !!closeBtn
+      });
+      return;
+    }
 
     // Open panel
-    button.addEventListener('click', () => {
+    button.addEventListener('click', function(e) {
+      console.log('Badge clicked!');
+      e.stopPropagation();
       panel.classList.remove('hidden');
       button.style.display = 'none';
     });
 
     // Close panel
-    closeBtn.addEventListener('click', () => {
+    closeBtn.addEventListener('click', function(e) {
+      console.log('Close clicked!');
+      e.stopPropagation();
       panel.classList.add('hidden');
       button.style.display = 'flex';
     });
 
     // Close panel when clicking outside
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', function(e) {
       const badge = document.getElementById('emergency-badge');
-      if (!badge?.contains(e.target as Node) && !panel.classList.contains('hidden')) {
+      if (badge && !badge.contains(e.target) && !panel.classList.contains('hidden')) {
+        console.log('Closing panel (clicked outside)');
         panel.classList.add('hidden');
         button.style.display = 'flex';
       }
     });
-  };
+
+    console.log('EmergencyBanner2 initialized successfully');
+  }
 
   // Initialize on page load
-  document.addEventListener('DOMContentLoaded', initBadge);
-
-  // Re-initialize after navigation (for SPAs)
-  document.addEventListener('astro:page-load', initBadge);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOMContentLoaded - initializing EmergencyBanner2');
+      initBadge();
+    });
+  } else {
+    console.log('DOM already loaded - initializing EmergencyBanner2 immediately');
+    initBadge();
+  }
+})();
 </script>
