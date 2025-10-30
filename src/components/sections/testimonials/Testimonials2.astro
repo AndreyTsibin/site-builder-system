@@ -52,7 +52,7 @@ const {
     >
       {testimonials.map((testimonial, index) => (
         <div
-          class={`testimonial-card bg-gray-50 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col ${
+          class={`testimonial-card bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-gray-200 transition-all duration-300 flex flex-col ${
             index >= initialVisible ? 'hidden' : ''
           }`}
           data-index={index}
@@ -108,7 +108,7 @@ const {
       <div class="text-center">
         <button
           id="toggle-testimonials"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-md"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-xl transition-colors"
           aria-expanded="false"
         >
           <span id="toggle-text">Показать ещё</span>
