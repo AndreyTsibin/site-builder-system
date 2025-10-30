@@ -73,7 +73,7 @@ const {
             <img
               src={feature.image}
               alt={feature.title}
-              class="w-full h-64 md:h-72 lg:h-80 object-cover rounded-2xl shadow-lg"
+              class="w-full h-64 md:h-72 lg:h-80 object-cover rounded-2xl"
             />
           </div>
 
@@ -81,7 +81,7 @@ const {
           <div class={feature.imagePosition === 'right' ? 'lg:order-1' : ''}>
             <!-- Icon + Title -->
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                 <i class={`${feature.icon} text-2xl text-blue-700`}></i>
               </div>
               <h3 class="text-2xl md:text-3xl font-bold text-gray-900">{feature.title}</h3>
