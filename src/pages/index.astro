@@ -1,9 +1,72 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Stats1 from '../components/sections/stats/Stats1.astro';
+import Stats2 from '../components/sections/stats/Stats2.astro';
+import Stats3 from '../components/sections/stats/Stats3.astro';
 ---
 
-<BaseLayout title="Site Builder 2.0">
+<BaseLayout title="Site Builder 2.0 - Stats Sections Demo">
 
-  <!-- Your content goes here -->
+  <!-- Stats1: Counter Grid -->
+  <Stats1
+    title="Компания в цифрах"
+    subtitle="Мы гордимся нашими достижениями и доверием клиентов"
+    stats={[
+      {
+        icon: "ri-tools-line",
+        value: "500+",
+        label: "Выполненных ремонтов",
+        description: "За последний год"
+      },
+      {
+        icon: "ri-team-line",
+        value: "12",
+        suffix: "мастеров",
+        label: "Профессиональная команда"
+      },
+      {
+        icon: "ri-calendar-line",
+        value: "15",
+        suffix: "лет",
+        label: "Опыт работы",
+        description: "На рынке с 2010 года"
+      },
+      {
+        icon: "ri-star-line",
+        value: "98",
+        suffix: "%",
+        label: "Довольных клиентов"
+      }
+    ]}
+  />
+
+  <!-- Stats2: Horizontal Bar -->
+  <Stats2
+    bgColor="blue-700"
+    textColor="white"
+    stats={[
+      { value: "2000+", label: "Отремонтированных устройств" },
+      { value: "24/7", label: "Круглосуточная поддержка" },
+      { value: "15", label: "Лет на рынке" },
+      { value: "12", label: "Опытных мастеров" }
+    ]}
+  />
+
+  <!-- Stats3: Featured + Supporting -->
+  <Stats3
+    title="Наше главное достижение"
+    featuredStat={{
+      value: "15",
+      suffix: "лет на рынке",
+      label: "Лет успешной работы",
+      description: "С 2010 года мы помогаем тысячам клиентов решать проблемы с техникой",
+      icon: "ri-award-line"
+    }}
+    supportingStats={[
+      { value: "2000+", label: "Довольных клиентов" },
+      { value: "500+", label: "Ремонтов в год" },
+      { value: "98%", label: "Положительных отзывов" }
+    ]}
+  />
 
 </BaseLayout>

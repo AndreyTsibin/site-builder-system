@@ -1,0 +1,160 @@
+---
+/**
+ * Stats1: Counter Grid (4 metrics)
+ *
+ * Animated statistics counter with 4-column responsive grid.
+ * Features: Remix Icons, animated counters on scroll, flexible layout.
+ * Best for: Company achievements, social proof, credibility building.
+ */
+
+interface StatItem {
+  icon: string; // Remix Icon class (e.g., "ri-tools-line")
+  value: string; // "500+" or "15"
+  suffix?: string; // "лет", "мастеров", etc.
+  label: string; // "Выполненных ремонтов"
+  description?: string; // Optional extra context
+}
+
+interface Props {
+  title?: string; // "Компания в цифрах"
+  subtitle?: string; // Optional subtitle
+  stats: StatItem[]; // 3-4 items recommended
+  bgColor?: string; // "white" | "gray-50" | "blue-700"
+  textColor?: string; // "gray-900" | "white"
+}
+
+const {
+  title,
+  subtitle,
+  stats,
+  bgColor = "white",
+  textColor = "gray-900"
+} = Astro.props;
+
+// Determine text color classes based on background
+const isLightBg = bgColor === "white" || bgColor === "gray-50";
+const titleColorClass = textColor === "white" ? "text-white" : "text-gray-900";
+const subtitleColorClass = textColor === "white" ? "text-gray-200" : "text-gray-600";
+const statValueClass = textColor === "white" ? "text-white" : "text-blue-700";
+const statLabelClass = textColor === "white" ? "text-gray-200" : "text-gray-700";
+const statDescClass = textColor === "white" ? "text-gray-300" : "text-gray-500";
+---
+
+<section class={`py-16 md:py-20 lg:py-24 bg-${bgColor}`}>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    {(title || subtitle) && (
+      <div class="text-center mb-12 lg:mb-16">
+        {title && (
+          <h2 class={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${titleColorClass}`}>
+            {title}
+          </h2>
+        )}
+        {subtitle && (
+          <p class={`text-lg md:text-xl ${subtitleColorClass} max-w-3xl mx-auto`}>
+            {subtitle}
+          </p>
+        )}
+      </div>
+    )}
+
+    {/* Stats Grid */}
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      {stats.map((stat, index) => (
+        <div
+          class="text-center"
+          data-stat-index={index}
+        >
+          {/* Icon */}
+          <div class={`flex justify-center mb-4 ${textColor === "white" ? "text-white" : "text-blue-700"}`}>
+            <i class={`${stat.icon} text-5xl md:text-6xl`}></i>
+          </div>
+
+          {/* Animated Counter */}
+          <div class={`text-4xl md:text-5xl lg:text-6xl font-bold mb-2 ${statValueClass}`}>
+            <span
+              class="stat-counter"
+              data-target={stat.value.replace(/\D/g, '')}
+              data-suffix={stat.suffix || ''}
+              data-original={stat.value}
+            >
+              0
+            </span>
+          </div>
+
+          {/* Label */}
+          <div class={`text-base md:text-lg font-medium ${statLabelClass}`}>
+            {stat.label}
+          </div>
+
+          {/* Optional Description */}
+          {stat.description && (
+            <p class={`text-sm mt-2 ${statDescClass}`}>
+              {stat.description}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animated counter on scroll
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+
+  const animateCounter = (element: HTMLElement) => {
+    const target = parseInt(element.dataset.target || '0');
+    const suffix = element.dataset.suffix || '';
+    const original = element.dataset.original || '';
+
+    // Check if original value has "+" at the end
+    const hasPlus = original.includes('+');
+
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepValue = target / steps;
+    const stepDuration = duration / steps;
+
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += stepValue;
+
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+
+      const displayValue = Math.floor(current);
+      const displayText = `${displayValue}${hasPlus ? '+' : ''}${suffix ? ' ' + suffix : ''}`;
+      element.textContent = displayText;
+    }, stepDuration);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = entry.target.querySelectorAll('.stat-counter');
+        counters.forEach(counter => {
+          if (counter instanceof HTMLElement && !counter.dataset.animated) {
+            counter.dataset.animated = 'true';
+            animateCounter(counter);
+          }
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe the stats section
+  document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.querySelector('[data-stat-index="0"]')?.closest('section');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  });
+</script>

@@ -1,0 +1,176 @@
+---
+/**
+ * Stats3: Featured Stat + Supporting Metrics
+ *
+ * Highlights one primary achievement with supporting statistics below.
+ * Features: Large hero number, 2-3 smaller stats, optional icon.
+ * Best for: Main company milestone, anniversary, major achievement.
+ */
+
+interface FeaturedStat {
+  value: string; // "15" or "2000"
+  suffix?: string; // "лет на рынке", "довольных клиентов"
+  label: string; // "Лет опыта"
+  description?: string; // Optional extra context
+  icon?: string; // Optional Remix Icon class
+}
+
+interface SupportingStat {
+  value: string; // "500+" or "24/7"
+  label: string; // "Ремонтов в месяц"
+}
+
+interface Props {
+  title?: string; // Optional section title
+  featuredStat: FeaturedStat; // Main hero stat
+  supportingStats: SupportingStat[]; // 2-3 smaller stats
+  bgColor?: string; // "white" | "gray-50" | "blue-700"
+  textColor?: string; // "gray-900" | "white"
+}
+
+const {
+  title,
+  featuredStat,
+  supportingStats,
+  bgColor = "gray-50",
+  textColor = "gray-900"
+} = Astro.props;
+
+const titleColorClass = textColor === "white" ? "text-white" : "text-gray-900";
+const featuredValueClass = textColor === "white" ? "text-white" : "text-blue-700";
+const featuredLabelClass = textColor === "white" ? "text-gray-200" : "text-gray-700";
+const featuredDescClass = textColor === "white" ? "text-gray-300" : "text-gray-600";
+const supportingValueClass = textColor === "white" ? "text-white" : "text-blue-700";
+const supportingLabelClass = textColor === "white" ? "text-gray-300" : "text-gray-600";
+const iconColorClass = textColor === "white" ? "text-white" : "text-blue-700";
+---
+
+<section class={`py-16 md:py-20 lg:py-24 bg-${bgColor}`}>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      {/* Optional Title */}
+      {title && (
+        <h2 class={`text-3xl md:text-4xl lg:text-5xl font-bold mb-12 ${titleColorClass}`}>
+          {title}
+        </h2>
+      )}
+
+      {/* Featured Stat */}
+      <div class="mb-12 lg:mb-16">
+        {/* Icon (optional) */}
+        {featuredStat.icon && (
+          <div class={`flex justify-center mb-6 ${iconColorClass}`}>
+            <i class={`${featuredStat.icon} text-6xl md:text-7xl`}></i>
+          </div>
+        )}
+
+        {/* Large Counter */}
+        <div class={`text-6xl md:text-7xl lg:text-8xl font-bold mb-4 ${featuredValueClass}`}>
+          <span
+            class="stat-counter-featured"
+            data-target={featuredStat.value.replace(/\D/g, '')}
+            data-suffix={featuredStat.suffix || ''}
+            data-original={featuredStat.value}
+          >
+            0
+          </span>
+        </div>
+
+        {/* Label */}
+        <div class={`text-xl md:text-2xl lg:text-3xl font-semibold mb-2 ${featuredLabelClass}`}>
+          {featuredStat.label}
+        </div>
+
+        {/* Description */}
+        {featuredStat.description && (
+          <p class={`text-base md:text-lg ${featuredDescClass} max-w-2xl mx-auto`}>
+            {featuredStat.description}
+          </p>
+        )}
+      </div>
+
+      {/* Supporting Stats */}
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-gray-300">
+        {supportingStats.map((stat) => (
+          <div class="text-center">
+            {/* Value */}
+            <div class={`text-3xl md:text-4xl font-bold mb-2 ${supportingValueClass}`}>
+              <span
+                class="stat-counter-supporting"
+                data-target={stat.value.replace(/\D/g, '')}
+                data-original={stat.value}
+              >
+                0
+              </span>
+            </div>
+
+            {/* Label */}
+            <div class={`text-sm md:text-base ${supportingLabelClass}`}>
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animated counter on scroll
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+
+  const animateCounter = (element: HTMLElement) => {
+    const target = parseInt(element.dataset.target || '0');
+    const suffix = element.dataset.suffix || '';
+    const original = element.dataset.original || '';
+
+    // Check if original value has "+" at the end
+    const hasPlus = original.includes('+');
+
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepValue = target / steps;
+    const stepDuration = duration / steps;
+
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += stepValue;
+
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+
+      const displayValue = Math.floor(current);
+      const displayText = `${displayValue}${hasPlus ? '+' : ''}${suffix ? ' ' + suffix : ''}`;
+      element.textContent = displayText;
+    }, stepDuration);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = entry.target.querySelectorAll('.stat-counter-featured, .stat-counter-supporting');
+        counters.forEach(counter => {
+          if (counter instanceof HTMLElement && !counter.dataset.animated) {
+            counter.dataset.animated = 'true';
+            animateCounter(counter);
+          }
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe the stats section
+  document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.querySelector('.stat-counter-featured')?.closest('section');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  });
+</script>
