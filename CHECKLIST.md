@@ -630,17 +630,60 @@
 
 ## 7. FAQ
 
-### FAQ — Frequently Asked Questions
+### FAQ1 — Centered Single Column
+
+**Concept:** Classic centered FAQ with full-width accordion in the center of the page.
 
 **Required elements:**
 
-- Section heading
-- Accordion list (collapsible items)
-- Each item: question, answer
-- Expand/collapse icons: ri-arrow-down-s-line
-- **Note:** Requires JavaScript for interactivity
+- Section heading + subheading (centered)
+- Centered accordion (max-width for readability)
+- Each item: question + answer
+- One question opens at a time (auto-close others)
+- Arrow icon rotation on open (ri-arrow-down-s-line)
+- Native HTML `<details>` + JavaScript
 
-**Status:** [ ] Not started
+**Status:** [x] Completed
+
+**File:** `src/components/sections/faq/FAQ1.astro`
+
+---
+
+### FAQ2 — Two-Column with Image
+
+**Concept:** Two-column layout with FAQ on the left, decorative image on the right.
+
+**Required elements:**
+
+- Two-column grid (lg:grid-cols-2)
+- Left column: heading + subheading + accordion
+- Right column: image (sticky on desktop)
+- Image shown below accordion on mobile
+- One question opens at a time
+- Arrow icon rotation on open
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/faq/FAQ2.astro`
+
+---
+
+### FAQ3 — Two-Column Split Layout
+
+**Concept:** Split layout with heading on left, FAQ accordion on right.
+
+**Required elements:**
+
+- Two-column grid (lg:grid-cols-2)
+- Left column: heading + subheading (sticky on desktop)
+- Right column: FAQ accordion
+- One question opens at a time
+- Gradient background (blue-to-white)
+- Hover effects on accordion items
+
+**Status:** [x] Completed
+
+**File:** `src/components/sections/faq/FAQ3.astro`
 
 ---
 
@@ -661,9 +704,9 @@
 
 ---
 
-## TOTAL: 28 Components Across 8 Categories
+## TOTAL: 30 Components Across 8 Categories
 
-**Progress:** 26 / 28 completed (92.9%)
+**Progress:** 29 / 30 completed (96.7%)
 
 **Heroes:** 6 / 6 completed ✅
 **Services & Pricing:** 6 / 6 completed ✅
@@ -671,9 +714,9 @@
 **CTA Sections:** 5 / 5 completed ✅
 **Testimonials:** 3 / 3 completed ✅
 **How It Works:** 3 / 3 completed ✅
+**FAQ:** 3 / 3 completed ✅
 
 **Remaining:**
-- FAQ: 0 / 1
 - Footer: 0 / 1
 
 **Note:** Contacts section removed (duplicate of Footer functionality)
