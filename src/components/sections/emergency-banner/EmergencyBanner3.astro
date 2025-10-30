@@ -1,0 +1,200 @@
+---
+/**
+ * EmergencyBanner3: Hero Banner (Non-dismissible)
+ *
+ * Full-width prominent banner for homepage/landing pages.
+ * Features: Large text, multiple CTAs, optional countdown timer, image.
+ * Best for: Major promotions, urgent service availability, limited offers.
+ */
+
+interface Props {
+  title: string; // "Экстренный ремонт за 1 час!"
+  message: string; // "Работаем 24/7 без выходных и праздников"
+  icon?: string; // Remix Icon class
+  image?: string; // Optional illustration/photo on right
+  phone: string; // "+7 (999) 123-45-67"
+  primaryCta: {
+    text: string; // "Вызвать мастера"
+    link?: string; // "tel:+79991234567" or "#contact"
+  };
+  secondaryCta?: {
+    text: string; // "Узнать цены"
+    link?: string; // "#pricing"
+  };
+  countdown?: {
+    endDate: string; // ISO date string "2025-12-31T23:59:59"
+    label: string; // "До конца акции:"
+  };
+  bgColor?: string; // "red-600" | "blue-700" | "amber-500"
+  textColor?: string; // "white"
+}
+
+const {
+  title,
+  message,
+  icon,
+  image,
+  phone,
+  primaryCta,
+  secondaryCta,
+  countdown,
+  bgColor = "red-600",
+  textColor = "white"
+} = Astro.props;
+
+const textColorClass = textColor === "white" ? "text-white" : "text-gray-900";
+const subtextColorClass = textColor === "white" ? "text-gray-100" : "text-gray-600";
+---
+
+<section class={`py-8 md:py-12 bg-${bgColor} ${textColorClass}`}>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
+      {/* Left: Content */}
+      <div>
+        {/* Icon (optional) */}
+        {icon && (
+          <div class="flex items-center mb-4">
+            <i class={`${icon} text-4xl md:text-5xl`}></i>
+          </div>
+        )}
+
+        {/* Title */}
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          {title}
+        </h2>
+
+        {/* Message */}
+        <p class={`text-lg md:text-xl mb-6 ${subtextColorClass}`}>
+          {message}
+        </p>
+
+        {/* Phone */}
+        <a
+          href={`tel:${phone.replace(/\D/g, '')}`}
+          class="flex items-center gap-3 text-2xl md:text-3xl font-bold mb-6 hover:opacity-80 transition-opacity"
+        >
+          <i class="ri-phone-line"></i>
+          <span>{phone}</span>
+        </a>
+
+        {/* CTAs */}
+        <div class="flex flex-col sm:flex-row gap-4">
+          {/* Primary CTA */}
+          <a
+            href={primaryCta.link || `tel:${phone.replace(/\D/g, '')}`}
+            class="px-8 py-4 bg-white text-gray-900 font-bold text-lg rounded-xl hover:scale-105 transition-transform text-center"
+          >
+            {primaryCta.text}
+          </a>
+
+          {/* Secondary CTA */}
+          {secondaryCta && (
+            <a
+              href={secondaryCta.link || '#'}
+              class={`px-8 py-4 border-2 border-white ${textColorClass} font-semibold text-lg rounded-xl hover:bg-white hover:text-${bgColor} transition-colors text-center`}
+            >
+              {secondaryCta.text}
+            </a>
+          )}
+        </div>
+
+        {/* Countdown Timer (optional) */}
+        {countdown && (
+          <div class="mt-8 pt-8 border-t border-white/30">
+            <p class={`text-sm font-semibold mb-2 ${subtextColorClass}`}>
+              {countdown.label}
+            </p>
+            <div
+              id="countdown-timer"
+              class="flex gap-4 text-center"
+              data-end-date={countdown.endDate}
+            >
+              <div>
+                <div class="text-3xl md:text-4xl font-bold" id="countdown-days">00</div>
+                <div class={`text-xs ${subtextColorClass}`}>дней</div>
+              </div>
+              <div class="text-3xl md:text-4xl font-bold">:</div>
+              <div>
+                <div class="text-3xl md:text-4xl font-bold" id="countdown-hours">00</div>
+                <div class={`text-xs ${subtextColorClass}`}>часов</div>
+              </div>
+              <div class="text-3xl md:text-4xl font-bold">:</div>
+              <div>
+                <div class="text-3xl md:text-4xl font-bold" id="countdown-minutes">00</div>
+                <div class={`text-xs ${subtextColorClass}`}>минут</div>
+              </div>
+              <div class="text-3xl md:text-4xl font-bold">:</div>
+              <div>
+                <div class="text-3xl md:text-4xl font-bold" id="countdown-seconds">00</div>
+                <div class={`text-xs ${subtextColorClass}`}>секунд</div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Right: Image (optional) */}
+      {image && (
+        <div class="hidden lg:block">
+          <img
+            src={image}
+            alt={title}
+            class="w-full h-auto rounded-2xl shadow-2xl"
+          />
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Countdown timer logic
+  const initCountdown = () => {
+    const timer = document.getElementById('countdown-timer');
+    if (!timer) return;
+
+    const endDate = timer.dataset.endDate;
+    if (!endDate) return;
+
+    const daysEl = document.getElementById('countdown-days');
+    const hoursEl = document.getElementById('countdown-hours');
+    const minutesEl = document.getElementById('countdown-minutes');
+    const secondsEl = document.getElementById('countdown-seconds');
+
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const end = new Date(endDate).getTime();
+      const distance = end - now;
+
+      if (distance < 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+    };
+
+    // Update immediately and then every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  };
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initCountdown);
+
+  // Re-initialize after navigation (for SPAs)
+  document.addEventListener('astro:page-load', initCountdown);
+</script>

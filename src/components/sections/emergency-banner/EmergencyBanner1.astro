@@ -1,0 +1,167 @@
+---
+/**
+ * EmergencyBanner1: Sticky Top Bar (Dismissible)
+ *
+ * Fixed banner at top of viewport that scrolls with page.
+ * Features: Dismissible with localStorage, urgent message, phone + CTA.
+ * Best for: 24/7 emergency services, urgent promotions, time-sensitive offers.
+ */
+
+interface Props {
+  message: string; // "Срочный ремонт 24/7! Выезд мастера за 30 минут"
+  icon?: string; // Remix Icon class (e.g., "ri-phone-line")
+  phone?: string; // "+7 (999) 123-45-67"
+  ctaText?: string; // "Вызвать сейчас"
+  ctaLink?: string; // "#contact" or "tel:+79991234567"
+  bgColor?: string; // "blue-700" | "amber-500" | "red-600"
+  textColor?: string; // "white"
+  dismissible?: boolean; // default: true
+  storageKey?: string; // localStorage key for dismissed state
+}
+
+const {
+  message,
+  icon = "ri-alarm-warning-line",
+  phone,
+  ctaText,
+  ctaLink,
+  bgColor = "blue-700",
+  textColor = "white",
+  dismissible = true,
+  storageKey = "emergency-banner-dismissed"
+} = Astro.props;
+
+// Map bgColor to actual Tailwind classes (for Tailwind JIT compilation)
+const bgColorMap: Record<string, string> = {
+  "blue-700": "bg-blue-700",
+  "red-600": "bg-red-600",
+  "amber-500": "bg-amber-500",
+  "green-600": "bg-green-600"
+};
+
+const textColorMap: Record<string, string> = {
+  "blue-700": "text-blue-700",
+  "red-600": "text-red-600",
+  "amber-500": "text-amber-500",
+  "green-600": "text-green-600"
+};
+
+const hoverMap: Record<string, string> = {
+  "blue-700": "hover:bg-white hover:text-blue-700",
+  "red-600": "hover:bg-white hover:text-red-600",
+  "amber-500": "hover:bg-white hover:text-amber-500",
+  "green-600": "hover:bg-white hover:text-green-600"
+};
+
+const bgClass = bgColorMap[bgColor] || "bg-blue-700";
+const textColorClass = textColor === "white" ? "text-white" : "text-gray-900";
+const buttonTextClass = textColorMap[bgColor] || "text-blue-700";
+const buttonHoverClass = hoverMap[bgColor] || "hover:bg-white hover:text-blue-700";
+---
+
+<div
+  id="emergency-banner-1"
+  class={`sticky top-0 z-[100] ${bgClass} ${textColorClass} shadow-lg`}
+  data-storage-key={storageKey}
+  data-dismissible={dismissible}
+>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+    {/* Mobile: 2 rows | Desktop: 1 row */}
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      {/* Row 1 (Mobile) / Left (Desktop): Message */}
+      <div class="flex-1">
+        <p class="text-sm sm:text-base md:text-lg font-semibold text-center sm:text-left">
+          {message}
+        </p>
+      </div>
+
+      {/* Row 2 (Mobile) / Right (Desktop): Phone + CTA + Close */}
+      <div class="flex items-center justify-center sm:justify-end gap-3 sm:gap-4 flex-shrink-0">
+        {/* Phone Number (always visible, clickable) */}
+        {phone && (
+          <a
+            href={`tel:${phone.replace(/\D/g, '')}`}
+            class="flex items-center gap-2 font-bold text-sm sm:text-base md:text-lg hover:underline whitespace-nowrap"
+          >
+            <i class="ri-phone-line text-xl sm:text-2xl"></i>
+            <span>{phone}</span>
+          </a>
+        )}
+
+        {/* CTA Button (hidden on mobile, visible on tablet+) */}
+        {ctaText && (
+          <a
+            href={ctaLink || `tel:${phone?.replace(/\D/g, '')}`}
+            class={`hidden sm:inline-block px-4 py-2 bg-white ${buttonTextClass} font-semibold rounded-lg transition-colors ${buttonHoverClass} text-sm md:text-base whitespace-nowrap`}
+          >
+            {ctaText}
+          </a>
+        )}
+
+        {/* Close Button */}
+        {dismissible && (
+          <button
+            id="emergency-banner-close"
+            class="p-2 hover:bg-white/20 rounded transition-colors flex-shrink-0"
+            aria-label="Закрыть баннер"
+          >
+            <i class="ri-close-line text-xl sm:text-2xl"></i>
+          </button>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Check localStorage and hide banner if dismissed
+  const checkDismissed = () => {
+    const banner = document.getElementById('emergency-banner-1');
+    if (!banner) return;
+
+    const storageKey = banner.dataset.storageKey || 'emergency-banner-dismissed';
+    const isDismissible = banner.dataset.dismissible === 'true';
+
+    if (!isDismissible) return;
+
+    const dismissed = localStorage.getItem(storageKey);
+    if (dismissed === 'true') {
+      banner.style.display = 'none';
+    }
+  };
+
+  // Handle close button click
+  const handleClose = () => {
+    const banner = document.getElementById('emergency-banner-1');
+    const closeBtn = document.getElementById('emergency-banner-close');
+    if (!banner || !closeBtn) return;
+
+    const storageKey = banner.dataset.storageKey || 'emergency-banner-dismissed';
+
+    closeBtn.addEventListener('click', () => {
+      // Save to localStorage
+      localStorage.setItem(storageKey, 'true');
+
+      // Hide banner with animation
+      banner.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+      banner.style.transform = 'translateY(-100%)';
+      banner.style.opacity = '0';
+
+      setTimeout(() => {
+        banner.style.display = 'none';
+      }, 300);
+    });
+  };
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    checkDismissed();
+    handleClose();
+  });
+
+  // Re-initialize after navigation (for SPAs)
+  document.addEventListener('astro:page-load', () => {
+    checkDismissed();
+    handleClose();
+  });
+</script>

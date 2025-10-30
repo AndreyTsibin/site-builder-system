@@ -1,0 +1,124 @@
+---
+/**
+ * Stats2: Horizontal Stats Bar
+ *
+ * Minimal single-row stats display with separator lines.
+ * Features: Compact design, no icons, animated counters.
+ * Best for: Hero section footer, above footer, simple credibility.
+ */
+
+interface StatItem {
+  value: string; // "500+" or "15"
+  label: string; // "Выполненных ремонтов"
+}
+
+interface Props {
+  stats: StatItem[]; // 3-4 items recommended
+  bgColor?: string; // "white" | "gray-50" | "blue-700"
+  textColor?: string; // "gray-900" | "white"
+}
+
+const {
+  stats,
+  bgColor = "white",
+  textColor = "gray-900"
+} = Astro.props;
+
+const valueColorClass = textColor === "white" ? "text-white" : "text-blue-700";
+const labelColorClass = textColor === "white" ? "text-gray-200" : "text-gray-600";
+const separatorColorClass = textColor === "white" ? "border-gray-400" : "border-gray-300";
+---
+
+<section class={`py-12 md:py-16 bg-${bgColor}`}>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Horizontal Stats Row */}
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 lg:gap-16">
+      {stats.map((stat, index) => (
+        <>
+          {/* Stat Item */}
+          <div class="text-center">
+            {/* Value */}
+            <div class={`text-3xl md:text-4xl lg:text-5xl font-bold mb-2 ${valueColorClass}`}>
+              <span
+                class="stat-counter-h"
+                data-target={stat.value.replace(/\D/g, '')}
+                data-original={stat.value}
+              >
+                0
+              </span>
+            </div>
+
+            {/* Label */}
+            <div class={`text-sm md:text-base ${labelColorClass}`}>
+              {stat.label}
+            </div>
+          </div>
+
+          {/* Separator (not after last item) */}
+          {index < stats.length - 1 && (
+            <div class={`hidden sm:block w-px h-16 bg-${separatorColorClass} border-l ${separatorColorClass}`}></div>
+          )}
+        </>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animated counter on scroll
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+
+  const animateCounter = (element: HTMLElement) => {
+    const target = parseInt(element.dataset.target || '0');
+    const original = element.dataset.original || '';
+
+    // Check if original value has "+" at the end
+    const hasPlus = original.includes('+');
+
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepValue = target / steps;
+    const stepDuration = duration / steps;
+
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += stepValue;
+
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+
+      const displayValue = Math.floor(current);
+      const displayText = `${displayValue}${hasPlus ? '+' : ''}`;
+      element.textContent = displayText;
+    }, stepDuration);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = entry.target.querySelectorAll('.stat-counter-h');
+        counters.forEach(counter => {
+          if (counter instanceof HTMLElement && !counter.dataset.animated) {
+            counter.dataset.animated = 'true';
+            animateCounter(counter);
+          }
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe the stats section
+  document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.querySelector('.stat-counter-h')?.closest('section');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  });
+</script>

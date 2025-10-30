@@ -1,0 +1,72 @@
+---
+interface Service {
+  icon: string;
+  title: string;
+  price: string;
+}
+
+interface Props {
+  heading?: string;
+  subheading?: string;
+  services?: Service[];
+}
+
+const {
+  heading = "Какая у вас неисправность?",
+  subheading = "Выберите проблему и узнайте стоимость ремонта",
+  services = [
+    { icon: "ri-shut-down-line", title: "Не включается", price: "от 360₽" },
+    { icon: "ri-loader-2-line", title: "Не вращается барабан", price: "от 540₽" },
+    { icon: "ri-drop-line", title: "Протекает", price: "от 320₽" },
+    { icon: "ri-fire-line", title: "Не греет воду", price: "от 440₽" },
+    { icon: "ri-arrow-down-line", title: "Не сливает воду", price: "от 340₽" },
+    { icon: "ri-arrow-up-line", title: "Не заливает воду", price: "от 380₽" },
+    { icon: "ri-lock-line", title: "Не открывается люк", price: "от 360₽" },
+    { icon: "ri-loader-line", title: "Не отжимает", price: "от 400₽" },
+    { icon: "ri-volume-up-line", title: "Сильно шумит", price: "от 600₽" },
+  ],
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 lg:py-24 bg-white">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {heading}
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600">
+        {subheading}
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {
+        services.map((service) => (
+          <button
+            type="button"
+            class="group bg-gray-50 hover:bg-white border-2 border-gray-200 hover:border-brand-green rounded-2xl p-8 text-center transition-all duration-300"
+          >
+            {/* Icon */}
+            <div class="flex justify-center mb-6">
+              <i
+                class={`${service.icon} text-5xl md:text-6xl text-brand-green group-hover:scale-110 transition-transform duration-300`}
+              />
+            </div>
+
+            {/* Title */}
+            <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+              {service.title}
+            </h3>
+
+            {/* Price */}
+            <p class="text-lg md:text-xl font-bold text-brand-green">
+              {service.price}
+            </p>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</section>

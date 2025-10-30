@@ -1,0 +1,118 @@
+---
+interface ServiceCard {
+  image: string;
+  title: string;
+  priceLabel?: string;
+  price: string;
+}
+
+interface Props {
+  heading?: string;
+  subheading?: string;
+  services?: ServiceCard[];
+  ctaText?: string;
+  ctaMessage?: string;
+  ctaButtonText?: string;
+  ctaImage?: string;
+}
+
+const {
+  heading = "Ремонт техники LG на дому",
+  subheading = "Профессиональное обслуживание любой бытовой техники LG с выездом к вам в день обращения.",
+  services = [
+    { image: "/images/placeholder-img.jpg", title: "Холодильник", priceLabel: "Стоимость ремонта:", price: "от 450₽" },
+    { image: "/images/placeholder-img.jpg", title: "Посудомоечная машина", priceLabel: "Стоимость ремонта:", price: "от 400₽" },
+    { image: "/images/placeholder-img.jpg", title: "Стиральная машина", priceLabel: "Стоимость ремонта:", price: "от 380₽" },
+    { image: "/images/placeholder-img.jpg", title: "Кофемашина", priceLabel: "Стоимость ремонта:", price: "от 420₽" },
+    { image: "/images/placeholder-img.jpg", title: "Варочная поверхность", priceLabel: "Стоимость ремонта:", price: "от 420₽" },
+    { image: "/images/placeholder-img.jpg", title: "Микроволновая печь", priceLabel: "Стоимость ремонта:", price: "от 300₽" },
+    { image: "/images/placeholder-img.jpg", title: "Духовка", priceLabel: "Стоимость ремонта:", price: "от 350₽" },
+    { image: "/images/placeholder-img.jpg", title: "Сушильная машина", priceLabel: "Стоимость ремонта:", price: "от 380₽" },
+    { image: "/images/placeholder-img.jpg", title: "Установка техники", priceLabel: "Стоимость ремонта:", price: "от 650₽" },
+  ],
+  ctaText = "Не нашли вашу технику в списке? Оставьте заявку, и наш специалист перезвонит вам, проконсультирует по возможности ремонта и сообщит точную стоимость.",
+  ctaButtonText = "Оставить заявку",
+  ctaImage = "/images/placeholder-img.jpg",
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 lg:py-24 bg-white">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {heading}
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
+        {subheading}
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 lg:mb-16">
+      {
+        services.map((service) => (
+          <div class="bg-gray-50 border-2 border-gray-200 rounded-2xl p-6 transition-all duration-300 flex gap-4 items-start">
+            {/* Service Image - Left */}
+            <div class="flex-shrink-0">
+              <img
+                src={service.image}
+                alt={service.title}
+                class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-lg"
+              />
+            </div>
+
+            {/* Content - Right */}
+            <div class="flex-1 min-w-0">
+              {/* Service Title */}
+              <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">
+                {service.title}
+              </h3>
+
+              {/* Price Label */}
+              {service.priceLabel && (
+                <p class="text-xs md:text-sm text-gray-500 mb-1">{service.priceLabel}</p>
+              )}
+
+              {/* Price */}
+              <p class="text-base md:text-lg font-bold text-blue-700">
+                {service.price}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- CTA Block -->
+    <div class="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 md:p-10 lg:p-12">
+      <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
+        <!-- Left: Image -->
+        {
+          ctaImage && (
+            <div class="flex-shrink-0">
+              <img
+                src={ctaImage}
+                alt="Support specialist"
+                class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover"
+              />
+            </div>
+          )
+        }
+
+        <!-- Right: Text Content & Button -->
+        <div class="flex-1">
+          <p class="text-base md:text-lg text-gray-700 mb-6">
+            {ctaText}
+          </p>
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-blue-700 text-white rounded-xl text-base md:text-lg font-semibold hover:bg-blue-800 transition-colors duration-300"
+          >
+            {ctaButtonText}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

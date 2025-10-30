@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:tilda": "astro build && node scripts/build-tilda.js",
     "preview": "astro preview",
     "astro": "astro"
   },
   "keywords": ["astro", "tailwind", "landing-page", "builder"],
-  "author": "Andrej Tsibin",
+  "author": "Andrew Tsibin",
   "license": "MIT",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",

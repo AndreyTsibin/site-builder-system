@@ -1,0 +1,76 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  benefits?: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+}
+
+const {
+  title = "Почему выбирают нас",
+  subtitle = "Профессиональный ремонт с гарантией качества",
+  benefits = [
+    {
+      icon: "ri-time-line",
+      title: "Быстрый выезд",
+      description: "Мастер приедет в течение 30 минут после вашего звонка"
+    },
+    {
+      icon: "ri-shield-check-line",
+      title: "Гарантия качества",
+      description: "Даем гарантию на все виды работ и запчасти до 12 месяцев"
+    },
+    {
+      icon: "ri-star-line",
+      title: "Опытные мастера",
+      description: "Сертифицированные специалисты с опытом работы более 10 лет"
+    },
+    {
+      icon: "ri-tools-line",
+      title: "Оригинальные запчасти",
+      description: "Используем только качественные комплектующие от производителей"
+    },
+    {
+      icon: "ri-price-tag-3-line",
+      title: "Доступные цены",
+      description: "Фиксированная стоимость работ без скрытых доплат"
+    },
+    {
+      icon: "ri-customer-service-line",
+      title: "24/7 поддержка",
+      description: "Круглосуточная служба поддержки и консультации по телефону"
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 lg:py-24 bg-white">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">{title}</h2>
+      <p class="text-lg md:text-xl text-gray-600">{subtitle}</p>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {benefits.map((benefit) => (
+        <div class="text-center p-6 rounded-2xl border-2 border-gray-200 transition-all duration-300 bg-white">
+          <!-- Icon Circle -->
+          <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+            <i class={`${benefit.icon} text-3xl text-blue-700`}></i>
+          </div>
+
+          <!-- Benefit Title -->
+          <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900">{benefit.title}</h3>
+
+          <!-- Benefit Description -->
+          <p class="text-base md:text-lg text-gray-600">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

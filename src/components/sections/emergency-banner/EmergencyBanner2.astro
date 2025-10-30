@@ -1,0 +1,189 @@
+---
+/**
+ * EmergencyBanner2: Floating Corner Badge
+ *
+ * Fixed position badge at bottom-right corner with expand/collapse.
+ * Features: Pulse animation, click to expand, minimal footprint.
+ * Best for: 24/7 availability indicator, SOS button, emergency contact.
+ */
+
+interface Props {
+  icon: string; // Remix Icon class (e.g., "ri-customer-service-2-line")
+  shortText?: string; // "24/7" or "SOS" or empty for icon-only
+  expandedMessage: string; // Full text when expanded
+  phone: string; // "+7 (999) 123-45-67"
+  ctaText: string; // "Вызвать сейчас"
+  ctaLink?: string; // "tel:+79991234567" or "#contact"
+  bgColor?: string; // "blue-700" | "red-600" | "green-600"
+  position?: 'bottom-right' | 'bottom-left';
+  pulseAnimation?: boolean; // default: true
+}
+
+const {
+  icon,
+  shortText,
+  expandedMessage,
+  phone,
+  ctaText,
+  ctaLink,
+  bgColor = "red-600",
+  position = "bottom-right",
+  pulseAnimation = true
+} = Astro.props;
+
+// Map bgColor to actual Tailwind classes (for Tailwind JIT compilation)
+const bgColorMap: Record<string, string> = {
+  "blue-700": "bg-blue-700",
+  "red-600": "bg-red-600",
+  "green-600": "bg-green-600",
+  "amber-500": "bg-amber-500"
+};
+
+const textColorMap: Record<string, string> = {
+  "blue-700": "text-blue-700",
+  "red-600": "text-red-600",
+  "green-600": "text-green-600",
+  "amber-500": "text-amber-500"
+};
+
+const bgClass = bgColorMap[bgColor] || "bg-red-600";
+const textClass = textColorMap[bgColor] || "text-red-600";
+const positionClasses = position === "bottom-right" ? "right-4 sm:right-6" : "left-4 sm:left-6";
+---
+
+<div
+  id="emergency-badge"
+  class={`fixed bottom-4 sm:bottom-6 ${positionClasses} z-50`}
+>
+  {/* Collapsed Badge */}
+  <button
+    id="emergency-badge-button"
+    class={`flex items-center gap-2 ${bgClass} text-white px-4 py-3 sm:px-5 sm:py-4 rounded-full shadow-2xl hover:scale-105 transition-transform ${pulseAnimation ? 'animate-pulse-slow' : ''}`}
+    aria-label="Открыть срочную помощь"
+  >
+    <i class={`${icon} text-2xl sm:text-3xl`}></i>
+    {shortText && (
+      <span class="font-bold text-sm sm:text-base">{shortText}</span>
+    )}
+  </button>
+
+  {/* Expanded Panel */}
+  <div
+    id="emergency-badge-panel"
+    class={`hidden absolute bottom-full mb-4 ${position === "bottom-right" ? "right-0" : "left-0"} bg-white rounded-2xl shadow-2xl p-6 w-80 sm:w-96 max-w-[calc(100vw-2rem)]`}
+  >
+    {/* Close Button */}
+    <button
+      id="emergency-badge-panel-close"
+      class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
+      aria-label="Закрыть"
+    >
+      <i class="ri-close-line text-xl text-gray-600"></i>
+    </button>
+
+    {/* Icon */}
+    <div class={`flex justify-center mb-4 ${textClass}`}>
+      <i class={`${icon} text-5xl`}></i>
+    </div>
+
+    {/* Message */}
+    <p class="text-gray-900 text-base sm:text-lg font-semibold text-center mb-4">
+      {expandedMessage}
+    </p>
+
+    {/* Phone */}
+    <a
+      href={`tel:${phone.replace(/\D/g, '')}`}
+      class="flex items-center justify-center gap-2 text-gray-900 font-bold text-xl mb-4 hover:text-blue-700 transition-colors"
+    >
+      <i class="ri-phone-line"></i>
+      <span>{phone}</span>
+    </a>
+
+    {/* CTA Button */}
+    <a
+      href={ctaLink || `tel:${phone.replace(/\D/g, '')}`}
+      class={`block w-full py-3 ${bgClass} text-white text-center font-semibold rounded-xl hover:opacity-90 transition-opacity`}
+    >
+      {ctaText}
+    </a>
+  </div>
+</div>
+
+<style>
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
+
+<script is:inline>
+(function() {
+  console.log('EmergencyBanner2 script loaded');
+
+  // Toggle expanded panel
+  function initBadge() {
+    const button = document.getElementById('emergency-badge-button');
+    const panel = document.getElementById('emergency-badge-panel');
+    const closeBtn = document.getElementById('emergency-badge-panel-close');
+
+    console.log('EmergencyBanner2 init:', { button, panel, closeBtn });
+
+    if (!button || !panel || !closeBtn) {
+      console.error('EmergencyBanner2: Missing elements', {
+        button: !!button,
+        panel: !!panel,
+        closeBtn: !!closeBtn
+      });
+      return;
+    }
+
+    // Open panel
+    button.addEventListener('click', function(e) {
+      console.log('Badge clicked!');
+      e.stopPropagation();
+      panel.classList.remove('hidden');
+      button.style.display = 'none';
+    });
+
+    // Close panel
+    closeBtn.addEventListener('click', function(e) {
+      console.log('Close clicked!');
+      e.stopPropagation();
+      panel.classList.add('hidden');
+      button.style.display = 'flex';
+    });
+
+    // Close panel when clicking outside
+    document.addEventListener('click', function(e) {
+      const badge = document.getElementById('emergency-badge');
+      if (badge && !badge.contains(e.target) && !panel.classList.contains('hidden')) {
+        console.log('Closing panel (clicked outside)');
+        panel.classList.add('hidden');
+        button.style.display = 'flex';
+      }
+    });
+
+    console.log('EmergencyBanner2 initialized successfully');
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOMContentLoaded - initializing EmergencyBanner2');
+      initBadge();
+    });
+  } else {
+    console.log('DOM already loaded - initializing EmergencyBanner2 immediately');
+    initBadge();
+  }
+})();
+</script>

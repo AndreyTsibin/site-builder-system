@@ -1,0 +1,87 @@
+---
+/**
+ * CTA4 — Sticky Bottom CTA Bar (Mobile-First)
+ *
+ * Always-visible sticky bar for instant contact on mobile (appears after scrolling).
+ * Two prominent buttons side-by-side: Phone call + WhatsApp.
+ */
+
+interface Props {
+  phone: string;
+  whatsappNumber: string;
+  whatsappMessage?: string;
+}
+
+const {
+  phone,
+  whatsappNumber,
+  whatsappMessage = 'Здравствуйте! Хочу заказать ремонт.',
+} = Astro.props;
+
+// Format WhatsApp link
+const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
+---
+
+<!-- Sticky Bottom Bar -->
+<div
+  id="sticky-cta"
+  class="fixed bottom-0 left-0 right-0 z-50 bg-white shadow-2xl border-t border-gray-200 lg:hidden"
+>
+  <div class="max-w-[1344px] mx-auto px-4 py-3">
+    <div class="grid grid-cols-2 gap-3">
+      <!-- Phone Button -->
+      <a
+        href={`tel:${phone.replace(/\s/g, '')}`}
+        class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-lg"
+      >
+        <i class="ri-phone-line text-xl"></i>
+        <span class="text-sm">Позвонить</span>
+      </a>
+
+      <!-- WhatsApp Button -->
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-lg"
+      >
+        <i class="ri-whatsapp-line text-xl"></i>
+        <span class="text-sm">WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Add padding to body to prevent content from being hidden behind sticky bar -->
+<style>
+  body {
+    padding-bottom: 80px;
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      padding-bottom: 0;
+    }
+  }
+</style>
+
+<!-- Optional: Show/hide based on scroll position -->
+<script>
+  const stickyBar = document.getElementById('sticky-cta');
+
+  if (stickyBar) {
+    // Initially hide the bar
+    stickyBar.style.transform = 'translateY(100%)';
+    stickyBar.style.transition = 'transform 0.3s ease-in-out';
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        // Show after 300px scroll
+        stickyBar.style.transform = 'translateY(0)';
+      } else {
+        // Hide when at top
+        stickyBar.style.transform = 'translateY(100%)';
+      }
+    });
+  }
+</script>

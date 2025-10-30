@@ -1,0 +1,125 @@
+---
+/**
+ * Hero3 — Hero with Benefits List, Contact Form & Image
+ *
+ * Two-column hero section: left has content + benefits + form, right has image
+ * Perfect for LG appliance repair services with immediate conversion focus
+ *
+ * Usage:
+ * <Hero3
+ *   title="Ремонт техники LG"
+ *   titleHighlight="LG"
+ *   subtitle="в СПБ и области"
+ *   description="<strong class='underline decoration-dotted cursor-help' title='Бесплатно при заказе ремонта'>Бесплатный</strong> выезд специалиста для диагностики и профессионального ремонта техники LG"
+ *   benefits={[
+ *     { icon: "ri-checkbox-circle-line", text: "Запчасти от производителя" },
+ *     { icon: "ri-checkbox-circle-line", text: "Выезд в течение часа" },
+ *     { icon: "ri-checkbox-circle-line", text: "Гарантия на услуги до 2 лет" }
+ *   ]}
+ *   phonePlaceholder="+7 (000) 000-00-00"
+ *   submitText="Вызвать мастера"
+ *   privacyText="Отправляя форму, вы соглашаетесь с <a href='/privacy' class='text-blue-600 hover:underline'>Политикой конфиденциальности</a>"
+ *   imageUrl="/images/placeholder-img.jpg"
+ *   imageAlt="Мастер по ремонту техники LG"
+ * />
+ */
+
+interface Benefit {
+  icon: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  titleHighlight: string;
+  subtitle: string;
+  description: string;
+  benefits: Benefit[];
+  phonePlaceholder?: string;
+  submitText: string;
+  privacyText: string;
+  imageUrl?: string;
+  imageAlt?: string;
+}
+
+const {
+  title,
+  titleHighlight,
+  subtitle,
+  description,
+  benefits,
+  phonePlaceholder = "+7 (000) 000-00-00",
+  submitText,
+  privacyText,
+  imageUrl = "/images/placeholder-img.jpg",
+  imageAlt = "Hero image"
+} = Astro.props;
+
+// Split title to highlight specific part
+const titleParts = title.split(titleHighlight);
+---
+
+<section class="bg-white py-16 md:py-20 lg:py-24">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
+      <!-- Left Column: Content + Benefits + Form -->
+      <div class="space-y-6">
+        <!-- Heading with highlight -->
+        <h1 class="max-w-2xl text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight">
+          {titleParts[0]}<span class="text-red-600">{titleHighlight}</span>{titleParts[1]}
+          <br />
+          <span class="block text-3xl md:text-4xl xl:text-5xl mt-2">{subtitle}</span>
+        </h1>
+
+        <!-- Description with embedded link/tooltip -->
+        <p class="max-w-2xl text-base md:text-lg font-light text-gray-700" set:html={description} />
+
+        <!-- Benefits List -->
+        <ul class="space-y-3">
+          {benefits.map((benefit) => (
+            <li class="flex items-center gap-3">
+              <i class={`${benefit.icon} text-2xl text-green-600`}></i>
+              <span class="text-base md:text-lg text-gray-900">{benefit.text}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- Contact Form -->
+        <div class="pt-4">
+          <form class="space-y-4 max-w-md">
+            <!-- Phone Input -->
+            <input
+              type="tel"
+              placeholder={phonePlaceholder}
+              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-700 focus:border-blue-700 transition-colors"
+              pattern="[+]?[0-9\s\-\(\)]+"
+              required
+            />
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="w-full px-6 py-3 text-base font-medium text-white bg-blue-700 hover:bg-blue-800 rounded-xl focus:ring-4 focus:ring-blue-300 transition-colors"
+            >
+              {submitText}
+            </button>
+
+            <!-- Privacy Policy Text -->
+            <p class="text-xs text-gray-500 leading-relaxed" set:html={privacyText} />
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Column: Image -->
+      <div class="hidden lg:flex justify-center">
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          class="max-w-full h-auto rounded-xl"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>

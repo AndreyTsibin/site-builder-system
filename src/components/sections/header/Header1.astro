@@ -1,0 +1,208 @@
+---
+interface Props {
+  logo: string;
+  logoIcon?: string;
+  menuItems?: { label: string; href: string }[];
+  phone: string;
+  workingHours?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  logo,
+  logoIcon = 'ri-tools-line',
+  menuItems = [
+    { label: 'Услуги', href: '#services' },
+    { label: 'Отзывы', href: '#testimonials' },
+    { label: 'Контакты', href: '#contacts' }
+  ],
+  phone,
+  workingHours = 'Ежедневно 8:00 - 22:00',
+  ctaText = 'Вызвать мастера',
+  ctaLink = '#cta'
+} = Astro.props;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between py-4 md:py-6">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 hover:text-blue-700 transition-colors">
+          <i class={`${logoIcon} text-2xl md:text-3xl`}></i>
+          <span>{logo}</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center space-x-8">
+        {menuItems.map((item) => (
+          <a
+            href={item.href}
+            class="menu-link-underline text-base text-gray-700 hover:text-blue-700 transition-colors font-medium relative py-1"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Desktop Phone + CTA -->
+      <div class="hidden md:flex items-center gap-4">
+        <div class="flex flex-col">
+          <a
+            href={`tel:${phone.replace(/\s/g, '')}`}
+            class="flex items-center gap-2 text-base lg:text-lg font-semibold text-gray-900 hover:text-blue-700 transition-colors"
+          >
+            <i class="ri-phone-line text-xl"></i>
+            <span>{phone}</span>
+          </a>
+          <span class="text-xs text-gray-500 ml-7">{workingHours}</span>
+        </div>
+        <a
+          href={ctaLink}
+          class="px-6 py-3 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors"
+        >
+          {ctaText}
+        </a>
+      </div>
+
+      <!-- Mobile: Phone + Burger -->
+      <div class="flex md:hidden items-center gap-3">
+        <a
+          href={`tel:${phone.replace(/\s/g, '')}`}
+          class="text-blue-700 hover:text-blue-800 transition-colors"
+        >
+          <i class="ri-phone-line text-2xl"></i>
+        </a>
+        <button
+          id="burger-btn"
+          class="text-gray-700 hover:text-blue-700 transition-colors"
+          aria-label="Открыть меню"
+        >
+          <i class="ri-menu-line text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Sidebar Menu -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
+</div>
+
+<aside
+  id="mobile-menu"
+  class="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300"
+>
+  <div class="flex flex-col h-full">
+    <!-- Sidebar Header -->
+    <div class="flex items-center justify-between p-6 border-b border-gray-200">
+      <div class="flex items-center gap-2">
+        <i class={`${logoIcon} text-2xl text-gray-900`}></i>
+        <span class="text-xl font-bold text-gray-900">{logo}</span>
+      </div>
+      <button
+        id="close-menu-btn"
+        class="text-gray-700 hover:text-red-600 transition-colors"
+        aria-label="Закрыть меню"
+      >
+        <i class="ri-close-line text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="flex-1 p-6">
+      <ul class="space-y-4">
+        {menuItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="mobile-menu-link block text-lg font-medium text-gray-700 hover:text-blue-700 transition-colors py-2"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="p-6 border-t border-gray-200 space-y-4">
+      <div class="flex flex-col gap-1">
+        <a
+          href={`tel:${phone.replace(/\s/g, '')}`}
+          class="flex items-center gap-3 text-lg font-semibold text-gray-900 hover:text-blue-700 transition-colors"
+        >
+          <i class="ri-phone-line text-xl"></i>
+          <span>{phone}</span>
+        </a>
+        <span class="text-xs text-gray-500 ml-9">{workingHours}</span>
+      </div>
+      <a
+        href={ctaLink}
+        class="block w-full px-6 py-3 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors text-center"
+      >
+        {ctaText}
+      </a>
+    </div>
+  </div>
+</aside>
+
+<script>
+  const burgerBtn = document.getElementById('burger-btn');
+  const closeMobileMenuBtn = document.getElementById('close-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+  function openMenu() {
+    mobileMenu?.classList.remove('translate-x-full');
+    mobileMenuOverlay?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.add('translate-x-full');
+    mobileMenuOverlay?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  burgerBtn?.addEventListener('click', openMenu);
+  closeMobileMenuBtn?.addEventListener('click', closeMenu);
+  mobileMenuOverlay?.addEventListener('click', closeMenu);
+
+  // Close menu when clicking on menu links
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  });
+</script>
+
+<style>
+  .menu-link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1d4ed8; /* blue-700 */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .menu-link-underline:hover::after {
+    transform: scaleX(1);
+  }
+</style>
+
+<!-- Spacer to prevent content from hiding under fixed header -->
+<div class="h-[72px] md:h-[88px]"></div>

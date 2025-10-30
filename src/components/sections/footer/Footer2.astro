@@ -1,0 +1,203 @@
+---
+interface Props {
+  logo: string;
+  logoIcon?: string;
+  description?: string;
+  phone: string;
+  workingHours?: string;
+  email: string;
+  address: string;
+  socialLinks?: {
+    vk?: string;
+    telegram?: string;
+    whatsapp?: string;
+  };
+  menuItems?: { label: string; href: string }[];
+  ctaText?: string;
+  ctaHref?: string;
+  copyrightText?: string;
+  companyDetails?: {
+    legalForm?: string;
+    inn?: string;
+    ogrn?: string;
+  };
+}
+
+const {
+  logo = 'Ремонт Техники',
+  logoIcon = 'ri-tools-line',
+  description = 'Профессиональный ремонт бытовой техники с гарантией качества. Опыт более 10 лет.',
+  phone = '+7 (495) 123-45-67',
+  workingHours = 'Ежедневно 9:00 - 21:00',
+  email = 'info@remont-service.ru',
+  address = 'г. Москва, ул. Примерная, д. 10',
+  socialLinks = {
+    vk: 'https://vk.com/',
+    telegram: 'https://t.me/',
+    whatsapp: 'https://wa.me/'
+  },
+  menuItems = [
+    { label: 'Главная', href: '#home' },
+    { label: 'Услуги', href: '#services' },
+    { label: 'Цены', href: '#pricing' },
+    { label: 'О компании', href: '#about' },
+    { label: 'Отзывы', href: '#testimonials' },
+    { label: 'Контакты', href: '#contacts' }
+  ],
+  ctaText = 'Вызвать мастера',
+  ctaHref = '#contact',
+  copyrightText = 'Все права защищены',
+  companyDetails = {
+    legalForm: 'ИП Иванов Иван Иванович',
+    inn: '773456789012',
+    ogrn: '123456789012345'
+  }
+} = Astro.props;
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <!-- Main Footer Content -->
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+
+      <!-- Column 1: Logo + Description -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <i class={`${logoIcon} text-2xl text-green-500`}></i>
+          <span class="text-xl md:text-2xl font-bold text-white">{logo}</span>
+        </div>
+        {description && (
+          <p class="text-sm text-gray-400 leading-relaxed">
+            {description}
+          </p>
+        )}
+      </div>
+
+      <!-- Column 2: Contacts -->
+      <div class="space-y-4">
+        <h3 class="text-base md:text-lg font-semibold text-white">Контакты</h3>
+
+        <div class="space-y-3">
+          <!-- Phone -->
+          <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} class="flex items-start gap-3 hover:text-green-400 transition-colors group">
+            <i class="ri-phone-line text-lg text-green-500 flex-shrink-0 mt-0.5"></i>
+            <div>
+              <div class="text-sm font-semibold text-white group-hover:text-green-400 transition-colors">{phone}</div>
+              {workingHours && <div class="text-xs text-gray-500">{workingHours}</div>}
+            </div>
+          </a>
+
+          <!-- Email -->
+          <a href={`mailto:${email}`} class="flex items-center gap-3 text-sm hover:text-green-400 transition-colors">
+            <i class="ri-mail-line text-lg text-green-500 flex-shrink-0"></i>
+            <span class="break-all">{email}</span>
+          </a>
+
+          <!-- Address -->
+          <div class="flex items-start gap-3 text-sm">
+            <i class="ri-map-pin-line text-lg text-green-500 flex-shrink-0 mt-0.5"></i>
+            <span>{address}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Navigation -->
+      <div class="space-y-4">
+        <h3 class="text-base md:text-lg font-semibold text-white">Навигация</h3>
+        <nav class="space-y-2">
+          {menuItems && menuItems.map((item) => (
+            <a
+              href={item.href}
+              class="block text-sm hover:text-blue-400 transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Column 4: Social Links + CTA -->
+      <div class="space-y-6">
+        <!-- Social Links -->
+        {socialLinks && (
+          <div>
+            <h3 class="text-base md:text-lg font-semibold text-white mb-4">Мы в соцсетях</h3>
+            <div class="flex gap-3">
+              {socialLinks.vk && (
+                <a
+                  href={socialLinks.vk}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-blue-600 transition-colors"
+                  aria-label="VK"
+                >
+                  <i class="ri-vk-line text-xl"></i>
+                </a>
+              )}
+              {socialLinks.telegram && (
+                <a
+                  href={socialLinks.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-blue-500 transition-colors"
+                  aria-label="Telegram"
+                >
+                  <i class="ri-telegram-line text-xl"></i>
+                </a>
+              )}
+              {socialLinks.whatsapp && (
+                <a
+                  href={socialLinks.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-green-500 transition-colors"
+                  aria-label="WhatsApp"
+                >
+                  <i class="ri-whatsapp-line text-xl"></i>
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+
+        <!-- CTA Button -->
+        {ctaText && ctaHref && (
+          <div>
+            <a
+              href={ctaHref}
+              class="inline-block w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-colors text-center text-sm"
+            >
+              {ctaText}
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Section: Copyright -->
+  <div class="border-t border-gray-800">
+    <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <p>© {currentYear} {logo}. {copyrightText}</p>
+          {companyDetails && (
+            <!--noindex-->
+            <div class="text-xs text-gray-600 flex flex-col md:flex-row md:gap-3">
+              {companyDetails.legalForm && <p>{companyDetails.legalForm}</p>}
+              {companyDetails.inn && <p>ИНН: {companyDetails.inn}</p>}
+              {companyDetails.ogrn && <p>ОГРН: {companyDetails.ogrn}</p>}
+            </div>
+            <!--/noindex-->
+          )}
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+          <a href="#privacy" class="hover:text-gray-300 transition-colors">Политика конфиденциальности</a>
+          <a href="#terms" class="hover:text-gray-300 transition-colors">Условия использования</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
