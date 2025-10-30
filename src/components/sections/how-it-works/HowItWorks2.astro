@@ -36,14 +36,9 @@ const { heading, subheading, steps, ctaText, ctaLink = "#" } = Astro.props;
       {steps.map((step, index) => (
         <div class="flex flex-col md:flex-row lg:flex-col items-center">
           <!-- Step Card -->
-          <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-400 hover:shadow-lg transition-all hover:scale-105 w-full">
-            <!-- Number Badge -->
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 text-white text-xl font-bold mb-4">
-              {step.number}
-            </div>
-
+          <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-400 hover:shadow-lg transition-all hover:scale-105 w-full h-full flex flex-col">
             <!-- Icon -->
-            <i class={`${step.icon} text-5xl text-blue-600 mb-4 block`}></i>
+            <i class={`${step.icon} text-6xl text-blue-600 mb-6 block`}></i>
 
             <!-- Title -->
             <h3 class="text-xl font-bold text-gray-900 mb-3">
