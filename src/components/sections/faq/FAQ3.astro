@@ -31,10 +31,10 @@ const { heading, subheading, faqs } = Astro.props;
       <!-- Right Column: FAQ Accordion -->
       <div class="space-y-4">
         {faqs.map((faq, index) => (
-          <details class="group bg-white rounded-lg border-2 border-gray-200 overflow-hidden transition-all hover:border-blue-400 hover:shadow-md" name="faq-accordion-3">
+          <details class="group bg-white rounded-lg border-2 border-gray-200 overflow-hidden transition-all hover:border-blue-400" name="faq-accordion-3">
             <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-lg text-gray-900 list-none">
               <span>{faq.question}</span>
-              <i class="ri-arrow-down-s-line text-2xl text-blue-600 transition-transform group-open:rotate-180"></i>
+              <i class="ri-arrow-down-s-line text-2xl text-blue-700 transition-transform group-open:rotate-180"></i>
             </summary>
             <div class="px-6 pb-6 pt-2 text-base md:text-lg text-gray-600 border-t border-gray-100">
               {faq.answer}
