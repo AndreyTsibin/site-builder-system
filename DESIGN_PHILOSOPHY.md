@@ -89,7 +89,31 @@ bg-[radial-gradient(circle_at_70%_60%,rgba(167,139,250,0.08),transparent_50%)]
 <span class="text-3xl md:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700 bg-clip-text text-transparent">
 ```
 
-**H2:** `text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900`
+**H2 Gradient Pattern (MANDATORY):**
+```astro
+<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent mb-4">
+  {heading}
+</h2>
+```
+
+**H3 Gradient Pattern (MANDATORY):**
+```astro
+<!-- Static elements -->
+<h3 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent">
+  {title}
+</h3>
+
+<!-- Interactive elements (cards, etc.) — with hover state -->
+<h3 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:via-blue-800 group-hover:to-blue-700 transition-all duration-300">
+  {title}
+</h3>
+```
+
+**⚠️ ВАЖНО:**
+- ❌ **Удаляй:** `text-gray-900` или любые solid color классы
+- ✅ **Сохраняй:** size classes (text-3xl, md:text-4xl), font-weight, spacing
+- ✅ **Добавляй hover:** для H3 в интерактивных элементах (cards, кнопки)
+
 **Body:** `text-lg md:text-xl font-light text-gray-700`
 
 ---
