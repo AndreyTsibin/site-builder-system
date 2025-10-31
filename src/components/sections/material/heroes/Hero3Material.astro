@@ -4,8 +4,8 @@
  *
  * Enhancements over Hero3:
  * - Gradient background (light source from top)
- * - Elevated form inputs with subtle shadows
- * - Material Design button with gradient + depth
+ * - Unified heading (single color, single size)
+ * - Premium CTA button with shimmer animation
  * - Enhanced hover/active states
  * - Image with elevation shadow
  */
@@ -17,45 +17,38 @@ interface Benefit {
 
 interface Props {
   title: string;
-  titleHighlight: string;
   subtitle: string;
   description: string;
   benefits: Benefit[];
-  phonePlaceholder?: string;
-  submitText: string;
-  privacyText: string;
+  ctaText: string;
+  ctaHref?: string;
   imageUrl?: string;
   imageAlt?: string;
 }
 
 const {
   title,
-  titleHighlight,
   subtitle,
   description,
   benefits,
-  phonePlaceholder = "+7 (000) 000-00-00",
-  submitText,
-  privacyText,
+  ctaText,
+  ctaHref = "#contact",
   imageUrl = "/images/placeholder-img.jpg",
   imageAlt = "Hero image"
 } = Astro.props;
-
-// Split title to highlight specific part
-const titleParts = title.split(titleHighlight);
 ---
 
 <section class="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20 lg:py-24">
   <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-      <!-- Left Column: Content + Benefits + Form -->
+      <!-- Left Column: Content + Benefits + CTA -->
       <div class="space-y-6">
-        <!-- Heading with highlight -->
-        <h1 class="max-w-2xl text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight">
-          {titleParts[0]}<span class="text-red-600">{titleHighlight}</span>{titleParts[1]}
+        <!-- Unified Heading -->
+        <h1 class="max-w-2xl text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight text-gray-900">
+          {title}
           <br />
-          <span class="block text-3xl md:text-4xl xl:text-5xl mt-2">{subtitle}</span>
+          <span class="block mt-2">{subtitle}</span>
         </h1>
 
         <!-- Description with embedded link/tooltip -->
@@ -73,29 +66,16 @@ const titleParts = title.split(titleHighlight);
           ))}
         </ul>
 
-        <!-- Contact Form with Material Design -->
+        <!-- Premium CTA Button with Shimmer Animation -->
         <div class="pt-4">
-          <form class="space-y-4 max-w-md">
-            <!-- Phone Input with Elevation -->
-            <input
-              type="tel"
-              placeholder={phonePlaceholder}
-              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg bg-gradient-to-b from-white to-gray-50 shadow-sm focus:ring-2 focus:ring-blue-700 focus:border-blue-700 focus:shadow-md transition-all duration-200"
-              pattern="[+]?[0-9\s\-\(\)]+"
-              required
-            />
-
-            <!-- Submit Button with Material Design Gradient -->
-            <button
-              type="submit"
-              class="w-full px-6 py-3 text-base font-medium text-white bg-gradient-to-b from-blue-600 to-blue-800 rounded-xl shadow-md hover:shadow-lg hover:from-blue-700 hover:to-blue-900 active:from-blue-800 active:to-blue-950 active:shadow-sm focus:ring-4 focus:ring-blue-300 transition-all duration-200"
-            >
-              {submitText}
-            </button>
-
-            <!-- Privacy Policy Text -->
-            <p class="text-xs text-gray-500 leading-relaxed" set:html={privacyText} />
-          </form>
+          <a
+            href={ctaHref}
+            class="hero-cta-button inline-flex items-center justify-center px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 rounded-xl shadow-lg hover:shadow-xl active:shadow-md transition-all duration-300 relative overflow-hidden group"
+          >
+            <span class="relative z-10">{ctaText}</span>
+            <!-- Shimmer overlay -->
+            <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent shimmer-animation"></span>
+          </a>
         </div>
       </div>
 
@@ -111,3 +91,33 @@ const titleParts = title.split(titleHighlight);
     </div>
   </div>
 </section>
+
+<style>
+  /* Shimmer Animation for Premium CTA Button */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) skewX(-15deg);
+    }
+    100% {
+      transform: translateX(200%) skewX(-15deg);
+    }
+  }
+
+  .shimmer-animation {
+    animation: shimmer 3s infinite;
+  }
+
+  /* Pause shimmer on hover for better UX */
+  .hero-cta-button:hover .shimmer-animation {
+    animation-play-state: paused;
+  }
+
+  /* Enhanced hover glow effect */
+  .hero-cta-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero-cta-button:active {
+    transform: translateY(0);
+  }
+</style>
