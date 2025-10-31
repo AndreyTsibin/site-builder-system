@@ -13,6 +13,9 @@
 
   /* Custom Breakpoints */
   --breakpoint-3xl: 1920px;
+
+  /* Custom Fonts */
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
 }
 
 /* Base Styles */
@@ -29,7 +32,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   color: hsl(0, 0%, 20%);
   background: hsl(0, 0%, 100%);
