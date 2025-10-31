@@ -1,12 +1,19 @@
 ---
 /**
- * Benefits2Material — Material Design Benefits with Elevated Cards
+ * Benefits2Material — Premium Material Design 3 Benefits with Elevated Cards
  *
- * Enhancements over Benefits2:
- * - Gradient stat cards (light source from top)
- * - Elevated cards with shadows for depth
- * - Enhanced hover states with scale + shadow
- * - Smooth transitions for premium feel
+ * Premium Enhancements:
+ * - ✨ Unique color themes per card (Purple, Blue, Green, Orange)
+ * - 🎨 Gradient text for numbers with Material Design 3 colors
+ * - 📦 Elevated cards with colored shadows (shadow-xl → shadow-2xl)
+ * - 💍 Ring elevation system (ring-1 → hover:ring-2)
+ * - 🎯 Icon upgrades: larger (24x24), glow effects, hover animations (scale + rotate)
+ * - 🚀 Premium hover: scale, translate-y, shadow, ring transitions
+ * - 🔢 Counter animation with IntersectionObserver (numbers count up on scroll)
+ * - 🎬 Stagger animation: cards fade in sequentially (100ms delay each)
+ * - 🌈 Mesh gradient background overlay for visual depth
+ * - 📱 Responsive typography: text-4xl → md:text-6xl → lg:text-7xl
+ * - 🔒 whitespace-nowrap prevents number wrapping
  */
 
 interface Props {
@@ -31,8 +38,8 @@ const {
       icon: "ri-medal-line"
     },
     {
-      number: "2000+",
-      label: "довольных клиентов",
+      number: "5000+",
+      label: "клиентов",
       description: "Успешно выполненных заказов по ремонту техники",
       icon: "ri-user-heart-line"
     },
@@ -50,10 +57,53 @@ const {
     }
   ]
 } = Astro.props;
+
+// Color themes for each card (Purple, Blue, Green, Orange)
+const colorThemes = [
+  {
+    iconBg: 'from-purple-100 to-purple-200',
+    iconColor: 'text-purple-600',
+    numberGradient: 'from-purple-600 via-purple-500 to-indigo-600',
+    cardBg: 'from-purple-50/50 to-white',
+    shadow: 'shadow-purple-500/20',
+    ring: 'ring-purple-200/50',
+    hoverRing: 'hover:ring-purple-300'
+  },
+  {
+    iconBg: 'from-blue-100 to-blue-200',
+    iconColor: 'text-blue-600',
+    numberGradient: 'from-blue-600 via-blue-500 to-cyan-600',
+    cardBg: 'from-blue-50/50 to-white',
+    shadow: 'shadow-blue-500/20',
+    ring: 'ring-blue-200/50',
+    hoverRing: 'hover:ring-blue-300'
+  },
+  {
+    iconBg: 'from-green-100 to-emerald-200',
+    iconColor: 'text-green-600',
+    numberGradient: 'from-green-600 via-emerald-500 to-teal-600',
+    cardBg: 'from-green-50/50 to-white',
+    shadow: 'shadow-green-500/20',
+    ring: 'ring-green-200/50',
+    hoverRing: 'hover:ring-green-300'
+  },
+  {
+    iconBg: 'from-orange-100 to-amber-200',
+    iconColor: 'text-orange-600',
+    numberGradient: 'from-orange-600 via-amber-500 to-yellow-600',
+    cardBg: 'from-orange-50/50 to-white',
+    shadow: 'shadow-orange-500/20',
+    ring: 'ring-orange-200/50',
+    hoverRing: 'hover:ring-orange-300'
+  }
+];
 ---
 
-<section class="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50">
-  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
+  <!-- Mesh gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-blue-50/20 to-green-50/30 pointer-events-none"></div>
+
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Section Header -->
     <div class="text-center mb-12 lg:mb-16">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">{title}</h2>
@@ -62,27 +112,94 @@ const {
 
     <!-- Stats Grid with Material Design Cards -->
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-      {stats.map((stat) => (
-        <div class="bg-gradient-to-b from-white to-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 text-center border border-gray-100">
-          <!-- Icon (optional) -->
-          {stat.icon && (
-            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-sm">
-              <i class={`${stat.icon} text-4xl text-blue-700`}></i>
+      {stats.map((stat, index) => {
+        const theme = colorThemes[index % colorThemes.length];
+        return (
+          <div
+            class={`stat-card group opacity-0 animate-fade-in-up bg-gradient-to-b ${theme.cardBg} p-8 rounded-2xl shadow-xl ${theme.shadow} hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 text-center border border-gray-100 ring-1 ${theme.ring} hover:ring-2 ${theme.hoverRing}`}
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <!-- Icon (optional) -->
+            {stat.icon && (
+              <div class={`w-24 h-24 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br ${theme.iconBg} rounded-xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                <i class={`${stat.icon} text-5xl ${theme.iconColor}`}></i>
+              </div>
+            )}
+
+            <!-- Number with Gradient Text -->
+            <div class="text-4xl md:text-6xl lg:text-7xl font-black mb-2">
+              <span class={`stat-number whitespace-nowrap bg-gradient-to-r ${theme.numberGradient} bg-clip-text text-transparent`} data-value={stat.number}>
+                0
+              </span>
             </div>
-          )}
 
-          <!-- Number -->
-          <div class="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-700 mb-2">
-            {stat.number}
+            <!-- Label -->
+            <h3 class="text-xl md:text-2xl font-semibold mb-3 text-gray-900">{stat.label}</h3>
+
+            <!-- Description -->
+            <p class="text-base text-gray-600">{stat.description}</p>
           </div>
-
-          <!-- Label -->
-          <h3 class="text-xl md:text-2xl font-semibold mb-3 text-gray-900">{stat.label}</h3>
-
-          <!-- Description -->
-          <p class="text-base text-gray-600">{stat.description}</p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>
+
+<script>
+  // Counter animation when section enters viewport
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+  };
+
+  const animateCounter = (el: HTMLElement, target: string) => {
+    const num = parseInt(target.replace(/\D/g, ''));
+    const suffix = target.replace(/[0-9]/g, '');
+    const duration = 2000;
+    const steps = 60;
+    const stepValue = num / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += stepValue;
+      if (current >= num) {
+        el.textContent = target;
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(current) + suffix;
+      }
+    }, duration / steps);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const numberEl = entry.target.querySelector('.stat-number');
+        const targetValue = numberEl?.getAttribute('data-value');
+        if (numberEl && targetValue) {
+          animateCounter(numberEl as HTMLElement, targetValue);
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.stat-card').forEach(card => observer.observe(card));
+</script>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+</style>
