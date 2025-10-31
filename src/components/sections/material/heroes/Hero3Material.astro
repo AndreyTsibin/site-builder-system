@@ -65,7 +65,9 @@ const titleParts = title.split(titleHighlight);
         <ul class="space-y-3">
           {benefits.map((benefit) => (
             <li class="flex items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 p-3 rounded-lg shadow-sm">
-              <i class={`${benefit.icon} text-2xl text-green-600`}></i>
+              <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-green-100 to-emerald-200 rounded-full shadow-sm flex-shrink-0">
+                <i class={`${benefit.icon} text-xl text-green-700`}></i>
+              </div>
               <span class="text-base md:text-lg text-gray-900">{benefit.text}</span>
             </li>
           ))}

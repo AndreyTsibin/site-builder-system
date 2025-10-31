@@ -47,8 +47,10 @@ const { heading, subheading, steps, ctaText, ctaLink = "#" } = Astro.props;
         <div class="flex flex-col md:flex-row lg:flex-col items-center">
           <!-- Step Card with Gradient -->
           <div class="bg-gradient-to-b from-white to-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 w-full h-full flex flex-col border border-gray-100">
-            <!-- Icon -->
-            <i class={`${step.icon} text-6xl text-blue-600 mb-6 block`}></i>
+            <!-- Icon Container -->
+            <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-sm">
+              <i class={`${step.icon} text-5xl text-blue-600`}></i>
+            </div>
 
             <!-- Title -->
             <h3 class="text-xl font-bold text-gray-900 mb-3">
