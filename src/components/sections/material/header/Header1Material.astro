@@ -39,7 +39,7 @@ const {
 
 <header class="header-glass fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg backdrop-saturate-150 shadow-lg border-b border-white/20 transition-all duration-300">
   <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between py-4 md:py-6 transition-all duration-300">
+    <div class="header-content flex items-center justify-between py-3 md:py-4 transition-all duration-300">
       <!-- Logo with Glow Effect -->
       <div class="flex-shrink-0">
         <a href="/" class="logo-link flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 hover:text-blue-700 transition-all duration-300">
@@ -62,8 +62,8 @@ const {
 
       <!-- Desktop Phone + CTA -->
       <div class="hidden md:flex items-center gap-4">
-        <!-- Phone Block with Gradient -->
-        <div class="flex flex-col bg-gradient-to-b from-gray-50 to-gray-100 px-4 py-2 rounded-lg">
+        <!-- Phone Block -->
+        <div class="flex flex-col">
           <a
             href={`tel:${phone.replace(/\s/g, '')}`}
             class="flex items-center gap-2 text-base lg:text-lg font-semibold text-gray-900 hover:text-blue-700 transition-colors"
@@ -71,7 +71,7 @@ const {
             <i class="ri-phone-line text-xl"></i>
             <span>{phone}</span>
           </a>
-          <span class="text-xs text-gray-500 ml-7">{workingHours}</span>
+          <span class="text-xs text-gray-600 ml-7">{workingHours}</span>
         </div>
         <!-- Premium CTA Button with Shimmer + Glow -->
         <a
@@ -146,8 +146,8 @@ const {
 
     <!-- Sidebar Footer -->
     <div class="p-6 border-t border-gray-200 space-y-4">
-      <!-- Phone with Gradient Background -->
-      <div class="flex flex-col gap-1 bg-gradient-to-b from-gray-50 to-gray-100 p-4 rounded-lg">
+      <!-- Phone Block -->
+      <div class="flex flex-col gap-1">
         <a
           href={`tel:${phone.replace(/\s/g, '')}`}
           class="flex items-center gap-3 text-lg font-semibold text-gray-900 hover:text-blue-700 transition-colors"
@@ -155,7 +155,7 @@ const {
           <i class="ri-phone-line text-xl"></i>
           <span>{phone}</span>
         </a>
-        <span class="text-xs text-gray-500 ml-9">{workingHours}</span>
+        <span class="text-xs text-gray-600 ml-9">{workingHours}</span>
       </div>
       <!-- Premium CTA Button with Shimmer + Glow -->
       <a
@@ -271,11 +271,11 @@ const {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
-  .header-glass.scrolled .flex {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+  .header-glass.scrolled .header-content {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 </style>
 
 <!-- Spacer to prevent content from hiding under fixed header -->
-<div class="h-[72px] md:h-[88px]"></div>
+<div class="h-[60px] md:h-[72px]"></div>
