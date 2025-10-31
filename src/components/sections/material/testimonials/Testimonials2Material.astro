@@ -1,12 +1,16 @@
 ---
 /**
- * Testimonials2Material — Material Design Testimonials Grid
+ * Testimonials2Material — Premium Material Design 3 Testimonials
  *
- * Enhancements over Testimonials2:
- * - Gradient testimonial cards (light source from top)
- * - Elevated cards with shadows
- * - Enhanced hover states
- * - Material Design toggle button
+ * Premium Enhancements (2025 trends):
+ * - 🌈 Gradient mesh background with layered depth
+ * - 🎨 Color rotation (Purple → Blue → Green → Orange) for cards
+ * - 💎 Premium ring effect on avatars with colored shadows
+ * - 🎬 Stagger animation (fadeInUp) on load
+ * - ✨ Premium hover effects (scale + translate-y + shadow glow)
+ * - 💫 H3 gradient names with hover state
+ * - 🔥 Gradient cards with colored shadows per theme
+ * - 🚀 Enhanced Material Design 3 elevation system
  */
 
 interface Testimonial {
@@ -30,13 +34,53 @@ const {
   testimonials,
   initialVisible = 4,
 } = Astro.props;
+
+// Color themes for rotation (Purple → Blue → Green → Orange)
+const colorThemes = [
+  {
+    cardBg: 'from-purple-50/50 to-white',
+    shadow: 'shadow-purple-500/20',
+    ring: 'ring-purple-200/50',
+    hoverShadow: 'group-hover:shadow-purple-500/30',
+    avatarRing: 'ring-purple-200/50',
+    avatarShadow: 'shadow-purple-500/20'
+  },
+  {
+    cardBg: 'from-blue-50/50 to-white',
+    shadow: 'shadow-blue-500/20',
+    ring: 'ring-blue-200/50',
+    hoverShadow: 'group-hover:shadow-blue-500/30',
+    avatarRing: 'ring-blue-200/50',
+    avatarShadow: 'shadow-blue-500/20'
+  },
+  {
+    cardBg: 'from-green-50/50 to-white',
+    shadow: 'shadow-green-500/20',
+    ring: 'ring-green-200/50',
+    hoverShadow: 'group-hover:shadow-green-500/30',
+    avatarRing: 'ring-green-200/50',
+    avatarShadow: 'shadow-green-500/20'
+  },
+  {
+    cardBg: 'from-orange-50/50 to-white',
+    shadow: 'shadow-orange-500/20',
+    ring: 'ring-orange-200/50',
+    hoverShadow: 'group-hover:shadow-orange-500/30',
+    avatarRing: 'ring-orange-200/50',
+    avatarShadow: 'shadow-orange-500/20'
+  }
+];
 ---
 
-<section class="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
-  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+<section class="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+  <!-- Gradient Mesh Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/20 to-pink-50/10"></div>
+  <div class="absolute inset-0 bg-gradient-to-tl from-cyan-50/30 via-transparent to-indigo-50/20"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(96,165,250,0.05),transparent_50%)]"></div>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
     <!-- Section Heading -->
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 lg:mb-16">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent mb-4">
         {heading}
       </h2>
@@ -47,62 +91,66 @@ const {
       )}
     </div>
 
-    <!-- Testimonials Grid with Material Design Cards -->
+    <!-- Testimonials Grid with Premium Material Design Cards -->
     <div
       id="testimonials-grid"
       class="grid md:grid-cols-2 gap-6 md:gap-8 mb-8"
     >
-      {testimonials.map((testimonial, index) => (
-        <div
-          class={`testimonial-card bg-gradient-to-b from-white to-gray-50 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col border border-gray-100 ${
-            index >= initialVisible ? 'hidden' : ''
-          }`}
-          data-index={index}
-        >
-          <!-- Top: Avatar + Stars/Name/Date -->
-          <div class="flex gap-4 mb-4">
-            <!-- Avatar -->
-            <div class="flex-shrink-0">
-              <img
-                src={testimonial.avatar || '/images/placeholder-img.jpg'}
-                alt={testimonial.name}
-                class="w-16 h-16 rounded-full object-cover bg-gray-200 shadow-sm"
-              />
+      {testimonials.map((testimonial, index) => {
+        const theme = colorThemes[index % colorThemes.length];
+        return (
+          <div
+            class={`testimonial-card group bg-gradient-to-b ${theme.cardBg} rounded-2xl p-6 md:p-8 shadow-xl ${theme.shadow} ${theme.hoverShadow} hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 flex flex-col border border-gray-100 ring-1 ${theme.ring} opacity-0 ${
+              index >= initialVisible ? 'hidden' : ''
+            }`}
+            style={`animation-delay: ${index * 100}ms`}
+            data-index={index}
+          >
+            <!-- Top: Avatar + Stars/Name/Date -->
+            <div class="flex gap-4 mb-4">
+              <!-- Avatar with Premium Ring Effect -->
+              <div class="flex-shrink-0">
+                <img
+                  src={testimonial.avatar || '/images/placeholder-img.jpg'}
+                  alt={testimonial.name}
+                  class={`w-16 h-16 rounded-full object-cover bg-gray-200 shadow-lg ${theme.avatarShadow} ring-4 ${theme.avatarRing} group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
+                />
+              </div>
+
+              <!-- Info Block -->
+              <div class="flex-1">
+                <!-- Stars -->
+                <div class="flex gap-1 mb-2">
+                  {Array.from({ length: 5 }, (_, i) => (
+                    <i
+                      class={`${
+                        i < testimonial.rating
+                          ? 'ri-star-fill text-yellow-400'
+                          : 'ri-star-line text-gray-300'
+                      } text-lg`}
+                    ></i>
+                  ))}
+                </div>
+
+                <!-- Name with Gradient -->
+                <h3 class="text-lg md:text-xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:via-blue-800 group-hover:to-blue-700 transition-all duration-300">
+                  {testimonial.name}
+                </h3>
+
+                <!-- Date -->
+                <div class="text-sm text-gray-500 mt-1">
+                  {testimonial.date}
+                </div>
+              </div>
             </div>
 
-            <!-- Info Block -->
-            <div class="flex-1">
-              <!-- Stars -->
-              <div class="flex gap-1 mb-2">
-                {Array.from({ length: 5 }, (_, i) => (
-                  <i
-                    class={`${
-                      i < testimonial.rating
-                        ? 'ri-star-fill text-yellow-400'
-                        : 'ri-star-line text-gray-300'
-                    } text-lg`}
-                  ></i>
-                ))}
-              </div>
-
-              <!-- Name -->
-              <div class="font-bold text-lg text-gray-900">
-                {testimonial.name}
-              </div>
-
-              <!-- Date -->
-              <div class="text-sm text-gray-500">
-                {testimonial.date}
-              </div>
-            </div>
+            <!-- Review Text -->
+            <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+              {testimonial.text}
+            </p>
           </div>
-
-          <!-- Review Text -->
-          <p class="text-gray-700 text-base md:text-lg leading-relaxed">
-            {testimonial.text}
-          </p>
-        </div>
-      ))}
+        );
+      })}
     </div>
 
     <!-- Toggle Button with Material Design -->
@@ -123,23 +171,35 @@ const {
 </section>
 
 <style>
-  /* Smooth animation for showing/hiding testimonials */
-  .testimonial-card {
-    opacity: 1;
-    transform: scale(1);
+  /* Stagger Animation on Load */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
+  .testimonial-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Hidden state for toggle */
   .testimonial-card.hidden {
     display: none;
     opacity: 0;
     transform: scale(0.95);
   }
 
+  /* Showing animation for toggle */
   .testimonial-card.showing {
-    animation: fadeInUp 0.4s ease-out forwards;
+    animation: fadeInUpToggle 0.4s ease-out forwards;
   }
 
-  @keyframes fadeInUp {
+  @keyframes fadeInUpToggle {
     from {
       opacity: 0;
       transform: translateY(20px) scale(0.95);
@@ -150,6 +210,7 @@ const {
     }
   }
 
+  /* Hiding animation for toggle */
   .testimonial-card.hiding {
     animation: fadeOutDown 0.3s ease-in forwards;
   }
