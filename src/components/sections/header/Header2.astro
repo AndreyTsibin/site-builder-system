@@ -46,7 +46,7 @@ const {
 </div>
 
 <!-- Main Header -->
-<header class="fixed top-[37px] md:top-[41px] left-0 right-0 z-40 bg-white shadow-md -mt-[1px]">
+<header id="main-header-h2" class="fixed top-[37px] md:top-[41px] left-0 right-0 z-40 bg-white shadow-md -mt-[1px]">
   <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between py-4 md:py-6">
       <!-- Logo -->
@@ -181,18 +181,21 @@ const {
   // Promo banner close functionality
   const promoBanner = document.getElementById('promo-banner-h2');
   const closePromoBtn = document.getElementById('close-promo-h2');
-  const mainHeader = document.querySelector('header');
-  const headerSpacer = document.querySelector('div.h-\\[112px\\]');
+  const mainHeader = document.getElementById('main-header-h2');
+  const headerSpacer = document.getElementById('header-spacer-h2');
 
   closePromoBtn?.addEventListener('click', () => {
-    promoBanner?.classList.add('hidden');
+    // Hide banner with inline style + !important (override Tailwind's !important)
+    if (promoBanner) {
+      promoBanner.style.setProperty('display', 'none', 'important');
+    }
     // Adjust header position when banner is hidden
     if (mainHeader) {
-      mainHeader.style.top = '0';
+      mainHeader.style.setProperty('top', '0', 'important');
     }
     // Adjust spacer height
     if (headerSpacer) {
-      headerSpacer.style.height = '72px'; // Just header height without banner
+      headerSpacer.style.setProperty('height', '72px', 'important');
     }
   });
 
@@ -252,4 +255,4 @@ const {
 </style>
 
 <!-- Spacer to prevent content from hiding under fixed header -->
-<div class="h-[112px] md:h-[132px]"></div>
+<div id="header-spacer-h2" class="h-[112px] md:h-[132px]"></div>
