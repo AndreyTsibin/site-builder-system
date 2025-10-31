@@ -2,24 +2,25 @@
 /**
  * Material Design Demo Page
  *
- * Демонстрационная страница для утверждения базового набора компонентов
- * перед созданием Material Design версий.
+ * Демонстрационная страница Material Design компонентов с depth эффектами.
  *
- * Компоненты представлены в том порядке, в котором они обычно
- * располагаются на типичном лендинге.
+ * Material Design принципы:
+ * - Источник света сверху (gradients: lighter top → darker bottom)
+ * - Z-axis elevation (shadows для глубины)
+ * - Interactive states (hover = darker, active = darkest)
  */
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-// Import components
-import Header1 from '@/components/sections/header/Header1.astro';
-import Hero3 from '@/components/sections/heroes/Hero3.astro';
-import Benefits2 from '@/components/sections/benefits/Benefits2.astro';
-import ServicesCards from '@/components/sections/pricing/ServicesCards.astro';
-import HowItWorks2 from '@/components/sections/how-it-works/HowItWorks2.astro';
-import Testimonials2 from '@/components/sections/testimonials/Testimonials2.astro';
-import FAQ2 from '@/components/sections/faq/FAQ2.astro';
-import Footer2 from '@/components/sections/footer/Footer2.astro';
+// Import Material Design components
+import Header1Material from '@/components/sections/material/header/Header1Material.astro';
+import Hero3Material from '@/components/sections/material/heroes/Hero3Material.astro';
+import Benefits2Material from '@/components/sections/material/benefits/Benefits2Material.astro';
+import ServicesCardsMaterial from '@/components/sections/material/pricing/ServicesCardsMaterial.astro';
+import HowItWorks2Material from '@/components/sections/material/how-it-works/HowItWorks2Material.astro';
+import Testimonials2Material from '@/components/sections/material/testimonials/Testimonials2Material.astro';
+import FAQ2Material from '@/components/sections/material/faq/FAQ2Material.astro';
+import Footer2Material from '@/components/sections/material/footer/Footer2Material.astro';
 
 // Demo data
 const demoData = {
@@ -317,28 +318,28 @@ const demoData = {
 };
 ---
 
-<BaseLayout title="Material Design Demo — Базовый набор компонентов">
-  <!-- Header -->
-  <Header1 {...demoData.header} />
+<BaseLayout title="Material Design Demo — Компоненты с глубиной">
+  <!-- Header with Material Design -->
+  <Header1Material {...demoData.header} />
 
-  <!-- Hero -->
-  <Hero3 {...demoData.hero} />
+  <!-- Hero with Material Design -->
+  <Hero3Material {...demoData.hero} />
 
-  <!-- Benefits -->
-  <Benefits2 {...demoData.benefits} />
+  <!-- Benefits with Material Design -->
+  <Benefits2Material {...demoData.benefits} />
 
-  <!-- Services -->
-  <ServicesCards {...demoData.services} />
+  <!-- Services with Material Design -->
+  <ServicesCardsMaterial {...demoData.services} />
 
-  <!-- How It Works -->
-  <HowItWorks2 {...demoData.howItWorks} />
+  <!-- How It Works with Material Design -->
+  <HowItWorks2Material {...demoData.howItWorks} />
 
-  <!-- Testimonials -->
-  <Testimonials2 {...demoData.testimonials} />
+  <!-- Testimonials with Material Design -->
+  <Testimonials2Material {...demoData.testimonials} />
 
-  <!-- FAQ -->
-  <FAQ2 {...demoData.faq} />
+  <!-- FAQ with Material Design -->
+  <FAQ2Material {...demoData.faq} />
 
-  <!-- Footer -->
-  <Footer2 {...demoData.footer} />
+  <!-- Footer with Material Design -->
+  <Footer2Material {...demoData.footer} />
 </BaseLayout>
