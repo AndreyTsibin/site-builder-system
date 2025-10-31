@@ -12,7 +12,7 @@
  * - 🔢 Counter animation with IntersectionObserver (numbers count up on scroll)
  * - 🎬 Stagger animation: cards fade in sequentially (100ms delay each)
  * - 🌈 Mesh gradient background overlay for visual depth
- * - 📱 Responsive typography: text-4xl → md:text-6xl → lg:text-7xl
+ * - 📱 Responsive typography: text-3xl → md:text-5xl → lg:text-6xl
  * - 🔒 whitespace-nowrap prevents number wrapping
  */
 
@@ -127,7 +127,7 @@ const colorThemes = [
             )}
 
             <!-- Number with Gradient Text -->
-            <div class="text-4xl md:text-6xl lg:text-7xl font-black mb-2">
+            <div class="text-3xl md:text-5xl lg:text-6xl font-black mb-2">
               <span class={`stat-number whitespace-nowrap bg-gradient-to-r ${theme.numberGradient} bg-clip-text text-transparent`} data-value={stat.number}>
                 0
               </span>
