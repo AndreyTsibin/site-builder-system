@@ -1,12 +1,15 @@
 ---
 /**
- * Header1Material — Material Design Header with Depth
+ * Header1Material — Premium Glassmorphism Header
  *
- * Enhancements over Header1:
- * - Gradient background (light source from top)
- * - Elevated CTA button with gradient + shadow
- * - Enhanced hover/active states (darker on interaction)
- * - Box-shadow for depth perception
+ * Premium Enhancements (2025 trends):
+ * - ✨ Glassmorphism: backdrop-blur-lg + semi-transparent background
+ * - 🎨 Enhanced CTA: shimmer animation + glow effect on hover
+ * - 🌈 Gradient underline animation for menu links
+ * - 📱 Scroll-triggered header shrink animation
+ * - 💎 Logo hover glow effect
+ * - 🔮 Layered depth with shadows and blur
+ * - ⚡ Smooth micro-interactions for all elements
  */
 
 interface Props {
@@ -34,13 +37,13 @@ const {
 } = Astro.props;
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-white to-gray-50 shadow-lg">
+<header class="header-glass fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg backdrop-saturate-150 shadow-lg border-b border-white/20 transition-all duration-300">
   <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between py-4 md:py-6">
-      <!-- Logo -->
+    <div class="flex items-center justify-between py-4 md:py-6 transition-all duration-300">
+      <!-- Logo with Glow Effect -->
       <div class="flex-shrink-0">
-        <a href="/" class="flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 hover:text-blue-700 transition-colors">
-          <i class={`${logoIcon} text-2xl md:text-3xl`}></i>
+        <a href="/" class="logo-link flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-900 hover:text-blue-700 transition-all duration-300">
+          <i class={`${logoIcon} text-2xl md:text-3xl transition-transform duration-300 hover:scale-110`}></i>
           <span>{logo}</span>
         </a>
       </div>
@@ -70,12 +73,14 @@ const {
           </a>
           <span class="text-xs text-gray-500 ml-7">{workingHours}</span>
         </div>
-        <!-- CTA Button with Material Design -->
+        <!-- Premium CTA Button with Shimmer + Glow -->
         <a
           href={ctaLink}
-          class="px-6 py-3 bg-gradient-to-b from-blue-600 to-blue-800 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:from-blue-700 hover:to-blue-900 active:from-blue-800 active:to-blue-950 active:shadow-sm transition-all duration-200"
+          class="cta-button relative inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-blue-500/50 hover:shadow-2xl hover:scale-105 active:scale-100 transition-all duration-300 overflow-hidden group"
         >
-          {ctaText}
+          <span class="relative z-10">{ctaText}</span>
+          <!-- Shimmer overlay -->
+          <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent shimmer-animation"></span>
         </a>
       </div>
 
@@ -105,7 +110,7 @@ const {
 
 <aside
   id="mobile-menu"
-  class="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-gradient-to-b from-white to-gray-50 shadow-2xl z-50 transform translate-x-full transition-transform duration-300"
+  class="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white/90 backdrop-blur-xl backdrop-saturate-150 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 border-l border-white/20"
 >
   <div class="flex flex-col h-full">
     <!-- Sidebar Header -->
@@ -152,12 +157,14 @@ const {
         </a>
         <span class="text-xs text-gray-500 ml-9">{workingHours}</span>
       </div>
-      <!-- CTA Button with Material Design -->
+      <!-- Premium CTA Button with Shimmer + Glow -->
       <a
         href={ctaLink}
-        class="block w-full px-6 py-3 bg-gradient-to-b from-blue-600 to-blue-800 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:from-blue-700 hover:to-blue-900 active:from-blue-800 active:to-blue-950 active:shadow-sm transition-all duration-200 text-center"
+        class="cta-button relative inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-blue-500/50 hover:shadow-2xl active:scale-95 transition-all duration-300 overflow-hidden group text-center"
       >
-        {ctaText}
+        <span class="relative z-10">{ctaText}</span>
+        <!-- Shimmer overlay -->
+        <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent shimmer-animation"></span>
       </a>
     </div>
   </div>
@@ -197,9 +204,26 @@ const {
       closeMenu();
     }
   });
+
+  // Scroll-triggered header shrink animation
+  const header = document.querySelector('.header-glass');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+  });
 </script>
 
 <style>
+  /* Premium Gradient Underline for Menu Links */
   .menu-link-underline::after {
     content: '';
     position: absolute;
@@ -207,14 +231,49 @@ const {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #1d4ed8; /* blue-700 */
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa); /* blue gradient */
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
   }
 
   .menu-link-underline:hover::after {
     transform: scaleX(1);
+  }
+
+  /* Shimmer Animation for CTA Button */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) skewX(-15deg);
+    }
+    100% {
+      transform: translateX(200%) skewX(-15deg);
+    }
+  }
+
+  .shimmer-animation {
+    animation: shimmer 3s infinite;
+  }
+
+  /* Pause shimmer on hover for better UX */
+  .cta-button:hover .shimmer-animation {
+    animation-play-state: paused;
+  }
+
+  /* Logo Glow Effect on Hover */
+  .logo-link:hover {
+    filter: drop-shadow(0 0 8px rgba(29, 78, 216, 0.5));
+  }
+
+  /* Scroll-triggered Header Shrink */
+  .header-glass.scrolled {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .header-glass.scrolled .flex {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 </style>
 
