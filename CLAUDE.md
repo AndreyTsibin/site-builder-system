@@ -10,18 +10,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 All 40+ landing page sections developed, tested, and unified. Tilda integration working. System ready for production use.
 
-**Current Phase:** **🎨 PREMIUM ENHANCEMENT & OPTIMIZATION**
+**Current Phase:** **🎨 PREMIUM MATERIAL DESIGN 3 TRANSFORMATION**
 
-**Goal:** Transform from functional MVP into premium product with modern design indistinguishable from professional designer work.
+**Goal:** Transform ALL sections into premium Material Design 3 components with wow-effects indistinguishable from professional designer work.
+
+**Philosophy:** Максимальная премиальность с wow-фактором
 
 **Focus:**
-- **Design transformation** — gradients, typography, glassmorphism, animations
-- **Component enhancement** — multiple style variants, micro-interactions
-- **UX improvements** — better forms, testimonials, mobile-first features
-- **Content library** — ready-to-use FAQs, testimonials, copy by niche
-- **Performance & SEO** — optimization for production websites
+- **Material Design 3 ONLY** — No Liquid Glass, no other design systems
+- **Wow-effects** — Shimmer animations, counter animations, stagger effects, floating images
+- **Premium gradients** — Mesh backgrounds, gradient typography, colored shadows
+- **Glassmorphism** — Limited to header only for proper readability
+- **Smooth interactions** — All hover effects with scale, glow, shadow transitions
 
-**📋 Detailed Roadmap:** See [ROADMAP_OPTIMIZATION.md](ROADMAP_OPTIMIZATION.md) for complete enhancement plan
+**📋 Design Philosophy:** See [DESIGN_PHILOSOPHY.md](DESIGN_PHILOSOPHY.md) for complete guide on creating premium sections
 
 ---
 
@@ -436,28 +438,45 @@ npm run build
 
 ## DESIGN SYSTEM
 
-**⚠️ CURRENT STATE:** Basic MVP design system
+**🎨 PREMIUM MATERIAL DESIGN 3** — Philosophy: "Максимальная премиальность с wow-фактором"
 
-**🎨 EVOLUTION IN PROGRESS:** See [ROADMAP_OPTIMIZATION.md](ROADMAP_OPTIMIZATION.md) for planned enhancements
+**CRITICAL:** Read [DESIGN_PHILOSOPHY.md](DESIGN_PHILOSOPHY.md) BEFORE creating or upgrading any section.
 
-**Current Colors:**
-- Brand Blue: `#1E40AF` → `bg-blue-700`
-- Brand Green: `#10B981` → `bg-brand-green`
+**Key Principles:**
 
-**Planned Additions:**
-- Extended color palette with 50-900 shades
-- Gradient library (mesh, warm, cool, sunset, ocean)
-- Dark mode support
-- Glassmorphism utilities
+1. **Material Design 3 ONLY** — No other design systems (Liquid Glass discarded due to complexity)
+2. **Wow-effects mandatory** — Every section must have premium animations and interactions
+3. **Gradient mesh backgrounds** — 4+ layered gradients for visual depth
+4. **Gradient typography** — Bold gradient text for numbers, headings, accents
+5. **Shimmer CTAs** — All buttons must have shimmer + glow on hover
 
-**Current Typography:**
+**Color Themes (Purple → Blue → Green → Orange):**
+```javascript
+// Use this rotation for multi-card sections
+const colorThemes = [
+  { gradient: 'from-purple-600 via-purple-500 to-indigo-600', shadow: 'shadow-purple-500/20' },
+  { gradient: 'from-blue-600 via-blue-500 to-cyan-600', shadow: 'shadow-blue-500/20' },
+  { gradient: 'from-green-600 via-emerald-500 to-teal-600', shadow: 'shadow-green-500/20' },
+  { gradient: 'from-orange-600 via-amber-500 to-yellow-600', shadow: 'shadow-orange-500/20' }
+];
+```
+
+**Animation Patterns:**
+- **Shimmer CTA** — Infinite sliding gradient on buttons
+- **Counter Animation** — IntersectionObserver + counting numbers
+- **Stagger Effect** — Sequential card appearance with animation-delay
+- **Floating Image** — 6s loop with translateY + rotate
+- **Card Hover** — scale-105 + shadow-2xl + ring-2 + -translate-y-2
+
+**Glassmorphism Rules:**
+- **ONLY in header** — `backdrop-blur-lg` + `bg-white/80`
+- **NEVER in content sections** — breaks readability
+- **Remove opaque backgrounds** — conflicts with glassmorphism
+
+**Typography:**
 - System fonts: `system-ui, -apple-system, sans-serif`
-
-**Planned Upgrades:**
-- Google Fonts integration (Sora + Inter recommended)
-- Fluid typography with clamp()
-- Gradient text effects
-- Text shadows and highlights
+- Gradient text: `bg-gradient-to-r ... bg-clip-text text-transparent`
+- Bold hierarchy: `font-black` (primary) vs `font-bold` (secondary)
 
 **Spacing:**
 - Tailwind spacing scale: `p-4`, `mb-8`, `gap-6`
@@ -663,17 +682,20 @@ The generated `dist/tilda-bundle.html` contains (in order):
 ## REFERENCE DOCS
 
 ### Internal Documentation
-- **[ROADMAP_OPTIMIZATION.md](ROADMAP_OPTIMIZATION.md)** ⭐ — Complete enhancement plan (design, UX, technical)
+- **[DESIGN_PHILOSOPHY.md](DESIGN_PHILOSOPHY.md)** ⭐⭐⭐ — MANDATORY reading before creating/upgrading sections
 - [Project README](README.md) — User-facing documentation
+- [CLIENT_BRIEF.md](CLIENT_BRIEF.md) — Template for client requirements
 
 ### External Resources
 - [Astro Docs](https://docs.astro.build) — Static site generator
 - [Tailwind CSS 4](https://tailwindcss.com/docs) — Utility-first CSS
 - [Remix Icon](https://remixicon.com) — Icon library
+- [Material Design 3](https://m3.material.io/) — Design system reference
 
 ---
 
-**Version:** 3.1.0
-**Last Updated:** 2025-10-30
-**Phase:** Premium Enhancement & Optimization
+**Version:** 4.0.0
+**Last Updated:** 2025-10-31
+**Phase:** Premium Material Design 3 Transformation
+**Design System:** Material Design 3 ONLY
 **Niche:** Repair Services Landing Pages
