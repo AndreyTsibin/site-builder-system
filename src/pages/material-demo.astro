@@ -1,0 +1,344 @@
+---
+/**
+ * Material Design Demo Page
+ *
+ * Демонстрационная страница для утверждения базового набора компонентов
+ * перед созданием Material Design версий.
+ *
+ * Компоненты представлены в том порядке, в котором они обычно
+ * располагаются на типичном лендинге.
+ */
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+// Import components
+import Header1 from '@/components/sections/header/Header1.astro';
+import Hero3 from '@/components/sections/heroes/Hero3.astro';
+import Benefits2 from '@/components/sections/benefits/Benefits2.astro';
+import ServicesCards from '@/components/sections/pricing/ServicesCards.astro';
+import HowItWorks2 from '@/components/sections/how-it-works/HowItWorks2.astro';
+import Testimonials2 from '@/components/sections/testimonials/Testimonials2.astro';
+import FAQ2 from '@/components/sections/faq/FAQ2.astro';
+import Footer2 from '@/components/sections/footer/Footer2.astro';
+
+// Demo data
+const demoData = {
+  header: {
+    logo: "МастерХолод",
+    logoIcon: "ri-fridge-line",
+    menuItems: [
+      { label: "Услуги", href: "#services" },
+      { label: "Преимущества", href: "#benefits" },
+      { label: "Отзывы", href: "#testimonials" },
+      { label: "Контакты", href: "#contacts" }
+    ],
+    phone: "+7 (495) 123-45-67",
+    workingHours: "Ежедневно 8:00 - 22:00",
+    ctaText: "Вызвать мастера",
+    ctaLink: "#cta"
+  },
+
+  hero: {
+    title: "Ремонт холодильников",
+    titleHighlight: "холодильников",
+    subtitle: "в Москве и области",
+    description: "<strong class='underline decoration-dotted cursor-help' title='Бесплатно при заказе ремонта'>Бесплатный</strong> выезд мастера для диагностики и профессионального ремонта",
+    benefits: [
+      { icon: "ri-checkbox-circle-line", text: "Оригинальные запчасти от производителя" },
+      { icon: "ri-checkbox-circle-line", text: "Выезд мастера в течение 30-60 минут" },
+      { icon: "ri-checkbox-circle-line", text: "Гарантия на все виды работ до 2 лет" }
+    ],
+    phonePlaceholder: "+7 (000) 000-00-00",
+    submitText: "Вызвать мастера",
+    privacyText: "Отправляя форму, вы соглашаетесь с <a href='/privacy' class='text-blue-600 hover:underline'>Политикой конфиденциальности</a>",
+    imageUrl: "/images/placeholder-img.jpg",
+    imageAlt: "Мастер по ремонту холодильников"
+  },
+
+  benefits: {
+    title: "Нам доверяют",
+    subtitle: "Цифры, которые говорят о качестве нашей работы",
+    stats: [
+      {
+        number: "10+",
+        label: "лет на рынке",
+        description: "Профессиональный опыт и проверенная репутация",
+        icon: "ri-medal-line"
+      },
+      {
+        number: "5000+",
+        label: "довольных клиентов",
+        description: "Успешно выполненных заказов по ремонту холодильников",
+        icon: "ri-user-heart-line"
+      },
+      {
+        number: "2 года",
+        label: "гарантии",
+        description: "На все виды работ и установленные запчасти",
+        icon: "ri-shield-check-line"
+      },
+      {
+        number: "30 мин",
+        label: "быстрый выезд",
+        description: "Мастер приедет в течение получаса после звонка",
+        icon: "ri-time-line"
+      }
+    ]
+  },
+
+  services: {
+    heading: "Ремонт холодильников всех типов",
+    subheading: "Профессиональное обслуживание любых моделей холодильников с выездом к вам в день обращения",
+    services: [
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Однокамерный холодильник",
+        priceLabel: "Стоимость ремонта:",
+        price: "от 1 500₽"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Двухкамерный холодильник",
+        priceLabel: "Стоимость ремонта:",
+        price: "от 1 800₽"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Side-by-Side",
+        priceLabel: "Стоимость ремонта:",
+        price: "от 2 500₽"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "French Door",
+        priceLabel: "Стоимость ремонта:",
+        price: "от 2 800₽"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Встроенный холодильник",
+        priceLabel: "Стоимость ремонта:",
+        price: "от 2 000₽"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Морозильная камера",
+        priceLabel: "Стоимость ремонта:",
+        price: "от 1 500₽"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Винный шкаф",
+        priceLabel: "Стоимость ремонта:",
+        price: "от 2 200₽"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Мини-холодильник",
+        priceLabel: "Стоимость ремонта:",
+        price: "от 1 200₽"
+      },
+      {
+        image: "/images/placeholder-img.jpg",
+        title: "Установка и подключение",
+        priceLabel: "Стоимость услуги:",
+        price: "от 1 000₽"
+      }
+    ],
+    ctaText: "Не нашли вашу модель? Оставьте заявку, и наш специалист перезвонит вам, проконсультирует по возможности ремонта и сообщит точную стоимость.",
+    ctaButtonText: "Получить консультацию",
+    ctaImage: "/images/placeholder-img.jpg"
+  },
+
+  howItWorks: {
+    heading: "Как мы работаем",
+    subheading: "Простой процесс от заявки до гарантии",
+    steps: [
+      {
+        number: 1,
+        icon: "ri-phone-line",
+        title: "Оставляете заявку",
+        description: "Позвоните нам или оставьте заявку на сайте. Опишите проблему."
+      },
+      {
+        number: 2,
+        icon: "ri-car-line",
+        title: "Выезд мастера",
+        description: "Мастер приедет в удобное для вас время в течение 30-60 минут."
+      },
+      {
+        number: 3,
+        icon: "ri-tools-line",
+        title: "Диагностика и ремонт",
+        description: "Проведём диагностику, согласуем стоимость и выполним ремонт."
+      },
+      {
+        number: 4,
+        icon: "ri-shield-check-line",
+        title: "Гарантия",
+        description: "Выдаём гарантию на работы и запчасти до 12 месяцев."
+      }
+    ],
+    ctaText: "Вызвать мастера сейчас",
+    ctaLink: "#cta"
+  },
+
+  testimonials: {
+    heading: "Отзывы наших клиентов",
+    subheading: "Более 1000 довольных клиентов за последний год",
+    testimonials: [
+      {
+        name: "Мария Петрова",
+        date: "15 октября 2025",
+        rating: 5,
+        text: "Отличный сервис! Холодильник перестал морозить, вызвала мастера через сайт. Приехал быстро, за 40 минут всё починил. Цены адекватные, гарантию дали. Рекомендую!",
+        avatar: "/images/avatars/client1.jpg"
+      },
+      {
+        name: "Алексей Иванов",
+        date: "12 октября 2025",
+        rating: 5,
+        text: "Ремонтировали холодильник Samsung. Мастер приехал в тот же день, быстро нашёл проблему и устранил. Работает как новый! Спасибо за профессионализм.",
+        avatar: "/images/avatars/client2.jpg"
+      },
+      {
+        name: "Ольга Смирнова",
+        date: "8 октября 2025",
+        rating: 5,
+        text: "Очень довольна работой! Холодильник LG начал сильно шуметь. Мастер приехал вовремя, заменил компрессор. Теперь работает тихо. Цена оказалась ниже, чем в других сервисах.",
+        avatar: "/images/avatars/client3.jpg"
+      },
+      {
+        name: "Дмитрий Соколов",
+        date: "5 октября 2025",
+        rating: 5,
+        text: "Вызывал мастера для ремонта холодильника Bosch. Всё сделали качественно, быстро, по честной цене. Дали гарантию на год. Буду обращаться ещё!",
+        avatar: "/images/avatars/client4.jpg"
+      }
+    ]
+  },
+
+  faq: {
+    heading: "Часто задаваемые вопросы",
+    subheading: "Ответы на популярные вопросы о ремонте холодильников",
+    faqs: [
+      {
+        question: "Сколько времени занимает ремонт холодильника?",
+        answer: "В большинстве случаев ремонт занимает от 1 до 2 часов. Сложные поломки (замена компрессора, системы охлаждения) могут потребовать 2-4 часа. Мастер озвучит точное время после диагностики."
+      },
+      {
+        question: "Какая гарантия на ремонт?",
+        answer: "Мы даём гарантию от 6 до 12 месяцев на все виды работ и установленные запчасти. Гарантийный талон выдаётся сразу после завершения ремонта."
+      },
+      {
+        question: "Вы ремонтируете холодильники всех марок?",
+        answer: "Да, мы ремонтируем холодильники всех популярных марок: Samsung, LG, Bosch, Indesit, Ariston, Атлант, Liebherr, Electrolux и другие."
+      },
+      {
+        question: "Сколько стоит диагностика?",
+        answer: "Диагностика бесплатная при условии последующего ремонта у нас. Если вы откажетесь от ремонта, стоимость диагностики составит 500₽."
+      },
+      {
+        question: "Какие запчасти вы используете?",
+        answer: "Мы используем только оригинальные запчасти от производителей или качественные аналоги проверенных брендов. Все запчасти сертифицированы."
+      },
+      {
+        question: "Работаете ли вы в выходные и праздники?",
+        answer: "Да, мы работаем ежедневно с 8:00 до 22:00, включая выходные и праздничные дни. Вы можете вызвать мастера в любой удобный день."
+      }
+    ]
+  },
+
+  cta: {
+    heading: "Не откладывайте ремонт на потом!",
+    subheading: "Вызовите мастера прямо сейчас и получите бесплатную диагностику",
+    phone: "+7 (495) 123-45-67",
+    ctaText: "Вызвать мастера",
+    stats: [
+      { value: "1000+", label: "Довольных клиентов" },
+      { value: "5 лет", label: "Опыт работы" },
+      { value: "30 мин", label: "Быстрый выезд" }
+    ]
+  },
+
+  cta3: {
+    heading: "Закажите ремонт холодильника сейчас",
+    benefits: [
+      "Бесплатный выезд и диагностика при заказе ремонта",
+      "Работаем с оригинальными запчастями от производителей",
+      "Гарантия на все виды работ до 2 лет",
+      "Быстрый выезд мастера в течение 30-60 минут"
+    ],
+    guaranteeText: "Гарантия 2 года на все виды работ и запчасти",
+    formTitle: "Оставьте заявку",
+    formButtonText: "Заказать ремонт"
+  },
+
+  cta5: {
+    heading: "Нам доверяют тысячи клиентов",
+    stats: [
+      { value: "10+", label: "лет на рынке", icon: "ri-medal-line" },
+      { value: "5000+", label: "довольных клиентов", icon: "ri-user-heart-line" },
+      { value: "2 года", label: "гарантии", icon: "ri-shield-check-line" },
+      { value: "30 мин", label: "быстрый выезд", icon: "ri-time-line" }
+    ],
+    ctaHeading: "Вызовите мастера прямо сейчас!",
+    ctaButtonText: "Позвонить мастеру",
+    phone: "+7 (495) 123-45-67",
+    secondaryText: "Или позвоните нам"
+  },
+
+  footer: {
+    logo: "МастерХолод",
+    logoIcon: "ri-fridge-line",
+    description: "Профессиональный ремонт холодильников в Москве с гарантией качества",
+    phone: "+7 (495) 123-45-67",
+    workingHours: "Ежедневно с 8:00 до 22:00",
+    email: "info@masterholod.ru",
+    address: "г. Москва, ул. Примерная, д. 10",
+    socialLinks: {
+      vk: "https://vk.com/masterholod",
+      telegram: "https://t.me/masterholod",
+      whatsapp: "https://wa.me/74951234567"
+    },
+    menuItems: [
+      { label: "Главная", href: "#home" },
+      { label: "Услуги", href: "#services" },
+      { label: "Отзывы", href: "#testimonials" },
+      { label: "Контакты", href: "#contacts" }
+    ],
+    copyrightText: "© 2025 МастерХолод. Все права защищены.",
+    companyDetails: {
+      legalForm: "ИП Иванов И.И.",
+      inn: "1234567890",
+      ogrn: "1234567890123"
+    }
+  }
+};
+---
+
+<BaseLayout title="Material Design Demo — Базовый набор компонентов">
+  <!-- Header -->
+  <Header1 {...demoData.header} />
+
+  <!-- Hero -->
+  <Hero3 {...demoData.hero} />
+
+  <!-- Benefits -->
+  <Benefits2 {...demoData.benefits} />
+
+  <!-- Services -->
+  <ServicesCards {...demoData.services} />
+
+  <!-- How It Works -->
+  <HowItWorks2 {...demoData.howItWorks} />
+
+  <!-- Testimonials -->
+  <Testimonials2 {...demoData.testimonials} />
+
+  <!-- FAQ -->
+  <FAQ2 {...demoData.faq} />
+
+  <!-- Footer -->
+  <Footer2 {...demoData.footer} />
+</BaseLayout>
