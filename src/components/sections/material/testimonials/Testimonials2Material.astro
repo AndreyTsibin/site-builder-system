@@ -1,0 +1,226 @@
+---
+/**
+ * Testimonials2Material — Material Design Testimonials Grid
+ *
+ * Enhancements over Testimonials2:
+ * - Gradient testimonial cards (light source from top)
+ * - Elevated cards with shadows
+ * - Enhanced hover states
+ * - Material Design toggle button
+ */
+
+interface Testimonial {
+  name: string;
+  date: string;
+  rating: number; // 1-5
+  text: string;
+  avatar?: string;
+}
+
+interface Props {
+  heading: string;
+  subheading?: string;
+  testimonials: Testimonial[];
+  initialVisible?: number; // How many to show initially (default: 4)
+}
+
+const {
+  heading,
+  subheading,
+  testimonials,
+  initialVisible = 4,
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Heading -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {heading}
+      </h2>
+      {subheading && (
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          {subheading}
+        </p>
+      )}
+    </div>
+
+    <!-- Testimonials Grid with Material Design Cards -->
+    <div
+      id="testimonials-grid"
+      class="grid md:grid-cols-2 gap-6 md:gap-8 mb-8"
+    >
+      {testimonials.map((testimonial, index) => (
+        <div
+          class={`testimonial-card bg-gradient-to-b from-white to-gray-50 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col border border-gray-100 ${
+            index >= initialVisible ? 'hidden' : ''
+          }`}
+          data-index={index}
+        >
+          <!-- Top: Avatar + Stars/Name/Date -->
+          <div class="flex gap-4 mb-4">
+            <!-- Avatar -->
+            <div class="flex-shrink-0">
+              <img
+                src={testimonial.avatar || '/images/placeholder-img.jpg'}
+                alt={testimonial.name}
+                class="w-16 h-16 rounded-full object-cover bg-gray-200 shadow-sm"
+              />
+            </div>
+
+            <!-- Info Block -->
+            <div class="flex-1">
+              <!-- Stars -->
+              <div class="flex gap-1 mb-2">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <i
+                    class={`${
+                      i < testimonial.rating
+                        ? 'ri-star-fill text-yellow-400'
+                        : 'ri-star-line text-gray-300'
+                    } text-lg`}
+                  ></i>
+                ))}
+              </div>
+
+              <!-- Name -->
+              <div class="font-bold text-lg text-gray-900">
+                {testimonial.name}
+              </div>
+
+              <!-- Date -->
+              <div class="text-sm text-gray-500">
+                {testimonial.date}
+              </div>
+            </div>
+          </div>
+
+          <!-- Review Text -->
+          <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+            {testimonial.text}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Toggle Button with Material Design -->
+    {testimonials.length > initialVisible && (
+      <div class="text-center">
+        <button
+          id="toggle-testimonials"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-b from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 active:from-blue-800 active:to-blue-950 text-white font-semibold rounded-xl shadow-md hover:shadow-lg active:shadow-sm transition-all duration-300"
+          aria-expanded="false"
+        >
+          <span id="toggle-text">Показать ещё</span>
+          <i id="toggle-icon" class="ri-arrow-down-s-line text-xl transition-transform duration-300"></i>
+        </button>
+      </div>
+    )}
+
+  </div>
+</section>
+
+<style>
+  /* Smooth animation for showing/hiding testimonials */
+  .testimonial-card {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .testimonial-card.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  .testimonial-card.showing {
+    animation: fadeInUp 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .testimonial-card.hiding {
+    animation: fadeOutDown 0.3s ease-in forwards;
+  }
+
+  @keyframes fadeOutDown {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+    }
+  }
+</style>
+
+<script>
+  const toggleButton = document.getElementById('toggle-testimonials');
+  const toggleText = document.getElementById('toggle-text');
+  const toggleIcon = document.getElementById('toggle-icon');
+  const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+  if (toggleButton && toggleText && toggleIcon) {
+    let isExpanded = false;
+
+    toggleButton.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+
+      // Update button text and icon
+      toggleText.textContent = isExpanded ? 'Скрыть' : 'Показать ещё';
+      toggleIcon.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+      toggleButton.setAttribute('aria-expanded', String(isExpanded));
+
+      // Toggle hidden cards
+      testimonialCards.forEach((card) => {
+        const index = parseInt(card.getAttribute('data-index') || '0');
+        const initialVisible = 4; // Should match Astro prop
+
+        if (index >= initialVisible) {
+          if (isExpanded) {
+            // Show card
+            card.classList.remove('hidden', 'hiding');
+            card.classList.add('showing');
+            setTimeout(() => {
+              card.classList.remove('showing');
+            }, 400);
+          } else {
+            // Hide card
+            card.classList.add('hiding');
+            setTimeout(() => {
+              card.classList.add('hidden');
+              card.classList.remove('hiding');
+            }, 300);
+          }
+        }
+      });
+
+      // Smooth scroll to show new content
+      if (isExpanded) {
+        setTimeout(() => {
+          const lastVisibleCard = Array.from(testimonialCards).find(
+            (card) => parseInt(card.getAttribute('data-index') || '0') === 4
+          );
+          if (lastVisibleCard) {
+            lastVisibleCard.scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+            });
+          }
+        }, 100);
+      }
+    });
+  }
+</script>
