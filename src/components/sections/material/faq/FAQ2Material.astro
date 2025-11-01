@@ -1,12 +1,15 @@
 ---
 /**
- * FAQ2Material — Material Design FAQ with Elevated Accordions
+ * FAQ2Material — Premium Material Design 3 FAQ
  *
- * Enhancements over FAQ2:
- * - Gradient accordion items (light source from top)
- * - Elevated items with shadows
- * - Enhanced hover/open states
- * - Image with elevation shadow
+ * Premium Enhancements (2025 trends):
+ * - 🌈 Gradient mesh background with layered depth
+ * - 🎨 H3 gradient questions with hover state
+ * - 🎬 Stagger animation (fadeInUp) on load
+ * - ✨ Premium hover effects on accordion items
+ * - 💎 Premium arrow icons with rotation animation
+ * - 🔥 Enhanced open state with colored shadows
+ * - 🚀 Smooth transitions with Material Design 3 easing
  */
 
 interface FAQItem {
@@ -25,8 +28,12 @@ interface Props {
 const { heading, subheading, faqs, image = '/images/placeholder-img.jpg', imageAlt = 'FAQ illustration' } = Astro.props;
 ---
 
-<section class="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50">
-  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8">
+<section class="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+  <!-- Gradient Mesh Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/20 to-pink-50/10"></div>
+  <div class="absolute inset-0 bg-gradient-to-tl from-cyan-50/30 via-transparent to-indigo-50/20"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(96,165,250,0.05),transparent_50%)]"></div>
+  <div class="max-w-[1344px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
       <!-- Left Column: Content + FAQ -->
       <div>
@@ -42,15 +49,25 @@ const { heading, subheading, faqs, image = '/images/placeholder-img.jpg', imageA
           )}
         </div>
 
-        <!-- FAQ Accordion with Material Design -->
+        <!-- FAQ Accordion with Premium Material Design -->
         <div class="space-y-4">
           {faqs.map((faq, index) => (
-            <details class="group bg-gradient-to-b from-white to-gray-50 rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-100" name="faq-accordion-2">
-              <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-lg text-gray-900 list-none">
-                <span>{faq.question}</span>
-                <i class="ri-arrow-down-s-line text-2xl text-blue-700 transition-transform group-open:rotate-180"></i>
+            <details
+              class="faq-item group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 ring-1 ring-gray-200/50 hover:ring-2 hover:ring-blue-300 open:shadow-blue-500/20 open:ring-blue-300 opacity-0"
+              name="faq-accordion-2"
+              style={`animation-delay: ${index * 100}ms`}
+            >
+              <summary class="flex items-center justify-between cursor-pointer p-6 list-none group-hover:bg-gradient-to-r group-hover:from-blue-50/30 group-hover:to-transparent rounded-2xl transition-all duration-300">
+                <!-- Question with Gradient + Hover -->
+                <h3 class="text-lg md:text-xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:via-blue-800 group-hover:to-blue-700 transition-all duration-300 pr-4">
+                  {faq.question}
+                </h3>
+                <!-- Premium Arrow Icon with Ring Effect -->
+                <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 rounded-full shadow-lg shadow-blue-500/20 ring-4 ring-blue-200/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <i class="ri-arrow-down-s-line text-xl text-blue-600 transition-transform duration-300 group-open:rotate-180"></i>
+                </div>
               </summary>
-              <div class="px-6 pb-6 pt-2 text-base md:text-lg text-gray-600 border-t border-gray-200">
+              <div class="px-6 pb-6 pt-2 text-base md:text-lg text-gray-600 border-t border-gray-200 leading-relaxed">
                 {faq.answer}
               </div>
             </details>
@@ -58,12 +75,12 @@ const { heading, subheading, faqs, image = '/images/placeholder-img.jpg', imageA
         </div>
       </div>
 
-      <!-- Right Column: Image with Elevation (hidden on mobile, shown on lg+) -->
+      <!-- Right Column: Image with Premium Elevation (hidden on mobile, shown on lg+) -->
       <div class="hidden lg:block lg:sticky lg:top-8">
         <img
           src={image}
           alt={imageAlt}
-          class="w-full h-auto rounded-xl object-cover shadow-lg"
+          class="w-full h-auto rounded-2xl object-cover shadow-2xl ring-1 ring-gray-200/50 hover:shadow-blue-500/30 transition-shadow duration-500"
         />
       </div>
     </div>
@@ -73,11 +90,29 @@ const { heading, subheading, faqs, image = '/images/placeholder-img.jpg', imageA
       <img
         src={image}
         alt={imageAlt}
-        class="w-full h-auto rounded-xl shadow-lg object-cover"
+        class="w-full h-auto rounded-2xl shadow-2xl object-cover ring-1 ring-gray-200/50"
       />
     </div>
   </div>
 </section>
+
+<style>
+  /* Stagger Animation on Load */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .faq-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+</style>
 
 <script>
   // Close other accordions when one is opened (one open at a time)

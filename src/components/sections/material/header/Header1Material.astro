@@ -219,20 +219,11 @@ const {
     }
   });
 
-  // Scroll-triggered header behavior
+  // Scroll-triggered header behavior (simplified - no hiding)
   const header = document.querySelector('.header-glass');
-  let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-
-    // Prevent negative scroll values
-    if (currentScroll <= 0) {
-      header?.classList.remove('scrolled');
-      header?.classList.remove('header-hidden');
-      lastScroll = currentScroll;
-      return;
-    }
 
     // Add/remove scrolled class for styling
     if (currentScroll > 50) {
@@ -240,17 +231,6 @@ const {
     } else {
       header?.classList.remove('scrolled');
     }
-
-    // Hide header when scrolling down, show when scrolling up (mobile UX)
-    if (currentScroll > lastScroll && currentScroll > 100) {
-      // Scrolling down - hide header
-      header?.classList.add('header-hidden');
-    } else if (currentScroll < lastScroll) {
-      // Scrolling up - show header
-      header?.classList.remove('header-hidden');
-    }
-
-    lastScroll = currentScroll;
   });
 </script>
 
@@ -301,11 +281,6 @@ const {
   .header-glass.scrolled .header-content {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-  }
-
-  /* Hide header when scrolling down (smooth UX) */
-  .header-glass.header-hidden {
-    transform: translateY(-100%);
   }
 </style>
 

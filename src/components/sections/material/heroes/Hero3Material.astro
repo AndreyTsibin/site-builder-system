@@ -74,10 +74,10 @@ const {
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
           {benefits.map((benefit, index) => {
             const colorThemes = [
-              { iconBg: 'from-purple-100 to-purple-200', iconColor: 'text-purple-600', shadow: 'shadow-purple-500/20', hoverShadow: 'group-hover:shadow-purple-500/40' },
-              { iconBg: 'from-blue-100 to-blue-200', iconColor: 'text-blue-600', shadow: 'shadow-blue-500/20', hoverShadow: 'group-hover:shadow-blue-500/40' },
-              { iconBg: 'from-green-100 to-green-200', iconColor: 'text-green-600', shadow: 'shadow-green-500/20', hoverShadow: 'group-hover:shadow-green-500/40' },
-              { iconBg: 'from-orange-100 to-orange-200', iconColor: 'text-orange-600', shadow: 'shadow-orange-500/20', hoverShadow: 'group-hover:shadow-orange-500/40' }
+              { iconBg: 'from-purple-100 to-purple-200', iconColor: 'text-purple-600', shadow: 'shadow-purple-500/20', ring: 'ring-purple-200/50', hoverShadow: 'group-hover:shadow-purple-500/40' },
+              { iconBg: 'from-blue-100 to-blue-200', iconColor: 'text-blue-600', shadow: 'shadow-blue-500/20', ring: 'ring-blue-200/50', hoverShadow: 'group-hover:shadow-blue-500/40' },
+              { iconBg: 'from-green-100 to-green-200', iconColor: 'text-green-600', shadow: 'shadow-green-500/20', ring: 'ring-green-200/50', hoverShadow: 'group-hover:shadow-green-500/40' },
+              { iconBg: 'from-orange-100 to-orange-200', iconColor: 'text-orange-600', shadow: 'shadow-orange-500/20', ring: 'ring-orange-200/50', hoverShadow: 'group-hover:shadow-orange-500/40' }
             ];
             const theme = colorThemes[index % colorThemes.length];
             return (
@@ -85,8 +85,8 @@ const {
                 class="benefit-item floating-icon opacity-0 group flex items-center gap-3"
                 style={`animation-delay: ${index * 100}ms; --float-delay: ${index * 0.4}s`}
               >
-                <!-- Compact Icon -->
-                <div class={`w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gradient-to-br ${theme.iconBg} rounded-full shadow-lg ${theme.shadow} group-hover:shadow-xl ${theme.hoverShadow} transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                <!-- Compact Icon with Premium Ring Effect -->
+                <div class={`w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gradient-to-br ${theme.iconBg} rounded-full shadow-lg ${theme.shadow} ring-4 ${theme.ring} group-hover:shadow-xl ${theme.hoverShadow} transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
                   <i class={`${benefit.icon} text-xl ${theme.iconColor}`}></i>
                 </div>
                 <!-- Text Right -->

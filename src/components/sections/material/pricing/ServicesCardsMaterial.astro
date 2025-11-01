@@ -88,9 +88,9 @@ const {
                 {service.price}
               </p>
 
-              <!-- CTA Button (Material Design) - pushed to bottom -->
+              <!-- CTA Button (Ghost-to-Solid with Subtle Border) - pushed to bottom -->
               <div class="pt-2 mt-auto">
-                <span class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-blue-700 bg-gradient-to-b from-blue-50 to-blue-100/80 rounded-xl border border-blue-200/50 shadow-sm group-hover:from-blue-100 group-hover:to-blue-200 group-hover:border-blue-300/60 group-hover:shadow-md transition-all duration-300">
+                <span class="cta-button-card inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-blue-700 bg-white rounded-xl border border-blue-300/40 shadow-sm group-hover:bg-gradient-to-b group-hover:from-blue-600 group-hover:to-blue-700 group-hover:text-white group-hover:border-transparent group-hover:shadow-lg group-hover:shadow-blue-500/30">
                   Вызвать мастера
                   <i class="ri-arrow-right-line text-base group-hover:translate-x-1 transition-transform duration-300"></i>
                 </span>
@@ -131,5 +131,14 @@ const {
   /* Active State */
   .service-card:active {
     transform: translateY(-4px) scale(0.98);
+  }
+
+  /* Smooth transitions for CTA button (Material Design 3 style) */
+  .cta-button-card {
+    transition:
+      color 400ms cubic-bezier(0.4, 0, 0.2, 1),
+      background 400ms cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 </style>
