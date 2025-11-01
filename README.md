@@ -6,261 +6,167 @@
 
 ---
 
-## 🚀 Особенности
+## 🚀 Features
 
-- **⚡ Astro** — генерирует чистый HTML, сайты грузятся мгновенно
-- **🎨 Tailwind 4** — новейшая версия с Vite плагином
-- **🧩 Компонентная архитектура** — секции как LEGO блоки
-- **📱 Mobile-first** — адаптивный дизайн из коробки
-- **🎯 SEO-friendly** — семантический HTML5
-- **♿ Accessible** — WCAG AA compliance
-- **🎭 Remix Icons** — 2800+ иконок бесплатно
+- ⚡ **Astro** — instant loading (pure HTML generation)
+- 🎨 **Tailwind 4** — latest version with Vite plugin
+- 🧩 **Component architecture** — sections as LEGO blocks
+- 📱 **Mobile-first** — responsive design out of box
+- 🎯 **SEO-friendly** — semantic HTML5
+- 🎭 **Remix Icons** — 2800+ icons free
 
 ---
 
-## 📦 Быстрый старт
+## 📦 Quick Start
 
 ```bash
-# Установите зависимости
-npm install
-
-# Запустите dev-сервер
-npm run dev
-# → http://localhost:4321
-
-# Соберите production версию
-npm run build
-
-# Предпросмотр production сборки
-npm run preview
+npm install          # Install dependencies
+npm run dev          # → http://localhost:4321
+npm run build        # Production build
+npm run build:tilda  # Tilda T123 bundle
+npm run preview      # Preview production
 ```
 
 ---
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
-site-builder/
-├── src/
-│   ├── components/
-│   │   └── sections/          # Готовые секции
-│   │       ├── heroes/         # Hero секции
-│   │       ├── features/       # Блоки преимуществ
-│   │       ├── pricing/        # Тарифы
-│   │       ├── forms/          # Формы
-│   │       └── footers/        # Футеры
-│   ├── layouts/
-│   │   └── BaseLayout.astro   # Базовый layout
-│   ├── pages/
-│   │   └── index.astro        # Главная страница
-│   └── styles/
-│       └── global.css         # Tailwind + кастомные стили
-├── public/
-│   └── images/                # Статичные изображения
-├── modules/
-│   └── figma-integration/     # Figma MCP интеграция
-├── astro.config.mjs           # Конфиг Astro
-├── tsconfig.json              # TypeScript config
-└── package.json
+src/
+├── components/
+│   └── sections/
+│       ├── material/      # Premium Material Design 3 sections
+│       ├── heroes/        # Hero sections (6 variants)
+│       ├── pricing/       # Pricing (3 variants)
+│       └── ...            # Benefits, FAQ, Contact, etc.
+├── layouts/
+│   └── BaseLayout.astro
+├── pages/
+│   └── index.astro
+└── styles/
+    └── global.css
 ```
 
 ---
 
-## 🎨 Использование
+## 🎨 Design System
 
-### Создание новой секции
+**🎨 Premium Material Design 3** — "Максимальная премиальность с wow-фактором"
 
-1. Создайте файл в `src/components/sections/heroes/Hero1.astro`
-2. Используйте Tailwind классы для стилизации
-3. Добавьте секцию на страницу
+**Features:**
+- Gradient backgrounds (multi-layer mesh)
+- Gradient typography (bold text effects)
+- Smooth animations (shimmer, counter, stagger, floating)
+- Color themes (Purple → Blue → Green → Orange rotation)
+- Premium interactions (glow, scale, shadow transitions)
 
-**Пример:**
+**📖 Full guide:** [DESIGN_PHILOSOPHY.md](DESIGN_PHILOSOPHY.md)
+
+---
+
+## 🎨 Usage
+
+**Assemble landing page:**
 
 ```astro
 ---
-// src/components/sections/heroes/Hero1.astro
-interface Props {
-  title: string;
-  subtitle: string;
-  buttonText: string;
-}
-
-const { title, subtitle, buttonText } = Astro.props;
+import Hero3Material from '@/components/sections/material/heroes/Hero3Material.astro';
+import Benefits2Material from '@/components/sections/material/benefits/Benefits2Material.astro';
 ---
 
-<section class="min-h-screen flex items-center bg-gradient-to-br from-blue-600 to-purple-700">
-  <div class="container mx-auto px-4 text-white">
-    <h1 class="text-6xl font-bold mb-6">{title}</h1>
-    <p class="text-2xl mb-8">{subtitle}</p>
-    <button class="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50">
-      {buttonText}
-    </button>
-  </div>
-</section>
-```
-
-### Использование на странице
-
-```astro
----
-// src/pages/landing.astro
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero1 from '../components/sections/heroes/Hero1.astro';
-import Features from '../components/sections/features/Features1.astro';
----
-
-<BaseLayout title="Мой лендинг">
-  <Hero1
-    title="Ремонт стиральных машин за 2 часа"
-    subtitle="Выезд мастера бесплатно"
-    buttonText="Вызвать мастера"
+<BaseLayout title="Ремонт холодильников Москва">
+  <Hero3Material
+    title="Ремонт холодильников"
+    subtitle="Москва и область"
+    ctaText="Вызвать мастера"
+    benefits={[...]}
   />
-  <Features />
+  <Benefits2Material stats={[...]} />
 </BaseLayout>
 ```
 
 ---
 
-## 🎨 Кастомизация темы
+## 🤖 Claude Code Integration
 
-Редактируйте `src/styles/global.css`:
-
-```css
-@theme {
-  /* Ваши цвета */
-  --color-brand-blue: #1E40AF;
-  --color-brand-green: #10B981;
-
-  /* Кастомные размеры */
-  --spacing-section: 80px;
-
-  /* Новые breakpoints */
-  --breakpoint-3xl: 1920px;
-}
-```
-
----
-
-## 📚 Библиотеки компонентов
-
-Используйте готовые компоненты из:
-
-- **[Flowbite](https://flowbite.com)** — 450+ компонентов (бесплатно)
-- **[HyperUI](https://www.hyperui.dev)** — 100+ секций для лендингов (бесплатно)
-- **[Tailwind UI](https://tailwindui.com)** — 500+ премиум компонентов ($299)
-
-Просто копируйте HTML и вставляйте в `.astro` файлы.
-
----
-
-## 🤖 Работа с Claude Code
-
-### Промпт для быстрой сборки лендинга:
+**Quick assembly prompt:**
 
 ```
-Создай лендинг для [тема клиента].
+Собери лендинг для [тема клиента].
 
-Используй секции:
-- Hero1 (заголовок: "[УТП]")
-- Features1 (3 преимущества)
-- Pricing1 (3 тарифа)
+Секции:
+- Hero3Material (заголовок: "[УТП]")
+- Benefits2Material (3 преимущества)
+- ServicesGrid1Material (услуги и цены)
 - ContactForm
 
-Все тексты адаптируй под тематику: [описание бизнеса]
+Адаптируй тексты под: [описание бизнеса]
 ```
 
-Claude Code соберёт лендинг за 2-3 минуты.
+Claude Code соберёт лендинг за 10-15 минут.
+
+**📖 Full workflow:** [CLIENT_WORKFLOW.md](CLIENT_WORKFLOW.md)
 
 ---
 
-## 🏗️ Развертывание
+## 🏗️ Deployment
 
-### Netlify / Vercel
-
+**Tilda (90% clients):**
 ```bash
-npm run build
-# → dist/
+npm run build:tilda  # → dist/tilda-bundle.html
 ```
+Paste to T123 block → Replace images → Publish
 
-Загрузите папку `dist/` или подключите GitHub repo.
-
-### Обычный хостинг
-
+**Regular hosting:**
 ```bash
-npm run build
+npm run build  # → dist/
 ```
+Upload to Netlify/Vercel/FTP
 
-Загрузите содержимое `dist/` через FTP.
-
----
-
-## 🔧 Скрипты
-
-```bash
-npm run dev       # Dev-сервер (http://localhost:4321)
-npm run build     # Production сборка
-npm run preview   # Предпросмотр production
-```
+**📖 Full guide:** [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ---
 
-## 🎯 Производительность
+## 📖 Documentation
 
-- **PageSpeed Insights:** 95-100 (mobile & desktop)
-- **Lighthouse Accessibility:** 100
-- **Time to Interactive:** <1s
-- **First Contentful Paint:** <0.8s
+**Project docs:**
+- [CLAUDE.md](CLAUDE.md) — Claude Code instructions
+- [DESIGN_PHILOSOPHY.md](DESIGN_PHILOSOPHY.md) — Material Design 3 standards
+- [ARCHITECTURE.md](ARCHITECTURE.md) — Layout & spacing rules
+- [CLIENT_WORKFLOW.md](CLIENT_WORKFLOW.md) — Assembly process
+- [DEPLOYMENT.md](DEPLOYMENT.md) — Tilda & hosting deployment
 
----
-
-## 📖 Документация
-
+**External:**
 - [Astro Docs](https://docs.astro.build)
 - [Tailwind CSS 4](https://tailwindcss.com/docs)
 - [Remix Icon](https://remixicon.com)
 
 ---
 
-## 🤝 Figma Integration
+## 🎯 Performance
 
-Модуль `modules/figma-integration/` позволяет работать с Figma через MCP.
-
----
-
-## 📝 Лицензия
-
-MIT © Andrej Tsibin
-
----
-
-## ✨ Дизайн-система
-
-**🎨 Premium Material Design 3** — Максимальная премиальность с wow-эффектом
-
-Все компоненты следуют единой философии дизайна:
-
-- **Material Design 3 (2025)** — Градиенты, elevation, colored shadows, glassmorphism
-- **Плавные анимации** — Shimmer на кнопках, counter animations, stagger effects, floating images
-- **Градиентная типографика** — Bold gradient text для заголовков и акцентов
-- **Цветовые темы** — Purple → Blue → Green → Orange ротация для multi-card секций
-- **Премиум интерактивность** — Hover эффекты с glow, scale, shadow transitions
-
-**📖 Полная документация:** [DESIGN_PHILOSOPHY.md](DESIGN_PHILOSOPHY.md) — Детальное руководство по всем паттернам, стандартам и best practices
+- PageSpeed Insights: 95-100 (mobile & desktop)
+- Lighthouse Accessibility: 100
+- Time to Interactive: <1s
+- First Contentful Paint: <0.8s
 
 ---
 
 ## 🚀 Roadmap
 
-- [x] ~~Добавить 40+ готовых секций~~ ✅ Завершено
-- [x] ~~Унифицировать дизайн-систему~~ ✅ Завершено
-- [x] ~~Создать премиум Material Design 3 философию~~ ✅ Завершено
-- [ ] Преобразовать все секции в Material Design 3 стиль
-- [ ] Создать CLI для быстрой генерации компонентов
-- [ ] Интеграция с CMS (Strapi, Sanity)
-- [ ] Готовые шаблоны лендингов (SaaS, E-commerce, Portfolio)
+- [x] 40+ готовых секций ✅
+- [x] Material Design 3 философия ✅
+- [ ] Преобразовать все секции в Material Design 3
+- [ ] CLI для генерации компонентов
+- [ ] Готовые шаблоны (SaaS, E-commerce, Portfolio)
 
 ---
 
-**Версия:** 2.1.0
-**Последнее обновление:** 2025-10-30
-**Стек:** Astro 5 + Tailwind 4 + Remix Icons
+**Version:** 2.1.0 | **Last Updated:** 2025-11-01
+**Stack:** Astro 5 + Tailwind 4 + Remix Icons
+
+---
+
+## 📝 License
+
+MIT © Andrej Tsibin

@@ -1,208 +1,159 @@
-# Tilda Deployment Guide
+# Deployment Guide
 
-**🎯 Deploy landing pages to Tilda constructor using T123 HTML block**
-
----
-
-## Why Tilda?
-
-Tilda is a popular no-code website builder in Russia/CIS. Deploying our Astro-built landing pages to Tilda allows:
-- Using Tilda's hosting and domain management
-- Adding Tilda's built-in forms, CRM, analytics
-- Client can edit text directly in Tilda interface
-- No need for separate hosting setup
+**🎯 Deploy landing pages to Tilda or hosting**
 
 ---
 
-## 🚀 Quick Deployment (Recommended)
+## TILDA DEPLOYMENT (Recommended)
 
-### 1. Build Tilda bundle
+### Quick Steps
 
 ```bash
-npm run build:tilda
+npm run build:tilda  # → dist/tilda-bundle.html
 ```
 
-This command:
-- Runs production build
-- Generates `dist/tilda-bundle.html` — single file ready for T123
-- Includes priority script (Tailwind CDN + `important: true`)
-- Inlines all CSS and JS
-- Replaces image paths with `TILDA_IMAGE_*` placeholders
-- Creates image replacement checklist at the end of file
-
-### 2. Copy to Tilda
-
-- Open `dist/tilda-bundle.html`
-- Copy **entire file content**
-- Paste into Tilda **T123 block** (HTML field)
-
-### 3. Replace images
-
-- Find `TILDA_IMAGE_1`, `TILDA_IMAGE_2`, etc. in the pasted code
-- Upload images to Tilda or external hosting
-- Replace placeholders with actual URLs
-- See image checklist at the bottom of bundle file
-
-### 4. Publish
-
-- Preview in Tilda
-- Verify styles, sliders, hover effects work
-- Publish page
+1. Open `dist/tilda-bundle.html`
+2. Copy entire content
+3. Paste into Tilda **T123 block** (HTML field)
+4. Replace `TILDA_IMAGE_*` placeholders with actual URLs
+5. Preview → Publish
 
 **⏱ Total time:** 5-10 minutes
 
 ---
 
-## 📦 Bundle File Structure
+### Why Tilda?
 
-The generated `dist/tilda-bundle.html` contains (in order):
+- Tilda's hosting + domain management
+- Built-in forms, CRM, analytics
+- Client can edit text in Tilda interface
+- No separate hosting needed
 
-1. **Priority Script** — Tailwind CDN with `important: true` config
-2. **Inline CSS** — All compiled Tailwind styles
-3. **Page Content** — Sections without `<html>`, `<head>`, `<body>` tags
-4. **Inline JS** — All compiled scripts (Swiper, etc.)
-5. **Image Checklist** — List of all images to replace
+---
 
-**Example:**
+### Bundle File Contents
+
 ```html
-<!-- Tilda Bundle - Ready to paste -->
+<!-- Priority Script (Tailwind + important: true) -->
+<script>...</script>
 
-<script>
-// Priority script (Tailwind + important: true)
-...
-</script>
+<!-- Inlined CSS -->
+<style>...</style>
 
-<style>
-/* Compiled CSS */
-...
-</style>
-
-<!-- Sections -->
+<!-- Page Sections -->
 <header>...</header>
 <section>...</section>
-...
 
-<script>
-// Compiled JS
-...
-</script>
+<!-- Inlined JS -->
+<script>...</script>
 
-<!-- IMAGE REPLACEMENT CHECKLIST -->
+<!-- IMAGE CHECKLIST -->
 <!-- TILDA_IMAGE_1: /images/hero.jpg -->
 <!-- TILDA_IMAGE_2: /images/service-1.jpg -->
 ```
 
 ---
 
-## ⚙️ How It Works
+### How It Works
 
-**Automated bundling script:**
-- Reads `dist/index.html` after production build
-- Extracts body content (without `<body>` tags)
-- Finds and inlines all CSS from `/_astro/*.css`
-- Finds and inlines all JS from `/_astro/*.js`
-- Adds priority script with `important: true` config
-- Replaces `/images/` paths with `TILDA_IMAGE_*` placeholders
-- Outputs single file ready for T123 block
+**Automated bundling:**
+- Reads `dist/index.html` after build
+- Extracts body content
+- Inlines all CSS from `/_astro/*.css`
+- Inlines all JS from `/_astro/*.js`
+- Adds priority script (`important: true`)
+- Replaces `/images/` → `TILDA_IMAGE_*`
+- Outputs single T123-ready file
 
 **Priority script features:**
-- Loads Tailwind CSS via CDN with `important: true`
+- Tailwind CSS CDN with `important: true`
 - Overrides Tilda's default styles
-- Protects links from Tilda color overrides
-- Loads Remix Icons and Swiper from CDN
-- Initializes Swiper carousel with delay
+- Protects links from color overrides
+- Loads Remix Icons + Swiper
+- Initializes Swiper with delay
 
 ---
 
-## ✅ Deployment Checklist
+## DEPLOYMENT CHECKLIST
 
 - [ ] Run `npm run build:tilda`
 - [ ] Open `dist/tilda-bundle.html`
 - [ ] Copy entire content
 - [ ] Paste into Tilda T123 block
-- [ ] Replace all `TILDA_IMAGE_*` placeholders with URLs
+- [ ] Replace all `TILDA_IMAGE_*` with URLs
 - [ ] Test in Tilda preview:
   - [ ] All sections visible
   - [ ] Styles applied correctly
-  - [ ] Animations work (shimmer, counter, stagger, floating)
+  - [ ] Animations work
   - [ ] Mobile responsive
   - [ ] Phone numbers clickable
-  - [ ] Forms work (if using Tilda forms)
 - [ ] Publish page
 
 ---
 
-## 🐛 Troubleshooting
+## TROUBLESHOOTING
 
-### Problem: Tailwind styles don't apply
-**Solution:** Bundle includes priority script automatically. Check browser console for CDN loading errors.
+**Tailwind styles don't apply:**
+→ Priority script auto-included. Check browser console for CDN errors.
 
-### Problem: Links have wrong colors (blue/underlined)
-**Solution:** Priority script includes link protection (`color: inherit !important`). Clear browser cache.
+**Links have wrong colors:**
+→ Priority script has link protection. Clear cache.
 
-### Problem: Sliders don't work
-**Solution:** Ensure Swiper CDN loaded correctly. Increase `setTimeout` delay in priority script if needed.
+**Sliders don't work:**
+→ Check Swiper CDN loaded. Increase `setTimeout` delay if needed.
 
-### Problem: Icons missing
-**Solution:** Verify Remix Icons CDN loaded. Check class names (e.g., `ri-phone-line`).
+**Icons missing:**
+→ Verify Remix Icons CDN loaded. Check class names (`ri-phone-line`).
 
-### Problem: Images broken
-**Solution:** Replace all `TILDA_IMAGE_*` placeholders with actual Tilda/external URLs. See checklist at end of bundle file.
+**Images broken:**
+→ Replace all `TILDA_IMAGE_*` with actual URLs. See checklist at end of bundle.
 
-### Problem: Animations don't work
-**Solution:**
-- Check that Tailwind CDN loaded (`important: true` config)
-- Verify no Tilda styles override animation classes
-- Check browser console for JavaScript errors
+**Animations don't work:**
+→ Check Tailwind CDN loaded. Verify no Tilda style overrides. Check console for JS errors.
 
-### Problem: Mobile layout broken
-**Solution:**
-- Ensure viewport meta tag exists (Tilda adds it automatically)
-- Test with Tilda's mobile preview tool
-- Check that responsive Tailwind classes work (`md:`, `lg:`)
+**Mobile layout broken:**
+→ Tilda adds viewport meta automatically. Test with Tilda's mobile preview. Check responsive Tailwind classes (`md:`, `lg:`).
 
 ---
 
-## 📸 Image Optimization Tips
+## IMAGE OPTIMIZATION
 
-Before uploading images to Tilda:
+Before uploading to Tilda:
 
-1. **Resize images:**
-   - Hero images: 1920x1080px
-   - Service images: 800x600px
-   - Logos: 200x200px
+**Resize:**
+- Hero: 1920x1080px
+- Services: 800x600px
+- Logos: 200x200px
 
-2. **Compress images:**
-   - Use TinyPNG or similar
-   - Target: < 200KB per image
+**Compress:**
+- Use TinyPNG or similar
+- Target: < 200KB per image
 
-3. **Format:**
-   - Photos: WebP or JPEG
-   - Logos/Icons: PNG or SVG
+**Format:**
+- Photos: WebP or JPEG
+- Logos/Icons: PNG or SVG
 
-4. **Upload to Tilda:**
-   - Use Tilda's image library
-   - Or use external CDN (Cloudinary, Imgur, etc.)
+**Upload:**
+- Tilda's image library
+- Or external CDN (Cloudinary, Imgur)
 
 ---
 
-## 🚀 Alternative Deployment (Regular Hosting)
+## REGULAR HOSTING DEPLOYMENT
 
 If client doesn't use Tilda:
 
 ```bash
-# Build for regular hosting
-npm run build
-# → outputs to dist/ (index.html + assets)
+npm run build  # → dist/
 ```
 
-**Deployment options:**
-- **Netlify:** Drag & drop `dist/` folder or connect GitHub repo
-- **Vercel:** Connect GitHub repo, Vercel auto-detects Astro
-- **FTP/cPanel:** Upload entire `dist/` folder via FTP
+**Options:**
+- **Netlify:** Drag & drop `dist/` or connect GitHub
+- **Vercel:** Connect GitHub (auto-detects Astro)
+- **FTP/cPanel:** Upload `dist/` via FTP
 - **GitHub Pages:** Push to `gh-pages` branch
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2025-10-31
+**Version:** 2.0.0
+**Last Updated:** 2025-11-01

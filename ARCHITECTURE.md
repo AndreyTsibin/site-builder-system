@@ -4,14 +4,14 @@
 
 ---
 
-## Project Structure
+## PROJECT STRUCTURE
 
 ```
 src/
 ├── components/
-│   └── sections/          # Reusable landing page sections
+│   └── sections/
 │       ├── material/      # Premium Material Design 3 sections
-│       │   ├── header/    # Header1Material (glassmorphism)
+│       │   ├── headers/   # Header1Material (glassmorphism)
 │       │   ├── heroes/    # Hero3Material (gradient mesh)
 │       │   └── benefits/  # Benefits2Material (color themes)
 │       ├── heroes/        # Hero sections (6 variants)
@@ -38,20 +38,16 @@ src/
 
 ---
 
-## Component Architecture
+## COMPONENT ARCHITECTURE
 
-**Pattern:** Props-based Astro components for maximum reusability
+**Pattern:** Props-based Astro components
 
-**Example Component Structure:**
+**Example:**
 
 ```astro
 ---
 /**
  * ComponentName — Brief description
- *
- * Features:
- * - Feature 1
- * - Feature 2
  */
 
 interface Props {
@@ -79,17 +75,16 @@ const { title, subtitle, ctaText, phone } = Astro.props;
 </script>
 ```
 
-**Key Principles:**
-
-1. **Props interface** — Always define TypeScript interface for clarity
-2. **Tailwind-only styling** — No custom CSS, pure utility classes (except animations)
-3. **Mobile-first responsive** — Use `md:`, `lg:` breakpoint prefixes
-4. **Remix Icons** — Use `<i class="ri-icon-name-line"></i>` instead of SVG
-5. **Semantic HTML5** — `<section>`, `<article>`, `<nav>`, not `<div>` soup
+**Principles:**
+1. Always define Props interface
+2. Tailwind-only styling (no custom CSS except animations)
+3. Mobile-first responsive (`md:`, `lg:` breakpoints)
+4. Use Remix Icons `<i class="ri-icon-name-line"></i>`
+5. Semantic HTML5 (`<section>`, `<article>`, `<nav>`)
 
 ---
 
-## Layout & Spacing Standards
+## LAYOUT & SPACING STANDARDS
 
 **CRITICAL:** All sections MUST follow these standards.
 
@@ -106,16 +101,13 @@ const { title, subtitle, ctaText, phone } = Astro.props;
 ### Container Standards
 
 **Max-width:**
-- `max-w-[1344px]` (1344px) — Default for all sections (content = 1280px after padding)
-- `max-w-6xl` (1152px) — For narrow content sections
-- `max-w-4xl` (896px) — For text-heavy content (blog posts, articles)
+- `max-w-[1344px]` (default) — Content = 1280px after padding
+- `max-w-6xl` (1152px) — Narrow content sections
+- `max-w-4xl` (896px) — Text-heavy content
 
-**Centering:**
-- Always use `mx-auto` to center containers
+**Centering:** Always `mx-auto`
 
-**Note:** The default max-w-[1344px] ensures content width is exactly 1280px on large screens (1344px - 32px left - 32px right = 1280px).
-
-**Horizontal Padding (Responsive):**
+**Horizontal Padding:**
 ```
 px-4      → Mobile (16px)
 sm:px-6   → Small screens 640px+ (24px)
@@ -127,41 +119,32 @@ lg:px-8   → Large screens 1024px+ (32px)
 **Section Padding:**
 ```
 py-16     → Mobile (64px)
-md:py-20  → Medium screens 768px+ (80px)
-lg:py-24  → Large screens 1024px+ (96px)
+md:py-20  → Medium 768px+ (80px)
+lg:py-24  → Large 1024px+ (96px)
 ```
 
-**Hero Sections:**
-```
-min-h-screen py-16 md:py-20 lg:py-24
-```
+**Hero Sections:** `min-h-screen py-16 md:py-20 lg:py-24`
 
 **Content Spacing:**
-- Between heading and content: `mb-12 lg:mb-16`
-- Between content blocks: `space-y-6` or `space-y-8`
-- Between grid items: `gap-6 md:gap-8 lg:gap-12`
+- Heading → content: `mb-12 lg:mb-16`
+- Between blocks: `space-y-6` or `space-y-8`
+- Grid items: `gap-6 md:gap-8 lg:gap-12`
 
 ### Grid Layouts
 
 **Two-column (Hero, Features):**
 ```astro
 <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-  <!-- columns -->
-</div>
 ```
 
 **Three-column (Services, Benefits):**
 ```astro
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-  <!-- columns -->
-</div>
 ```
 
 **Four-column (Stats):**
 ```astro
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-  <!-- columns -->
-</div>
 ```
 
 ### Typography Scale
@@ -176,9 +159,9 @@ h4: text-xl md:text-2xl font-semibold
 
 **Body Text:**
 ```
-Base:     text-base md:text-lg
-Large:    text-lg md:text-xl
-Small:    text-sm md:text-base
+Base:  text-base md:text-lg
+Large: text-lg md:text-xl
+Small: text-sm md:text-base
 ```
 
 ### Breakpoints Reference
@@ -191,13 +174,13 @@ xl:  1280px — Desktops
 2xl: 1536px — Large desktops
 ```
 
-**Mobile-first approach:** Start with base styles, add breakpoint prefixes for larger screens.
+**Mobile-first:** Start with base styles, add breakpoint prefixes for larger screens.
 
 ---
 
-## Tailwind Theme Customization
+## TAILWIND THEME CUSTOMIZATION
 
-Edit `src/styles/global.css` for custom design tokens:
+Edit `src/styles/global.css`:
 
 ```css
 @theme {
@@ -213,26 +196,19 @@ Edit `src/styles/global.css` for custom design tokens:
 }
 ```
 
-Use in components:
-```html
-<div class="bg-brand-green text-white">
-```
+Use: `<div class="bg-brand-green text-white">`
 
 ---
 
-## Nested Border Radius Formula
+## NESTED BORDER RADIUS FORMULA
 
-**Rule:** When nesting elements inside containers with border-radius, maintain smooth visual curvature:
-
-```
-Inner Radius = Outer Radius - Gap/Padding
-```
+**Rule:** `Inner Radius = Outer Radius - Gap/Padding`
 
 **Example:**
 ```astro
-<!-- Outer container: rounded-2xl (16px), gap-4 (16px) -->
+<!-- Outer: rounded-2xl (16px), gap-4 (16px) -->
 <div class="rounded-2xl p-6 gap-4">
-  <!-- Inner element: rounded-lg (8px) = 16px - 16px gap ≈ 8px -->
+  <!-- Inner: rounded-lg (8px) = 16px - 16px ≈ 8px -->
   <img class="rounded-lg" />
 </div>
 ```
@@ -242,21 +218,19 @@ Inner Radius = Outer Radius - Gap/Padding
 - `rounded-xl` (12px) - `gap-3` (12px) ≈ `rounded` (4px)
 - `rounded-3xl` (24px) - `gap-6` (24px) ≈ `rounded-xl` (12px)
 
-**Why:** Using the same radius for parent and child creates uneven visual gaps. Subtracting the distance maintains smooth curvature.
-
 **Reference:** [Frontend Masters - Nested Border Radius](https://frontendmasters.com/blog/the-classic-border-radius-advice-plus-an-unusual-trick/)
 
 ---
 
-## Animation Patterns
+## ANIMATION PATTERNS
 
-All animations should follow Material Design 3 principles. See [DESIGN_PHILOSOPHY.md](DESIGN_PHILOSOPHY.md) for complete animation library.
+All animations follow Material Design 3 principles. See [DESIGN_PHILOSOPHY.md](DESIGN_PHILOSOPHY.md) for complete animation library.
 
 **Common Durations:**
-- Quick interactions: `duration-300` (hover, active states)
-- Standard animations: `duration-500` (cards, transitions)
-- Slow animations: `duration-700` (modals, overlays)
-- Continuous loops: `3s infinite`, `6s infinite`
+- Quick: `duration-300` (hover, active states)
+- Standard: `duration-500` (cards, transitions)
+- Slow: `duration-700` (modals, overlays)
+- Continuous: `3s infinite`, `6s infinite`
 
 **Easing:**
 - Standard: `ease-in-out`
@@ -265,11 +239,11 @@ All animations should follow Material Design 3 principles. See [DESIGN_PHILOSOPH
 
 ---
 
-## State Management
+## STATE MANAGEMENT
 
-**No external state management needed.** Astro components are server-rendered by default.
+**No external state management needed.** Astro components are server-rendered.
 
-**For interactivity:** Use vanilla JavaScript in `<script>` tags or Astro's client directives.
+**For interactivity:** Use vanilla JS in `<script>` tags or Astro client directives.
 
 **Example:**
 ```astro
@@ -282,30 +256,30 @@ All animations should follow Material Design 3 principles. See [DESIGN_PHILOSOPH
 
 ---
 
-## Performance Best Practices
+## PERFORMANCE BEST PRACTICES
 
-1. **Images:**
-   - Use WebP format for photos
-   - Use SVG for icons (or Remix Icons CDN)
-   - Always provide `width`, `height`, `alt` attributes
-   - Use lazy loading: `loading="lazy"`
+**Images:**
+- WebP format for photos
+- SVG for icons (or Remix Icons CDN)
+- Always provide `width`, `height`, `alt`
+- Lazy loading: `loading="lazy"`
 
-2. **CSS:**
-   - Tailwind automatically purges unused styles
-   - Use `@apply` sparingly (only for repeated patterns)
-   - Prefer utility classes over custom CSS
+**CSS:**
+- Tailwind auto-purges unused styles
+- Use `@apply` sparingly
+- Prefer utility classes
 
-3. **JavaScript:**
-   - Minimize client-side JS
-   - Use vanilla JS instead of frameworks when possible
-   - Defer non-critical scripts
+**JavaScript:**
+- Minimize client-side JS
+- Use vanilla JS when possible
+- Defer non-critical scripts
 
-4. **Fonts:**
-   - Use system fonts for body text
-   - Load custom fonts only when necessary
-   - Use `font-display: swap` for custom fonts
+**Fonts:**
+- Use system fonts for body
+- Load custom fonts only when necessary
+- Use `font-display: swap`
 
 ---
 
-**Version:** 2.0.0
-**Last Updated:** 2025-10-31
+**Version:** 3.0.0
+**Last Updated:** 2025-11-01
