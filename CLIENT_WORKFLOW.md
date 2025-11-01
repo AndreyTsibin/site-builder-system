@@ -11,8 +11,8 @@
 2. **Select sections** → Import from `src/components/sections/material/`
 3. **Fill props** → Edit `src/pages/index.astro` (ALWAYS this file)
 4. **Test** → `npm run dev` → check localhost:4321
-5. **Build** → `npm run build:tilda`
-6. **Deploy** → Paste to Tilda T123 → Replace images → Publish
+5. **Build** → `npm run build`
+6. **Deploy** → Push to Netlify/Vercel OR upload `dist/` to hosting
 
 ---
 
@@ -98,43 +98,43 @@ npm run dev  # → http://localhost:4321
 
 ### 5. Build Production Files
 
-**For Tilda (90% clients):**
-```bash
-npm run build:tilda  # → dist/tilda-bundle.html
-```
-
-**For hosting:**
 ```bash
 npm run build  # → dist/
+```
+
+**Optional: Preview before deploy:**
+```bash
+npm run preview  # → http://localhost:4321
 ```
 
 ---
 
 ### 6. Final Verification
 
-**Tilda Bundle:**
-- [ ] File size ~100KB
-- [ ] Contains priority script
-- [ ] All CSS/JS inlined
-- [ ] Image placeholders (`TILDA_IMAGE_*`)
-- [ ] Image checklist at end
-
-**Hosting:**
+**Production build:**
 - [ ] All assets in `dist/`
 - [ ] No broken links
-- [ ] Images optimized
+- [ ] Images optimized (< 200KB each)
+- [ ] All CSS/JS bundled
+- [ ] No console errors
 
 ---
 
-### 7. Handoff to Client
+### 7. Deploy
 
-**Tilda:**
-1. Send `dist/tilda-bundle.html`
-2. Instructions: Paste → T123 block → Replace images → Publish
+**Recommended: Netlify (easiest)**
+```bash
+# Connect GitHub repo to Netlify
+# Push → Auto-deploy in 30 seconds
+git push origin main
+```
 
-**Hosting:**
-1. Send `dist/` folder
-2. Instructions: Upload to FTP/Vercel/Netlify → Configure domain
+**Alternative: Manual upload**
+- Upload `dist/` folder to FTP/cPanel
+- Or drag & drop to Netlify/Vercel
+- Configure custom domain
+
+**See:** [DEPLOYMENT.md](DEPLOYMENT.md) for detailed guides
 
 ---
 
@@ -158,5 +158,5 @@ npm run build  # → dist/
 
 ---
 
-**Version:** 2.0.0
+**Version:** 3.0.0
 **Last Updated:** 2025-11-01

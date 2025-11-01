@@ -1,124 +1,149 @@
 # Deployment Guide
 
-**🎯 Deploy landing pages to Tilda or hosting**
+**🎯 Deploy landing pages to modern hosting platforms**
 
 ---
 
-## TILDA DEPLOYMENT (Recommended)
+## RECOMMENDED HOSTING
 
-### Quick Steps
+### Netlify (Easiest)
+
+**Why Netlify:**
+- Free tier with custom domains
+- Auto-deploy from Git (push → live in 30 seconds)
+- Built-in forms, analytics
+- One-click HTTPS
+- Global CDN
+
+**Deploy steps:**
+
+1. **Push to GitHub:**
+```bash
+git add .
+git commit -m "feat: ready for deployment"
+git push origin main
+```
+
+2. **Connect to Netlify:**
+- Visit [netlify.com](https://netlify.com)
+- "Import from Git" → Select repo
+- Build settings (auto-detected):
+  - Build command: `npm run build`
+  - Publish directory: `dist`
+- Deploy!
+
+3. **Custom domain (optional):**
+- Site settings → Domain management
+- Add custom domain
+- Follow DNS instructions
+
+**⏱ Total time:** 5 minutes first deploy, 30 seconds updates
+
+---
+
+### Vercel
+
+**Why Vercel:**
+- Excellent Astro support
+- Edge network performance
+- Auto-deploy from Git
+- Free tier
+
+**Deploy steps:**
 
 ```bash
-npm run build:tilda  # → dist/tilda-bundle.html
+npm run build  # Test build locally
 ```
 
-1. Open `dist/tilda-bundle.html`
-2. Copy entire content
-3. Paste into Tilda **T123 block** (HTML field)
-4. Replace `TILDA_IMAGE_*` placeholders with actual URLs
-5. Preview → Publish
-
-**⏱ Total time:** 5-10 minutes
+1. Visit [vercel.com](https://vercel.com)
+2. "Import Project" → Select GitHub repo
+3. Auto-detects Astro → Deploy
+4. Custom domain in project settings
 
 ---
 
-### Why Tilda?
+### GitHub Pages (Free)
 
-- Tilda's hosting + domain management
-- Built-in forms, CRM, analytics
-- Client can edit text in Tilda interface
-- No separate hosting needed
+**Deploy steps:**
 
----
-
-### Bundle File Contents
-
-```html
-<!-- Priority Script (Tailwind + important: true) -->
-<script>...</script>
-
-<!-- Inlined CSS -->
-<style>...</style>
-
-<!-- Page Sections -->
-<header>...</header>
-<section>...</section>
-
-<!-- Inlined JS -->
-<script>...</script>
-
-<!-- IMAGE CHECKLIST -->
-<!-- TILDA_IMAGE_1: /images/hero.jpg -->
-<!-- TILDA_IMAGE_2: /images/service-1.jpg -->
+1. **Install gh-pages:**
+```bash
+npm install -D gh-pages
 ```
 
+2. **Add to package.json:**
+```json
+"scripts": {
+  "deploy": "npm run build && gh-pages -d dist"
+}
+```
+
+3. **Deploy:**
+```bash
+npm run deploy
+```
+
+4. **Enable in repo settings:**
+- Settings → Pages
+- Source: `gh-pages` branch
+- Save
+
+**URL:** `https://username.github.io/repo-name`
+
 ---
 
-### How It Works
+## MANUAL DEPLOYMENT
 
-**Automated bundling:**
-- Reads `dist/index.html` after build
-- Extracts body content
-- Inlines all CSS from `/_astro/*.css`
-- Inlines all JS from `/_astro/*.js`
-- Adds priority script (`important: true`)
-- Replaces `/images/` → `TILDA_IMAGE_*`
-- Outputs single T123-ready file
+If client has existing hosting:
 
-**Priority script features:**
-- Tailwind CSS CDN with `important: true`
-- Overrides Tilda's default styles
-- Protects links from color overrides
-- Loads Remix Icons + Swiper
-- Initializes Swiper with delay
+```bash
+npm run build  # → dist/
+```
+
+**Upload options:**
+
+1. **FTP/SFTP:**
+   - Upload entire `dist/` folder
+   - Point domain to folder
+
+2. **cPanel:**
+   - File Manager → Upload `dist/` contents
+   - Set as document root
+
+3. **AWS S3:**
+   - Create bucket with static hosting
+   - Upload `dist/` contents
+   - Set bucket policy for public access
 
 ---
 
 ## DEPLOYMENT CHECKLIST
 
-- [ ] Run `npm run build:tilda`
-- [ ] Open `dist/tilda-bundle.html`
-- [ ] Copy entire content
-- [ ] Paste into Tilda T123 block
-- [ ] Replace all `TILDA_IMAGE_*` with URLs
-- [ ] Test in Tilda preview:
-  - [ ] All sections visible
-  - [ ] Styles applied correctly
-  - [ ] Animations work
-  - [ ] Mobile responsive
-  - [ ] Phone numbers clickable
-- [ ] Publish page
+Before deployment:
 
----
+- [ ] Run `npm run build` locally
+- [ ] Test with `npm run preview`
+- [ ] Check all sections render
+- [ ] Verify mobile responsiveness
+- [ ] Test all links work
+- [ ] Phone numbers clickable
+- [ ] Images optimized (< 200KB each)
+- [ ] Forms point to correct endpoints
 
-## TROUBLESHOOTING
+After deployment:
 
-**Tailwind styles don't apply:**
-→ Priority script auto-included. Check browser console for CDN errors.
-
-**Links have wrong colors:**
-→ Priority script has link protection. Clear cache.
-
-**Sliders don't work:**
-→ Check Swiper CDN loaded. Increase `setTimeout` delay if needed.
-
-**Icons missing:**
-→ Verify Remix Icons CDN loaded. Check class names (`ri-phone-line`).
-
-**Images broken:**
-→ Replace all `TILDA_IMAGE_*` with actual URLs. See checklist at end of bundle.
-
-**Animations don't work:**
-→ Check Tailwind CDN loaded. Verify no Tilda style overrides. Check console for JS errors.
-
-**Mobile layout broken:**
-→ Tilda adds viewport meta automatically. Test with Tilda's mobile preview. Check responsive Tailwind classes (`md:`, `lg:`).
+- [ ] Visit live URL
+- [ ] Test on mobile device
+- [ ] Check page load speed (< 3s)
+- [ ] Verify HTTPS enabled
+- [ ] Test contact forms
+- [ ] Check analytics tracking
 
 ---
 
 ## IMAGE OPTIMIZATION
 
-Before uploading to Tilda:
+Before deployment:
 
 **Resize:**
 - Hero: 1920x1080px
@@ -126,34 +151,68 @@ Before uploading to Tilda:
 - Logos: 200x200px
 
 **Compress:**
-- Use TinyPNG or similar
+- Use [TinyPNG](https://tinypng.com)
 - Target: < 200KB per image
 
 **Format:**
-- Photos: WebP or JPEG
-- Logos/Icons: PNG or SVG
+- Photos: WebP (best) or JPEG
+- Logos/Icons: SVG (best) or PNG
 
-**Upload:**
-- Tilda's image library
-- Or external CDN (Cloudinary, Imgur)
-
----
-
-## REGULAR HOSTING DEPLOYMENT
-
-If client doesn't use Tilda:
-
-```bash
-npm run build  # → dist/
-```
-
-**Options:**
-- **Netlify:** Drag & drop `dist/` or connect GitHub
-- **Vercel:** Connect GitHub (auto-detects Astro)
-- **FTP/cPanel:** Upload `dist/` via FTP
-- **GitHub Pages:** Push to `gh-pages` branch
+**CDN (optional):**
+- [Cloudinary](https://cloudinary.com) - automatic optimization
+- [Imgur](https://imgur.com) - simple image hosting
 
 ---
 
-**Version:** 2.0.0
+## TROUBLESHOOTING
+
+**Build fails:**
+→ Check Node.js version (≥ 18)
+→ Run `npm install` to update dependencies
+→ Check for TypeScript errors in components
+
+**Styles don't load:**
+→ Verify `dist/_astro/*.css` files exist
+→ Check browser console for 404 errors
+→ Clear browser cache
+
+**Images broken:**
+→ Use absolute URLs or place in `public/images/`
+→ Check image paths in components
+→ Verify images uploaded to hosting
+
+**Forms don't work:**
+→ Check form action endpoints
+→ Verify CORS settings if using external API
+→ Test with Netlify Forms or similar
+
+**Slow page load:**
+→ Optimize images (use WebP, compress)
+→ Enable CDN caching
+→ Check bundle size with `npm run build`
+
+---
+
+## PERFORMANCE TIPS
+
+**Optimize builds:**
+- Use WebP images
+- Lazy load images: `loading="lazy"`
+- Minimize JavaScript
+- Enable gzip compression
+
+**CDN benefits:**
+- Netlify/Vercel have built-in CDN
+- Faster global load times
+- Automatic HTTPS
+- DDoS protection
+
+**Analytics:**
+- Add Google Analytics in `BaseLayout.astro`
+- Or use hosting analytics (Netlify, Vercel)
+- Track conversions, bounce rate
+
+---
+
+**Version:** 3.0.0
 **Last Updated:** 2025-11-01

@@ -89,21 +89,6 @@ const {
             {description}
           </p>
         )}
-
-        <!-- Navigation -->
-        <div>
-          <h3 class="text-base md:text-lg font-bold bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent mb-3">Навигация</h3>
-          <nav class="space-y-2">
-            {menuItems && menuItems.map((item) => (
-              <a
-                href={item.href}
-                class="block text-sm hover:text-blue-400 transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
       </div>
 
       <!-- Column 2: Contacts + CTA -->
@@ -187,7 +172,6 @@ const {
         </div>
         <div class="flex flex-wrap justify-center gap-4 md:gap-6">
           <a href="#privacy" class="hover:text-gray-300 transition-colors">Политика конфиденциальности</a>
-          <a href="#terms" class="hover:text-gray-300 transition-colors">Условия использования</a>
         </div>
       </div>
     </div>

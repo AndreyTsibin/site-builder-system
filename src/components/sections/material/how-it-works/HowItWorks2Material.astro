@@ -21,6 +21,7 @@ interface Step {
 }
 
 interface Props {
+  id?: string;
   heading: string;
   subheading?: string;
   steps: Step[];
@@ -28,7 +29,7 @@ interface Props {
   ctaLink?: string;
 }
 
-const { heading, subheading, steps, ctaText, ctaLink = "#" } = Astro.props;
+const { id, heading, subheading, steps, ctaText, ctaLink = "#" } = Astro.props;
 
 // Color themes for rotation (Purple → Blue → Green → Orange)
 const colorThemes = [
@@ -67,7 +68,7 @@ const colorThemes = [
 ];
 ---
 
-<section class="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+<section id={id} class="relative py-16 md:py-20 lg:py-24 overflow-hidden">
   <!-- Gradient Mesh Background -->
   <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/20 to-pink-50/10"></div>
   <div class="absolute inset-0 bg-gradient-to-tl from-cyan-50/30 via-transparent to-indigo-50/20"></div>
@@ -87,7 +88,7 @@ const colorThemes = [
     </div>
 
     <!-- Steps Grid with Premium Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {steps.map((step, index) => {
         const theme = colorThemes[index % colorThemes.length];
         return (

@@ -17,20 +17,29 @@
  */
 
 interface Props {
-  title?: string;
-  subtitle?: string;
-  stats?: Array<{
-    number: string;
-    label: string;
+  id?: string;
+  heading?: string;
+  subheading?: string;
+  benefits?: Array<{
+    title: string;
     description: string;
-    icon?: string;
+    icon: string;
   }>;
+  colorTheme?: string;
 }
 
 const {
-  title = "Нам доверяют",
-  subtitle = "Цифры, которые говорят о качестве нашей работы",
-  stats = [
+  id,
+  heading,
+  subheading,
+  benefits,
+  colorTheme = "blue"
+} = Astro.props;
+
+// Fallback to old prop names for backward compatibility
+const title = heading || "Нам доверяют";
+const subtitle = subheading || "Цифры, которые говорят о качестве нашей работы";
+const stats = benefits || [
     {
       number: "10+",
       label: "лет на рынке",
@@ -55,8 +64,7 @@ const {
       description: "Быстрый отклик и оперативное решение проблемы",
       icon: "ri-time-line"
     }
-  ]
-} = Astro.props;
+  ];
 
 // Color themes for each card (Purple, Blue, Green, Orange)
 const colorThemes = [
@@ -99,7 +107,7 @@ const colorThemes = [
 ];
 ---
 
-<section class="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
+<section id={id} class="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
   <!-- Mesh gradient overlay -->
   <div class="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-blue-50/20 to-green-50/30 pointer-events-none"></div>
 
@@ -110,31 +118,41 @@ const colorThemes = [
       <p class="text-lg md:text-xl text-gray-600">{subtitle}</p>
     </div>
 
-    <!-- Stats Grid with Material Design Cards -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+    <!-- Benefits/Stats Grid with Material Design Cards -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {stats.map((stat, index) => {
         const theme = colorThemes[index % colorThemes.length];
+        // Support both formats: benefits (title/description/icon) and stats (number/label/description/icon)
+        const isStatFormat = 'number' in stat;
         return (
           <div
             class={`stat-card group opacity-0 animate-fade-in-up bg-gradient-to-b ${theme.cardBg} p-8 rounded-2xl shadow-xl ${theme.shadow} hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 text-center border border-gray-100 ring-1 ${theme.ring} hover:ring-2 ${theme.hoverRing}`}
             style={`animation-delay: ${index * 100}ms`}
           >
-            <!-- Icon (optional) with Premium Ring Effect (smaller, subtle) -->
+            <!-- Icon with Premium Ring Effect -->
             {stat.icon && (
               <div class={`w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br ${theme.iconBg} rounded-xl shadow-lg ${theme.shadow} ring-4 ${theme.ring} group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
                 <i class={`${stat.icon} text-3xl ${theme.iconColor}`}></i>
               </div>
             )}
 
-            <!-- Number with Gradient Text -->
-            <div class="text-3xl md:text-5xl lg:text-6xl font-black mb-2">
-              <span class={`stat-number whitespace-nowrap bg-gradient-to-r ${theme.numberGradient} bg-clip-text text-transparent`} data-value={stat.number}>
-                0
-              </span>
-            </div>
-
-            <!-- Label -->
-            <h3 class="text-xl md:text-2xl font-semibold mb-3 text-gray-900">{stat.label}</h3>
+            {isStatFormat ? (
+              <>
+                <!-- Number with Gradient Text (Stats format) -->
+                <div class="text-3xl md:text-5xl lg:text-6xl font-black mb-2">
+                  <span class={`stat-number whitespace-nowrap bg-gradient-to-r ${theme.numberGradient} bg-clip-text text-transparent`} data-value={stat.number}>
+                    0
+                  </span>
+                </div>
+                <!-- Label -->
+                <h3 class="text-xl md:text-2xl font-semibold mb-3 text-gray-900">{stat.label}</h3>
+              </>
+            ) : (
+              <>
+                <!-- Title (Benefits format) -->
+                <h3 class="text-xl md:text-2xl font-bold mb-3 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent">{stat.title}</h3>
+              </>
+            )}
 
             <!-- Description -->
             <p class="text-base text-gray-600">{stat.description}</p>

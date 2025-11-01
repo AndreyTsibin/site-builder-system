@@ -18,6 +18,7 @@ interface FAQItem {
 }
 
 interface Props {
+  id?: string;
   heading: string;
   subheading?: string;
   faqs: FAQItem[];
@@ -25,10 +26,10 @@ interface Props {
   imageAlt?: string;
 }
 
-const { heading, subheading, faqs, image = '/images/placeholder-img.jpg', imageAlt = 'FAQ illustration' } = Astro.props;
+const { id, heading, subheading, faqs, image = '/images/placeholder-img.jpg', imageAlt = 'FAQ illustration' } = Astro.props;
 ---
 
-<section class="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+<section id={id} class="relative py-16 md:py-20 lg:py-24 overflow-hidden">
   <!-- Gradient Mesh Background -->
   <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/20 to-pink-50/10"></div>
   <div class="absolute inset-0 bg-gradient-to-tl from-cyan-50/30 via-transparent to-indigo-50/20"></div>

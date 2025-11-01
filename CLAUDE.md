@@ -26,8 +26,8 @@ This file provides guidance to Claude Code when working with code in this reposi
 ## QUICK START
 
 **Dev:** `npm run dev` → http://localhost:4321
-**Build Tilda:** `npm run build:tilda` → dist/tilda-bundle.html
-**Build Hosting:** `npm run build` → dist/
+**Build:** `npm run build` → dist/
+**Preview:** `npm run preview` → Preview production build
 
 ---
 
@@ -55,8 +55,8 @@ This file provides guidance to Claude Code when working with code in this reposi
 1. Import sections from `src/components/sections/material/`
 2. Fill props in `src/pages/index.astro` (ALWAYS this file)
 3. Test: `npm run dev`
-4. Build: `npm run build:tilda`
-5. Deploy: Paste bundle → Tilda T123 → Replace images
+4. Build: `npm run build`
+5. Deploy: Upload `dist/` to hosting (Netlify, Vercel, GitHub Pages)
 
 **📖 Full workflow:** [CLIENT_WORKFLOW.md](CLIENT_WORKFLOW.md)
 **📋 Client brief template:** [CLIENT_BRIEF.md](CLIENT_BRIEF.md)
@@ -92,8 +92,11 @@ const { title, ctaText } = Astro.props;
 
 ## DEPLOYMENT
 
-**Tilda (90% clients):** `npm run build:tilda` → paste to T123
-**Hosting:** `npm run build` → upload dist/
+**Recommended hosting platforms:**
+- **Netlify** (easiest, auto-deploy from Git)
+- **Vercel** (great for Astro projects)
+- **GitHub Pages** (free, simple setup)
+- **Any static hosting** (upload `dist/` folder)
 
 **📖 Full guide:** [DEPLOYMENT.md](DEPLOYMENT.md)
 
@@ -120,7 +123,7 @@ feat: add component name
 - [DESIGN_PHILOSOPHY.md](DESIGN_PHILOSOPHY.md) — Material Design 3 standards
 - [ARCHITECTURE.md](ARCHITECTURE.md) — Layout & spacing rules
 - [CLIENT_WORKFLOW.md](CLIENT_WORKFLOW.md) — Assembly process
-- [DEPLOYMENT.md](DEPLOYMENT.md) — Tilda & hosting
+- [DEPLOYMENT.md](DEPLOYMENT.md) — Hosting deployment guide
 - [CLIENT_BRIEF.md](CLIENT_BRIEF.md) — Client requirements template
 
 **External:**
@@ -131,5 +134,5 @@ feat: add component name
 
 ---
 
-**Version:** 6.0.0
+**Version:** 7.0.0
 **Last Updated:** 2025-11-01

@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "build:tilda": "astro build && node scripts/build-tilda.js",
     "preview": "astro preview",
     "astro": "astro"
   },
